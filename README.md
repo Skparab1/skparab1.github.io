@@ -1,4 +1,10 @@
 # Skparab1's Github Website
+
+Anouncements:
+- **Encryption code 2.2 has been released! View the release !(here)[https://github.com/Encryptioncode/Encryption-code/releases/tag/2.2] 
+
+# Shubham's Software:
+
 ## Encryption code
 <img src="Encryptioncodelogo.gif" width="400"> 
 
