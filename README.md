@@ -11,7 +11,7 @@ Anouncements:
 - **[Encryption code Website:](sites.google.com/view/encryptioncode)**
 - **[GitHub repository:](github.com/skparab1/encryption-code)**
 - **[GitHub organization:](github.com/encryptioncode)**
-- **Encryption code video: https://www.youtube.com/watch?v=7Jy2Ln0EdFQ**
+- **[Encryption code video:](https://www.youtube.com/watch?v=7Jy2Ln0EdFQ)**
 ## Game codes
 ### Pong
 <img src="pong_demo_3.gif" width="400"> 
