@@ -46,6 +46,6 @@ Anouncements:
 ### Master math calculator
 <img src="mathcalc1.gif" width="400"> <img src="mathcalc2.gif" width="400"> <img src="mathcalc3.gif" width="400">
 
-- **Github.com/skparab1/math-codes**
+- **[Math codes](Github.com/skparab1/math-codes)**
 - **Github.com/skparab1/master-math-calculator**
 - **github.com/Skparab1/math-codes/releases/tag/v0.1**
