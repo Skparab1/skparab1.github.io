@@ -48,4 +48,4 @@ Anouncements:
 
 - **[Math codes](Github.com/skparab1/math-codes)**
 - **[Master math calculator](Github.com/skparab1/master-math-calculator)**
-- **github.com/Skparab1/math-codes/releases/tag/v0.1**
+- **[Master math calculator v0.1](github.com/Skparab1/math-codes/releases/tag/v0.1)**
