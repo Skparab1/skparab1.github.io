@@ -28,7 +28,7 @@ Anouncements:
 
 <img src="crossy_road_demo.gif" width="400"> 
 
-**Ccrossy road](Github.com/skparab1/crossy-road)**
+**[crossy road](Github.com/skparab1/crossy-road)**
 
 ### Snake game
 
@@ -39,7 +39,7 @@ Anouncements:
 ### dino game
 <img src="dino_game_demo.gif" width="400">
 
-**Github.com/skparab1/dino-game**
+**[Dino game](Github.com/skparab1/dino-game)**
 
 
 ## Math codes:
