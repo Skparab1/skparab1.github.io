@@ -269,7 +269,7 @@ function mouseClicked(){
   } else if (mouseX > 75 && mouseX < 475 && mouseY > 775+500 && mouseY < 775+600){
     window.open('http://github.com/skparab1/pong');
   } else if (mouseX > 550 && mouseX < 950 && mouseY > 775+500 && mouseY < 775+600){
-    window.open('http://github.com/skparab1/inkball');
+    window.open('http://github.com/skparab1/javascript-inkball');
   } else if (mouseX > 75 && mouseX < 475 && mouseY > 900+500 && mouseY < 900+600){
     window.open('http://github.com/skparab1/encryption-code');
   } else if (mouseX > 550 && mouseX < 950 && mouseY > 900+500 && mouseY < 900+600){
@@ -292,5 +292,7 @@ function mouseClicked(){
     window.open('http://github.com/skparab1/data-organizers');
   } else if (mouseX > 375 && mouseX < 375+275 && mouseY > 2350 && mouseY < 2370+70){
     window.open('http://github.com/skparab1');
+  } else if (mouseX > countervar/20 && mouseX < countervar/20+300 && mouseY > 310 && mouseY < 310+75){
+    window.open('http://skparab1.github.io/articles');
   }
 }
