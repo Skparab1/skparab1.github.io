@@ -63,7 +63,9 @@ function draw() {
   fill(0,allcount*2,allcount*2-100);
   rect(300,200,200,150);
   fill(allcount*2-100,0,allcount*2);
-  rect(800,200,200,150);
+  rect(800,200,200,50);
+  fill(allcount*2-100,allcount*2,allcount*2);
+  rect(800,260,200,75);
   
   textSize(40);
   fill(0);
@@ -73,10 +75,11 @@ function draw() {
   text('GitHub',80+255,220+50);
   text('Profile',80+255,250+60);
   
-  textSize(32);
+  textSize(17);
   
-  text('Lookup',80+300+300+135,220+50);
-  text('your search',80+300+300+135,250+60);
+  text('Lookup your url search',80+300+300+135,230);
+  text('Lookup something else',80+300+300+135,250+30);
+  line(80+300+300+135,325,80+300+450+135,325);
   
   if (univcount < 200){
     pos404 = pos404 + (600-pos404)/3 ;
@@ -141,6 +144,11 @@ function draw() {
   if (counter == 60){
     counter = 0;
   }  
+  } else {
+    background(0);
+    textSize(25);
+    fill(255);
+    text('Wait! that\'s and invalid link, but we\'re getting that search for you!');
   }
 }
 
