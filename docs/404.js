@@ -16,6 +16,16 @@ var allcount = 0;
 var rc = [];
   
 function draw() {
+  
+  loc = window.location.href;
+  loc = str(loc);
+  
+  if (loc.includes('https://skparab1.github.io/search=')){
+    query = loc.replace('https://skparab1.github.io/search=','');
+    localStorage.setItem('searchquery',query);
+    window.open("http:skparab1.github.io/search","_self");
+  }
+  
   fill(0);
   rect(0,50,1023,330);
   univcount += 1;
@@ -26,7 +36,11 @@ function draw() {
   
   fill(0);
   textSize(30);
+  text('ERROR 404',10,37);
+  text('ERROR 404',210,37);
   text('ERROR 404',410,37);
+  text('ERROR 404',610,37);
+  text('ERROR 404',810q,37);
   fill(rc[1],rc[2],rc[0]);
   textSize(45);
   text('You BROKE it! I can\'t find that page!',100,100);
