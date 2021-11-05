@@ -40,7 +40,7 @@ function draw() {
   text('ERROR 404',210,37);
   text('ERROR 404',410,37);
   text('ERROR 404',610,37);
-  text('ERROR 404',810q,37);
+  text('ERROR 404',810,37);
   fill(rc[1],rc[2],rc[0]);
   textSize(45);
   text('You BROKE it! I can\'t find that page!',100,100);
