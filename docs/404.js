@@ -14,17 +14,22 @@ var speed = 50;
 var limit = 50;
 var allcount = 0;
 var rc = [];
+var t = 0;
   
 function draw() {
   
   loc = window.location.href;
   loc = str(loc);
   
-  if (loc.includes('https://skparab1.github.io/search=')){
+  if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
     query = loc.replace('https://skparab1.github.io/search=','');
     localStorage.setItem('searchquery',query);
     window.open("http:skparab1.github.io/search","_self");
+    print('should have redirected');
+
   }
+  
+  t += 1;
   
   fill(0);
   rect(0,50,1023,330);
