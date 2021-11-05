@@ -29,7 +29,6 @@ if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
 }
   
 function draw() {
-  if (!shouldredirect){
   
   t += 1;
   
@@ -139,7 +138,6 @@ function draw() {
   if (counter == 60){
     counter = 0;
   }  
-  }
 }
 
 function mouseClicked(){
