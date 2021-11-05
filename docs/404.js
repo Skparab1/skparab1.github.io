@@ -148,19 +148,33 @@ function draw() {
   } else {
     background(0);
     textSize(25);
+    stroke(0);
     fill(255);
     strokeWeight(3);
     text('Wait! that\'s and invalid link, but we\'re getting that search for you!',200,200);
-    //if tickercount = tickercount
     strokeWeight(8);
+    
+    stroke(Math.abs(0-tickercount));
     line(500,200,500,150);
+    stroke(Math.abs(22-tickercount));
     line(500,200,525,175);
+    stroke(Math.abs(44-tickercount));
     line(500,200,550,200);
+    stroke(Math.abs(66-tickercount));
     line(500,200,525,225);
+    stroke(Math.abs(88-tickercount));
     line(500,200,500,250);
+    stroke(Math.abs(104-tickercount));
     line(500,200,475,225);
+    stroke(Math.abs(126-tickercount));
     line(500,200,450,200);
+    stroke(Math.abs(148-tickercount));
     line(500,200,475,175);
+    
+    tickercount += 1;
+    if (tickercount == 158){
+      tickercount = -10;
+    }
     
   }
 }
