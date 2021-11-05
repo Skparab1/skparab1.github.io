@@ -25,7 +25,8 @@ function draw() {
   if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
   query = loc.replace('https://skparab1.github.io/search=','');
   localStorage.setItem('searchquery',query);
-  window.open("http:skparab1.github.io/search","_self");
+  location.href = "http:skparab1.github.io/search";
+  //window.open("http:skparab1.github.io/search","_self");
   print('should have redirected');
   shouldredirect = true;
   }
