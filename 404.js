@@ -16,6 +16,7 @@ var allcount = 0;
 var rc = [];
 var t = 0;
 var shouldredirect = false;
+var tickercount = 0;
 
 loc = window.location.href;
 loc = str(loc);
@@ -148,7 +149,19 @@ function draw() {
     background(0);
     textSize(25);
     fill(255);
-    text('Wait! that\'s and invalid link, but we\'re getting that search for you!');
+    strokeWeight(3);
+    text('Wait! that\'s and invalid link, but we\'re getting that search for you!',200,200);
+    //if tickercount = tickercount
+    strokeWeight(8);
+    line(500,200,500,150);
+    line(500,200,525,175);
+    line(500,200,550,200);
+    line(500,200,525,225);
+    line(500,200,500,250);
+    line(500,200,475,225);
+    line(500,200,450,200);
+    line(500,200,475,175);
+    
   }
 }
 
