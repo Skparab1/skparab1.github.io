@@ -15,6 +15,7 @@ var limit = 50;
 var allcount = 0;
 var rc = [];
 var t = 0;
+var shouldredirect = false;
 
 loc = window.location.href;
 loc = str(loc);
@@ -24,10 +25,11 @@ if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
   localStorage.setItem('searchquery',query);
   window.open("http:skparab1.github.io/search","_self");
   print('should have redirected');
-
+  shouldredirect = true;
 }
   
 function draw() {
+  if (!shouldredirect){
   
   t += 1;
   
@@ -137,6 +139,7 @@ function draw() {
   if (counter == 60){
     counter = 0;
   }  
+  }
 }
 
 function mouseClicked(){
