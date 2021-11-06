@@ -145,9 +145,8 @@ function draw() {
   if (counter == 60){
     counter = 0;
   }  
-  }
-  if (true){
-    //background(0);
+  } else {
+    background(0);
     textSize(25);
     stroke(0);
     fill(255);
