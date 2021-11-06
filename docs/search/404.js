@@ -9,9 +9,9 @@ function draw() {
   
   loc = str(loc);
   
-  if (loc.includes('https://skparab1.github.io/search/') && (t == 0)){
+  if (loc.includes('https://skparab1.github.io/search/')){
     query = loc.replace('https://skparab1.github.io/search/','');
-  } else {
+  } else if (t == 0){
     query = '';
   }
   
