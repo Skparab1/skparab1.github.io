@@ -145,35 +145,42 @@ function draw() {
   if (counter == 60){
     counter = 0;
   }  
-  } else {
-    background(0);
+  }
+  if (true){
+    //background(0);
     textSize(25);
     stroke(0);
     fill(255);
     strokeWeight(3);
-    text('Wait! that\'s and invalid link, but we\'re getting that search for you!',200,200);
+    text('Wait! that\'s and invalid link, but we\'re getting that search for you!',200,75);
     strokeWeight(8);
     
-    stroke(Math.abs(0-tickercount));
+    stroke(255-Math.abs(0-tickercount));
     line(500,200,500,150);
-    stroke(Math.abs(22-tickercount));
-    line(500,200,525,175);
-    stroke(Math.abs(44-tickercount));
+    stroke(255-Math.abs(255-tickercount));
     line(500,200,550,200);
-    stroke(Math.abs(66-tickercount));
-    line(500,200,525,225);
-    stroke(Math.abs(88-tickercount));
+    stroke(255-Math.abs(510-tickercount));
+    line(500,200,550,200);
+    stroke(255-Math.abs(765-tickercount));
+    line(500,200,500,225);
+    stroke(255-Math.abs(1020-tickercount));
     line(500,200,500,250);
-    stroke(Math.abs(104-tickercount));
+    stroke(255-Math.abs(1275-tickercount));
     line(500,200,475,225);
-    stroke(Math.abs(126-tickercount));
+    stroke(255-Math.abs(1530-tickercount));
     line(500,200,450,200);
-    stroke(Math.abs(148-tickercount));
-    line(500,200,475,175);
     
-    tickercount += 1;
-    if (tickercount == 158){
-      tickercount = -10;
+    if (tickercount > 0){
+      stroke(255-Math.abs(1785-tickercount));
+      line(500,200,475,175);
+    } else {
+      stroke(255-Math.abs(-127.5-tickercount));
+      line(500,200,475,175);
+    }
+    
+    tickercount += 50;
+    if (tickercount > 1912.5){
+      tickercount = -255/2;
     }
     
   }
