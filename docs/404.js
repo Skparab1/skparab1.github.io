@@ -151,7 +151,7 @@ function draw() {
     stroke(0);
     fill(255);
     strokeWeight(3);
-    text('Wait! that\'s and invalid link, but we\'re getting that search for you!',200,75);
+    text('Wait! that\'s an invalid url, but we\'re getting that search for you!',200,75);
     strokeWeight(8);
     
     stroke(255-Math.abs(0-tickercount));
