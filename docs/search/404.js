@@ -1,15 +1,18 @@
 function setup() {
-
+  createCanvas(1023,430);  
 }
 
 loc = window.location.href;
-loc = str(loc);
 var t = 0;
   
 function draw() {
   
+  loc = str(loc);
+  
   if (loc.includes('https://skparab1.github.io/search/') && (t == 0)){
-  query = loc.replace('https://skparab1.github.io/search=','');
+    query = loc.replace('https://skparab1.github.io/search/','');
+  } else {
+    query = '';
   }
   
   t += 1;
