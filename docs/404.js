@@ -26,15 +26,10 @@ function draw() {
   if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
   query = loc.replace('https://skparab1.github.io/search=','');
   localStorage.setItem('searchquery',query);
-  location.href = "http:skparab1.github.io/search";
+  openwindow = "http:skparab1.github.io/search/" +query ;
+  location.href = openwindow;
   //window.open("http:skparab1.github.io/search","_self");
   print('should have redirected');
-  shouldredirect = true;
-  }
-  if (loc.includes('https://skparab1.github.io/search/') && (t == 0)){
-  query = loc.replace('https://skparab1.github.io/search/','');
-  localStorage.setItem('searchquery',query);
-  location.href = "http:skparab1.github.io/search";
   shouldredirect = true;
   }
   
