@@ -177,7 +177,7 @@ function draw() {
       line(500,200,475,175);
     }
     
-    tickercount += 50;
+    tickercount += 40;
     if (tickercount > 1912.5){
       tickercount = -255/2;
     }
