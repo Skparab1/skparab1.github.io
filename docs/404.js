@@ -145,7 +145,8 @@ function draw() {
   if (counter == 60){
     counter = 0;
   }  
-  } else {
+  } 
+  if (true){
     background(0);
     textSize(25);
     stroke(0);
@@ -157,11 +158,11 @@ function draw() {
     stroke(255-Math.abs(0-tickercount));
     line(500,200,500,150);
     stroke(255-Math.abs(255-tickercount));
-    line(500,200,550,200);
+    line(500,200,525,175);
     stroke(255-Math.abs(510-tickercount));
     line(500,200,550,200);
     stroke(255-Math.abs(765-tickercount));
-    line(500,200,500,225);
+    line(500,200,525,225);
     stroke(255-Math.abs(1020-tickercount));
     line(500,200,500,250);
     stroke(255-Math.abs(1275-tickercount));
@@ -173,13 +174,13 @@ function draw() {
       stroke(255-Math.abs(1785-tickercount));
       line(500,200,475,175);
     } else {
-      stroke(255-Math.abs(-127.5-tickercount));
+      stroke(255-Math.abs(-255-tickercount));
       line(500,200,475,175);
     }
     
-    tickercount += 40;
-    if (tickercount > 1912.5){
-      tickercount = -255/2;
+    tickercount += 50;
+    if (tickercount > 1785+225+127.5){
+      tickercount = 0;
     }
     
   }
