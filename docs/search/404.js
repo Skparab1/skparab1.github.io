@@ -48,30 +48,31 @@ function draw() {
     if (language[i] == 'Python'){
       fill(0,50,150);
       ellipse(600,ypos,15,15);
-      fill(displayresults*10);
+      fill((results.length-j)*((33/results.length)*displayresults));
       text('Python',620,ypos);
     } else if (language[i] == 'JavaScript'){
       fill(200,200,0);
       ellipse(600,ypos,15,15);
-      fill(displayresults*10);
+      fill((results.length-j)*((33/results.length)*displayresults));
       text('JavaScript',620,ypos);
     } else if (language[i] == 'HTML'){
       fill(200,50,0);
       ellipse(600,ypos,15,15);
-      fill(displayresults*10);
+      fill((results.length-j)*((33/results.length)*displayresults));
       text('HTML',620,ypos);
     } else if (language[i] == 'Pascal'){
       fill(0,150,50);
       ellipse(600,ypos,15,15);
-      fill(displayresults*10);
+      fill((results.length-j)*((33/results.length)*displayresults));
       text('Pascal',620,ypos);
     } else if (language[i] == 'Markdown'){
       fill(100);
       ellipse(600,ypos,15,15);
-      fill(displayresults*10);
+      fill((results.length-j)*((33/results.length)*displayresults));
       text('Markdown',620,ypos);
     }
     textSize(15);
+    fill((results.length-j)*((33/results.length)*displayresults));
     text(descriptions[i],100,ypos+20);
     ypos += 75;
     
