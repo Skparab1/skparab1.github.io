@@ -78,7 +78,7 @@ function draw() {
   }
   
   if (numfound > 0){
-    text('Your search '+query+' got '+displayresults+' search results',200,60);
+    text('Your search '+query+' got '+displayresults+' search results',10,60);
   } else {
     text('Your search '+query+' got 0 results. Try something else',200,60);
   }
