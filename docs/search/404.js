@@ -21,6 +21,7 @@ var numfound = 0;
 var displayresults = 0;
 var results = [];
 var i = 0;
+var counter = 0;
 
 while (i < language.length){
     if (query.includes(keywords[i]) || (keywords[i]).includes(query)){
@@ -39,40 +40,42 @@ function draw() {
   j = 0;
   numfound = results.length;
   
+  let fillcolor = ((results.length-j)*((33/results.length)*displayresults)+(counter/2));
+  
   while (j <= results.length && j < displayresults){
     i = results[j];
-    fill((results.length-j)*((33/results.length)*displayresults));
+    fill(fillcolor);
     textSize(30);
     text(titles[i],100,ypos);
     textSize(20);
     if (language[i] == 'Python'){
       fill(0,50,150);
       ellipse(600,ypos,15,15);
-      fill((results.length-j)*((33/results.length)*displayresults));
+      fill(fillcolor);
       text('Python',620,ypos);
     } else if (language[i] == 'JavaScript'){
       fill(200,200,0);
       ellipse(600,ypos,15,15);
-      fill((results.length-j)*((33/results.length)*displayresults));
+      fill(fillcolor);
       text('JavaScript',620,ypos);
     } else if (language[i] == 'HTML'){
       fill(200,50,0);
       ellipse(600,ypos,15,15);
-      fill((results.length-j)*((33/results.length)*displayresults));
+      fill(fillcolor);
       text('HTML',620,ypos);
     } else if (language[i] == 'Pascal'){
       fill(0,150,50);
       ellipse(600,ypos,15,15);
-      fill((results.length-j)*((33/results.length)*displayresults));
+      fill(fillcolor);
       text('Pascal',620,ypos);
     } else if (language[i] == 'Markdown'){
       fill(100);
       ellipse(600,ypos,15,15);
-      fill((results.length-j)*((33/results.length)*displayresults));
+      fill(fillcolor);
       text('Markdown',620,ypos);
     }
     textSize(15);
-    fill((results.length-j)*((33/results.length)*displayresults));
+    fill(fillcolor);
     text(descriptions[i],100,ypos+20);
     ypos += 75;
     
