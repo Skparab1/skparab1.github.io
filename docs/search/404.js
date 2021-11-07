@@ -19,6 +19,17 @@ var language = ['Python','JavaScript','Python','JavaScript','Markdown','JavaScri
 
 var numfound = 0;
 var displayresults = 0;
+var results = [];
+var i = 0;
+
+query = 's';
+
+while (i < language.length){
+    if (query.includes(keywords[i]) || (keywords[i]).includes(query)){
+      results.push(i);
+    }
+    i += 1;
+}
   
 function draw() {
   
@@ -27,46 +38,46 @@ function draw() {
   background(0);
   numfound = 0;
   ypos = 125;
-  i = 0;
-  while (i < language.length){
-    if (query.includes(keywords[i]) || (keywords[i]).includes(query)){
+  j = 0;
+  numfound = results.length;
+  
+  while (j <= results.length){
+    i = results[j];
+    fill(255);
+    textSize(30);
+    text(titles[i],100,ypos);
+    textSize(20);
+    if (language[i] == 'Python'){
+      fill(0,50,150);
+      ellipse(600,ypos,15,15);
       fill(255);
-      textSize(30);
-      text(titles[i],100,ypos);
-      numfound += 1;
-      
-      textSize(20);
-      if (language[i] == 'Python'){
-        fill(0,50,150);
-        ellipse(600,ypos,15,15);
-        fill(255);
-        text('Python',620,ypos);
-      } else if (language[i] == 'JavaScript'){
-        fill(200,200,0);
-        ellipse(600,ypos,15,15);
-        fill(255);
-        text('JavaScript',620,ypos);
-      } else if (language[i] == 'HTML'){
-        fill(200,50,0);
-        ellipse(600,ypos,15,15);
-        fill(255);
-        text('HTML',620,ypos);
-      } else if (language[i] == 'Pascal'){
-        fill(0,150,50);
-        ellipse(600,ypos,15,15);
-        fill(255);
-        text('Pascal',620,ypos);
-      } else if (language[i] == 'Markdown'){
-        fill(100);
-        ellipse(600,ypos,15,15);
-        fill(255);
-        text('Markdown',620,ypos);
-      }
-      textSize(15);
-      text(descriptions[i],100,ypos+20);
-      ypos += 75;
+      text('Python',620,ypos);
+    } else if (language[i] == 'JavaScript'){
+      fill(200,200,0);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('JavaScript',620,ypos);
+    } else if (language[i] == 'HTML'){
+      fill(200,50,0);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('HTML',620,ypos);
+    } else if (language[i] == 'Pascal'){
+      fill(0,150,50);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('Pascal',620,ypos);
+    } else if (language[i] == 'Markdown'){
+      fill(100);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('Markdown',620,ypos);
     }
-    i += 1;
+    textSize(15);
+    text(descriptions[i],100,ypos+20);
+    ypos += 75;
+    
+    j += 1;
   }
   
   fill(255);
@@ -78,8 +89,8 @@ function draw() {
   }
   
   if (numfound > 0){
-    text('Your search '+query+' got '+displayresults+' search results',10,60);
+    text('Your search ,'+query+', got '+displayresults+' search results',10,60);
   } else {
-    text('Your search '+query+' got 0 results. Try something else',200,60);
+    text('Your search ,'+query+', got 0 results. Try something else',10,60);
   }
 }
