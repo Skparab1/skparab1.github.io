@@ -41,7 +41,7 @@ function draw() {
   
   while (j <= results.length && j < displayresults){
     i = results[j];
-    fill((results.length-j)*displayresults);
+    fill((results.length-j)*((33/results.length)*displayresults));
     textSize(30);
     text(titles[i],100,ypos);
     textSize(20);
