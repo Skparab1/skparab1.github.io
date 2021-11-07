@@ -17,17 +17,15 @@ var titles = ['Encryption code','Skparab1\'s GitHub website','Runestone solution
 var descriptions = ['Text encrypting program','Javascript GitHub website','Solutions to Runestone problem set 8 ','GUI of Encryption code','Skparab1\'s GitHub profile','High quality image editor','Sample python codes','The video game InkBall','Animation for Skparab1 profile','Binary <--> Decimal converter','Autocomplete word engine','Graphics website of Encryption code','Pseudo Random number generator','Website of Encryption code','Smart calculator','The Video game pong','Game codes','Dynamic Spanish English translator','Video game Crossy road','Board game Battleship','Game animation algorithms','Age calculator','Data organizing codes','Google chrome\'s no internet Dino game','Space shooter game','HTML animation','Math codes','The video game Flappy bird','Old Pascal program','AI virtual assistant','Snake game','Virtual assistant builder'];
 var language = ['Python','JavaScript','Python','JavaScript','Markdown','JavaScript','Python','JavaScript','JavaScript','JavaScript','Python','JavaScript','Python','JavaScript','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','HTML','Python','Python','Pascal','Python','Python','Python'];
 
+var numfound = 0;
+var displayresults = 0;
   
 function draw() {
   
   loc = str(loc);
   
   background(0);
-  fill(255);
-  
-  textSize(50);
-  text('Your search was '+query,200,60);
-  
+  numfound = 0;
   ypos = 125;
   i = 0;
   while (i < language.length){
@@ -35,6 +33,7 @@ function draw() {
       fill(255);
       textSize(30);
       text(titles[i],100,ypos);
+      numfound += 1;
       
       textSize(20);
       if (language[i] == 'Python'){
@@ -70,4 +69,17 @@ function draw() {
     i += 1;
   }
   
+  fill(255);
+  
+  textSize(50);
+  
+  if (displayresults < numfound){
+    displayresults += 1;
+  }
+  
+  if (numfound > 0){
+    text('Your search '+query+' got '+displayresults+' search results',200,60);
+  } else {
+    text('Your search '+query+' got 0 results. Try something else',200,60);
+  }
 }
