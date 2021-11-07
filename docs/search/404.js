@@ -39,10 +39,10 @@ function draw() {
   ypos = 125;
   j = 0;
   numfound = results.length;
-  
-  let fillcolor = ((results.length-j)*((33/results.length)*displayresults)+(counter/2));
+  counter += 10;  
   
   while (j <= results.length && j < displayresults){
+    fillcolor = (((results.length-j)*((33/results.length)*displayresults))+(counter/2));
     i = results[j];
     fill(fillcolor);
     textSize(30);
@@ -95,4 +95,5 @@ function draw() {
   } else {
     text('Your search ,'+query+', got 0 results. Try something else',10,60);
   }
+  
 }
