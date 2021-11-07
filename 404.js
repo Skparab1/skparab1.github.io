@@ -1,179 +1,94 @@
 function setup() {
-  createCanvas(1023,430);  
+  createCanvas(1023,3000);  
 }
-
-function preload(){
-  img404 = loadImage("404.png");
-}
-
-var counter = 0;
-var univcount = 0;
-var pos404 = 0;
-var direction = 'left';
-var speed = 50;
-var limit = 50;
-var allcount = 0;
-var rc = [];
-var t = 0;
-var shouldredirect = false;
-var tickercount = 0;
 
 loc = window.location.href;
-loc = str(loc);
+var t = 0;
+
+if (loc.includes('https://skparab1.github.io/search/')){
+  query = loc.replace('https://skparab1.github.io/search/','');
+} else if (t == 0){
+  query = '';
+}
+
+
+var keywords = ['encryption code text encrypting program in python','skparab1.github.io skparab1\'s github website written in javascript js','runestone solutions problem set 8 eight','gui of encryption code graphical user interface encrypt written in javascript js','skparab1 skparab1\'s github profile with links to projects','ezpixel pro high quality image editor in javascript js','python samples codes made in cs class runestone academy','javascript inkball microsoft video game made in javascript js','skparab animation for profile javascript js','binary converter decimal javascript js gui python script for cs class','ml word engine reconstructs words autocomplete','graphics website of encryption code','randomizing algorithm written in python random number generator','encryption code website','smart calculator perform various calculations','video game pong in python','game codes set of interactive','dynamic spanish english translator learn new entries command line interface','crossy road video game in python','board game battleship against computer artificial inteligence ai python','game animation algorithms use to animate objects free python','age calculator calculates in minutes hours seconds days weeks months years python','data organizers set of codes alphabetizer randomizer paragraph analyzer python','dino game google chorme no internet game python','space shooter game shoot objects python','html animation','math codes series command line interface','flappy bird video game in python','old pascal program','ai virtual assistant powered by typing python','snake game python','virtual assistant builder python'];
+var titles = ['Encryption code','Skparab1\'s GitHub website','Runestone solutions Ps8','Encryption code GUI','Skparab1\'s GitHub profile','EzPixel Pro','Python samples','Javascript inkball','Skparab1 animation','Binary converter','Ml word engine','Encryption code graphics website','Randomizing algorithm','Encryption code website','Smart calculator','Pong','Game codes','Spanish English translator','Crossy road','Battleship','Game animation algorithms','Age calculator','Data organizers','Dino game','Space shooter game','HTML animation','Math codes','Flappy bird','Old Pascal program','AI virtual assistant','Snake game','Virtual assistant builder'];
+var descriptions = ['Text encrypting program','Javascript GitHub website','Solutions to Runestone problem set 8 ','GUI of Encryption code','Skparab1\'s GitHub profile','High quality image editor','Sample python codes','The video game InkBall','Animation for Skparab1 profile','Binary <--> Decimal converter','Autocomplete word engine','Graphics website of Encryption code','Pseudo Random number generator','Website of Encryption code','Smart calculator','The Video game pong','Game codes','Dynamic Spanish English translator','Video game Crossy road','Board game Battleship','Game animation algorithms','Age calculator','Data organizing codes','Google chrome\'s no internet Dino game','Space shooter game','HTML animation','Math codes','The video game Flappy bird','Old Pascal program','AI virtual assistant','Snake game','Virtual assistant builder'];
+var language = ['Python','JavaScript','Python','JavaScript','Markdown','JavaScript','Python','JavaScript','JavaScript','JavaScript','Python','JavaScript','Python','JavaScript','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','HTML','Python','Python','Pascal','Python','Python','Python'];
+
+var numfound = 0;
+var displayresults = 0;
+var results = [];
+var i = 0;
+
+while (i < language.length){
+    if (query.includes(keywords[i]) || (keywords[i]).includes(query)){
+      results.push(i);
+    }
+    i += 1;
+}
   
 function draw() {
   
-  if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
-  query = loc.replace('https://skparab1.github.io/search=','');
-  localStorage.setItem('searchquery',query);
-  location.href = "http:skparab1.github.io/search";
-  //window.open("http:skparab1.github.io/search","_self");
-  print('should have redirected');
-  shouldredirect = true;
-  }
+  loc = str(loc);
   
-  if (!shouldredirect){
+  background(0);
+  numfound = 0;
+  ypos = 125;
+  j = 0;
+  numfound = results.length;
   
-  t += 1;
-  
-  fill(0);
-  rect(0,50,1023,330);
-  univcount += 1;
-  allcount += 1;
-  
-  if (counter == 0 || counter == 30){
-  rc = [random(150,255),random(150,255),random(150,255)]; }
-  
-  fill(0);
-  textSize(30);
-  text('ERROR 404',10,37);
-  text('ERROR 404',210,37);
-  text('ERROR 404',410,37);
-  text('ERROR 404',610,37);
-  text('ERROR 404',810,37);
-  fill(rc[1],rc[2],rc[0]);
-  textSize(45);
-  text('You BROKE it! I can\'t find that page!',100,100);
-  textSize(30);
-  text('But WAIT! Try these things!',300,140);
-  
-  image(img404,pos404-50,180,200,200);
-    
-  fill(allcount*2,allcount*2-100,0);
-  rect(50,200,200,150);
-  fill(0,allcount*2,allcount*2-100);
-  rect(300,200,200,150);
-  fill(allcount*2-100,0,allcount*2);
-  rect(800,200,200,50);
-  fill(allcount*2-100,allcount*2,allcount*2);
-  rect(800,260,200,75);
-  
-  textSize(40);
-  fill(0);
-  text('GitHub',80,220+50);
-  text('Website',80,250+60);
-  
-  text('GitHub',80+255,220+50);
-  text('Profile',80+255,250+60);
-  
-  textSize(17);
-  
-  text('Lookup your url search',80+300+300+135,230);
-  text('Lookup something else',80+300+300+135,250+30);
-  line(80+300+300+135,325,80+300+450+135,325);
-  
-  if (univcount < 200){
-    pos404 = pos404 + (600-pos404)/3 ;
-  } else if (univcount > 300){
-    pos404 = pos404 + (pos404-599)/3; }
-  if (univcount > 350){
-    univcount = 0;
-    pos404 = 0 ;
-  }
-  
-  if (direction == 'left'){
-    //pos404 -= speed;
-  } else if (direction == 'right'){
-    //pos404 += speed;
-  }
-  
-  if (pos404 <= 450-limit){
-    direction = 'right';
-  } else if (pos404 >= 450+limit){
-    direction = 'left';
-  }
-  
-  if (counter == 0){
-  fill(random(255),random(255),random(255));
-  rect(0,0,200,50); }
-  if (counter == 2){
-  fill(random(255),random(255),random(255));
-  rect(200,0,200,50); }
-  if (counter == 4){
-  fill(random(255),random(255),random(255));
-  rect(400,0,200,50); }
-  if (counter == 6){
-  fill(random(255),random(255),random(255));
-  rect(600,0,200,50); }
-  if (counter == 8){
-  fill(random(255),random(255),random(255));
-  rect(800,0,200,50); }
-  if (counter == 10){
-  fill(random(255),random(255),random(255));
-  rect(1000,0,200,50); }
-  
-  if (counter == 30){
-  fill(random(255),random(255),random(255));
-  rect(0,380,200,50); }
-  if (counter == 32){
-  fill(random(255),random(255),random(255));
-  rect(200,380,200,50); }
-  if (counter == 34){
-  fill(random(255),random(255),random(255));
-  rect(400,380,200,50); }
-  if (counter == 36){
-  fill(random(255),random(255),random(255));
-  rect(600,380,200,50); }
-  if (counter == 38){
-  fill(random(255),random(255),random(255));
-  rect(800,380,200,50); }
-  if (counter == 40){
-  fill(random(255),random(255),random(255));
-  rect(1000,380,200,50); }
-  
-  counter += 1;
-  if (counter == 60){
-    counter = 0;
-  }  
-  } else {
-    background(0);
-    textSize(25);
+  while (j <= results.length){
+    i = results[j];
     fill(255);
-    strokeWeight(3);
-    text('Wait! that\'s and invalid link, but we\'re getting that search for you!',200,200);
-    //if tickercount = tickercount
-    strokeWeight(8);
-    line(500,200,500,150);
-    line(500,200,525,175);
-    line(500,200,550,200);
-    line(500,200,525,225);
-    line(500,200,500,250);
-    line(500,200,475,225);
-    line(500,200,450,200);
-    line(500,200,475,175);
+    textSize(30);
+    text(titles[i],100,ypos);
+    textSize(20);
+    if (language[i] == 'Python'){
+      fill(0,50,150);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('Python',620,ypos);
+    } else if (language[i] == 'JavaScript'){
+      fill(200,200,0);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('JavaScript',620,ypos);
+    } else if (language[i] == 'HTML'){
+      fill(200,50,0);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('HTML',620,ypos);
+    } else if (language[i] == 'Pascal'){
+      fill(0,150,50);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('Pascal',620,ypos);
+    } else if (language[i] == 'Markdown'){
+      fill(100);
+      ellipse(600,ypos,15,15);
+      fill(255);
+      text('Markdown',620,ypos);
+    }
+    textSize(15);
+    text(descriptions[i],100,ypos+20);
+    ypos += 75;
     
+    j += 1;
   }
-}
-
-function mouseClicked(){
   
-  if (mouseX > 50 && mouseX < 250 && mouseY > 200 && mouseY < 350){
-    window.open("http://skparab1.github.io","_self");
+  fill(255);
+  
+  textSize(50);
+  
+  if (displayresults < numfound){
+    displayresults += 1;
   }
-  if (mouseX > 300 && mouseX < 500 && mouseY > 200 && mouseY < 350){
-    window.open("http://github.com/skparab1","_self");
-  }
-  if (mouseX > 800 && mouseX < 1000 && mouseY > 200 && mouseY < 350){
-    window.open("http:skparab1.github.io/search","_self");
+  
+  if (numfound > 0){
+    text('Your search ,'+query+', got '+displayresults+' search results',10,60);
+  } else {
+    text('Your search ,'+query+', got 0 results. Try something else',10,60);
   }
 }
