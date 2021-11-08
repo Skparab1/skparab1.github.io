@@ -24,6 +24,7 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
     if (scanner == red){
       foundredirect = true;
       openwindow = url[i];
+      openwindow = 'https://'+openwindow;
     }
     
     i += 1;
