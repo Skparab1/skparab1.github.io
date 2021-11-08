@@ -28,7 +28,6 @@ function draw() {
   localStorage.setItem('searchquery',query);
   openwindow = "http://skparab1.github.io/search/" +query ;
   location.href = openwindow;
-  //window.open("http:skparab1.github.io/search","_self");
   print('should have redirected');
   shouldredirect = true;
   }
