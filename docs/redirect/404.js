@@ -3,11 +3,11 @@ function setup() {
 }
 
 function preload() {
-  redirect = loadTable("redirects.csv","csv","header");
+  var redirect = loadTable("redirects.csv","csv","header");
 }
 
-keyword = redirect.getColumn(0);
-url = redirect.getColumn(1);
+var keyword = redirect.getColumn(0);
+var url = redirect.getColumn(1);
 
 
 loc = window.location.href;
