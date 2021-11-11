@@ -1,5 +1,5 @@
 function setup() {
-
+  createcanvas(100,100);
 }
 
 function preload() {
