@@ -6,6 +6,8 @@ function preload() {
   var redirect = loadTable("redirects.csv","csv","header");
 }
 
+function draw(){
+
 var keyword = redirect.getColumn(0);
 var url = redirect.getColumn(1);
 
@@ -38,4 +40,6 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   }
 } else {
   window.open("http:skparab1.github.io/404","_self");
+}
+
 }
