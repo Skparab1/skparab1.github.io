@@ -52,10 +52,10 @@ function draw() {
   text('ERROR 404',610,37);
   text('ERROR 404',810,37);
   fill(rc[1],rc[2],rc[0]);
-  textSize(45);
+  textSize(37);
   text('The redirect you requested was not found on this server.',100,100);
-  textSize(30);
-  text('Redirects are case sensitive. Check redirects.csv or 404.html',300,140);
+  textSize(27);
+  text('Redirects are case sensitive. Check redirects.csv or 404.html',200,140);
   
   image(img404,pos404-50,180,200,200);
     
