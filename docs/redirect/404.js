@@ -1,16 +1,12 @@
-function setup() {
-  createCanvas(100,100);
-}
-
 function preload() {
   var redirect = loadTable("redirects.csv","csv","header");
 }
 
-function draw(){
-
-var keyword = redirect.getColumn(0);
-var url = redirect.getColumn(1);
-
+function setup() {
+  createcanvas(100,100);
+  var keyword = redirect.getColumn(0);
+  var url = redirect.getColumn(1);
+}
 
 loc = window.location.href;
 
@@ -40,6 +36,4 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   }
 } else {
   window.open("http:skparab1.github.io/404","_self");
-}
-
 }
