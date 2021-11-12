@@ -6,7 +6,7 @@ var keyword;
 var url;
 
 function setup() {
-  createCanvas(100,100);
+  createCanvas(1023,430);  
   keyword = redirect.getColumn(0);
   url = redirect.getColumn(1);
 }
