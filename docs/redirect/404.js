@@ -34,10 +34,10 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   }
   
   if (foundredirect){
-    location.href = openwindow;
+    //location.href = openwindow;
     window.open(openwindow,"_self");
   } else {
-    window.open("http:skparab1.github.io/404","_self");
+    window.open("http:skparab1.github.io/wrongredirect","_self");
   }
   
   
@@ -74,7 +74,7 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   }
   
 } else {
-  window.open("http:skparab1.github.io/404","_self");
+  window.open("http:skparab1.github.io/wrongredirect","_self");
 }
 }
 
