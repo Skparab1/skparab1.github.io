@@ -8,8 +8,6 @@ function setup() {
   url = redirect.getColumn(1);
 }
 
-function draw(){
-
 loc = window.location.href;
 
 var foundredirect = false;
@@ -38,5 +36,4 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   }
 } else {
   window.open("http:skparab1.github.io/404","_self");
-}
 }
