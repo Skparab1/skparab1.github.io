@@ -9,15 +9,14 @@ function setup() {
   createCanvas(1023,430);  
   keyword = redirect.getColumn(0);
   url = redirect.getColumn(1);
-}
-
+  
 loc = window.location.href;
 
 var foundredirect = false;
 var tickercount = 0;
 
-function draw(){
-  
+print(keyword);
+
 if (loc.includes('https://skparab1.github.io/redirect/')){
   red = loc.replace('https://skparab1.github.io/redirect/','');
   
@@ -83,3 +82,9 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   window.open("http:skparab1.github.io/404","_self");
 }
 }
+
+
+//function draw(){
+  
+
+//}
