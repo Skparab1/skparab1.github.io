@@ -3,7 +3,7 @@ function preload() {
 }
 
 function setup() {
-  createcanvas(100,100);
+  createCanvas(100,100);
   var keyword = redirect.getColumn(0);
   var url = redirect.getColumn(1);
 }
