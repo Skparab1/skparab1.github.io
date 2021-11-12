@@ -4,8 +4,8 @@ function preload() {
 
 function setup() {
   createCanvas(100,100);
-  keyword = redirect.getColumn(0);
-  url = redirect.getColumn(1);
+  var keyword = redirect.getColumn(0);
+  var url = redirect.getColumn(1);
 }
 
 loc = window.location.href;
