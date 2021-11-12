@@ -1,11 +1,11 @@
 function preload() {
-  var redirect = loadTable("redirects.csv","csv","header");
+  redirect = loadTable("redirects.csv","csv","header");
 }
 
 function setup() {
   createCanvas(100,100);
-  var keyword = redirect.getColumn(0);
-  var url = redirect.getColumn(1);
+  keyword = redirect.getColumn(0);
+  url = redirect.getColumn(1);
 }
 
 function draw(){
