@@ -47,31 +47,26 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   fill(255);
   strokeWeight(3);
   
-  text('Redirecting',500,75);
+  text('Redirecting to your requested webpage......',100,75);
+  text('This shouldn\'t take too long',100,110);
   strokeWeight(8);
   
-  stroke(255-Math.abs(0-tickercount));
+  stroke(255);
   line(500,200,500,150);
-  stroke(255-Math.abs(255-tickercount));
+  stroke(225);
   line(500,200,525,175);
-  stroke(255-Math.abs(510-tickercount));
+  stroke(195);
   line(500,200,550,200);
-  stroke(255-Math.abs(765-tickercount));
+  stroke(165);
   line(500,200,525,225);
-  stroke(255-Math.abs(1020-tickercount));
+  stroke(135);
   line(500,200,500,250);
-  stroke(255-Math.abs(1275-tickercount));
+  stroke(105);
   line(500,200,475,225);
-  stroke(255-Math.abs(1530-tickercount));
+  stroke(75);
   line(500,200,450,200);
-  
-  if (tickercount > 0){
-    stroke(255-Math.abs(1785-tickercount));
-    line(500,200,475,175);
-  } else {
-    stroke(255-Math.abs(-255-tickercount));
-    line(500,200,475,175);
-  }
+  stroke(25);
+  line(500,200,475,175);
   
   tickercount += 200;
   if (tickercount > 1785+225+127.5){
