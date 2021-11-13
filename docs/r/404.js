@@ -9,8 +9,7 @@ function setup() {
   createCanvas(1023,430);  
   keyword = redirect.getColumn(0);
   url = redirect.getColumn(1);
-} 
-
+  
 loc = window.location.href;
 
 var foundredirect = false;
@@ -18,8 +17,8 @@ var tickercount = 0;
 
 print(keyword);
 
-if (loc.includes('https://skparab1.github.io/redirect/')){
-  red = loc.replace('https://skparab1.github.io/redirect/','');
+if (loc.includes('https://skparab1.github.io/r/')){
+  red = loc.replace('https://skparab1.github.io/r/','');
   
   i = 0;
   scanner = '';
@@ -35,7 +34,7 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   }
   
   if (foundredirect){
-    location.href = openwindow;
+    //location.href = openwindow;
     window.open(openwindow,"_self");
   } else {
     window.open("http:skparab1.github.io/wrongredirect","_self");
@@ -47,11 +46,11 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   stroke(0);
   fill(255);
   strokeWeight(3);
-
+  
   text('Redirecting to your requested webpage......',100,75);
   text('This shouldn\'t take too long',100,110);
   strokeWeight(8);
-
+  
   stroke(255);
   line(500,200,500,150);
   stroke(225);
@@ -68,7 +67,7 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   line(500,200,450,200);
   stroke(25);
   line(500,200,475,175);
-
+  
   tickercount += 200;
   if (tickercount > 1785+225+127.5){
     tickercount = 0;
@@ -76,4 +75,5 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   
 } else {
   window.open("http:skparab1.github.io/wrongredirect","_self");
+}
 }
