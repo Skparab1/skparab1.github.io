@@ -50,13 +50,13 @@ if (loc.includes('https://skparab1.github.io/r/')){
   
   text('Redirecting to your requested webpage......',100,75);
   text('This shouldn\'t take too long',100,110);
-  
-  while (true){
-    image(loading,500,200,loading.width,loading.height);
-  }
 
   
 } else {
   window.open("http:skparab1.github.io/wrongredirect","_self");
 }
+}
+
+function draw(){
+  image(loading,500,200,loading.width,loading.height);
 }
