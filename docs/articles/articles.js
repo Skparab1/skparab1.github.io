@@ -9,6 +9,7 @@ oldscroll = 0;
 poschange = 0;
 
 headerpos = 0;
+lastscrolledup = false;
 
 displayh = 0;
 stoppedscrollingtime = 60;
@@ -61,12 +62,14 @@ function draw() {
     //headerpos += 2;
   } else if (poschange < 0){
     headerdirection = 'up';
+    lastscrolledup = true;
     //displayh = h;
   } else {
     headerdirection = 'ok';
+    lastscrolledup = false;
   }
   
-  if (headerdirection == 'up' && headerpos >= 0){
+  if ((headerdirection == 'up'  || lastscrolledup == 2) && headerpos >= 0){
     headerpos -= 3;
   } else if (headerdirection == 'down' && headerpos <= 50){
     headerpos += 3;
