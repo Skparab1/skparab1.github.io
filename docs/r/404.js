@@ -10,6 +10,7 @@ function setup() {
   keyword = redirect.getColumn(0);
   url = redirect.getColumn(1);
 } 
+
 loc = window.location.href;
 
 var foundredirect = false;
@@ -71,8 +72,8 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   tickercount += 200;
   if (tickercount > 1785+225+127.5){
     tickercount = 0;
+  }
   
 } else {
   window.open("http:skparab1.github.io/wrongredirect","_self");
-}
 }
