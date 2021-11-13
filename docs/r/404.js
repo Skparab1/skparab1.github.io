@@ -52,7 +52,7 @@ if (loc.includes('https://skparab1.github.io/r/')){
   text('This shouldn\'t take too long',100,110);
   
   while (true){
-    simage(loading,500,200,loading.width,loading.height);
+    image(loading,500,200,loading.width,loading.height);
   }
 
   
