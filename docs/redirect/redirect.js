@@ -34,52 +34,54 @@ if (loc.includes('https://skparab1.github.io/redirect/')){
   }
   
   if (foundredirect){
-    location.href = openwindow;
+    //location.href = openwindow;
     window.open(openwindow,"_self");
   } else {
-    window.open("http:skparab1.github.io/404","_self");
+    window.open("http:skparab1.github.io/wrongredirect","_self");
   }
   
-  
-  background(0);
-  textSize(25);
-  stroke(0);
-  fill(255);
-  strokeWeight(3);
-  
-  text('Redirecting',500,75);
-  strokeWeight(8);
-  
-  stroke(255-Math.abs(0-tickercount));
-  line(500,200,500,150);
-  stroke(255-Math.abs(255-tickercount));
-  line(500,200,525,175);
-  stroke(255-Math.abs(510-tickercount));
-  line(500,200,550,200);
-  stroke(255-Math.abs(765-tickercount));
-  line(500,200,525,225);
-  stroke(255-Math.abs(1020-tickercount));
-  line(500,200,500,250);
-  stroke(255-Math.abs(1275-tickercount));
-  line(500,200,475,225);
-  stroke(255-Math.abs(1530-tickercount));
-  line(500,200,450,200);
-  
-  if (tickercount > 0){
-    stroke(255-Math.abs(1785-tickercount));
-    line(500,200,475,175);
-  } else {
-    stroke(255-Math.abs(-255-tickercount));
-    line(500,200,475,175);
-  }
-  
-  tickercount += 200;
-  if (tickercount > 1785+225+127.5){
-    tickercount = 0;
+  while (true){
+    background(0);
+    textSize(25);
+    stroke(0);
+    fill(255);
+    strokeWeight(3);
+    
+    text('Redirecting to your requested webpage......',100,75);
+    text('This shouldn\'t take too long',100,110);
+    strokeWeight(8);
+    
+    stroke(255-Math.abs(0-tickercount));
+    line(500,200,500,150);
+    stroke(255-Math.abs(255-tickercount));
+    line(500,200,525,175);
+    stroke(255-Math.abs(510-tickercount));
+    line(500,200,550,200);
+    stroke(255-Math.abs(765-tickercount));
+    line(500,200,525,225);
+    stroke(255-Math.abs(1020-tickercount));
+    line(500,200,500,250);
+    stroke(255-Math.abs(1275-tickercount));
+    line(500,200,475,225);
+    stroke(255-Math.abs(1530-tickercount));
+    line(500,200,450,200);
+    
+    if (tickercount > 0){
+      stroke(255-Math.abs(1785-tickercount));
+      line(500,200,475,175);
+    } else {
+      stroke(255-Math.abs(-255-tickercount));
+      line(500,200,475,175);
+    }
+    
+    tickercount += 200;
+    if (tickercount > 1785+225+127.5){
+      tickercount = 0;
+    }
   }
   
 } else {
-  window.open("http:skparab1.github.io/404","_self");
+  window.open("http:skparab1.github.io/wrongredirect","_self");
 }
 }
 
