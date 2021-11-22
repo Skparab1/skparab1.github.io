@@ -728,7 +728,7 @@ function draw() {
  
 }
 
-function mouseClicked(){
+function mousePressed(){
   if (mouseX > 200 && mouseX < 350 && mouseY > 50 && mouseY < 100){
     location.reload();
   }
