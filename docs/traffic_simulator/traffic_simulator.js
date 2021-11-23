@@ -1,9 +1,5 @@
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  var r = random(2,6);
-  var r1 = random(2,6);
-  var r2 = random(2,6);
-  var r3 = random(2,6);
 }
 
 blinkervar = 0;
@@ -18,8 +14,10 @@ lastreleased = 0;
 timewaiting = 0;
 avgwaittime = 0;
 totalvehicles = 0;
+carspeed = 1;
 carcount = 4; // wait for 4 cars to let go
 lightchange_alg = 'two straights';
+framerenderct = 0;
 
 //lights
 light1 = 'green';
@@ -70,7 +68,7 @@ function randblinker(){
   rb = random(1,4);
   if (rb == 1){
     rb = 'right';
-  } else if (rc == 2){
+  } else if (rb == 2){
     rb = 'left';
   } else {
     rb = 'none';
@@ -204,34 +202,28 @@ function draw() {
   }
   
   lastreleased = smartrelease;
-  
+  framerenderct += 1;
   avgwaittime = timewaiting/(l1in.length+l2in.length+l3in.length+l4in.length);
   
   addcounter += 1;
-  if (addcounter == addtime*60){
+  if (addcounter >= addtime*60){
     print('pushed');
-    let randadd = random(1,6);
-    if (randadd == 2){
-      l1in.push(500);
-      l1in.push('red');
-      l1in.push(randblinker());
-      totalvehicles += 1;
-    } else if (randadd == 3){
-      l2in.push(1200);
-      l2in.push('blue');
-      l2in.push(randblinker());
-      totalvehicles += 1;
-    } else if (randadd == 4){
-      l3in.push(-50);
-      l3in.push('green');
-      l3in.push(randblinker());
-      totalvehicles += 1;
-    } else if (randadd == 5){
-      l4in.push(200);
-      l4in.push('yellow');
-      l4in.push(randblinker());
-      totalvehicles += 1;
-    }
+    l1in.push(500);
+    l1in.push(rcolors[Math.round(Math.random()*9)]);
+    l1in.push(randblinker());
+    totalvehicles += 1;
+    l2in.push(1200);
+    l2in.push(rcolors[Math.round(Math.random()*9)]);
+    l2in.push(randblinker());
+    totalvehicles += 1;
+    l3in.push(-50);
+    l3in.push(rcolors[Math.round(Math.random()*9)]);
+    l3in.push(randblinker());
+    totalvehicles += 1;
+    l4in.push(200);
+    l4in.push(rcolors[Math.round(Math.random()*9)]);
+    l4in.push(randblinker());
+    totalvehicles += 1;
     addcounter = 0;
   }
   
@@ -466,7 +458,7 @@ function draw() {
       l1in.splice(i+1,1);
       l1in.splice(i+2,1);
     } else if ((light1 == 'green' || (Math.abs(l1in[i]-l1in[i-3]) > tailgate && l1in[i] > 300) || l1in[i] < 300) && !paused){
-      l1in[i] = l1in[i]-1;
+      l1in[i] = l1in[i]-carspeed;
     } else {
       timewaiting += 1;
     }
@@ -497,7 +489,7 @@ function draw() {
       l2in.splice(i+1,1);
       l2in.splice(i+2,1);
     } else if ((light2 == 'green' || (Math.abs(l2in[i]-l2in[i-3]) > tailgate && l2in[i] > 800) || l2in[i] < 800) && !paused){
-      l2in[i] = l2in[i]-1;
+      l2in[i] = l2in[i]-carspeed;
     } else {
       timewaiting += 1;
     }
@@ -529,7 +521,7 @@ function draw() {
       l3in.splice(i+2,1);
    // } else if ((light2 == 'green' || (l2in[i]-l2in[i-3] > tailgate && l2in[i] > 800) || l2in[i] < 800) && !paused){
     } else if ((light3 == 'green' || (Math.abs(l3in[i-3]-l3in[i]) > tailgate && l3in[i] < 100) || l3in[i] > 100) && !paused){
-      l3in[i] = l3in[i]+1;
+      l3in[i] = l3in[i]+carspeed;
     } else {
       timewaiting += 1;
     }
@@ -561,7 +553,7 @@ function draw() {
       l4in.splice(i+2,1);
   //} else if ((light2 == 'green' || (l2in[i]-l2in[i-3] > tailgate && l2in[i] > 800) || l2in[i] < 800) && !paused){
     } else if ((light4 == 'green' || (Math.abs(l4in[i-3]-l4in[i]) > 100 && l4in[i] < 575) || l4in[i] > 575) && !paused){
-      l4in[i] = l4in[i]+1;
+      l4in[i] = l4in[i]+carspeed;
     } else {
       timewaiting += 1;
     }
@@ -572,7 +564,7 @@ function draw() {
   while (i < l1out.length){
     drawcar(690,l1out[i],'down',l1out[i+1],l1out[i+2]);
     if (!paused){
-      l1out[i] = l1out[i]+1;
+      l1out[i] = l1out[i]+carspeed;
     }
     i += 3;
   }
@@ -580,7 +572,7 @@ function draw() {
   while (i < l2out.length){
     drawcar(l2out[i],240,'right',l2out[i+1],l2out[i+2]);
     if (!paused){
-      l2out[i] = l2out[i]+1;
+      l2out[i] = l2out[i]+carspeed;
     }
     i += 3;
   }
@@ -588,7 +580,7 @@ function draw() {
   while (i < l3out.length){
     drawcar(740,l3out[i],'up',l3out[i+1],l3out[i+2]);
     if (!paused){
-      l3out[i] = l3out[i]-1;
+      l3out[i] = l3out[i]-carspeed;
     }
     i += 3;
   }
@@ -596,7 +588,7 @@ function draw() {
   while (i < l4out.length){
     drawcar(l4out[i],190,'left',l4out[i+1],l4out[i+2]);
     if (!paused){
-      l4out[i] = l4out[i]-1;
+      l4out[i] = l4out[i]-carspeed;
     }
     i += 3;
   }
@@ -672,6 +664,7 @@ function draw() {
   text('Run/Pause          Reset',40,80);
   text('Re-Run',470,365);
   fill(0,150,200);
+  stroke(0);
   text('Traffic light algorithm',10,150);
   text('Results:',380,50);
   
@@ -682,6 +675,28 @@ function draw() {
     rect(changetime*25+10,250,10,30);
   }
   
+  fill(0);
+  stroke(0);
+  text('Live logistic stats',800,325);
+  textSize(15);
+  text('Vehicle speed: '+str(float(carspeed))+ ' Pixels/frame',790,30);
+  text('('+str(round(float(carspeed)*frameRate()))+ ' Pixels/second)',790,50);
+  strokeWeight(4);
+  line(800,125,1000,125);
+  strokeWeight(1);
+  rect((carspeed*25)+800,110,10,30);
+  fill(0,200,0);
+  rect(790,65,100,25);
+  fill(200,100,0);
+  rect(900,65,100,25);
+  fill(0);
+  text('Faster               Slower',800,80);
+  
+  text('Live FPS rate '+round(frameRate()),800,350);
+  text('Frames rendered '+framerenderct,800,375);
+  text('Current downtime '+round(framerenderct/58),800,400);
+  
+  textSize(25);
   fill(0,150,200);
   text('Allow '+tailgate+ ' pixels tailgate',10,320);
   fill(255);
@@ -721,7 +736,7 @@ function draw() {
   
   stroke(0);
   fill(0);
-  text('Average waiting time '+round(timewaiting/60,2),380,75);
+  text('Average waiting frames '+round(timewaiting/60,2),380,75);
   text('Number of vehicles waiting at, apporaching',380,100);
   text('or have been through intersection '+totalvehicles,380,125);
   text('Results: average waiting time '+round((timewaiting/totalvehicles)/60,2)+' seconds',380,150);
@@ -764,6 +779,12 @@ function mousePressed(){
       lightchange_alg = 'two straights';
     }
   }
+  if (mouseX > 790 && mouseX < 890 && mouseY > 65 && mouseY < 90 && carspeed < 8){
+    carspeed += 1;
+  }
+  if (mouseX > 900 && mouseX < 1000 && mouseY > 65 && mouseY < 90 && carspeed > 0){
+    carspeed -= 1;
+  }
 }
 
 function mouseDragged(){
@@ -776,4 +797,7 @@ function mouseDragged(){
   if (mouseX > 10 && mouseX < 310 && mouseY > 400 && mouseY < 430){
     addtime = (mouseX-10)/25;
   }
+  if (mouseX > 800 && mouseX < 1000 && mouseY > 110 && mouseY < 140){
+    carspeed = (mouseX-800)/25;
+  } 
 }
