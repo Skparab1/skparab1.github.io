@@ -145,8 +145,13 @@ function draw() {
   }
   
   textSize(35);
-  fill(0,150,255);
-  stroke(0,150,255);
+  if (searching){
+    fill(0,150,255);
+    stroke(0,150,255);
+  } else {
+    fill(255);
+    stroke(255);
+  }
   text(searchrender,265,60);
   stroke(0);
   
