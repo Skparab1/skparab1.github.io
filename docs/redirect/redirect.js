@@ -110,7 +110,7 @@ function draw(){
   strokeWeight(8);
   
   if(t == 0){
-    which = round(random(4));
+    which = round(random(3));
   }
   t += 1;
   
@@ -188,7 +188,7 @@ function draw(){
       stroke(255);
     }
     
-    if (which == 3){
+    if (which == 2){
     ellipse(i*50+450,h+150,10,10);
     }
     
@@ -199,26 +199,12 @@ function draw(){
     i += 1;
   }
   
-  while (i < 24 && which == 2){
-      let h = 400-Math.abs((i*50)-ballbouncer);
-      if (h < 325){
-        fill(255);
-        stroke(255);
-        h = 325;
-      } else {
-        fill(255-(4*(h-350)),255-(2*(h-350)),255-(1*(h-350)));
-        stroke(255-(4*(h-350)),255-(2*(h-350)),255-(1*(h-350)));
-      }
-      ellipse(i*50-105,h-75,10,10);
-      i += 1;
-    }
-  
   ball2 += 10;
   if (ball2 > 300){
     ball2 = -100;
   }
   
-  if (which == 4){
+  if (which == 3){
     strokeWeight(3);
     fill(50,200,255);
     stroke(50,200,255);
