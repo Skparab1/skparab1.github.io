@@ -110,7 +110,7 @@ function draw(){
   strokeWeight(8);
   
   if(t == 0){
-    which = round(random(3));
+    which = Math.floor(Math.random() * 4);
   }
   t += 1;
   
