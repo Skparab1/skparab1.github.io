@@ -110,7 +110,7 @@ function draw(){
   strokeWeight(8);
   
   if(t == 0){
-    which = round(random(3));
+    which = Math.floor(Math.random() * 4);
   }
   t += 1;
   
@@ -209,15 +209,14 @@ function draw(){
     fill(50,200,255);
     stroke(50,200,255);
     
-    if (disabledots[5] == 1){ ellipse(bx6,by6,10,10);}
-    if (disabledots[6] == 1){ ellipse(bx7,by7,10,10);}
-    if (disabledots[0] == 1){ ellipse(ballx,bally,10,10);}
-    if (disabledots[1] == 1){ ellipse(bx1,by1,10,10);}
-    if (disabledots[2] == 1){ ellipse(bx2,by2,10,10);}
-    if (disabledots[3] == 1){ ellipse(bx3,by3,10,10);}
-    if (disabledots[4] == 1){ }//ellipse(bx4,by4,10,10);}
-    //if (disabledots[4] == 1){ ellipse(bx5,by5,10,10);}
-    //ellipse(bx5,by5,10,10);
+    ellipse(bx6,by6,10,10);
+    ellipse(bx7,by7,10,10);
+    ellipse(ballx,bally,10,10);
+    ellipse(bx1,by1,10,10);
+    ellipse(bx2,by2,10,10);
+    ellipse(bx3,by3,10,10);
+    ellipse(bx4,by4,10,10);
+    ellipse(bx5,by5,10,10);
     
     //
     
