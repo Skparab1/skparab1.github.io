@@ -4,7 +4,14 @@
 ## Pages
 - [Homepage](https://skparab1.github.io)
 - Subpages
-  - do this later
+  - Redirect
+    - my url shortener
+  - r
+    - a shorter link for my url shortener
+  - search
+    - a search page for my software and website content
+  - traffic simulatr
+    - a web host for my traffic simulator
 
 
 ## Url packing string wuety framework for search
