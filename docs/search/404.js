@@ -41,7 +41,7 @@ if (loc.includes('https://skparab1.github.io/search/')){
     packedurl = packedurl.replace('md=false','');
     packedurl = packedurl.replace('sv=false','');
     
-    while (packedurl[i].includes('&')){
+    while (packedurl.includes('&')){
       packedurl = packedurl.replace('&','');
     }
     
@@ -63,7 +63,6 @@ var numfound = 0;
 var displayresults = 0;
 var results = [];
 var i = 0;
-var counter = 0;
 var searching = false;
 var searchrender = query;
 var liveupdate = false;
@@ -93,6 +92,8 @@ function returnis(q){
   
   return results;
 }
+
+var counter = 0;
   
 function draw() {
 
