@@ -1,7 +1,12 @@
 # Skparab1's Github Website
 **[This website can now be viewed at skparab1.github.io](https://skparab1.github.io)**
 
-## notes
+## Pages
+- [Homepage](https://skparab1.github.io)
+- Subpages
+  - do this later
+
+
 ## Url packing string wuety framework for search
 - search results are displayed, and are narrowed down by filters
 - the data of the filters is packed into the url as a query
