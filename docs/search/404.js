@@ -396,6 +396,7 @@ function mousePressed(){
     if (liveupdate){
       query = searchrender;
       results = [];
+      unfilteredresults = [];
       numfound = 0;
       displayresults = 0;
       results = returnis(query);
@@ -465,6 +466,7 @@ function keyPressed(){
   if (liveupdate){
     query = searchrender;
     results = [];
+    unfilteredresults = [];
     numfound = 0;
     displayresults = 0;
     results = returnis(query);
@@ -482,6 +484,7 @@ function keyReleased(){
       if (liveupdate){
         query = searchrender;
         results = [];
+        unfilteredresults = [];
         numfound = 0;
         displayresults = 0;
         results = returnis(query);
