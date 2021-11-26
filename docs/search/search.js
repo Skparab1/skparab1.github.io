@@ -68,6 +68,7 @@ var searching = false;
 var searchrender = query;
 var liveupdate = false;
 var clickpos = [];
+var unfilteredresults = [];
 
 function returnis(q){
   let keywords = ['encryption code text encrypting program in python','skparab1.github.io skparab1\'s github website written in javascript js','runestone solutions problem set 8 eight','gui of encryption code graphical user interface encrypt written in javascript js','skparab1 skparab1\'s github profile with links to projects','ezpixel pro high quality image editor in javascript js','python samples codes made in cs class runestone academy','javascript inkball microsoft video game made in javascript js','skparab animation for profile javascript js','binary converter decimal javascript js gui python script for cs class','ml word engine reconstructs words autocomplete','graphics website of encryption code','randomizing algorithm written in python random number generator','encryption code website','smart calculator perform various calculations','video game pong in python','game codes set of interactive','dynamic spanish english translator learn new entries command line interface','crossy road video game in python','board game battleship against computer artificial inteligence ai python','game animation algorithms use to animate objects free python','age calculator calculates in minutes hours seconds days weeks months years python','data organizers set of codes alphabetizer randomizer paragraph analyzer python','dino game google chorme no internet game python','space shooter game shoot objects python','html animation','math codes series command line interface','flappy bird video game in python','old pascal program','ai virtual assistant powered by typing python','snake game python','virtual assistant builder python','js javascript url shortener website redirect','loading animation animations js javascript','game server test testing game server peer p2p svelte','traffic simulator model win won hackathon 3rd third place js javascript graphics'];
@@ -87,6 +88,7 @@ function returnis(q){
       if ((l.includes('Python') && langfilter[0]) || (l.includes('JavaScript') && langfilter[1]) || (l.includes('HTML') && langfilter[2]) || (l.includes('Pascal') && langfilter[3]) || (l.includes('Markdown') && langfilter[4]) || (l.includes('Svelte') && langfilter[5])){
         results.push(i);
       }
+      unfilteredresults.push(i);
     }
     i += 1;
   }
@@ -101,7 +103,7 @@ function draw() {
   loc = str(loc);
   
   if (counter == 0){
-    results = returnis(query);
+     results = returnis(query);
   }
   
   background(0);
@@ -278,8 +280,8 @@ function draw() {
   let svcount = 0;
   
   let k = 0;
-  while (k < results.length){
-    let index = results[k];
+  while (k < unfilteredresults.length){
+    let index = unfilteredresults[k];
     if (language[index].includes('Python')){
       pycount += 1;
     }
