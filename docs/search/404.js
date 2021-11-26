@@ -50,6 +50,7 @@ if (loc.includes('https://skparab1.github.io/search/')){
   }
 } else if (t == 0){
   packedurl = '';
+  langfilter = [true,true,true,true,true,true];
 }
 
 var keywords = ['encryption code text encrypting program in python','skparab1.github.io skparab1\'s github website written in javascript js','runestone solutions problem set 8 eight','gui of encryption code graphical user interface encrypt written in javascript js','skparab1 skparab1\'s github profile with links to projects','ezpixel pro high quality image editor in javascript js','python samples codes made in cs class runestone academy','javascript inkball microsoft video game made in javascript js','skparab animation for profile javascript js','binary converter decimal javascript js gui python script for cs class','ml word engine reconstructs words autocomplete','graphics website of encryption code','randomizing algorithm written in python random number generator','encryption code website','smart calculator perform various calculations','video game pong in python','game codes set of interactive','dynamic spanish english translator learn new entries command line interface','crossy road video game in python','board game battleship against computer artificial inteligence ai python','game animation algorithms use to animate objects free python','age calculator calculates in minutes hours seconds days weeks months years python','data organizers set of codes alphabetizer randomizer paragraph analyzer python','dino game google chorme no internet game python','space shooter game shoot objects python','html animation','math codes series command line interface','flappy bird video game in python','old pascal program','ai virtual assistant powered by typing python','snake game python','virtual assistant builder python','js javascript url shortener website redirect','loading animation animations js javascript','game server test testing game server peer p2p svelte','traffic simulator model win won hackathon 3rd third place js javascript graphics'];
@@ -269,6 +270,37 @@ function draw() {
     text('Update results live (off)',785,130);
   }
   
+  let pycount = 0;
+  let jscount = 0;
+  let htmlcount = 0;
+  let pascount = 0;
+  let mdcount = 0;
+  let svcount = 0;
+  
+  let k = 0;
+  while (k < results.length){
+    let index = results[k];
+    if (language[index].includes('Python')){
+      pycount += 1;
+    }
+    if (language[index].includes('JavaScript')){
+      jscount += 1;
+    }
+    if (language[index].includes('HTML')){
+      htmlcount += 1;
+    }
+    if (language[index].includes('Pascal')){
+      pascount += 1;
+    }
+    if (language[index].includes('Markdown')){
+      mdcount += 1;
+    }
+    if (language[index].includes('Svelte')){
+      svcount += 1;
+    }
+    k += 1;
+  }
+  
   textSize(30);
   fill(0,200,0);
   text('Filter results',785,200);
@@ -278,17 +310,26 @@ function draw() {
   textSize(18);
   fill(255);
   fill(0,150,255);
-  text('Python (23)',820,260);
+  text('Python ('+pycount+')',820,260);
   fill(200,200,0);
-  text('JavaScript',820,290);
+  text('JavaScript ('+jscount+')',820,290);
   fill(200,100,0);
-  text('HTML',820,320);
+  text('HTML ('+htmlcount+')',820,320);
   fill(0,200,0);
-  text('Pascal',820,350);
+  text('Pascal ('+pascount+')',820,350);
   fill(200);
-  text('Markdown',820,380);
+  text('Markdown ('+mdcount+')',820,380);
   fill(255,0,0);
-  text('Svelte',820,410);
+  text('Svelte ('+svcount+')',820,410);
+  
+  textSize(13);
+  fill(0,150,255);
+  text('only',950,260);
+  text('only',950,290);
+  text('only',950,320);
+  text('only',950,350);
+  text('only',950,380);
+  text('only',950,410);
   
   fill(150);
   rect(785,245,20,20);
@@ -394,6 +435,19 @@ function mousePressed(){
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 395 && mouseY < 405 && !langfilter[5]){
     loc = loc.replace('&sv=false','');
     window.open(loc,"_self");
+    
+  } else if (mouseX > 940 && mouseY > 250 && mouseY < 270){
+    window.open('https://skparab1.github.io/search/'+query+'&js=false&html=false&pas=false&md=false&sv=false',"_self");
+  } else if (mouseX > 940 && mouseY > 280 && mouseY < 300){
+    window.open('https://skparab1.github.io/search/'+query+'&py=false&html=false&pas=false&md=false&sv=false',"_self");
+  } else if (mouseX > 940 && mouseY > 310 && mouseY < 330){
+    window.open('https://skparab1.github.io/search/'+query+'&py=false&js=false&pas=false&md=false&sv=false',"_self");
+  } else if (mouseX > 940 && mouseY > 340 && mouseY < 360){
+    window.open('https://skparab1.github.io/search/'+query+'&py=false&js=false&html=false&md=false&sv=false',"_self");
+  } else if (mouseX > 940 && mouseY > 370 && mouseY < 390){
+    window.open('https://skparab1.github.io/search/'+query+'&py=false&js=false&html=false&pas=false&sv=false',"_self");
+  } else if (mouseX > 940 && mouseY > 400 && mouseY < 420){
+    window.open('https://skparab1.github.io/search/'+query+'&py=false&js=false&html=false&pas=false&md=false',"_self");
     
   } else {
     searching = false;
