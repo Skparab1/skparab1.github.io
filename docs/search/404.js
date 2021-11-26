@@ -358,6 +358,7 @@ function mousePressed(){
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && langfilter[0]){
     window.open(loc+'&py=false',"_self");
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && !langfilter[0]){
+    loc = loc.replace('&py=false','');
     window.open(loc,"_self");
     
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 275 && mouseY < 295 && langfilter[1]){
