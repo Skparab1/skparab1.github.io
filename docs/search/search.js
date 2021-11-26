@@ -66,7 +66,7 @@ var results = [];
 var i = 0;
 var searching = false;
 var searchrender = query;
-var liveupdate = false;
+var liveupdate = true;
 var clickpos = [];
 var unfilteredresults = [];
 
