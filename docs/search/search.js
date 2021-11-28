@@ -214,6 +214,15 @@ function draw() {
     }
     
     if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
+      let newval = int(clicked[i*2]) + 1;
+      let part1 = clicked.slice(0,i);
+      let part2 = clicked.slice(i+1);
+      part1.push(newval);
+      clicked = part1.concat(part2);
+      console.log('newval '+newval);
+      console.log('i '+i);
+      console.log('should have changed'+clicked);
+      localStorage.setItem('clicklog',clicked);
       let openurl = 'https://'+urls[i];
       window.open(openurl);
     }
@@ -280,7 +289,14 @@ function draw() {
       fill(fillcolor,0,0);
       text(' T',10,ypos-10);
       text('Article',10,ypos+20);
+    } else if (type[i] == 'Webpage'){
+      fill(200,0,0);
+      ellipse(18.5,ypos-15,25,25);
+      fill(fillcolor,fillcolor,0);
+      text('W',10,ypos-10);
+      text('Webpage',10,ypos+20);
     }
+    
     textSize(15);
     fill(fillcolor);
     text(descriptions[i],100,ypos+20);
