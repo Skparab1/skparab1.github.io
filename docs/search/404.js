@@ -12,11 +12,12 @@ function sortbase(array,base,max){
   //                    0                             1                    2                              3                         4               5                              0              0            0                    0                      0
   //var titles = ['Encryption code GUI Webpage','Encryption code','Skparab1\'s GitHub website','Runestone solutions Ps8','Encryption code GUI','Skparab1\'s GitHub profile','EzPixel Pro','Python samples','Javascript inkball','Skparab1 animation','Binary converter','Ml word engine','Encryption code graphics website','Randomizing algorithm','Encryption code website','Smart calculator','Pong','Game codes','Spanish English translator','Crossy road','Battleship','Game animation algorithms','Age calculator','Data organizers','Dino game','Space shooter game','HTML animation','Math codes','Flappy bird','Old Pascal program','AI virtual assistant','Snake game','Virtual assistant builder','JS url shortener','Loading animations','Game server','Traffic simulator'];
   while (newarray.length != arrayn.length){
-    scan = parseInt(base[h]); // what is the corresponding value in the clicked array
-    if (scan == max){ newarray.push(arrayn[h/2]); console.log('pushed '+arrayn[h]);} 
+    scan = base[h]; // what is the corresponding value in the clicked array
+    // so its skipping one overy time
+    if (scan == max){ newarray.push(arrayn[h]); console.log('pushed '+arrayn[h]);} 
     if (h >= arrayn.length*2-1){ h = 0; max = max-1;}
     console.log(scan,max,h); if (max < 0){ break; } 
-    h += 2;
+    h += 1;
     // in every other looping time, scan is a ',' so nan
   }
   return newarray;
@@ -80,16 +81,21 @@ var descriptions = ['','Live webpage of Encryption code GUI','Text encrypting pr
 var language = ['','JavaScript','Python','JavaScript','Python','JavaScript','Markdown','JavaScript','Python','JavaScript','JavaScript','JavaScript+Python','Python','JavaScript','Python','JavaScript','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','HTML','Python','Python','Pascal','Python','Python','Python','JavaScript','JavaScript','JavaScript+Svelte','JavaScript'];
 var type = ['','Webpage','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software'];
 
-var otherwise = ['0','1','2','3','4','5'];
-while (otherwise.length < language.length){
-  otherwise.push('0');
-}
+// remember, the first one is insignificant
+var otherwise = ['',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+//let v = 0;  // so the array is ok now indexing does not include commas
+//while (v < otherwise.length){
+//  console.log(otherwise[v]);
+//  v += 1;
+//}
 
 console.log(titles);
 console.log(otherwise);
 
+localStorage.setItem('clicklog',otherwise);
 //var viewed = localstorage.getitem('viewlog') || otherwise; unnecassary for now
-var clicked = localStorage.getItem('clicklog') || otherwise;
+var clicked = otherwise; //localStorage.getItem('clicklog') || 
 
 console.log(clicked);
 
@@ -180,7 +186,6 @@ var unfilteredresults = [];
 var counter = 0;
   
 function draw() {
-  
   localStorage.setItem('clicklog',clicked);
   loc = str(loc);
   
@@ -214,8 +219,8 @@ function draw() {
     }
     
     if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
-      let index = i*2;
-      let newval = int(clicked[index]) + 1;
+      let index = i;
+      let newval = clicked[index] + 1;
       clicked[index] = newval;
       console.log('newval '+newval+' but, val is '+clicked[index]);
       console.log('i '+i);
