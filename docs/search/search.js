@@ -214,12 +214,10 @@ function draw() {
     }
     
     if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
-      let newval = int(clicked[i*2]) + 1;
-      let part1 = clicked.slice(0,i);
-      let part2 = clicked.slice(i+1);
-      part1.push(newval);
-      clicked = part1.concat(part2);
-      console.log('newval '+newval);
+      let index = i*2;
+      let newval = int(clicked[index]) + 1;
+      clicked[index] = newval;
+      console.log('newval '+newval+' but, val is '+clicked[index]);
       console.log('i '+i);
       console.log('should have changed'+clicked);
       localStorage.setItem('clicklog',clicked);
