@@ -95,7 +95,7 @@ console.log(otherwise);
 
 localStorage.setItem('clicklog',otherwise);
 //var viewed = localstorage.getitem('viewlog') || otherwise; unnecassary for now
-var clicked = otherwise; //localStorage.getItem('clicklog') || 
+var clicked = localStorage.getItem('clicklog') || otherwise; //localStorage.getItem('clicklog') || 
 
 console.log(clicked);
 
