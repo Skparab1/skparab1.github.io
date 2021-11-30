@@ -76,7 +76,7 @@ if (loc.includes('https://skparab1.github.io/search/')){
       packedurl = packedurl.replace('&','');
     }
     
-    query = packedurl;
+    query = packedurl.replace('%20',' ');
     
   }
 } else if (t == 0){
@@ -163,7 +163,7 @@ var results = [];
 var i = 0;
 var searching = false;
 var searchrender = query;
-var testapiupdate = true;
+var liveupdate = true;
 var clickpos = [];
 
 function returnis(q){
@@ -235,10 +235,10 @@ function draw() {
     }
     
     if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
-      let index = i*2+1;
-      let newval = int(clicked[index]) + 1;
-      clicked[index] = newval;
-      console.log('newval '+newval+' but, val is '+clicked[index]);
+      let index = i;
+      let newval = int(clicked[index*2+1]) + 1;
+      clicked[index+1] = newval;
+      console.log('newval '+newval+' but, val is '+clicked[index*2+1]);
       console.log('i '+i);
       console.log('should have changed'+clicked);
       localStorage.setItem('testapi',clicked);
@@ -376,7 +376,7 @@ function draw() {
   stroke(0);
   
   textSize(18);
-  if (testapiupdate){
+  if (liveupdate){
     fill(200);
     rect(775,100,200,50);
     fill(0);
@@ -508,8 +508,8 @@ function mousePressed(){
   if (mouseX > 250 && mouseX < 450 && mouseY > 15 && mouseY < 70){
     searching = true;
   } else if (mouseX > 775 && mouseX < 995 && mouseY > 100 && mouseY < 150){
-    testapiupdate = !testapiupdate; 
-    if (testapiupdate){
+    liveupdate = !liveupdate; 
+    if (liveupdate){
       query = searchrender;
       results = [];
       unfilteredresults = [];
@@ -579,7 +579,7 @@ function keyPressed(){
     searchrender += key;
   }
   
-  if (testapiupdate){
+  if (liveupdate){
     query = searchrender;
     results = [];
     unfilteredresults = [];
@@ -593,11 +593,12 @@ function keyPressed(){
 
 function keyReleased(){
   if (keyCode == ENTER && searching){
+    searchrender = searchrender.replace(' ','%20');
     window.open('http://skparab1.github.io/search/'+searchrender,"_self");
   }
   if ((keyCode == BACKSPACE || keyCode == DELETE) && searching){
     searchrender = searchrender.substring(0, searchrender.length -1);
-      if (testapiupdate){
+      if (liveupdate){
         query = searchrender;
         results = [];
         unfilteredresults = [];
