@@ -34,6 +34,8 @@ if (loc.includes('https://skparab1.github.io/r/')){
     i += 1;
   }
   
+  openwindow = openwindow.replace('https://','');
+  
   if (foundredirect){
     //location.href = openwindow;
     window.open(openwindow,"_self");
