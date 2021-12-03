@@ -28,13 +28,12 @@ if (loc.includes('https://skparab1.github.io/r/')){
     if (scanner == red){
       foundredirect = true;
       openwindow = url[i];
+      openwindow = openwindow.replace('https://','');
       openwindow = 'https://'+openwindow;
     }
     
     i += 1;
   }
-  
-  openwindow = openwindow.replace('https://','');
   
   if (foundredirect){
     //location.href = openwindow;
