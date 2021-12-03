@@ -69,6 +69,7 @@ var red = 0;
 var green = 0;
 var blue = 0;
 var changingcolor = 0;
+var changingsize = 0;
 
 function draw(){
   background(0);
@@ -97,7 +98,7 @@ function draw(){
   strokeWeight(8);
   
   if(t == 0){
-    which = Math.floor(Math.random() * 3);
+    which = Math.floor(Math.random() * 4);
   }
   t += 1;
   
@@ -191,6 +192,52 @@ function draw(){
     i += 1;
     
   }
+  
+  changingsize += 2;
+  
+  if (which == 3){
+  
+  if (changingsize > 150){
+    changingsize = 0;
+  }
+  
+  let w = 30-Math.abs(25-changingsize);
+  if (w < 0){
+    w = 0;
+  }
+  
+  fill(0,100,255);
+  stroke(0,100,255);
+  ellipse(440,250,w,w);
+  
+  w = 30-Math.abs(50-changingsize);
+  if (w < 0){
+    w = 0;
+  }
+  
+  fill(255,0,0);
+  stroke(255,0,0);
+  ellipse(480,250,w,w);
+  
+  w = 30-Math.abs(75-changingsize);
+  if (w < 0){
+    w = 0;
+  }
+  
+  fill(255,255,0);
+  stroke(255,255,0);
+  ellipse(520,250,w,w);
+  
+  w = 30-Math.abs(100-changingsize);
+  if (w < 0){
+    w = 0;
+  }
+  
+  fill(0,225,50);
+  stroke(0,225,50);
+  ellipse(560,250,w,w);
+  }
+  
   
   changingcolor += 1;
   if (changingcolor >= 1020){
