@@ -73,8 +73,6 @@ var changingcolor = 0;
 function draw(){
   background(0);
   
-  changingcolor += 10;
-  
   red = (255-Math.abs(255-changingcolor))+100; //   0          255              
   green = (255-Math.abs(510-changingcolor))+100; // 100        100 
   blue = (255-Math.abs(765-changingcolor))+100; //  255         0       
@@ -84,6 +82,7 @@ function draw(){
     blue = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
   }
   
+  changingcolor += 10;
   if (changingcolor >= 1020){
     changingcolor = 255;
   }
@@ -103,54 +102,59 @@ function draw(){
   t += 1;
   
   if (which == 1){
-  stroke(255-Math.abs(100-tickercount));
-  fill(255-Math.abs(100-tickercount));
+  stroke(255-Math.abs(100-tickercount)+red/6,255-Math.abs(100-tickercount)+green/6,255-Math.abs(100-tickercount)+blue/6);
+  fill(255-Math.abs(100-tickercount)+red/6,255-Math.abs(100-tickercount)+green/6,255-Math.abs(100-tickercount)+blue/6);
   ellipse(500,150,10,10);
   
-  stroke(255-Math.abs(200-tickercount));
-  fill(255-Math.abs(200-tickercount));
+  stroke(255-Math.abs(200-tickercount)+red/6,255-Math.abs(200-tickercount)+green/6,255-Math.abs(200-tickercount)+blue/6);
+  fill(255-Math.abs(200-tickercount)+red/6,255-Math.abs(200-tickercount)+green/6,255-Math.abs(200-tickercount)+blue/6);
   ellipse(535.33,200-35.33,10,10);
   
-  stroke(255-Math.abs(300-tickercount));
-  fill(255-Math.abs(300-tickercount));
+  stroke(255-Math.abs(300-tickercount)+red/6,255-Math.abs(300-tickercount)+green/6,255-Math.abs(300-tickercount)+blue/6);
+  fill(255-Math.abs(300-tickercount)+red/6,255-Math.abs(300-tickercount)+green/6,255-Math.abs(300-tickercount)+blue/6);
   ellipse(550,200,10,10);
   
-  stroke(255-Math.abs(400-tickercount));
-  fill(255-Math.abs(400-tickercount));
+  stroke(255-Math.abs(400-tickercount)+red/6,255-Math.abs(400-tickercount)+green/6,255-Math.abs(400-tickercount)+blue/6);
+  fill(255-Math.abs(400-tickercount)+red/6,255-Math.abs(400-tickercount)+green/6,255-Math.abs(400-tickercount)+blue/6);
   ellipse(535.33,235.33,10,10);
   
-  stroke(255-Math.abs(500-tickercount));
-  fill(255-Math.abs(500-tickercount));
+  stroke(255-Math.abs(500-tickercount)+red/6,255-Math.abs(500-tickercount)+green/6,255-Math.abs(500-tickercount)+blue/6);
+  fill(255-Math.abs(500-tickercount)+red/6,255-Math.abs(500-tickercount)+green/6,255-Math.abs(500-tickercount)+blue/6);
   ellipse(500,250,10,10);
   
-  stroke(255-Math.abs(600-tickercount));
-  fill(255-Math.abs(600-tickercount));
+  stroke(255-Math.abs(600-tickercount)+red/6,255-Math.abs(600-tickercount)+green/6,255-Math.abs(600-tickercount)+blue/6);
+  fill(255-Math.abs(600-tickercount)+red/6,255-Math.abs(600-tickercount)+green/6,255-Math.abs(600-tickercount)+blue/6);
   ellipse(500-35.33,235.33,10,10);
   
-  stroke(255-Math.abs(700-tickercount));
-  fill(255-Math.abs(700-tickercount));
+  stroke(255-Math.abs(700-tickercount)+red/6,255-Math.abs(700-tickercount)+green/6,255-Math.abs(700-tickercount)+blue/6);
+  fill(255-Math.abs(700-tickercount)+red/6,255-Math.abs(700-tickercount)+green/6,255-Math.abs(700-tickercount)+blue/6);
   ellipse(450,200,10,10);
   
-  stroke(255-Math.abs(800-tickercount));
-  fill(255-Math.abs(800-tickercount));
+  stroke(255-Math.abs(800-tickercount)+red/6,255-Math.abs(800-tickercount)+green/6,255-Math.abs(800-tickercount)+blue/6);
+  fill(255-Math.abs(800-tickercount)+red/6,255-Math.abs(800-tickercount)+green/6,255-Math.abs(800-tickercount)+blue/6);
   ellipse(500-35.33,200-35.33,10,10);
     
   if (tickercount < 300){
-     stroke(255-Math.abs(-300-tickercount));
-    fill(255-Math.abs(-300-tickercount));
+    stroke(255-Math.abs(-300-tickercount)+red/6,255-Math.abs(-300-tickercount)+green/6,255-Math.abs(-300-tickercount)+blue/6);
+    fill(255-Math.abs(-300-tickercount)+red/6,255-Math.abs(-300-tickercount)+green/6,255-Math.abs(-300-tickercount)+blue/6);
     ellipse(500,250,10,10);
     
-    stroke(255-Math.abs(-200-tickercount));
-    fill(255-Math.abs(-200-tickercount));
+    stroke(255-Math.abs(-200-tickercount)+red/6,255-Math.abs(-200-tickercount)+green/6,255-Math.abs(-200-tickercount)+blue/6);
+    fill(255-Math.abs(-200-tickercount)+red/6,255-Math.abs(-200-tickercount)+green/6,255-Math.abs(-200-tickercount)+blue/6);
     ellipse(500-35.33,235.33,10,10);
   
-    stroke(255-Math.abs(-100-tickercount));
-    fill(255-Math.abs(-100-tickercount));
+    stroke(255-Math.abs(-100-tickercount)+red/6,255-Math.abs(-100-tickercount)+green/6,255-Math.abs(-100-tickercount)+blue/6);
+    fill(255-Math.abs(-100-tickercount)+red/6,255-Math.abs(-100-tickercount)+green/6,255-Math.abs(-100-tickercount)+blue/6);
     ellipse(450,200,10,10);
     
-    stroke(255-Math.abs(0-tickercount));
-    fill(255-Math.abs(0-tickercount));
+    stroke(255-Math.abs(tickercount)+red/6,255-Math.abs(tickercount)+green/6,255-Math.abs(tickercount)+blue/6);
+    fill(255-Math.abs(tickercount)+red/6,255-Math.abs(tickercount)+green/6,255-Math.abs(tickercount)+blue/6);
     ellipse(500-35.33,200-35.33,10,10);    
+  }
+  
+  changingcolor -= 0.5;
+  if (changingcolor >= 1020 && false){
+    changingcolor = 255;
   }
   }
   print(which);
@@ -185,6 +189,12 @@ function draw(){
     ellipse(i*50+450,h+95,10,10);
     }
     i += 1;
+    
+  }
+  
+  changingcolor += 1;
+  if (changingcolor >= 1020){
+    changingcolor = 255;
   }
   
   ball2 += 10;
