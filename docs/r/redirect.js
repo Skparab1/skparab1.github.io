@@ -65,9 +65,28 @@ var ball2 = -100;
 var ballbouncer = -100;
 var frames = -400;
 var size = 50;
+var red = 0;
+var green = 0;
+var blue = 0;
+var changingcolor = 0;
 
 function draw(){
   background(0);
+  
+  changingcolor += 10;
+  
+  red = (255-Math.abs(255-changingcolor))+100; //   0          255              
+  green = (255-Math.abs(510-changingcolor))+100; // 100        100 
+  blue = (255-Math.abs(765-changingcolor))+100; //  255         0       
+  if (changingcolor >= 765){                                                        // @765    @1020
+    red = (255-Math.abs(1020-changingcolor)) + (255 * ((changingcolor-765)/255)); //   ok        255+255
+    green = 100;                                                                  //    ok       
+    blue = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
+  }
+  
+  if (changingcolor >= 1020){
+    changingcolor = 255;
+  }
   
   fill(255);
   stroke(0);
@@ -149,12 +168,12 @@ function draw(){
   while (i < 3){
     let h = 400-Math.abs((i*50)-ball2)-200;
     if (h < 325-200){
-      fill(255);
-      stroke(255);
+      fill(red,green,blue);
+      stroke(red,green,blue);
       h = 325-200;
     } else {
-      fill(255);
-      stroke(255);
+      fill(red,green,blue);
+      stroke(red,green,blue);
     }
     
     if (which == 2){
