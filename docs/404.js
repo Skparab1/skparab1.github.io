@@ -37,7 +37,7 @@ var displayword = 0;
 loc = window.location.href;
 loc = str(loc);
 
-if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
+if (loc.includes('https://skparab1.github.io/search=')){
   query = loc.replace('https://skparab1.github.io/search=','');
   localStorage.setItem('searchquery',query);
   openwindow = "http://skparab1.github.io/search/" +query ;
