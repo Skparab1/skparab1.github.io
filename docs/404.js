@@ -34,8 +34,7 @@ var changingcolor = 0;
 var changingsize = 0;
 var displayword = 0;
 
-loc = window.location.href;
-loc = str(loc);
+loc = window.location.href; 
 
 if (loc.includes('https://skparab1.github.io/search=')){
   query = loc.replace('https://skparab1.github.io/search=','');
