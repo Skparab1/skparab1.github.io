@@ -41,7 +41,7 @@ if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
   query = loc.replace('https://skparab1.github.io/search=','');
   localStorage.setItem('searchquery',query);
   openwindow = "http://skparab1.github.io/search/" +query ;
-  location.href = openwindow;
+  window.open(openwindow,"_self");
   print('should have redirected');
   shouldredirect = true;
 }
