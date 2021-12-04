@@ -41,7 +41,7 @@ if (loc.includes('https://skparab1.github.io/search=')){
   localStorage.setItem('searchquery',query);
   openwindow = "http://skparab1.github.io/search/" +query ;
   window.open(openwindow,"_self");
-  print('should have redirected');
+  console.log('should have redirected');
   shouldredirect = true;
 }
   
@@ -330,7 +330,9 @@ function mousePressed(){
     window.open("http://github.com/skparab1","_self");
   }
   if (mouseX > 800 && mouseX < 1000 && mouseY > 200 && mouseY < 250){
-    window.open("http://skparab1.github.io/search","_self");
+    query = loc.replace('https://skparab1.github.io/','');
+    query = 'https://skparab1.github.io/search/'+query;
+    window.open(query,"_self");
   }
   if (mouseX > 800 && mouseX < 1000 && mouseY > 260 && mouseY < 260+75){
     typingsearch = true;
