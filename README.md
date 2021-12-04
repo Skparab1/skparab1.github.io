@@ -8,7 +8,7 @@
     - my url shortener
   - r
     - a shorter link for my url shortener
-  - search](https://skparab1.github.io/search)
+  - [search](https://skparab1.github.io/search)
     - a search page for my software and website content
   - [traffic simulator](https://skparab1.github.io/traffic-simulator)
     - a web host for my traffic simulator
