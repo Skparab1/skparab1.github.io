@@ -70,6 +70,8 @@ var green = 0;
 var blue = 0;
 var changingcolor = 0;
 var changingsize = 0;
+var displayword = 0;
+var autorefresh = 0;
 
 function draw(){
   background(0);
@@ -88,13 +90,53 @@ function draw(){
     changingcolor = 255;
   }
   
+  displayword += 10;
   fill(255);
   stroke(0);
   strokeWeight(3);
   textSize(40);
   text('Redirecting to your requested webpage......',100,75);
   textSize(25);
-  text('This shouldn\'t take too long',100,110);
+  
+  if (displayword < 1200){
+    fill(1200-displayword);
+    text('This shouldn\'t take too long',100,110);
+  } else if (displayword < 1400){
+    fill(255-Math.abs(1400-displayword));
+    text('It\'s taking longer than usual',100,110);
+  } else if (displayword < 1900){
+    fill(255);
+    text('It\'s taking longer than usual',100,110);
+  } else if (displayword < 2000){
+    fill(255-Math.abs(1900-displayword));
+    text('It\'s taking longer than usual',100,110);
+  } else if (displayword < 2200){
+    fill(255-Math.abs(2200-displayword));
+    text('Your browser may be slow...',100,110);
+  } else if (displayword < 2700){
+    fill(255);
+    text('Your browser may be slow...',100,110);
+  } else if (displayword < 2800){
+    fill(255-Math.abs(2700-displayword));
+    text('Your browser may be slow...',100,110);
+  } else if (displayword < 3000){
+    fill(255-Math.abs(3000-displayword));
+    text('Try refreshing...',100,110);
+  } else if (displayword < 3500){
+    fill(255);
+    text('Try refreshing...',100,110);
+  } else if (displayword < 3600){
+    fill(255-Math.abs(3500-displayword));
+    text('Try refreshing...',100,110);
+  } else {
+    fill(255-Math.abs(3800-displayword));
+    text('Auto-refreshing...',100,110);
+    if (autorefresh == 0){
+      location.reload();
+    }
+    autorefresh += 1;
+  }
+    
   strokeWeight(8);
   
   if(t == 0){
