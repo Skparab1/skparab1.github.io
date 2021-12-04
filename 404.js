@@ -1,248 +1,199 @@
-function preload() {
-  redirect = loadTable("redirects.csv","csv","header");
-}
-
-var keyword;
-var url;
-var tickercount = -155;
-
 function setup() {
   createCanvas(1023,430);  
-  keyword = redirect.getColumn(0);
-  url = redirect.getColumn(1);
-  
-loc = window.location.href;
+}
 
-var foundredirect = false;
+function preload(){
+  img404 = loadImage("404.png");
+}
+
+var counter = 0;
+var univcount = 0;
+var pos404 = 0;
+var direction = 'left';
+var speed = 50;
+var limit = 50;
+var allcount = 0;
+var rc = [];
+var t = 0;
+var shouldredirect = false;
 var tickercount = 0;
 
-print(keyword);
-
-if (loc.includes('https://skparab1.github.io/r/')){
-  red = loc.replace('https://skparab1.github.io/r/','');
+loc = window.location.href;
+loc = str(loc);
   
-  i = 0;
-  scanner = '';
-  while (i <= keyword.length && foundredirect == false){
-    scanner = keyword[i];
-    if (scanner == red){
-      foundredirect = true;
-      openwindow = url[i];
-      openwindow = 'https://'+openwindow;
-    }
-    
-    i += 1;
+function draw() {
+  
+  if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
+  query = loc.replace('https://skparab1.github.io/search=','');
+  localStorage.setItem('searchquery',query);
+  openwindow = "http://skparab1.github.io/search/" +query ;
+  location.href = openwindow;
+  print('should have redirected');
+  shouldredirect = true;
   }
   
-  if (foundredirect){
-    //location.href = openwindow;
-    window.open(openwindow,"_self");
-  } else {
-    window.open("http:skparab1.github.io/wrongredirect","_self");
-  }
+  if (!shouldredirect){
   
-  
-  background(0);
-  textSize(25);
-  stroke(0);
-  fill(255);
-  strokeWeight(3);
-  
-  text('Redirecting to your requested webpage......',100,75);
-  text('This shouldn\'t take too long',100,110);
-
-  
-} else {
-  //window.open("http:skparab1.github.io/wrongredirect","_self");
-}
-}
-
-var t = 0;
-var which;
-x = 0;
-var ball2 = -100;
-var ballbouncer = -100;
-var frames = -400;
-var size = 50;
-
-const center = [500,250];
-
-var ballx = 0;
-var bally = 200;
-var xdirection = 'right';
-
-var bx1;
-var by1 = 226;
-var bx2;
-var by2 = 250;
-var bx3;
-var by3 = 276;
-var bx4;
-var by4 = 300;
-var bx5;
-var by5 = 276;
-var bx6;
-var by6 = 250;
-var bx7;
-var by7 = 226;
-
-var d1 = 'right';
-var d2 = 'right';
-var d3 = 'right';
-var d4 = 'left';
-var d5 = 'left';
-var d6 = 'left';
-var d7 = 'left';
-
-var cyclecount = 0;
-var disabledots = [1,1,1,1,1,1,1];
-
-function draw(){
-  background(0);
-  
-  fill(255);
-  stroke(0);
-  strokeWeight(3);
-  textSize(40);
-  text('Redirecting to your requested webpage......',100,75);
-  textSize(25);
-  text('This shouldn\'t take too long',100,110);
-  strokeWeight(8);
-  
-  if(t == 0){
-    which = round(random(3));
-  }
   t += 1;
   
-  if (which == 1){
-  stroke(255-Math.abs(100-tickercount));
-  fill(255-Math.abs(100-tickercount));
-  ellipse(500,150,10,10);
+  fill(0);
+  rect(0,50,1023,330);
+  univcount += 1;
+  allcount += 1;
   
-  stroke(255-Math.abs(200-tickercount));
-  fill(255-Math.abs(200-tickercount));
-  ellipse(535.33,200-35.33,10,10);
+  if (counter == 0 || counter == 30){
+  rc = [random(150,255),random(150,255),random(150,255)]; }
   
-  stroke(255-Math.abs(300-tickercount));
-  fill(255-Math.abs(300-tickercount));
-  ellipse(550,200,10,10);
+  fill(0);
+  textSize(30);
+  text('ERROR 404',10,37);
+  text('ERROR 404',210,37);
+  text('ERROR 404',410,37);
+  text('ERROR 404',610,37);
+  text('ERROR 404',810,37);
+  fill(rc[1],rc[2],rc[0]);
+  textSize(45);
+  text('You BROKE it! I can\'t find that page!',100,100);
+  textSize(30);
+  text('But WAIT! Try these things!',300,140);
   
-  stroke(255-Math.abs(400-tickercount));
-  fill(255-Math.abs(400-tickercount));
-  ellipse(535.33,235.33,10,10);
-  
-  stroke(255-Math.abs(500-tickercount));
-  fill(255-Math.abs(500-tickercount));
-  ellipse(500,250,10,10);
-  
-  stroke(255-Math.abs(600-tickercount));
-  fill(255-Math.abs(600-tickercount));
-  ellipse(500-35.33,235.33,10,10);
-  
-  stroke(255-Math.abs(700-tickercount));
-  fill(255-Math.abs(700-tickercount));
-  ellipse(450,200,10,10);
-  
-  stroke(255-Math.abs(800-tickercount));
-  fill(255-Math.abs(800-tickercount));
-  ellipse(500-35.33,200-35.33,10,10);
+  image(img404,pos404-50,180,200,200);
     
-  if (tickercount < 300){
-     stroke(255-Math.abs(-300-tickercount));
-    fill(255-Math.abs(-300-tickercount));
-    ellipse(500,250,10,10);
-    
-    stroke(255-Math.abs(-200-tickercount));
-    fill(255-Math.abs(-200-tickercount));
-    ellipse(500-35.33,235.33,10,10);
+  fill(allcount*2,allcount*2-100,0);
+  rect(50,200,200,150);
+  fill(0,allcount*2,allcount*2-100);
+  rect(300,200,200,150);
+  fill(allcount*2-100,0,allcount*2);
+  rect(800,200,200,50);
+  fill(allcount*2-100,allcount*2,allcount*2);
+  rect(800,260,200,75);
   
-    stroke(255-Math.abs(-100-tickercount));
-    fill(255-Math.abs(-100-tickercount));
-    ellipse(450,200,10,10);
+  textSize(40);
+  fill(0);
+  text('GitHub',80,220+50);
+  text('Website',80,250+60);
+  
+  text('GitHub',80+255,220+50);
+  text('Profile',80+255,250+60);
+  
+  textSize(17);
+  
+  text('Lookup your url search',80+300+300+135,230);
+  text('Lookup something else',80+300+300+135,250+30);
+  line(80+300+300+135,325,80+300+450+135,325);
+  
+  if (univcount < 200){
+    pos404 = pos404 + (600-pos404)/3 ;
+  } else if (univcount > 300){
+    pos404 = pos404 + (pos404-599)/3; }
+  if (univcount > 350){
+    univcount = 0;
+    pos404 = 0 ;
+  }
+  
+  if (direction == 'left'){
+    //pos404 -= speed;
+  } else if (direction == 'right'){
+    //pos404 += speed;
+  }
+  
+  if (pos404 <= 450-limit){
+    direction = 'right';
+  } else if (pos404 >= 450+limit){
+    direction = 'left';
+  }
+  
+  if (counter == 0){
+  fill(random(255),random(255),random(255));
+  rect(0,0,200,50); }
+  if (counter == 2){
+  fill(random(255),random(255),random(255));
+  rect(200,0,200,50); }
+  if (counter == 4){
+  fill(random(255),random(255),random(255));
+  rect(400,0,200,50); }
+  if (counter == 6){
+  fill(random(255),random(255),random(255));
+  rect(600,0,200,50); }
+  if (counter == 8){
+  fill(random(255),random(255),random(255));
+  rect(800,0,200,50); }
+  if (counter == 10){
+  fill(random(255),random(255),random(255));
+  rect(1000,0,200,50); }
+  
+  if (counter == 30){
+  fill(random(255),random(255),random(255));
+  rect(0,380,200,50); }
+  if (counter == 32){
+  fill(random(255),random(255),random(255));
+  rect(200,380,200,50); }
+  if (counter == 34){
+  fill(random(255),random(255),random(255));
+  rect(400,380,200,50); }
+  if (counter == 36){
+  fill(random(255),random(255),random(255));
+  rect(600,380,200,50); }
+  if (counter == 38){
+  fill(random(255),random(255),random(255));
+  rect(800,380,200,50); }
+  if (counter == 40){
+  fill(random(255),random(255),random(255));
+  rect(1000,380,200,50); }
+  
+  counter += 1;
+  if (counter == 60){
+    counter = 0;
+  }  
+  } else {
+    background(0);
+    textSize(25);
+    stroke(0);
+    fill(255);
+    strokeWeight(3);
+    text('Wait! that\'s an invalid url, but we\'re getting that search for you!',200,75);
+    strokeWeight(8);
     
     stroke(255-Math.abs(0-tickercount));
-    fill(255-Math.abs(0-tickercount));
-    ellipse(500-35.33,200-35.33,10,10);    
-  }
-  }
-  print(which);
-  
-  tickercount += 10;
-  if (tickercount > 600){
-    tickercount = -155;
-  }
-  ballbouncer += 7;
-  if (ballbouncer > 1500){
-    ballbouncer = -100;
-  }
-  
-  i = 0;
-  while (i < 3){
-    let h = 400-Math.abs((i*50)-ball2)-200;
-    if (h < 325-200){
-      fill(255);
-      stroke(255);
-      h = 325-200;
+    line(500,200,500,150);
+    stroke(255-Math.abs(255-tickercount));
+    line(500,200,525,175);
+    stroke(255-Math.abs(510-tickercount));
+    line(500,200,550,200);
+    stroke(255-Math.abs(765-tickercount));
+    line(500,200,525,225);
+    stroke(255-Math.abs(1020-tickercount));
+    line(500,200,500,250);
+    stroke(255-Math.abs(1275-tickercount));
+    line(500,200,475,225);
+    stroke(255-Math.abs(1530-tickercount));
+    line(500,200,450,200);
+    
+    if (tickercount > 0){
+      stroke(255-Math.abs(1785-tickercount));
+      line(500,200,475,175);
     } else {
-      fill(255);
-      stroke(255);
+      stroke(255-Math.abs(-255-tickercount));
+      line(500,200,475,175);
     }
     
-    if (which == 2){
-    ellipse(i*50+450,h+150,10,10);
+    tickercount += 50;
+    if (tickercount > 1785+225+127.5){
+      tickercount = 0;
     }
     
-    h = 300 - h;
-    if (which == 0){
-    ellipse(i*50+450,h+95,10,10);
-    }
-    i += 1;
   }
+}
+
+function mouseClicked(){
   
-  ball2 += 10;
-  if (ball2 > 300){
-    ball2 = -100;
+  if (mouseX > 50 && mouseX < 250 && mouseY > 200 && mouseY < 350){
+    window.open("http://skparab1.github.io","_self");
   }
-  
-  if (which == 3){
-    strokeWeight(3);
-    fill(50,200,255);
-    stroke(50,200,255);
-    
-    ellipse(bx6,by6,10,10);
-    ellipse(bx7,by7,10,10);
-    ellipse(ballx,bally,10,10);
-    ellipse(bx1,by1,10,10);
-    ellipse(bx2,by2,10,10);
-    ellipse(bx3,by3,10,10);
-    ellipse(bx4,by4,10,10);
-    ellipse(bx5,by5,10,10);
-    
-    //
-    
-    fill(0);
-    
-    if (bx5 == 500 && by5 == 200){
-      //cyclecount += 1;
-    }
-  
-    if (xdirection == 'right'){bally += 2; ballx = Math.sqrt(2500 - (bally-250)*(bally-250))+500;} else {bally -= 2; ballx = 500-Math.sqrt(2500 - (bally-250)*(bally-250));}
-    if (d1 == 'right'){by1 += 2; bx1 = Math.sqrt(2500 - (by1-250)*(by1-250))+500;} else {by1 -= 2; bx1 = 500-Math.sqrt(2500 - (by1-250)*(by1-250));}
-    if (d2 == 'right'){by2 += 2; bx2 = Math.sqrt(2500 - (by2-250)*(by2-250))+500;} else {by2 -= 2; bx2 = 500-Math.sqrt(2500 - (by2-250)*(by2-250));}
-    if (d3 == 'right'){by3 += 2; bx3 = Math.sqrt(2500 - (by3-250)*(by3-250))+500;} else {by3 -= 2; bx3 = 500-Math.sqrt(2500 - (by3-250)*(by3-250));}
-    if (d4 == 'right'){by4 += 2; bx4 = Math.sqrt(2500 - (by4-250)*(by4-250))+500;} else {by4 -= 2; bx4 = 500-Math.sqrt(2500 - (by4-250)*(by4-250));}
-    if (d5 == 'right'){by5 += 2; bx5 = Math.sqrt(2500 - (by5-250)*(by5-250))+500;} else {by5 -= 2; bx5 = 500-Math.sqrt(2500 - (by5-250)*(by5-250));}
-    if (d6 == 'right'){by6 += 2; bx6 = Math.sqrt(2500 - (by6-250)*(by6-250))+500;} else {by6 -= 2; bx6 = 500-Math.sqrt(2500 - (by6-250)*(by6-250));}
-    if (d7 == 'right'){by7 += 2; bx7 = Math.sqrt(2500 - (by7-250)*(by7-250))+500;} else {by7 -= 2; bx7 = 500-Math.sqrt(2500 - (by7-250)*(by7-250));}
-    
-    if (bally < 200){ xdirection = 'right';} else if (bally > 300){ xdirection = 'left'; if (cyclecount % 3 == 0){disabledots = [0,disabledots[1],disabledots[2],disabledots[3],disabledots[4],disabledots[5],disabledots[6]];} else {disabledots = [1,disabledots[1],disabledots[2],disabledots[3],disabledots[4],disabledots[5],disabledots[6]];}}
-    if (by1 < 200){d1 = 'right';} else if (by1 > 300){d1 = 'left'; if (cyclecount % 3 == 0){disabledots = [disabledots[0],0,disabledots[2],disabledots[3],disabledots[4],disabledots[5],disabledots[6]];} else {disabledots = [disabledots[0],1,disabledots[2],disabledots[3],disabledots[4],disabledots[5],disabledots[6]];}}
-    if (by2 < 200){d2 = 'right';} else if (by2 > 300){d2 = 'left'; if (cyclecount % 3 == 0){disabledots = [disabledots[0],disabledots[1],0,disabledots[3],disabledots[4],disabledots[5],disabledots[6]];} else {disabledots = [disabledots[0],disabledots[1],1,disabledots[3],disabledots[4],disabledots[5],disabledots[6]];}}
-    if (by3 < 200){d3 = 'right';} else if (by3 > 300){d3 = 'left'; if (cyclecount % 3 == 0){disabledots = [disabledots[0],disabledots[1],disabledots[2],0,disabledots[4],disabledots[5],disabledots[6]];} else {disabledots = [disabledots[0],disabledots[1],disabledots[2],1,disabledots[4],disabledots[5],disabledots[6]];}}
-    if (by4 < 200){d4 = 'right';} else if (by4 > 300){d4 = 'left'; cyclecount += 1; if (cyclecount % 3 == 0){disabledots = [disabledots[0],disabledots[1],disabledots[2],disabledots[3],0,disabledots[5],disabledots[6]];} else {disabledots = [disabledots[0],disabledots[1],disabledots[2],disabledots[3],1,disabledots[5],disabledots[6]];}}
-    if (by5 < 200){d5 = 'right';} else if (by5 > 300){d5 = 'left';}
-    if (by6 < 200){d6 = 'right';} else if (by6 > 300){d6 = 'left'; if (cyclecount % 3 == 0){disabledots = [disabledots[0],disabledots[1],disabledots[2],disabledots[3],disabledots[4],0,disabledots[6]];} else {disabledots = [disabledots[0],disabledots[1],disabledots[2],disabledots[3],disabledots[4],1,disabledots[6]];}}
-    if (by7 < 200){d7 = 'right';} else if (by7 > 300){d7 = 'left'; if (cyclecount % 3 == 0){disabledots = [disabledots[0],disabledots[1],disabledots[2],disabledots[3],disabledots[4],disabledots[5],0];} else {disabledots = [disabledots[0],disabledots[1],disabledots[2],disabledots[3],disabledots[4],disabledots[5],1];}}
-   
+  if (mouseX > 300 && mouseX < 500 && mouseY > 200 && mouseY < 350){
+    window.open("http://github.com/skparab1","_self");
+  }
+  if (mouseX > 800 && mouseX < 1000 && mouseY > 200 && mouseY < 350){
+    window.open("http:skparab1.github.io/search","_self");
   }
 }
