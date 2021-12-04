@@ -1,62 +1,24 @@
-function preload() {
-  redirect = loadTable("redirects.csv","csv","header");
-}
-
-var keyword;
-var url;
-var tickercount = -155;
-
 function setup() {
   createCanvas(1023,430);  
-  keyword = redirect.getColumn(0);
-  url = redirect.getColumn(1);
-  
-loc = window.location.href;
+}
 
-var foundredirect = false;
+function preload(){
+  img404 = loadImage("404.png");
+}
+
+var counter = 0;
+var univcount = 0;
+var pos404 = 0;
+var direction = 'left';
+var speed = 50;
+var limit = 50;
+var allcount = 0;
+var rc = [];
+var t = 0;
+var shouldredirect = false;
 var tickercount = 0;
-
-print(keyword);
-
-if (loc.includes('https://skparab1.github.io/r/')){
-  red = loc.replace('https://skparab1.github.io/r/','');
-  
-  i = 0;
-  scanner = '';
-  while (i <= keyword.length && foundredirect == false){
-    scanner = keyword[i];
-    if (scanner == red){
-      foundredirect = true;
-      openwindow = url[i];
-      openwindow = openwindow.replace("https://",'');
-      openwindow = 'https://'+openwindow;
-    }
-    
-    i += 1;
-  }
-  
-  if (foundredirect){
-    //location.href = openwindow;
-    window.open(openwindow,"_self");
-  } else {
-    window.open("https://skparab1.github.io/wrongredirect","_self");
-  }
-  
-  
-  background(0);
-  textSize(25);
-  stroke(0);
-  fill(255);
-  strokeWeight(3);
-  
-  text('Redirecting to your requested webpage......',100,75);
-  text('This shouldn\'t take too long',100,110);
-
-  
-} else {
-  //window.open("http:skparab1.github.io/wrongredirect","_self");
-}
-}
+var typingsearch = false;
+var query = '';
 
 var t = 0;
 var which;
@@ -70,34 +32,142 @@ var green = 0;
 var blue = 0;
 var changingcolor = 0;
 var changingsize = 0;
+var displayword = 0;
 
-function draw(){
-  background(0);
+loc = window.location.href;
+loc = str(loc);
+
+if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
+  query = loc.replace('https://skparab1.github.io/search=','');
+  localStorage.setItem('searchquery',query);
+  openwindow = "http://skparab1.github.io/search/" +query ;
+  location.href = openwindow;
+  print('should have redirected');
+  shouldredirect = true;
+}
   
-  red = (255-Math.abs(255-changingcolor))+100; //   0          255              
-  green = (255-Math.abs(510-changingcolor))+100; // 100        100 
-  blue = (255-Math.abs(765-changingcolor))+100; //  255         0       
-  if (changingcolor >= 765){                                                        // @765    @1020
-    red = (255-Math.abs(1020-changingcolor)) + (255 * ((changingcolor-765)/255)); //   ok        255+255
-    green = 100;                                                                  //    ok       
-    blue = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
+function draw() {
+  
+  if (!shouldredirect){
+  
+  t += 1;
+  
+  fill(0);
+  rect(0,50,1023,330);
+  univcount += 1;
+  allcount += 1;
+  
+  if (counter == 0 || counter == 30){
+  rc = [random(150,255),random(150,255),random(150,255)]; }
+  
+  fill(0);
+  textSize(30);
+  text('ERROR 404',10,37);
+  text('ERROR 404',210,37);
+  text('ERROR 404',410,37);
+  text('ERROR 404',610,37);
+  text('ERROR 404',810,37);
+  fill(rc[1],rc[2],rc[0]);
+  textSize(45);
+  text('You BROKE it! I can\'t find that page!',100,100);
+  textSize(30);
+  text('But WAIT! Try these things!',300,140);
+  
+  image(img404,pos404-50,180,200,200);
+    
+  fill(allcount*2,allcount*2-100,0);
+  rect(50,200,200,150);
+  fill(0,allcount*2,allcount*2-100);
+  rect(300,200,200,150);
+  fill(allcount*2-100,0,allcount*2);
+  rect(800,200,200,50);
+  if (!typingsearch){
+    fill(allcount*2-100,150,200);
+  } else {
+    fill(allcount*2-100,allcount*2,allcount*2);
   }
+  rect(800,260,200,75);
   
-  changingcolor += 10;
-  if (changingcolor >= 1020){
-    changingcolor = 255;
-  }
-  
-  fill(255);
-  stroke(0);
-  strokeWeight(3);
   textSize(40);
-  text('Redirecting to your requested webpage......',100,75);
-  textSize(25);
-  text('This shouldn\'t take too long',100,110);
-  strokeWeight(8);
+  fill(0);
+  text('GitHub',80,220+50);
+  text('Website',80,250+60);
   
-  if(t == 0){
+  text('GitHub',80+255,220+50);
+  text('Profile',80+255,250+60);
+  
+  textSize(17);
+  
+  text('Lookup your url search',80+300+300+135,230);
+  text('Lookup something else',80+300+300+135,250+30);
+  text(query,80+300+300+135,250+60);
+  line(80+300+300+135,325,80+300+450+135,325);
+  
+  if (univcount < 200){
+    pos404 = pos404 + (600-pos404)/3 ;
+  } else if (univcount > 300){
+    pos404 = pos404 + (pos404-599)/3; }
+  if (univcount > 350){
+    univcount = 0;
+    pos404 = 0 ;
+  }
+  
+  if (direction == 'left'){
+    //pos404 -= speed;
+  } else if (direction == 'right'){
+    //pos404 += speed;
+  }
+  
+  if (pos404 <= 450-limit){
+    direction = 'right';
+  } else if (pos404 >= 450+limit){
+    direction = 'left';
+  }
+  
+  if (counter == 0){
+  fill(random(255),random(255),random(255));
+  rect(0,0,200,50); }
+  if (counter == 2){
+  fill(random(255),random(255),random(255));
+  rect(200,0,200,50); }
+  if (counter == 4){
+  fill(random(255),random(255),random(255));
+  rect(400,0,200,50); }
+  if (counter == 6){
+  fill(random(255),random(255),random(255));
+  rect(600,0,200,50); }
+  if (counter == 8){
+  fill(random(255),random(255),random(255));
+  rect(800,0,200,50); }
+  if (counter == 10){
+  fill(random(255),random(255),random(255));
+  rect(1000,0,200,50); }
+  
+  if (counter == 30){
+  fill(random(255),random(255),random(255));
+  rect(0,380,200,50); }
+  if (counter == 32){
+  fill(random(255),random(255),random(255));
+  rect(200,380,200,50); }
+  if (counter == 34){
+  fill(random(255),random(255),random(255));
+  rect(400,380,200,50); }
+  if (counter == 36){
+  fill(random(255),random(255),random(255));
+  rect(600,380,200,50); }
+  if (counter == 38){
+  fill(random(255),random(255),random(255));
+  rect(800,380,200,50); }
+  if (counter == 40){
+  fill(random(255),random(255),random(255));
+  rect(1000,380,200,50); }
+  
+  counter += 1;
+  if (counter == 60){
+    counter = 0;
+  }  
+  } else {
+    if(t == 0){
     which = Math.floor(Math.random() * 4);
   }
   t += 1;
@@ -247,5 +317,40 @@ function draw(){
   ball2 += 10;
   if (ball2 > 300){
     ball2 = -100;
+  }
+    
+  }
+}
+
+function mousePressed(){
+  
+  if (mouseX > 50 && mouseX < 250 && mouseY > 200 && mouseY < 350){
+    window.open("http://skparab1.github.io","_self");
+  }
+  if (mouseX > 300 && mouseX < 500 && mouseY > 200 && mouseY < 350){
+    window.open("http://github.com/skparab1","_self");
+  }
+  if (mouseX > 800 && mouseX < 1000 && mouseY > 200 && mouseY < 250){
+    window.open("http://skparab1.github.io/search","_self");
+  }
+  if (mouseX > 800 && mouseX < 1000 && mouseY > 260 && mouseY < 260+75){
+    typingsearch = true;
+  }
+}
+
+function keyPressed(){
+  if (typingsearch && keyCode != BACKSPACE && keyCode != DELETE && keyCode != ENTER){
+    query += key;
+  }
+  
+  keyCode = '';
+}
+
+function keyReleased(){
+  if (keyCode == ENTER && typingsearch){
+    window.open('http://skparab1.github.io/search/'+query,"_self");
+  }
+  if ((keyCode == BACKSPACE || keyCode == DELETE) && typingsearch){
+    query = query.substring(0, query.length -1);
   }
 }
