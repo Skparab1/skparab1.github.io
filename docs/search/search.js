@@ -72,7 +72,13 @@ var searching = false;
 var searchrender = query;
 var liveupdate = true;
 var clickpos = [];
-var opennewtab = true;
+
+var opennewtab = localStorage.getItem('opentab');
+
+if (opennewtab == null){
+  localStorage.setItem('opentab',true);
+  opennewtab = true;
+}
 
 function returnis(q){
   
@@ -435,7 +441,7 @@ function mousePressed(){
     
   } else if (mouseX > 775 && mouseX < 995 && mouseY > 75 && mouseY < 100){
     opennewtab = !opennewtab;
-    
+    localStorage.setItem('opentab',opennewtab);
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && langfilter[0]){
     window.open(loc+'&py=false',"_self");
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && !langfilter[0]){
