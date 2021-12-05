@@ -121,13 +121,13 @@ function draw(){
     text('Your browser may be slow...',100,110);
   } else if (displayword < 3000){
     fill(255-Math.abs(3000-displayword));
-    text('Try refreshing...',100,110);
+    text('Auto-refreshing...',100,110);
   } else if (displayword < 3500){
     fill(255);
-    text('Try refreshing...',100,110);
+    text('Auto-refreshing...',100,110);
   } else if (displayword < 3600){
     fill(255-Math.abs(3500-displayword));
-    text('Try refreshing...',100,110);
+    text('Auto-refreshing...',100,110);
   } else {
     fill(255-Math.abs(3800-displayword));
     text('Auto-refreshing...',100,110);
