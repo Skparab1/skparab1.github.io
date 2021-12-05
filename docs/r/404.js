@@ -93,13 +93,13 @@ var autorefresh = 0;
 function draw(){
   background(0);
   
-  red = (255-Math.abs(255-changingcolor))+100; //   0          255              
+  blue = (255-Math.abs(255-changingcolor))+100; //   0          255              
   green = (255-Math.abs(510-changingcolor))+100; // 100        100 
-  blue = (255-Math.abs(765-changingcolor))+100; //  255         0       
+  red = (255-Math.abs(765-changingcolor))+100; //  255         0       
   if (changingcolor >= 765){                                                        // @765    @1020
-    red = (255-Math.abs(1020-changingcolor)) + (255 * ((changingcolor-765)/255)); //   ok        255+255
+    blue = (255-Math.abs(1020-changingcolor)) + (255 * ((changingcolor-765)/255)); //   ok        255+255
     green = 100;                                                                  //    ok       
-    blue = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
+    red = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
   }
   
   changingcolor += 10;
@@ -111,18 +111,20 @@ function draw(){
   fill(255);
   stroke(0);
   strokeWeight(3);
-  textSize(40);
-  text('Redirecting to your requested webpage......',100,75);
   
   window.scroll({
     left: 300,
     behavior: 'smooth',
      });
   let plus;
-  if (device == 'mobile'){
-    textSize(12);
-    plus = 30;
+  if (device == 'mobile' || true){
+    plus = 300;
+    textSize(20);
+    text('Redirecting to your requested webpage......',325,75);
+    textSize(15);
   } else {
+    textSize(40);
+    text('Redirecting to your requested webpage......',100,75);
     textSize(25);
     plus = 0;
   }
