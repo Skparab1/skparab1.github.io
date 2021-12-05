@@ -89,6 +89,7 @@ var changingcolor = 0;
 var changingsize = 0;
 var displayword = 0;
 var autorefresh = 0;
+var frate = 0;
 
 function draw(){
   background(0);
@@ -128,6 +129,10 @@ function draw(){
     textSize(25);
     plus = 0;
   }
+  
+  if (frate < frameRate()){
+    frate = frameRate();
+  }
   if (displayword < 1200){
     fill(1200-displayword);
     text('This shouldn\'t take too long',100+plus,110);
@@ -142,25 +147,37 @@ function draw(){
     text('It\'s taking longer than usual',100+plus,110);
   } else if (displayword < 2200){
     fill(255-Math.abs(2200-displayword));
-    text('Your browser may be slow...',100+plus,110);
-  } else if (displayword < 2700){
-    fill(255);
-    text('Your browser may be slow...',100+plus,110);
-  } else if (displayword < 2800){
-    fill(255-Math.abs(2700-displayword));
-    text('Your browser may be slow...',100+plus,110);
-  } else if (displayword < 3000){
-    fill(255-Math.abs(3000-displayword));
-    text('Auto-refreshing...',100+plus,110);
-  } else if (displayword < 3500){
-    fill(255);
-    text('Auto-refreshing...',100+plus,110);
-  } else if (displayword < 3600){
-    fill(255-Math.abs(3500-displayword));
-    text('Auto-refreshing...',100+plus,110);
+    text('Auto-refreshing in',100+plus,110);
   } else {
-    fill(255-Math.abs(3800-displayword));
-    text('Auto-refreshing...',100+plus,110);
+    fill(255);
+    text('Auto-refreshing in',100+plus,110);
+  }
+  
+  if (displayword < 2000){
+  } else if (displayword < 2200){
+    fill(255-(Math.abs(2200-displayword)));
+    text('3',305+plus,110);
+  } else if (displayword < 2200+(frate*5)){
+    fill(255);
+    text('3',305+plus,110);
+  } else if (displayword < 2425+(frate*5)){
+    fill(255-(Math.abs(2225+(frate*5)-displayword)));
+    text('3',305+plus,110);
+  } else if (displayword < 2625+(frate*5)){
+    fill(255-(Math.abs(2625+(frate*5)-displayword)));
+    text('2',305+plus,110);
+  } else if (displayword < 2200+(frate*12)){
+    fill(255);
+    text('2',305+plus,110);
+  } else if (displayword < 2425+(frate*12)){
+    fill(255-(Math.abs(2225+(frate*12)-displayword)));
+    text('2',305+plus,110);
+  } else if (displayword < 2625+(frate*12)){
+    fill(255-(Math.abs(2625+(frate*12)-displayword)));
+    text('1',305+plus,110);
+  } else if (displayword < 2200+(frate*20)){
+    fill(255);
+    text('1',305+plus,110);
     if (autorefresh == 0){
       location.reload();
     }
