@@ -6,6 +6,23 @@ var keyword;
 var url;
 var tickercount = -155;
 
+const getDeviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
+
+const device = getDeviceType();
+
 function setup() {
   createCanvas(1023,430);  
   keyword = redirect.getColumn(0);
@@ -76,13 +93,13 @@ var autorefresh = 0;
 function draw(){
   background(0);
   
-  red = (255-Math.abs(255-changingcolor))+100; //   0          255              
+  blue = (255-Math.abs(255-changingcolor))+100; //   0          255              
   green = (255-Math.abs(510-changingcolor))+100; // 100        100 
-  blue = (255-Math.abs(765-changingcolor))+100; //  255         0       
+  red = (255-Math.abs(765-changingcolor))+100; //  255         0       
   if (changingcolor >= 765){                                                        // @765    @1020
-    red = (255-Math.abs(1020-changingcolor)) + (255 * ((changingcolor-765)/255)); //   ok        255+255
+    blue = (255-Math.abs(1020-changingcolor)) + (255 * ((changingcolor-765)/255)); //   ok        255+255
     green = 100;                                                                  //    ok       
-    blue = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
+    red = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
   }
   
   changingcolor += 10;
@@ -94,43 +111,56 @@ function draw(){
   fill(255);
   stroke(0);
   strokeWeight(3);
-  textSize(40);
-  text('Redirecting to your requested webpage......',100,75);
-  textSize(25);
   
+  window.scroll({
+    left: 300,
+    behavior: 'smooth',
+     });
+  let plus;
+  if (device == 'mobile'){
+    plus = 300;
+    textSize(20);
+    text('Redirecting to your requested webpage......',325,75);
+    textSize(15);
+  } else {
+    textSize(40);
+    text('Redirecting to your requested webpage......',100,75);
+    textSize(25);
+    plus = 0;
+  }
   if (displayword < 1200){
     fill(1200-displayword);
-    text('This shouldn\'t take too long',100,110);
+    text('This shouldn\'t take too long',100+plus,110);
   } else if (displayword < 1400){
     fill(255-Math.abs(1400-displayword));
-    text('It\'s taking longer than usual',100,110);
+    text('It\'s taking longer than usual',100+plus,110);
   } else if (displayword < 1900){
     fill(255);
-    text('It\'s taking longer than usual',100,110);
+    text('It\'s taking longer than usual',100+plus,110);
   } else if (displayword < 2000){
     fill(255-Math.abs(1900-displayword));
-    text('It\'s taking longer than usual',100,110);
+    text('It\'s taking longer than usual',100+plus,110);
   } else if (displayword < 2200){
     fill(255-Math.abs(2200-displayword));
-    text('Your browser may be slow...',100,110);
+    text('Your browser may be slow...',100+plus,110);
   } else if (displayword < 2700){
     fill(255);
-    text('Your browser may be slow...',100,110);
+    text('Your browser may be slow...',100+plus,110);
   } else if (displayword < 2800){
     fill(255-Math.abs(2700-displayword));
-    text('Your browser may be slow...',100,110);
+    text('Your browser may be slow...',100+plus,110);
   } else if (displayword < 3000){
     fill(255-Math.abs(3000-displayword));
-    text('Auto-refreshing...',100,110);
+    text('Auto-refreshing...',100+plus,110);
   } else if (displayword < 3500){
     fill(255);
-    text('Auto-refreshing...',100,110);
+    text('Auto-refreshing...',100+plus,110);
   } else if (displayword < 3600){
     fill(255-Math.abs(3500-displayword));
-    text('Auto-refreshing...',100,110);
+    text('Auto-refreshing...',100+plus,110);
   } else {
     fill(255-Math.abs(3800-displayword));
-    text('Auto-refreshing...',100,110);
+    text('Auto-refreshing...',100+plus,110);
     if (autorefresh == 0){
       location.reload();
     }
