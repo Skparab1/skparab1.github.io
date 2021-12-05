@@ -146,38 +146,47 @@ function draw(){
     fill(255-Math.abs(1900-displayword));
     text('It\'s taking longer than usual',100+plus,110);
   } else if (displayword < 2200){
+    if (device == 'mobile'){ plus += 35;}
     fill(255-Math.abs(2200-displayword));
     text('Auto-refreshing in',100+plus,110);
   } else {
+    if (device == 'mobile'){ plus += 35;}
     fill(255);
     text('Auto-refreshing in',100+plus,110);
+  }
+  
+  let dist;
+  if (device == 'mobile'){
+    dist = 222.5;
+  } else {
+    dist = 305;
   }
   
   if (displayword < 2000){
   } else if (displayword < 2200){
     fill(255-(Math.abs(2200-displayword)));
-    text('3',305+plus,110);
+    text('3',dist+plus,110);
   } else if (displayword < 2200+(frate*5)){
     fill(255);
-    text('3',305+plus,110);
+    text('3',dist+plus,110);
   } else if (displayword < 2425+(frate*5)){
     fill(255-(Math.abs(2225+(frate*5)-displayword)));
-    text('3',305+plus,110);
+    text('3',dist+plus,110);
   } else if (displayword < 2625+(frate*5)){
     fill(255-(Math.abs(2625+(frate*5)-displayword)));
-    text('2',305+plus,110);
+    text('2',dist+plus,110);
   } else if (displayword < 2200+(frate*12)){
     fill(255);
-    text('2',305+plus,110);
+    text('2',dist+plus,110);
   } else if (displayword < 2425+(frate*12)){
     fill(255-(Math.abs(2225+(frate*12)-displayword)));
-    text('2',305+plus,110);
+    text('2',dist+plus,110);
   } else if (displayword < 2625+(frate*12)){
     fill(255-(Math.abs(2625+(frate*12)-displayword)));
-    text('1',305+plus,110);
+    text('1',dist+plus,110);
   } else if (displayword < 2200+(frate*20)){
     fill(255);
-    text('1',305+plus,110);
+    text('1',dist+plus,110);
     if (autorefresh == 0){
       location.reload();
     }
