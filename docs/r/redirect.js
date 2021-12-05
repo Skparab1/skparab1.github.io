@@ -6,6 +6,23 @@ var keyword;
 var url;
 var tickercount = -155;
 
+const getDeviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
+
+const device = getDeviceType();
+
 function setup() {
   createCanvas(1023,430);  
   keyword = redirect.getColumn(0);
@@ -97,6 +114,11 @@ function draw(){
   textSize(40);
   text('Redirecting to your requested webpage......',100,75);
   textSize(25);
+  
+  window.scroll({
+    left: 300,
+    behavior: 'smooth',
+     });
   
   if (displayword < 1200){
     fill(1200-displayword);
