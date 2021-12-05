@@ -117,7 +117,7 @@ function draw(){
     behavior: 'smooth',
      });
   let plus;
-  if (device == 'mobile' || true){
+  if (device == 'mobile'){
     plus = 300;
     textSize(20);
     text('Redirecting to your requested webpage......',325,75);
