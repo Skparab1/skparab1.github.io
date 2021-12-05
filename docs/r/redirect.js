@@ -113,46 +113,52 @@ function draw(){
   strokeWeight(3);
   textSize(40);
   text('Redirecting to your requested webpage......',100,75);
-  textSize(25);
   
   window.scroll({
     left: 300,
     behavior: 'smooth',
      });
-  
+  let plus;
+  if (device == 'mobile'){
+    textSize(12);
+    plus = 30;
+  } else {
+    textSize(25);
+    plus = 0;
+  }
   if (displayword < 1200){
     fill(1200-displayword);
-    text('This shouldn\'t take too long',100,110);
+    text('This shouldn\'t take too long',100+plus,110);
   } else if (displayword < 1400){
     fill(255-Math.abs(1400-displayword));
-    text('It\'s taking longer than usual',100,110);
+    text('It\'s taking longer than usual',100+plus,110);
   } else if (displayword < 1900){
     fill(255);
-    text('It\'s taking longer than usual',100,110);
+    text('It\'s taking longer than usual',100+plus,110);
   } else if (displayword < 2000){
     fill(255-Math.abs(1900-displayword));
-    text('It\'s taking longer than usual',100,110);
+    text('It\'s taking longer than usual',100+plus,110);
   } else if (displayword < 2200){
     fill(255-Math.abs(2200-displayword));
-    text('Your browser may be slow...',100,110);
+    text('Your browser may be slow...',100+plus,110);
   } else if (displayword < 2700){
     fill(255);
-    text('Your browser may be slow...',100,110);
+    text('Your browser may be slow...',100+plus,110);
   } else if (displayword < 2800){
     fill(255-Math.abs(2700-displayword));
-    text('Your browser may be slow...',100,110);
+    text('Your browser may be slow...',100+plus,110);
   } else if (displayword < 3000){
     fill(255-Math.abs(3000-displayword));
-    text('Auto-refreshing...',100,110);
+    text('Auto-refreshing...',100+plus,110);
   } else if (displayword < 3500){
     fill(255);
-    text('Auto-refreshing...',100,110);
+    text('Auto-refreshing...',100+plus,110);
   } else if (displayword < 3600){
     fill(255-Math.abs(3500-displayword));
-    text('Auto-refreshing...',100,110);
+    text('Auto-refreshing...',100+plus,110);
   } else {
     fill(255-Math.abs(3800-displayword));
-    text('Auto-refreshing...',100,110);
+    text('Auto-refreshing...',100+plus,110);
     if (autorefresh == 0){
       location.reload();
     }
