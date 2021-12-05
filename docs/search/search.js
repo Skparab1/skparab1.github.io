@@ -2,37 +2,6 @@ function setup() {
   createCanvas(1023,3000);  
 }
 
-function sortbase(array,base,max){
-  let newarray = [];
-  let h = 0;
-  let scan;
-  let arrayn = array;
-  let overrider = 0;
-  console.log('max'+max);
-  // ok, so it skips an index if its a comma right so we need to make it not skip the index of the regular ones
-  while (newarray.length != arrayn.length){
-    scan = base[h*overrider+1]; // what is the corresponding value in the clicked array (skipping the commas
-    if (scan == ','){ // comma override
-      console.log('overrode');
-      //h += 1;
-      scan = base[h];
-      overrider = 2;
-    }
-    // so its skipping one overy time
-    if (scan == max){ newarray.push(arrayn[h]); console.log('pushed '+arrayn[h]);} 
-    if (h >= (arrayn.length*2-1)){ h = 0; max = max-1;}
-    console.log(scan,max,h); if (max < 0){ break; } 
-    h += 1;
-    // in every other looping time, scan is a ',' so nan
-  }
-  return newarray;
-}
-
-function getpart(string,index){
-  const elements = string.split(' ');
-  return elements[index];
-}
-
 loc = window.location.href;
 var t = 0;
 
@@ -91,71 +60,9 @@ var descriptions = ['','Live webpage of Encryption code GUI','Text encrypting pr
 var language = ['','JavaScript','Python','JavaScript','Python','JavaScript','Markdown','JavaScript','Python','JavaScript','JavaScript','JavaScript+Python','Python','JavaScript','Python','JavaScript','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','HTML','Python','Python','Pascal','Python','Python','Python','JavaScript','JavaScript','JavaScript+Svelte','JavaScript'];
 var type = ['','Webpage','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software'];
 
-// remember, the first one is insignificant
-var otherwise = ['',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-
-//let v = 0;  // so the array is ok now indexing does not include commas
-//while (v < otherwise.length){
-//  console.log(otherwise[v]);
-//  v += 1;
-//}
-
-console.log(titles);
-console.log(otherwise);
-
-//localStorage.setItem('testapi',otherwise);
-//var viewed = localstorage.getitem('viewlog') || otherwise; unnecassary for now
-var clicked = localStorage.getItem('testapi'); // = otherwise; //localStorage.getItem('testapi') || 
-if (clicked == null){
-  localStorage.setItem('testapi',otherwise);
-  clicked = otherwise;
-}
-
-
-console.log('array that was gottn was ',clicked);
-
-//finding max
-var r = 0;
-var max = 0;
-while (r < clicked.length){
-  if (clicked[r] > max){
-    max = clicked[r];
-  }
-  r += 1;
-}
 //reordering keywords
 var h = 0;
 var scan = 0;
-var sortedkeywords = [];
-var sortedtitles = [];
-var sortedurls = [];
-var sorteddescriptions = [];
-var sortedlanguage = [];
-var sortedtype = [];
-
-sortedkeywords = sortbase(keywords,clicked,max);
-sortedtitles = sortbase(titles,clicked,max);
-sortedurls = sortbase(urls,clicked,max);
-sorteddescriptions = sortbase(descriptions,clicked,max);
-sortedlanguage = sortbase(language,clicked,max);
-sortedtype = sortbase(type,clicked,max);
-
-console.log(titles);
-
-keywords = sortedkeywords;
-titles = sortedtitles;
-urls = sortedurls;
-descriptions = sorteddescriptions;
-language = sortedlanguage;
-type = sortedtype;
-
-console.log('reordered');
-console.log(keywords);
-console.log(titles);
-console.log(urls);
-console.log(descriptions);
-console.log(language);
-console.log(type);
 
 var numfound = 0;
 var displayresults = 0;
@@ -165,6 +72,7 @@ var searching = false;
 var searchrender = query;
 var liveupdate = true;
 var clickpos = [];
+var opennewtab = true;
 
 function returnis(q){
   
@@ -201,9 +109,6 @@ var unfilteredresults = [];
 var counter = 0;
   
 function draw() {
-  console.log('writing to api: ',clicked);
-  localStorage.setItem('testapi',clicked);
-  loc = str(loc);
   
   if (counter == 0){
      results = returnis(query);
@@ -235,15 +140,12 @@ function draw() {
     }
     
     if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
-      let index = i;
-      let newval = int(clicked[index*2+1]) + 1;
-      clicked[index+1] = newval;
-      console.log('newval '+newval+' but, val is '+clicked[index*2+1]);
-      console.log('i '+i);
-      console.log('should have changed'+clicked);
-      localStorage.setItem('testapi',clicked);
       let openurl = 'https://'+urls[i];
-      window.open(openurl);
+      if (opennewtab){
+        window.open(openurl);
+      } else {
+        window.open(openurl,"_self");
+      }
     }
     
     textSize(30);
@@ -378,14 +280,26 @@ function draw() {
   textSize(18);
   if (liveupdate){
     fill(200);
-    rect(775,100,200,50);
+    rect(775,125,200,35);
     fill(0);
-    text('Update results live (on)',785,130);
+    text('Update results live (on)',785,150);
   } else {
     fill(150);
-    rect(775,100,200,50);
+    rect(775,125,200,35);
     fill(255);
-    text('Update results live (off)',785,130);
+    text('Update results live (off)',785,150);
+  }
+  
+  if (opennewtab){
+    fill(200);
+    rect(775,75,200,35);
+    fill(0);
+    text('Open links in new tab',785,100);
+  } else {
+    fill(150);
+    rect(775,75,200,35);
+    fill(255);
+    text('Open links in this tab',785,100);
   }
   
   let pycount = 0;
@@ -507,7 +421,7 @@ function draw() {
 function mousePressed(){
   if (mouseX > 250 && mouseX < 450 && mouseY > 15 && mouseY < 70){
     searching = true;
-  } else if (mouseX > 775 && mouseX < 995 && mouseY > 100 && mouseY < 150){
+  } else if (mouseX > 775 && mouseX < 995 && mouseY > 125 && mouseY < 150){
     liveupdate = !liveupdate; 
     if (liveupdate){
       query = searchrender;
@@ -517,8 +431,11 @@ function mousePressed(){
       displayresults = 0;
       results = returnis(query);
     }
-    
   loc = window.location.href;
+    
+  } else if (mouseX > 775 && mouseX < 995 && mouseY > 75 && mouseY < 100){
+    opennewtab = !opennewtab;
+    
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && langfilter[0]){
     window.open(loc+'&py=false',"_self");
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && !langfilter[0]){

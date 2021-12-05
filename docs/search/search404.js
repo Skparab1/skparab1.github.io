@@ -2,26 +2,6 @@ function setup() {
   createCanvas(1023,3000);  
 }
 
-function sortbase(array,base,max){
-  let newarray = [];
-  let h = 0;
-  let scan;
-  let arrayn = array;
-  console.log('max'+max);
-  // i think i know what the bug is. its running out of elements in the source list
-  //                    0                             1                    2                              3                         4               5                              0              0            0                    0                      0
-  //var titles = ['Encryption code GUI Webpage','Encryption code','Skparab1\'s GitHub website','Runestone solutions Ps8','Encryption code GUI','Skparab1\'s GitHub profile','EzPixel Pro','Python samples','Javascript inkball','Skparab1 animation','Binary converter','Ml word engine','Encryption code graphics website','Randomizing algorithm','Encryption code website','Smart calculator','Pong','Game codes','Spanish English translator','Crossy road','Battleship','Game animation algorithms','Age calculator','Data organizers','Dino game','Space shooter game','HTML animation','Math codes','Flappy bird','Old Pascal program','AI virtual assistant','Snake game','Virtual assistant builder','JS url shortener','Loading animations','Game server','Traffic simulator'];
-  while (newarray.length != arrayn.length){
-    scan = parseInt(base[h]); // what is the corresponding value in the clicked array
-    if (scan == max){ newarray.push(arrayn[h/2]); console.log('pushed '+arrayn[h]);} 
-    if (h >= arrayn.length*2-1){ h = 0; max = max-1;}
-    console.log(scan,max,h); if (max < 0){ break; } 
-    h += 2;
-    // in every other looping time, scan is a ',' so nan
-  }
-  return newarray;
-}
-
 loc = window.location.href;
 var t = 0;
 
@@ -65,7 +45,7 @@ if (loc.includes('https://skparab1.github.io/search/')){
       packedurl = packedurl.replace('&','');
     }
     
-    query = packedurl;
+    query = packedurl.replace('%20',' ');
     
   }
 } else if (t == 0){
@@ -73,68 +53,16 @@ if (loc.includes('https://skparab1.github.io/search/')){
   langfilter = [true,true,true,true,true,true];
 }
 
-var keywords = ['','webhost webpage encryption code gui js javascript','encryption code text encrypting program in python','skparab1.github.io skparab1\'s github website written in javascript js','runestone solutions problem set 8 eight','gui of encryption code graphical user interface encrypt written in javascript js','skparab1 skparab1\'s github profile with links to projects','ezpixel pro high quality image editor in javascript js','python samples codes made in cs class runestone academy','javascript inkball microsoft video game made in javascript js','skparab animation for profile javascript js','binary converter decimal javascript js gui python script for cs class','ml word engine reconstructs words autocomplete','graphics website of encryption code','randomizing algorithm written in python random number generator','encryption code website','smart calculator perform various calculations','video game pong in python','game codes set of interactive','dynamic spanish english translator learn new entries command line interface','crossy road video game in python','board game battleship against computer artificial inteligence ai python','game animation algorithms use to animate objects free python','age calculator calculates in minutes hours seconds days weeks months years python','data organizers set of codes alphabetizer randomizer paragraph analyzer python','dino game google chorme no internet game python','space shooter game shoot objects python','html animation','math codes series command line interface','flappy bird video game in python','old pascal program','ai virtual assistant powered by typing python','snake game python','virtual assistant builder python','js javascript url shortener website redirect','loading animation animations js javascript','game server test testing game server peer p2p svelte','traffic simulator model win won hackathon 3rd third place js javascript graphics'];
+var keywords = ['','webhost webpage encryption code gui js javascript','encryption code text encrypting program in python','skparab1.github.io skparab1\'s github website written in javascript js','runestone solutions problem set 8 eight','gui of encryption code graphical user interface encrypt written in javascript js','skparab1 skparab1\'s github profile with links to projects','ezpixel pro high quality image editor in javascript js','python samples codes made in cs class runestone academy','javascript inkball microsoft video game made in javascript js','skparab animation for profile javascript js','binary converter decimal javascript js gui python script for cs class','ml word engine reconstructs words autocomplete','graphics website of encryption code','randomizing algorithm written in python random number generator','encryption code website','smart calculator perform various calculations','video game pong in python','game codes set of interactive','dynamic spanish english translator learn new entries command line interface','crossy road video game in python','board game battleship against computer artificial inteligence ai python','game animation algorithms use to animate objects free python','age calculator calculates in minutes hours seconds days weeks months years python','data organizers set of codes alphabetizer randomizer paragraph analyzer python','dino game google chorme no internet game python','space shooter game shoot objects python','html animation','math codes series command line interface','flappy bird video game in python','old pascal program','ai virtual assistant powered by typing python','snake game python','virtual assistant builder python','js javascript url shortener website redirect','loading animation animations js javascript','game server test testapi game server peer p2p svelte','traffic simulator model win won hackathon 3rd third place js javascript graphics'];
 var titles = ['','Encryption code GUI Webpage','Encryption code','Skparab1\'s GitHub website','Runestone solutions Ps8','Encryption code GUI','Skparab1\'s GitHub profile','EzPixel Pro','Python samples','Javascript inkball','Skparab1 animation','Binary converter','Ml word engine','Encryption code graphics website','Randomizing algorithm','Encryption code website','Smart calculator','Pong','Game codes','Spanish English translator','Crossy road','Battleship','Game animation algorithms','Age calculator','Data organizers','Dino game','Space shooter game','HTML animation','Math codes','Flappy bird','Old Pascal program','AI virtual assistant','Snake game','Virtual assistant builder','JS url shortener','Loading animations','Game server','Traffic simulator'];
 var urls = ['','skparab1.github.io/encryption-code-gui','github.com/skparab1/encryption-code','github.com/skparab1/skparab1.github.io','github.com/skparab1/runestone-solutions-ps8','github.com/skparab1/encryption-code-gui','github.com/skparab1','github.com/skparab1/ezpixel-pro','github.com/skparab1/python-samples','github.com/skparab1/javascript-inkball','github.com/skparab1/skparab1-animation','github.com/skparab1/binary-converter','github.com/skparab1/ml-word-engine','github.com/Encryptioncode/graphic-website','github.com/skparab1/randomizing-algorithm','github.com/skparab1/encryption-code-website','github.com/skparab1/master-math-calculator','github.com/skparab1/pong','github.com/skparab1/game-codes','github.com/skparab1/dynamic-spanish-english-translator','github.com/skparab1/corssy-road','github.com/skparab1/battleship','github.com/skparab1/game-animation-algorithms','github.com/skparab1/age-calculator','github.com/skparab1/data-organizers','github.com/skparab1/dino0-game','github.com/skparab1/space-shooter-game','github.com/skparab1/html-animation','github.com/skparab1/math-codes','github.com/skparab1/flappy-bird','github.com/skparab1/old-pascal-program','github.com/skparab1/ai-virtual-assistant','github.com/skparab1/snake-game','github.com/skparab1/virtual-assistant-builder','github.com/skparab1/js-url-shortener','github.com/skparab1/loading-animations','github.com/skparab1/game-server','github.com/skparab1/traffic-simulator'];
-var descriptions = ['','Live webpage of Encryption code GUI','Text encrypting program','Javascript GitHub website','Solutions to Runestone problem set 8 ','GUI of Encryption code','Skparab1\'s GitHub profile','High quality image editor','Sample python codes','The video game InkBall','Animation for Skparab1 profile','Binary <--> Decimal converter','Autocomplete word engine','Graphics website of Encryption code','Pseudo Random number generator','Website of Encryption code','Smart calculator','The Video game pong','Game codes','Dynamic Spanish English translator','Video game Crossy road','Board game Battleship','Game animation algorithms','Age calculator','Data organizing codes','Google chrome\'s no internet Dino game','Space shooter game','HTML animation','Math codes','The video game Flappy bird','Old Pascal program','AI virtual assistant','Snake game','Virtual assistant builder','JavaScript URL shortener, GitHub pages hostable','Loading animations for redirector','Testing game server with peerjs and svelte','3rd place hackathon winning Javascript traffic simulator'];
+var descriptions = ['','Live webpage of Encryption code GUI','Text encrypting program','Javascript GitHub website','Solutions to Runestone problem set 8 ','GUI of Encryption code','Skparab1\'s GitHub profile','High quality image editor','Sample python codes','The video game InkBall','Animation for Skparab1 profile','Binary <--> Decimal converter','Autocomplete word engine','Graphics website of Encryption code','Pseudo Random number generator','Website of Encryption code','Smart calculator','The Video game pong','Game codes','Dynamic Spanish English translator','Video game Crossy road','Board game Battleship','Game animation algorithms','Age calculator','Data organizing codes','Google chrome\'s no internet Dino game','Space shooter game','HTML animation','Math codes','The video game Flappy bird','Old Pascal program','AI virtual assistant','Snake game','Virtual assistant builder','JavaScript URL shortener, GitHub pages hostable','Loading animations for redirector','testapi game server with peerjs and svelte','3rd place hackathon winning Javascript traffic simulator'];
 var language = ['','JavaScript','Python','JavaScript','Python','JavaScript','Markdown','JavaScript','Python','JavaScript','JavaScript','JavaScript+Python','Python','JavaScript','Python','JavaScript','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','Python','HTML','Python','Python','Pascal','Python','Python','Python','JavaScript','JavaScript','JavaScript+Svelte','JavaScript'];
 var type = ['','Webpage','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software','Software'];
 
-var otherwise = ['0','1','2','3','4','5'];
-while (otherwise.length < language.length){
-  otherwise.push('0');
-}
-
-console.log(titles);
-console.log(otherwise);
-
-//var viewed = localstorage.getitem('viewlog') || otherwise; unnecassary for now
-var clicked = localStorage.getItem('clicklog') || otherwise;
-
-console.log(clicked);
-
-//finding max
-var r = 0;
-var max = 0;
-while (r < clicked.length){
-  if (clicked[r] > max){
-    max = clicked[r];
-  }
-  r += 1;
-}
 //reordering keywords
 var h = 0;
 var scan = 0;
-var sortedkeywords = [];
-var sortedtitles = [];
-var sortedurls = [];
-var sorteddescriptions = [];
-var sortedlanguage = [];
-var sortedtype = [];
-
-sortedkeywords = sortbase(keywords,clicked,max);
-sortedtitles = sortbase(titles,clicked,max);
-sortedurls = sortbase(urls,clicked,max);
-sorteddescriptions = sortbase(descriptions,clicked,max);
-sortedlanguage = sortbase(language,clicked,max);
-sortedtype = sortbase(type,clicked,max);
-
-console.log(titles);
-
-keywords = sortedkeywords;
-titles = sortedtitles;
-urls = sortedurls;
-descriptions = sorteddescriptions;
-language = sortedlanguage;
-type = sortedtype;
-
-console.log('reordered');
-console.log(keywords);
-console.log(titles);
-console.log(urls);
-console.log(descriptions);
-console.log(language);
-console.log(type);
 
 var numfound = 0;
 var displayresults = 0;
@@ -144,6 +72,7 @@ var searching = false;
 var searchrender = query;
 var liveupdate = true;
 var clickpos = [];
+var opennewtab = true;
 
 function returnis(q){
   
@@ -181,9 +110,6 @@ var counter = 0;
   
 function draw() {
   
-  localStorage.setItem('clicklog',clicked);
-  loc = str(loc);
-  
   if (counter == 0){
      results = returnis(query);
   }
@@ -214,17 +140,12 @@ function draw() {
     }
     
     if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
-      let newval = int(clicked[i*2]) + 1;
-      let part1 = clicked.slice(0,i);
-      let part2 = clicked.slice(i+1);
-      part1.push(newval);
-      clicked = part1.concat(part2);
-      console.log('newval '+newval);
-      console.log('i '+i);
-      console.log('should have changed'+clicked);
-      localStorage.setItem('clicklog',clicked);
       let openurl = 'https://'+urls[i];
-      window.open(openurl);
+      if (opennewtab){
+        window.open(openurl);
+      } else {
+        window.open(openurl,"_self");
+      }
     }
     
     textSize(30);
@@ -359,14 +280,26 @@ function draw() {
   textSize(18);
   if (liveupdate){
     fill(200);
-    rect(775,100,200,50);
+    rect(775,125,200,35);
     fill(0);
-    text('Update results live (on)',785,130);
+    text('Update results live (on)',785,150);
   } else {
     fill(150);
-    rect(775,100,200,50);
+    rect(775,125,200,35);
     fill(255);
-    text('Update results live (off)',785,130);
+    text('Update results live (off)',785,150);
+  }
+  
+  if (opennewtab){
+    fill(200);
+    rect(775,75,200,35);
+    fill(0);
+    text('Open links in new tab',785,100);
+  } else {
+    fill(150);
+    rect(775,75,200,35);
+    fill(255);
+    text('Open links in this tab',785,100);
   }
   
   let pycount = 0;
@@ -488,7 +421,7 @@ function draw() {
 function mousePressed(){
   if (mouseX > 250 && mouseX < 450 && mouseY > 15 && mouseY < 70){
     searching = true;
-  } else if (mouseX > 775 && mouseX < 995 && mouseY > 100 && mouseY < 150){
+  } else if (mouseX > 775 && mouseX < 995 && mouseY > 125 && mouseY < 150){
     liveupdate = !liveupdate; 
     if (liveupdate){
       query = searchrender;
@@ -498,8 +431,11 @@ function mousePressed(){
       displayresults = 0;
       results = returnis(query);
     }
-    
   loc = window.location.href;
+    
+  } else if (mouseX > 775 && mouseX < 995 && mouseY > 75 && mouseY < 100){
+    opennewtab = !opennewtab;
+    
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && langfilter[0]){
     window.open(loc+'&py=false',"_self");
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && !langfilter[0]){
@@ -574,6 +510,7 @@ function keyPressed(){
 
 function keyReleased(){
   if (keyCode == ENTER && searching){
+    searchrender = searchrender.replace(' ','%20');
     window.open('http://skparab1.github.io/search/'+searchrender,"_self");
   }
   if ((keyCode == BACKSPACE || keyCode == DELETE) && searching){
