@@ -24,7 +24,11 @@ const getDeviceType = () => {
 const device = getDeviceType();
 
 function setup() {
-  createCanvas(1023,430);  
+  if (device != 'mobile'){
+    createCanvas(windowWidth,windowHeight);
+  } else {
+    createCanvas(1023,420);
+  }
   keyword = redirect.getColumn(0);
   url = redirect.getColumn(1);
   
@@ -92,8 +96,11 @@ var autorefresh = 0;
 var frate = 0;
 
 function draw(){
+  if (device != 'mobile'){
+    resizeCanvas(windowWidth, windowHeight);
+  }
   background(0);
-  
+ 
   blue = (255-Math.abs(255-changingcolor))+100; //   0          255              
   green = (255-Math.abs(510-changingcolor))+100; // 100        100 
   red = (255-Math.abs(765-changingcolor))+100; //  255         0       
