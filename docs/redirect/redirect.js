@@ -264,12 +264,12 @@ function draw(){
   }
   }
   print(which);
-  
-  tickercount += 10;
+  print(frameRate());
+  tickercount += (Math.floor(600/frameRate()));
   if (tickercount > 600){
     tickercount = -155;
   }
-  ballbouncer += 7;
+  ballbouncer += (Math.floor(420/frameRate()));
   if (ballbouncer > 1500){
     ballbouncer = -100;
   }
@@ -298,7 +298,7 @@ function draw(){
     
   }
   
-  changingsize += 2;
+  changingsize += (Math.floor(120/frameRate()));
   
   if (which == 3){
   
