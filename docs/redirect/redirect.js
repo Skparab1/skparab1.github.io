@@ -39,8 +39,8 @@ var tickercount = 0;
 
 print(keyword);
 
-if (loc.includes('https://skparab1.github.io/r/')){
-  red = loc.replace('https://skparab1.github.io/r/','');
+if (loc.includes('https://skparab1.github.io/redirect/')){
+  red = loc.replace('https://skparab1.github.io/redirect/','');
   
   i = 0;
   scanner = '';
