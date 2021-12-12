@@ -9,6 +9,8 @@ var hovercolors2 = [0,0,0];
 var hovercolors3 = [0,0,0];
 var hovercolors4 = [0,0,0];
 
+var cstart = 0;
+
 function getScroll(){
     if (window.pageYOffset != undefined) {
         return [pageXOffset, pageYOffset];
@@ -33,6 +35,21 @@ function draw() {
     blue = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
   }
   background(0);
+  
+  let c = cstart;
+  while (c >= 0){
+    fill(0,0,c);
+    stroke(0,0,c);
+    rect(0,cstart-c,windowWidth,1);
+    c -= 1;
+  }
+  
+  if (cstart <= 255){
+    cstart += 3;
+  }
+  
+  fill(0);
+  //rect(0,0,1500,70);
   
   changingcolor += 0.7*5;
   
@@ -124,7 +141,7 @@ function draw() {
   rect(750-countervar/20,310,260,75);
   fill(countervar-150,countervar-150,0);
   stroke(0);
-  text("Program solutions",750-countervar/20+10,363);
+  text("Search for something",750-countervar/20+10,363);
   
   fill(0,245,0);
   textSize(70);
@@ -210,7 +227,7 @@ function draw() {
   textSize(20);
   fill(255);
   text('One of the first video games in Python',95,860+500);
-  text('A Microsoft Video game is JavaScript',560,860+500);
+  text('A Microsoft Video game in JavaScript',560,860+500);
   text('An Encryption Program in Python',95,985+500);
   text('A randomizing algorithm in Python',560,985+500);
   text('An Image editor in JavaScript',95,1025+75+500);
@@ -229,9 +246,10 @@ function draw() {
   text('Couldn\'t find what you\'re looking for? ',100,2300);
   fill(0);
   stroke(200,0,100);  
-  rect(375,2350,275,70);
+  rect(375,2355,255,60);
+  rect(680,2355,150,60);
   fill(100,0,200);
-  text('Try Skparab1\'s GitHub Profile. ',100,2400);
+  text('Try Skparab1\'s GitHub Profile or Search.',100,2400);
   
   fill(0,100,200);
   rect(0,2445,1200,100);
@@ -265,11 +283,11 @@ function mouseClicked(){
   } else if (mouseX > 550 && mouseX < 950 && mouseY > 900 && mouseY < 1000){
     window.open('http://encryptioncode.github.io/graphic-website');
   } else if (mouseX > 750-countervar/20 && mouseX < 750-countervar/20+260 && mouseY > 310 && mouseY < 310+75){
-    window.open('http://github.com/skparab1/python-samples');
+    window.open('http://skparab1.github.io/search');
   } else if (mouseX > 75 && mouseX < 475 && mouseY > 775+500 && mouseY < 775+600){
     window.open('http://github.com/skparab1/pong');
   } else if (mouseX > 550 && mouseX < 950 && mouseY > 775+500 && mouseY < 775+600){
-    window.open('http://github.com/skparab1/inkball');
+    window.open('http://github.com/skparab1/javascript-inkball');
   } else if (mouseX > 75 && mouseX < 475 && mouseY > 900+500 && mouseY < 900+600){
     window.open('http://github.com/skparab1/encryption-code');
   } else if (mouseX > 550 && mouseX < 950 && mouseY > 900+500 && mouseY < 900+600){
@@ -292,5 +310,9 @@ function mouseClicked(){
     window.open('http://github.com/skparab1/data-organizers');
   } else if (mouseX > 375 && mouseX < 375+275 && mouseY > 2350 && mouseY < 2370+70){
     window.open('http://github.com/skparab1');
+  } else if (mouseX > countervar/20 && mouseX < countervar/20+300 && mouseY > 310 && mouseY < 310+75){
+    window.open('http://skparab1.github.io/articles');
+  } else if (mouseX > 680 && mouseX < 680+150 && mouseY > 2355 && mouseY < 2355+60){
+    window.open('http://skparab1.github.io/search');
   }
 }
