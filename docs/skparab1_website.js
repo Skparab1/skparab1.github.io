@@ -34,6 +34,8 @@ function draw() {
     green = 100;                                                                  //    ok       
     blue = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
   }
+  
+  resizeCanvas(windowWidth, 2500);
   background(0);
   
   let c = cstart;
