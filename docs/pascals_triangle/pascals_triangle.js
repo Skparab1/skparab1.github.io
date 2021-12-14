@@ -11,6 +11,7 @@ var degits = 1;
 var limit = 0;
 var end = 39;
 var totalpush = 0;
+var backcolor = 210;
 
 function draw(){
   if (limit == 0){
@@ -28,6 +29,15 @@ function draw(){
   
   j = 0;
   while (j < end){
+    
+    fill(backcolor);
+    rect(0,ypos-20,6000,30);
+    
+    if (backcolor == 210){
+      backcolor = 255;
+    } else {
+      backcolor = 210;
+    }
     i = 0;
     let xpos = xstart;
     while (i < tri.length){
