@@ -38,6 +38,7 @@ function setup() {
 
   if (signin == null){
     localStorage.setItem('login','logged out');
+    signin = 'logged out';
   }
   
   if (signin != 'logged out'){
