@@ -38,7 +38,7 @@ function setup() {
     
   } else {
     if (loc.includes('https://skparab1.github.io/login/')){
-      window.open('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=home',"_self");
+      window.open('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=https://skparab1.github.io',"_self");
     }
   }
 }
