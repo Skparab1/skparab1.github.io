@@ -1,24 +1,98 @@
+function preload() {
+  redirect = loadTable("redirects.csv","csv","header");
+}
+
+var keyword;
+var url;
+var tickercount = -155;
+var pwdchallenge = false;
+var foundpwd = '';
+var openwindow = '';
+
+const getDeviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  if (
+    /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+      ua
+    )
+  ) {
+    return "mobile";
+  }
+  return "desktop";
+};
+
+const device = getDeviceType();
+
 function setup() {
-  createCanvas(1023,430);  
+  if (device != 'mobile'){
+    createCanvas(windowWidth,windowHeight);
+  } else {
+    createCanvas(1023,420);
+  }
+  keyword = redirect.getColumn(0);
+  url = redirect.getColumn(1);
+  pswd = redirect.getColumn(2);
+  
+  loc = window.location.href;
+  
+  var foundredirect = false;
+  var tickercount = 0;
+  
+  print(keyword);
+  
+  if (loc.includes('https://skparab1.github.io/p/')){
+    red = loc.replace('https://skparab1.github.io/p/','');
+    
+    console.log('was in and should have gotten password');
+    
+    i = 1;
+    scanner = '';
+    while (i <= keyword.length && foundredirect == false){
+      scanner = keyword[i];
+      if (scanner == red){
+        foundredirect = true;
+        foundpwd = pswd[i];
+        openwindow = url[i];
+        openwindow = openwindow.replace("https://",'');
+        openwindow = 'https://'+openwindow;
+      }
+      
+      i += 1;
+    }
+    
+    if (foundpwd == ''){
+      pwdchallenge = true;
+    } else {
+      pwdchallenge = false;
+    }
+    
+    if (foundredirect && pwdchallenge){
+      //location.href = openwindow;
+      window.open(openwindow,"_self");
+    } else if (!foundredirect){
+      window.open("https://skparab1.github.io/wrongredirect","_self");
+    }
+    
+    
+    background(0);
+    textSize(25);
+    stroke(0);
+    fill(255);
+    strokeWeight(3);
+    
+    text('Redirecting to your requested webpage......',100,75);
+    text('This shouldn\'t take too long',100,110);
+  
+    
+  } else {
+    //window.open("http:skparab1.github.io/wrongredirect","_self");
+  }
 }
 
-function preload(){
-  img404 = loadImage("404.png");
-}
-
-var counter = 0;
-var univcount = 0;
-var pos404 = 0;
-var direction = 'left';
-var speed = 50;
-var limit = 50;
-var allcount = 0;
-var rc = [];
-var t = 0;
-var shouldredirect = false;
-var tickercount = 0;
-var typingsearch = false;
-var query = '';
+console.log('done with setup');
 
 var t = 0;
 var which;
@@ -33,141 +107,254 @@ var blue = 0;
 var changingcolor = 0;
 var changingsize = 0;
 var displayword = 0;
+var autorefresh = 0;
+var frate = 0;
+var code = '';
+var redirecttimer = 0;
+var dimmer = 0;
+var authinterface = 'default';
+var authenticator = 'username';
+var username = '';
+var password = '';
+var incorrect = 100;
+var backspacer = 0;
 
-loc = window.location.href;
-loc = str(loc);
+console.log(foundpwd);
 
-if (loc.includes('https://skparab1.github.io/search=') && (t == 0)){
-  query = loc.replace('https://skparab1.github.io/search=','');
-  localStorage.setItem('searchquery',query);
-  openwindow = "http://skparab1.github.io/search/" +query ;
-  location.href = openwindow;
-  print('should have redirected');
-  shouldredirect = true;
+function drawnicerect(x,y,xsize,ysize,incolor,outcolor){
+  let xchange = x-250;
+  let ychange = y-15;
+  let xsizechange = xsize-200;
+  let ysizechange = ysize-60;
+  
+  fill(incolor);
+  stroke(outcolor);
+  rect(250+xchange,15+ychange,xsize,ysize);
+  fill(outcolor);
+  stroke(outcolor);
+  rect(250+xchange,15+ychange,15,15);
+  rect(250+xchange,60+ychange+ysizechange,15,15);
+  rect(435+xchange+xsizechange,15+ychange,15,15);
+  rect(435+xchange+xsizechange,60+ychange+ysizechange,15,15);
+  fill(incolor);
+  stroke(incolor);
+  ellipse(265+xchange,30+ychange,24.5,24.5);
+  ellipse(435+xchange+xsizechange,30+ychange,24.5,24.5);
+  ellipse(265+xchange,60+ychange+ysizechange,24.5,24.5);
+  ellipse(435+xchange+xsizechange,60+ychange+ysizechange,24.5,24.5);
 }
+
+function draw(){
   
-function draw() {
+  console.log('in draw');
+  resizeCanvas(windowWidth, windowHeight);
   
-  if (!shouldredirect){
-  
-  t += 1;
-  
-  fill(0);
-  rect(0,50,1023,330);
-  univcount += 1;
-  allcount += 1;
-  
-  if (counter == 0 || counter == 30){
-  rc = [random(150,255),random(150,255),random(150,255)]; }
-  
-  fill(0);
-  textSize(30);
-  text('ERROR 404',10,37);
-  text('ERROR 404',210,37);
-  text('ERROR 404',410,37);
-  text('ERROR 404',610,37);
-  text('ERROR 404',810,37);
-  fill(rc[1],rc[2],rc[0]);
-  textSize(45);
-  text('You BROKE it! I can\'t find that page!',100,100);
-  textSize(30);
-  text('But WAIT! Try these things!',300,140);
-  
-  image(img404,pos404-50,180,200,200);
+  if (!pwdchallenge){
+    if (keyIsDown(BACKSPACE) || keyIsDown(DELETE)){
+      backspacer += 1;
+      
+      if (backspace % 20 == 0){
+        keyCode = BACKSPACE;
+        keyReleased();
+      }
+    }
     
-  fill(allcount*2,allcount*2-100,0);
-  rect(50,200,200,150);
-  fill(0,allcount*2,allcount*2-100);
-  rect(300,200,200,150);
-  fill(allcount*2-100,0,allcount*2);
-  rect(800,200,200,50);
-  if (!typingsearch){
-    fill(allcount*2-100,150,200);
+    if (authinterface == 'default'){
+      background(0);
+      
+      drawnicerect(250,150,500,65,200-dimmer,0);
+      fill(0,255-dimmer,100-dimmer);
+      stroke(0,0,0);
+      textSize(50);
+      text('This Webpage has restricted access',100,75);
+      textSize(35);
+      text('Enter access code to continue',250,120);
+      fill(255-dimmer,0,0);
+      stroke(200-dimmer);
+      text(code,260,195);
+      
+      if (mouseX > 250 && mouseX < 750 && mouseY > 300 && mouseY < 365){
+        drawnicerect(250,300,500,65,75,0);
+      } else {
+        drawnicerect(250,300,500,65,0,0);
+      }
+      fill(0);
+      text('Alternate universal login',300,345);
+      
+      if (code == foundpwd){
+        dimmer += 10;
+      }
+      if (code == foundpwd && redirecttimer == 0 && dimmer == 150){
+        window.open(openwindow,"_self"); 
+        pwdchallenge = true;
+        redirecttimer += 1;
+      }
+    } else {
+      background(0);
+      
+      if (authenticator == 'username'){
+        drawnicerect(250,150,500,65,225,0);
+        drawnicerect(250,235,500,65,150,0);
+      } else {
+        drawnicerect(250,150,500,65,150,0);
+        drawnicerect(250,235,500,65,225,0);
+      }
+      fill(0,255-dimmer,100-dimmer);
+      stroke(0,0,0);
+      textSize(50);
+      text('This Webpage has restricted access',100,75);
+      textSize(35);
+      text('Please Authenticate',300,120);
+      text('Username        ',75,190);
+      text('Password        ',75,280);
+      fill(255-dimmer,0,0);
+      stroke(200-dimmer);
+      text(username,260,195);
+      
+      incorrect += 1;
+      if (incorrect < 100){
+        stroke(0);
+        textSize(20);
+        text('Username or password incorrect',260,320);
+      }
+      
+      stroke(255);
+      textSize(35);
+      let displaypass = '';
+      let y = 0;
+      while (y < password.length){
+        displaypass += '•';
+        y += 1;
+      }
+      text(displaypass,260,195+90);
+      
+      if (username != '' && password != ''){
+        drawnicerect(380,335,240,65,[255,200,0],0);
+        fill(0);
+        stroke(255,200,0);
+        text('Authenticate',405,380);
+      } else if (mouseX > 400 && mouseX < 600 && mouseY > 335 && mouseY < 400){
+        drawnicerect(400,335,200,65,150,0);
+        fill(0);
+        stroke(0);
+        text('Go back',430,380);
+      } else {
+        drawnicerect(400,335,200,65,100,0);
+        fill(0);
+        stroke(0);
+        text('Go back',430,380);
+      }
+      
+    }
   } else {
-    fill(allcount*2-100,allcount*2,allcount*2);
+  if (device != 'mobile'){
+    resizeCanvas(windowWidth, windowHeight);
   }
-  rect(800,260,200,75);
+
+  background(0);
   
-  textSize(40);
-  fill(0);
-  text('GitHub',80,220+50);
-  text('Website',80,250+60);
-  
-  text('GitHub',80+255,220+50);
-  text('Profile',80+255,250+60);
-  
-  textSize(17);
-  
-  text('Lookup your url search',80+300+300+135,230);
-  text('Lookup something else',80+300+300+135,250+30);
-  text(query,80+300+300+135,250+60);
-  line(80+300+300+135,325,80+300+450+135,325);
-  
-  if (univcount < 200){
-    pos404 = pos404 + (600-pos404)/3 ;
-  } else if (univcount > 300){
-    pos404 = pos404 + (pos404-599)/3; }
-  if (univcount > 350){
-    univcount = 0;
-    pos404 = 0 ;
+  blue = (255-Math.abs(255-changingcolor))+100; //   0          255              
+  green = (255-Math.abs(510-changingcolor))+100; // 100        100 
+  red = (255-Math.abs(765-changingcolor))+100; //  255         0       
+  if (changingcolor >= 765){                                                        // @765    @1020
+    blue = (255-Math.abs(1020-changingcolor)) + (255 * ((changingcolor-765)/255)); //   ok        255+255
+    green = 100;                                                                  //    ok       
+    red = (255-Math.abs(765-changingcolor)) + (255-(changingcolor-765));           //   ok     
   }
   
-  if (direction == 'left'){
-    //pos404 -= speed;
-  } else if (direction == 'right'){
-    //pos404 += speed;
+  changingcolor += 10;
+  if (changingcolor >= 1020){
+    changingcolor = 255;
   }
   
-  if (pos404 <= 450-limit){
-    direction = 'right';
-  } else if (pos404 >= 450+limit){
-    direction = 'left';
-  }
+  displayword += 10;
+  fill(255);
+  stroke(0);
+  strokeWeight(3);
   
-  if (counter == 0){
-  fill(random(255),random(255),random(255));
-  rect(0,0,200,50); }
-  if (counter == 2){
-  fill(random(255),random(255),random(255));
-  rect(200,0,200,50); }
-  if (counter == 4){
-  fill(random(255),random(255),random(255));
-  rect(400,0,200,50); }
-  if (counter == 6){
-  fill(random(255),random(255),random(255));
-  rect(600,0,200,50); }
-  if (counter == 8){
-  fill(random(255),random(255),random(255));
-  rect(800,0,200,50); }
-  if (counter == 10){
-  fill(random(255),random(255),random(255));
-  rect(1000,0,200,50); }
-  
-  if (counter == 30){
-  fill(random(255),random(255),random(255));
-  rect(0,380,200,50); }
-  if (counter == 32){
-  fill(random(255),random(255),random(255));
-  rect(200,380,200,50); }
-  if (counter == 34){
-  fill(random(255),random(255),random(255));
-  rect(400,380,200,50); }
-  if (counter == 36){
-  fill(random(255),random(255),random(255));
-  rect(600,380,200,50); }
-  if (counter == 38){
-  fill(random(255),random(255),random(255));
-  rect(800,380,200,50); }
-  if (counter == 40){
-  fill(random(255),random(255),random(255));
-  rect(1000,380,200,50); }
-  
-  counter += 1;
-  if (counter == 60){
-    counter = 0;
-  }  
+  window.scroll({
+    left: 300,
+    behavior: 'smooth',
+     });
+  let plus;
+  if (device == 'mobile'){
+    plus = 300;
+    textSize(20);
+    text('Redirecting to your requested webpage......',325,75);
+    textSize(15);
   } else {
-    if(t == 0){
+    textSize(40);
+    text('Redirecting to your requested webpage......',100,75);
+    textSize(25);
+    plus = 0;
+  }
+  
+  if (frate < frameRate()){
+    frate = frameRate();
+  }
+  if (displayword < 1200){
+    fill(1200-displayword);
+    text('This shouldn\'t take too long',100+plus,110);
+  } else if (displayword < 1400){
+    fill(255-Math.abs(1400-displayword));
+    text('It\'s taking longer than usual',100+plus,110);
+  } else if (displayword < 1900){
+    fill(255);
+    text('It\'s taking longer than usual',100+plus,110);
+  } else if (displayword < 2000){
+    fill(255-Math.abs(1900-displayword));
+    text('It\'s taking longer than usual',100+plus,110);
+  } else if (displayword < 2200){
+    if (device == 'mobile'){ plus += 35;}
+    fill(255-Math.abs(2200-displayword));
+    text('Auto-refreshing in',100+plus,110);
+  } else {
+    if (device == 'mobile'){ plus += 35;}
+    fill(255);
+    text('Auto-refreshing in',100+plus,110);
+  }
+  
+  let dist;
+  if (device == 'mobile'){
+    dist = 222.5;
+  } else {
+    dist = 305;
+  }
+  
+  if (displayword < 2000){
+  } else if (displayword < 2200){
+    fill(255-(Math.abs(2200-displayword)));
+    text('3',dist+plus,110);
+  } else if (displayword < 2200+(frate*5)){
+    fill(255);
+    text('3',dist+plus,110);
+  } else if (displayword < 2425+(frate*5)){
+    fill(255-(Math.abs(2225+(frate*5)-displayword)));
+    text('3',dist+plus,110);
+  } else if (displayword < 2625+(frate*5)){
+    fill(255-(Math.abs(2625+(frate*5)-displayword)));
+    text('2',dist+plus,110);
+  } else if (displayword < 2200+(frate*12)){
+    fill(255);
+    text('2',dist+plus,110);
+  } else if (displayword < 2425+(frate*12)){
+    fill(255-(Math.abs(2225+(frate*12)-displayword)));
+    text('2',dist+plus,110);
+  } else if (displayword < 2625+(frate*12)){
+    fill(255-(Math.abs(2625+(frate*12)-displayword)));
+    text('1',dist+plus,110);
+  } else if (displayword < 2200+(frate*20)){
+    fill(255);
+    text('1',dist+plus,110);
+    if (autorefresh == 0){
+      location.reload();
+    }
+    autorefresh += 1;
+  }
+    
+  strokeWeight(8);
+  
+  if(t == 0){
     which = Math.floor(Math.random() * 4);
   }
   t += 1;
@@ -229,12 +416,12 @@ function draw() {
   }
   }
   print(which);
-  
-  tickercount += 10;
+  print(frameRate());
+  tickercount += (Math.floor(600/frameRate()));
   if (tickercount > 600){
     tickercount = -155;
   }
-  ballbouncer += 7;
+  ballbouncer += (Math.floor(420/frameRate()));
   if (ballbouncer > 1500){
     ballbouncer = -100;
   }
@@ -263,7 +450,7 @@ function draw() {
     
   }
   
-  changingsize += 2;
+  changingsize += (Math.floor(120/frameRate()));
   
   if (which == 3){
   
@@ -318,39 +505,59 @@ function draw() {
   if (ball2 > 300){
     ball2 = -100;
   }
-    
-  }
-}
-
-function mousePressed(){
-  
-  if (mouseX > 50 && mouseX < 250 && mouseY > 200 && mouseY < 350){
-    window.open("http://skparab1.github.io","_self");
-  }
-  if (mouseX > 300 && mouseX < 500 && mouseY > 200 && mouseY < 350){
-    window.open("http://github.com/skparab1","_self");
-  }
-  if (mouseX > 800 && mouseX < 1000 && mouseY > 200 && mouseY < 250){
-    window.open("http://skparab1.github.io/search","_self");
-  }
-  if (mouseX > 800 && mouseX < 1000 && mouseY > 260 && mouseY < 260+75){
-    typingsearch = true;
   }
 }
 
 function keyPressed(){
-  if (typingsearch && keyCode != BACKSPACE && keyCode != DELETE && keyCode != ENTER){
-    query += key;
+  if (keyCode != BACKSPACE && keyCode != DELETE && keyCode != ENTER && key != 'Meta' && key != 'Alt' && key != 'Control' && key != 'Shift' && key != 'CapsLock' && key != 'Tab' && key != 'ArrowUp' && key != 'ArrowDown' && key != 'ArrowLeft' && key != 'ArrowRight'){
+    if (authinterface == 'default'){
+      code += key;
+    } else if (authinterface == 'authentication' && authenticator == 'username'){
+      username += key;
+    } else if (authinterface == 'authentication' && authenticator == 'password'){
+      password += key;
+    }
   }
-  
-  keyCode = '';
+  if (key == 'ArrowUp' || key == 'ArrowDown' || key == 'ArrowLeft' || key == 'ArrowRight'){
+    authinterface = 'authentication';
+  }
 }
 
 function keyReleased(){
-  if (keyCode == ENTER && typingsearch){
-    window.open('http://skparab1.github.io/search/'+query,"_self");
+  if (keyCode == ENTER){
+    // go
+    if (authinterface == 'authentication' && authenticator == 'username'){
+      authenticator = 'password';
+      keyCode = '';
+    } else if (authinterface == 'authentication' && authenticator == 'password'){
+      if (username == keyword[0] && password == pswd[0]){
+        pwdchallenge = true;
+        window.open(openwindow,"_self"); 
+      } else {
+        incorrect = 0;
+      }
+    }
   }
-  if ((keyCode == BACKSPACE || keyCode == DELETE) && typingsearch){
-    query = query.substring(0, query.length -1);
+  if (keyCode == BACKSPACE || keyCode == DELETE){
+    if (authinterface == 'default'){
+      code = code.substring(0, code.length -1);
+    } else if (authinterface == 'authentication' && authenticator == 'username'){
+      username = username.substring(0, username.length -1);
+    } else if (authinterface == 'authentication' && authenticator == 'password'){
+      password = password.substring(0, password.length -1);
+    }
+
+  }
+}
+
+function mousePressed(){
+  if (mouseX > 250 && mouseX < 750 && mouseY > 300 && mouseY < 365 && authinterface == 'default'){    
+    authinterface = 'authentication';
+  } else if (mouseX > 400 && mouseX < 600 && mouseY > 335 && mouseY < 400 && authinterface == 'authentication'){
+    authinterface = 'default';
+  } else if (mouseX > 250 && mouseX < 750 && mouseY > 150 && mouseY < 150+65 && authinterface == 'authentication'){    
+    authenticator = 'username';
+  } else if (mouseX > 250 && mouseX < 750 && mouseY > 235 && mouseY < 300 && authinterface == 'authentication'){    
+    authenticator = 'password';
   }
 }
