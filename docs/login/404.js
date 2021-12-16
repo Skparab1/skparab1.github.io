@@ -38,7 +38,7 @@ function setup() {
     
   } else {
     if (loc.includes('https://skparab1.github.io/login/')){
-      window.open('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=https://skparab1.github.io',"_self");
+      window.open('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=skparab1.github.io',"_self");
     }
   }
 }
@@ -179,7 +179,7 @@ function keyReleased(){
       let finder = 0;
       while (finder < usernames.length){
         if (username == usernames[finder] && password == passwords[finder] && logintimer == 0){
-          window.open(tolink,"_self");
+          window.open('https://'+tolink,"_self");
           found = true;
           logintimer += 1;
         }
