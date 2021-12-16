@@ -4,6 +4,7 @@ function preload() {
 
 var usernames;
 var password;
+var redirect = false;
 
 const getDeviceType = () => {
   const ua = navigator.userAgent;
@@ -32,13 +33,22 @@ function setup() {
   passwords = login.getColumn(1);
   
   loc = window.location.href;
+  
+  let signin = localStorage.getItem('login');
 
-  if (loc.includes('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=')){
+  if (signin == null){
+    localStorage.setItem('login','logged out');
+  }
+  
+  if (signin != 'logged out'){
+    window.open('https://skparab1.github.io/account',"_self");
+    redirect = true;
+  } else if (loc.includes('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=')){
     tolink = loc.replace('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=','');
-    
   } else {
     if (loc.includes('https://skparab1.github.io/login/')){
       window.open('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=skparab1.github.io',"_self");
+      redirect = true;
     }
   }
 }
@@ -95,6 +105,7 @@ function drawnicerect(x,y,xsize,ysize,incolor,outcolor){
 
 function draw(){
   
+  if (!redirect){
   console.log('in draw');
   resizeCanvas(windowWidth, windowHeight);
   
@@ -152,7 +163,7 @@ function draw(){
     stroke(255,200,0);
     text('Authenticate',405,380);
   }
-  
+  }
 }
 
 function keyPressed(){
@@ -179,6 +190,7 @@ function keyReleased(){
       let finder = 0;
       while (finder < usernames.length){
         if (username == usernames[finder] && password == passwords[finder] && logintimer == 0){
+          localStorage.setItem('login',username);
           window.open('https://'+tolink,"_self");
           found = true;
           logintimer += 1;
@@ -215,6 +227,7 @@ function mousePressed(){
     let finder = 0;
     while (finder < usernames.length){
       if (username == usernames[finder] && password == passwords[finder] && logintimer == 0){
+        localStorage.setItem('login',username);
         window.open(tolink,"_self");
         found = true;
         logintimer += 1;
