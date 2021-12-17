@@ -42,7 +42,7 @@ function setup() {
   }
   
   if (signin != 'logged out'){
-    window.open('https://skparab1.github.io/account',"_self");
+    window.open('https://skparab1.github.io/home',"_self");
     redirect = true;
   } else if (loc.includes('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=')){
     tolink = loc.replace('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=','');
