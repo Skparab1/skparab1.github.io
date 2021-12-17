@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(windowWidth, 1500);
+  createCanvas(windowWidth, 2000);
   background(0);
 }
 
@@ -42,7 +42,11 @@ function getScroll(){
 }
 
 function draw() {
-  resizeCanvas(windowWidth, 1500);
+  if (getScroll() < 1000){
+    resizeCanvas(windowWidth, 1500);
+  } else {
+    resizeCanvas(windowWidth, 3000);
+  }
   background(0);
   
   let c;
@@ -86,26 +90,42 @@ function draw() {
   rect(100,800,getScroll()/2,10);
   
   c = 0;
-  while (c <= 1000){
-    fill(c-round(getScroll()*500)/1000);
-    stroke(c-round(getScroll()*500)/1000);
+  while (c <= 900){
+    fill(0,0,c-round(getScroll()*500)/1000);
+    stroke(0,0,c-round(getScroll()*500)/1000);
     rect(0,c+500,windowWidth,1);
     c += 1;
   }
   
+  fill(0,0,255);
+  rect(0,c+500,windowWidth,100);
+  
   fill(200,0,0);
   stroke(200,0,0);
   drawnicerect(300,600,200,50,[200,0,0]);
-  text('Underlying text',100,600);
-  text('Underlying text',200,650);
-  text('Underlying text',300,700);
-  text('Underlying text',400,750);
-  text('Underlying text',200,800);
-  text('Underlying text',300,850);
-  text('Underlying text',400,900);
-  text('Underlying text',200,950);
-  text('Underlying text',300,1000);
-  text('Underlying text',400,1050);
+  text('Text float effect',100,600);
+  
+  c = 0;
+  while (c <= 700){
+    let clrnow = c-round((getScroll()-1000)*500)/1000;
+    fill(0,0,255-clrnow);
+    stroke(0,0,255-clrnow);
+    rect(0,c+900+500,windowWidth,1);
+    c += 1;
+  }
+  
+  fill(255,0,0);
+  stroke(255,0,0);
+  let x = 100;
+  let y = 600;
+  while (y < 2500){
+    text('Text float effect',x,y);
+    x += 100;
+    if (x >= 700){
+      x = 100;
+    }
+    y += 50;
+  }
   
   rectmover += (150-rectmover)/10;
   rectmover2 += (50-rectmover2)/10;
