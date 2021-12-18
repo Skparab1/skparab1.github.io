@@ -12,7 +12,7 @@
     - a search page for my software and website content
   - [traffic simulator](https://skparab1.github.io/traffic_simulator)
     - a web host for my traffic simulator
-  - login
+  - [login](https://skparab1.github.io/login)
     - a webpage for logging in to skparab1 services
     - can be used across skparab1 web applications
   - home
