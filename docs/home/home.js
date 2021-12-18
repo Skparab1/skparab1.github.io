@@ -101,7 +101,7 @@ function draw() {
   fill(200,0,0);
   stroke(200,0,0);
   drawnicerect(300,600,200,50,[200,0,0]);
-  text('Text float effect',100,600);
+  text('Text float effect (initial)',100,600);
   
   c = 0;
   while (c <= 1700){
