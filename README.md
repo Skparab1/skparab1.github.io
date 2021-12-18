@@ -17,7 +17,7 @@
     - can be used across skparab1 web applications
   - home
     - homepage for skparab1 web applications
-    - also a graphics
+    - also a graphics based webpage
 
 ## Url packing string query framework for search
 - search results are displayed, and are narrowed down by filters
