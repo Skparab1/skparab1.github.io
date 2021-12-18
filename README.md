@@ -15,7 +15,7 @@
   - [login](https://skparab1.github.io/login)
     - a webpage for logging in to skparab1 services
     - can be used across skparab1 web applications
-  - home
+  - [home](https://skparab1.github.io/home)
     - homepage for skparab1 web applications
     - also a graphics based webpage
 
