@@ -16,7 +16,7 @@
     - a webpage for logging in to skparab1 services
     - can be used across skparab1 web applications
   - home
-    - home
+    - homepage
 
 ## Url packing string query framework for search
 - search results are displayed, and are narrowed down by filters
