@@ -76,6 +76,7 @@ function draw() {
   stroke(timer*4-20);
   text('Free and open source software for everyone',200,275-rectmover);
   
+  
   let shift = 50;
   drawnicerect(25+12.5,(300-rectmover)*2-200+shift,250,50,[timer*4-25,0,0]);
   drawnicerect(375+12.5,((300-rectmover)*3-200)-150+shift,250,50,[0,timer*4-25,0]);
@@ -84,6 +85,9 @@ function draw() {
   drawnicerect(100,(300-rectmover2)*2-200,200,50,[timer*4-30,timer*4-30,0]);
   drawnicerect(400,((300-rectmover2)*3-200)-250,200,50,[0,timer*4-30,timer*4-30]);
   drawnicerect(700,((300-rectmover2)*4-200)-500,200,50,[timer*4-30,0,timer*4-30]);
+  
+  fill(0);
+  text('   Account                     Something                         IDK',65,185);
   
   fill(0,255,0);
   ellipse(500,750,getScroll()/2,getScroll()/2);
@@ -118,6 +122,7 @@ function draw() {
   let y = 600;
   while (y < 2500){
     text('Text float effect',x,y);
+    //drawnicerect(x,y,200,50,[0,200,0]);
     x += 100;
     if (x >= 700){
       x = 100;
