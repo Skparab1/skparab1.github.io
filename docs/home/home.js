@@ -90,15 +90,13 @@ function draw() {
   rect(100,800,getScroll()/2,10);
   
   c = 0;
-  while (c <= 900){
-    fill(0,0,c-round(getScroll()*500)/1000);
-    stroke(0,0,c-round(getScroll()*500)/1000);
-    rect(0,c+500,windowWidth,1);
+  while (c <= 1300){
+    let clrrect = c-round(getScroll()*600)/1000;
+    fill(0,0,clrrect);
+    stroke(0,0,clrrect);
+    rect(0,c+400,windowWidth,1);
     c += 1;
   }
-  
-  fill(0,0,255);
-  rect(0,c+500,windowWidth,100);
   
   fill(200,0,0);
   stroke(200,0,0);
@@ -106,11 +104,11 @@ function draw() {
   text('Text float effect',100,600);
   
   c = 0;
-  while (c <= 700){
-    let clrnow = c-round((getScroll()-1000)*500)/1000;
+  while (c <= 1700){
+    let clrnow = c-round((getScroll()-1200)*600)/1000;
     fill(0,0,255-clrnow);
     stroke(0,0,255-clrnow);
-    rect(0,c+900+500,windowWidth,1);
+    rect(0,c+1700,windowWidth,1);
     c += 1;
   }
   
