@@ -14,7 +14,7 @@
     - a web host for my traffic simulator
   - login
     - a webpage for logging in to skparab1 services
-    - can be used across
+    - can be used across skparab1 web applications
 
 ## Url packing string query framework for search
 - search results are displayed, and are narrowed down by filters
