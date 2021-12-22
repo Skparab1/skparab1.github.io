@@ -33,4 +33,4 @@
 clean this up later
 
 ## oskeyboard
-- framewrok for on screen
+- framework for on screen
