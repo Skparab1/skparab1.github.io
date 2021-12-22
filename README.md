@@ -40,3 +40,4 @@ clean this up later
   - put third parameter as a coefficient, default is 1
 - is movable
   - put x and y coordinates as first and second parameters to function
+- i'll probably make a repo for this later
