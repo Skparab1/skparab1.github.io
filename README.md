@@ -35,4 +35,4 @@ clean this up later
 ## oskeyboard
 - framework for on screen keyboard
 - uses p5js graphics library
-- has light up effect
+- has light up effect for keys
