@@ -34,4 +34,4 @@ clean this up later
 
 ## oskeyboard
 - framework for on screen keyboard
-- uses p5js graphics
+- uses p5js graphics library
