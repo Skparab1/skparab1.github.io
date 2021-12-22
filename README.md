@@ -38,4 +38,5 @@ clean this up later
 - has light up effect for keys
 - is sizable to whatever size you want
   - put third parameter as a coefficient, default is 1
-- is movable using xy coordinates
+- is movable
+  - put x and
