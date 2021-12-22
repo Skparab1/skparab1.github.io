@@ -37,4 +37,4 @@ clean this up later
 - uses p5js graphics library
 - has light up effect for keys
 - is sizable to whatever size you want
-  - put third parameter
+  - put third parameter as a coefficient, default is 1
