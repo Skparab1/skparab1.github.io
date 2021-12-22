@@ -34,4 +34,4 @@ clean this up later
 
 ## oskeyboard
 - framework for on screen keyboard
-- uses
+- uses p5js
