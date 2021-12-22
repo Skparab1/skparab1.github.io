@@ -39,4 +39,4 @@ clean this up later
 - is sizable to whatever size you want
   - put third parameter as a coefficient, default is 1
 - is movable
-  - put x and
+  - put x and y coordinates as first and second pa
