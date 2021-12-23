@@ -12,7 +12,7 @@ function displaykeyboard(xpos,ypos,keysize) {
   fill(0);
   let rectx = 100+(50*keysize);
   let buttonnum = 1;
-  while (rectx <= 1600*keysize){
+  while (rectx <= 100+(1500*keysize)){
     if (((buttonnum == 1 && key == '~')||(buttonnum == 2 && key == '1')||(buttonnum == 3 && key == '2')||(buttonnum == 4 && key == '3')||(buttonnum == 5 && key == '4')||(buttonnum == 6 && key == '5')||(buttonnum == 7 && key == '6')||(buttonnum == 8 && key == '7')||(buttonnum == 9 && key == '8')||(buttonnum == 10 && key == '9')||(buttonnum == 11 && key == '0')||(buttonnum == 12 && key == '(')||(buttonnum == 13 && key == ')')) && (lightup == 'on')){     
       fill(200,100,0);
     } else {
@@ -41,7 +41,7 @@ function displaykeyboard(xpos,ypos,keysize) {
   }
   rect(rectx+xdiff,(860-846)*keysize+846+ydiff,375*keysize,85*keysize);
   rectx = 100+(80*keysize);
-  while (rectx <= 1650*keysize){
+  while (rectx <= 100+(1550*keysize)){
     if (((buttonnum == 2 && key == 'q')||(buttonnum == 3 && key == 'w')||(buttonnum == 4 && key == 'e')||(buttonnum == 5 && key == 'r')||(buttonnum == 6 && key == 't')||(buttonnum == 7 && key == 'y')||(buttonnum == 8 && key == 'u')||(buttonnum == 9 && key == 'i')||(buttonnum == 10 && key == 'o')||(buttonnum == 11 && key == 'p')||(buttonnum == 12 && key == ';')||(buttonnum == 13 && key == ':')) && (lightup == 'on')){      fill(200,100,0);
       fill(200,100,0);
     } else {
@@ -76,7 +76,7 @@ function displaykeyboard(xpos,ypos,keysize) {
   rect(100+(50*keysize)+xdiff,(960-846)*keysize+846+ydiff,130*keysize,85*keysize);
   rectx = 100+(100*keysize);
   buttonnum = 1;
-  while (rectx <= 1650*keysize){
+  while (rectx <= 100+(1550*keysize)){
     if (((buttonnum == 3 && key == 'a')||(buttonnum == 4 && key == 's')||(buttonnum == 5 && key == 'd')||(buttonnum == 6 && key == 'f')||(buttonnum == 7 && key == 'g')||(buttonnum == 8 && key == 'h')||(buttonnum == 9 && key == 'j')||(buttonnum == 10 && key == 'k')||(buttonnum == 11 && key == 'l')||(buttonnum == 12 && key == '.')||(buttonnum == 13 && key == ',')) && (lightup == 'on')){      fill(200,100,0);
       fill(200,100,0);
     } else {
@@ -128,7 +128,7 @@ function displaykeyboard(xpos,ypos,keysize) {
   rect(rectx+xdiff,(1060-846)*keysize+846+ydiff,315*keysize,85*keysize);
   rectx = 100+(235*keysize);
   buttonnum = 1;
-  while (rectx <= 1590*keysize){
+  while (rectx <= 100+(1490*keysize)){
     if (((buttonnum == 1 && key == 'z')||(buttonnum == 2 && key == 'x')||(buttonnum == 3 && key == 'c')||(buttonnum == 4 && key == 'v')||(buttonnum == 5 && key == 'b')||(buttonnum == 6 && key == 'n')||(buttonnum == 7 && key == 'm')||(buttonnum == 8 && key == '!')||(buttonnum == 9 && key == '?')||(buttonnum == 10 && key == '@')||(buttonnum == 11 && key == '&')) && (lightup == 'on')){      fill(200,100,0);
       fill(200,100,0);
     } else {
@@ -171,7 +171,7 @@ function displaykeyboard(xpos,ypos,keysize) {
   clickedpos = [0,0];
 }
 
-var t = 1;
+var t = 0.01;
 var typed = '';
 var clickedpos = [0,0];
 var rerender = true;
@@ -182,12 +182,12 @@ var shift = false;
 function draw() {
   
   if (rendertimer < 2){
-    displaykeyboard(100,300,0.75);
+    displaykeyboard(100,300,t);
     console.log('rendered');
   }
   
   rendertimer += 1;
-  t -= 0.001;
+  t += 0.001;
 }
 
 function mousePressed(){
