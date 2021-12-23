@@ -157,7 +157,7 @@ function displaykeyboard(xpos,ypos,keysize) {
   }
   rect(rectx+xdiff,(1160-846)*keysize+846+ydiff,400*keysize,85*keysize);
   
-  let wrappedText = textWrap(50,typed);
+  let wrappedText = textWrap(50,typed, false);
   print(wrappedText);
   fill(0);
   textSize(40);
@@ -179,12 +179,31 @@ function displaykeyboard(xpos,ypos,keysize) {
   clickedpos = [0,0];
 }
 
-function textWrap(eachlength,text){
+function textWrap(eachlength,text,cutwords){
+  // var cutwords will cut the text at the end of the word
+
   wrapped = [];
   index = 0;
-  while (index < text.length){
-    wrapped.push(text.substring(index,index+eachlength));
-    index += eachlength;
+  if (cutwords){
+    scanner = '';
+    line = '';
+    while (index < text.length){
+      scanner = text[index];
+      line += scanner;
+      if (scanner == ' ' && index > (wrapped.length*eachlength)){
+        wrapped.push(line);
+        line = '';
+      }
+      index += 1;
+    }
+    if (text.length < eachlength){
+      wrapped.push(text);
+    }
+  } else {
+    while (index < text.length){
+      wrapped.push(text.substring(index,index+eachlength));
+      index += eachlength;
+    }
   }
   
   return wrapped;
