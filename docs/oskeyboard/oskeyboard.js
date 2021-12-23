@@ -1,7 +1,8 @@
 function setup() {
-  createCanvas(2046,800);
+  createCanvas(windowWidth,windowHeight);
   //background(0);
 }
+
 function displaykeyboard(xpos,ypos,keysize) {
   clear();
   let lightup = 'on';
@@ -156,9 +157,16 @@ function displaykeyboard(xpos,ypos,keysize) {
   }
   rect(rectx+xdiff,(1160-846)*keysize+846+ydiff,400*keysize,85*keysize);
   
+  let wrappedText = textWrap(50,typed);
+  print(wrappedText);
   fill(0);
   textSize(40);
-  text(typed,300,250);
+  
+  let i = 0;
+  while (i < wrappedText.length){
+    text(wrappedText[i],100,50+(i*50));
+    i += 1;
+  }
     
   fill(255);
   textSize(70*keysize);
@@ -169,6 +177,17 @@ function displaykeyboard(xpos,ypos,keysize) {
   text(' Shift    Z    X    C    V    B    N    M    !    ?    @    &      SPACE',100+xdiff+(43*keysize), (1225-846)*keysize+846+ydiff);
   
   clickedpos = [0,0];
+}
+
+function textWrap(eachlength,text){
+  wrapped = [];
+  index = 0;
+  while (index < text.length){
+    wrapped.push(text.substring(index,index+eachlength));
+    index += eachlength;
+  }
+  
+  return wrapped;
 }
 
 var t = 0.01;
@@ -182,7 +201,7 @@ var shift = false;
 function draw() {
   
   if (rendertimer < 2){
-    displaykeyboard(100,300,t);
+    displaykeyboard(100,200,0.40);
     console.log('rendered');
   }
   
