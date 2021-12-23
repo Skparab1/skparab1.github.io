@@ -1,5 +1,5 @@
 function setup() {
-  createCanvas(3000,1200);
+  createCanvas(2046,800);
   //background(0);
 }
 function displaykeyboard(xpos,ypos,keysize) {
@@ -158,15 +158,15 @@ function displaykeyboard(xpos,ypos,keysize) {
   
   fill(0);
   textSize(40);
-  text(typed,300,300);
+  text(typed,300,250);
     
   fill(255);
   textSize(70*keysize);
-  text('~    1    2    3    4    5    6    7    8    9    0    (     )    Backspace',100+xdiff+52,(925-846)*keysize+846+ydiff);
+  text('~    1    2    3    4    5    6    7    8    9    0    (     )    Backspace',100+xdiff+(52*keysize),(925-846)*keysize+846+ydiff);
   textSize(65*keysize);
-  text(' Tab  Q    W    E    R    T    Y    U    I    O    P    ;     :      Hide keys ',143+xdiff,(1025-846)*keysize+846+ydiff);
-  text(' CapsLok  A    S    D    F    G    H    J    K    L    .       ,      Enter ',143+xdiff, (1125-846)*keysize+846+ydiff);
-  text(' Shift    Z    X    C    V    B    N    M    !    ?    @    &      SPACE',143+xdiff, (1225-846)*keysize+846+ydiff);
+  text(' Tab  Q    W    E    R    T    Y    U    I    O    P    ;     :      Hide keys ',100+xdiff+(43*keysize),(1025-846)*keysize+846+ydiff);
+  text(' CapsLok  A    S    D    F    G    H    J    K    L    .       ,      Enter ',100+xdiff+(43*keysize), (1125-846)*keysize+846+ydiff);
+  text(' Shift    Z    X    C    V    B    N    M    !    ?    @    &      SPACE',100+xdiff+(43*keysize), (1225-846)*keysize+846+ydiff);
   
   clickedpos = [0,0];
 }
@@ -182,7 +182,7 @@ var shift = false;
 function draw() {
   
   if (rendertimer < 2){
-    displaykeyboard(100,300,t);
+    displaykeyboard(100,300,0.75);
     console.log('rendered');
   }
   
