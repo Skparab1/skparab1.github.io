@@ -43,3 +43,4 @@ clean this up later
 - i'll probably make a repo for this later
 - it would be nice to make it a module idk though
 - idk though i can't figure out how to make it a module
+- adding
