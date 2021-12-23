@@ -41,4 +41,4 @@ clean this up later
 - is movable
   - put x and y coordinates as first and second parameters to function
 - i'll probably make a repo for this later
-- it would be nice
+- it would be nice to
