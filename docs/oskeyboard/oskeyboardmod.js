@@ -1,4 +1,4 @@
-export function displaykeyboard(xpos,ypos,keysize) {
+function displaykeyboard(xpos,ypos,keysize) {
   clear();
   let lightup = 'on';
   let xdiff = xpos - 100;
