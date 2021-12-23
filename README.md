@@ -42,4 +42,4 @@ clean this up later
   - put x and y coordinates as first and second parameters to function
 - i'll probably make a repo for this later
 - it would be nice to make it a module idk though
-- idk though
+- idk though i 
