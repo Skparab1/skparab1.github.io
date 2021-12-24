@@ -192,28 +192,36 @@ function displaykeyboard(xpos,ypos,keysize) { // the function
     rectx += 115*keysize;
   }
   
+  // wait whats this for its for the space key oh right
   if (clickedpos[0] > rectx+xdiff && clickedpos[0] < rectx+xdiff+(315*keysize) && clickedpos[1] > (1160-846)*keysize+846+ydiff && clickedpos[1] < (1160-846)*keysize+846+ydiff+(85*keysize)){
     key = ' ';
     keyPressed();
   }
+  // lights up stuff
   if (key == ' '){
     fill(200,100,0);
   } else {
     fill(0);
   }
+  // render key wait which key the space key oh ok
   rect(rectx+xdiff,(1160-846)*keysize+846+ydiff,400*keysize,85*keysize);
   
-  let wrappedText = textWrap(50,typed, true);
-  print(wrappedText);
+  //wrapping text
+  let wrappedText = textWrap(50,typed, false); //theoretically making that false a true would cut the text wrap at spaces but that doesn't work right now
+  // so it cuts at 50 characters now
+  //print(wrappedText); just for checking ok so ill comment it out
   fill(0);
   textSize(40);
   
+  // iterates though the list and prints out each line of the wrapped text
   let i = 0;
   while (i < wrappedText.length){
     text(wrappedText[i],100,50+(i*50));
     i += 1;
   }
-    
+  
+  
+  // render all of the letters ( these also have to be resized and repositioned based on the size and postion
   fill(255);
   textSize(70*keysize);
   text('~    1    2    3    4    5    6    7    8    9    0    (     )    Backspace',100+xdiff+(52*keysize),(925-846)*keysize+846+ydiff);
@@ -222,15 +230,17 @@ function displaykeyboard(xpos,ypos,keysize) { // the function
   text(' CapsLok  A    S    D    F    G    H    J    K    L    .       ,      Enter ',100+xdiff+(43*keysize), (1125-846)*keysize+846+ydiff);
   text(' Shift    Z    X    C    V    B    N    M    !    ?    @    &      SPACE',100+xdiff+(43*keysize), (1225-846)*keysize+846+ydiff);
   
+  // reset the clickedpos (because you don't want it to keep adding characters to the sting after its clicked
   clickedpos = [0,0];
 }
 
-function textWrap(eachlength,text,cutwords){
+function textWrap(eachlength,text,cutwords){ // the text wrapper
   // var cutwords will cut the text at the end of the word
 
   wrapped = [];
   index = 0;
-  if (cutwords){
+  if (cutwords){  // ignore this 
+  // its a prototype that doesnt work
     scanner = '';
     line = '';
     while (index < text.length){
@@ -246,8 +256,8 @@ function textWrap(eachlength,text,cutwords){
     if (text.length < eachlength){
       wrapped.push(text);
     }
-  } else {
-    while (index < text.length){
+  } else { // this is the one the works and is used
+    while (index < text.length){ // its pretty simple just push substings to the list and return it
       wrapped.push(text.substring(index,index+eachlength));
       index += eachlength;
     }
@@ -256,6 +266,7 @@ function textWrap(eachlength,text,cutwords){
   return wrapped;
 }
 
+// intitalize everything
 var t = 0.01;
 var typed = '';
 var clickedpos = [0,0];
@@ -264,41 +275,45 @@ var rendertimer = 0;
 var capslock = false;
 var shift = false;
 
+// this one is the recursive one
 function draw() {
   
-  if (rendertimer < 2){
-    displaykeyboard(100,200,0.40);
-    console.log('rendered');
+  if (rendertimer < 2){ // it basically doesn't render it you hav't pressed anything and nothing has been changed
+    displaykeyboard(100,200,0.40); // it improves performance
+    console.log('rendered'); // sort of unnecessary but ill keep it
   }
   
+  // update things
   rendertimer += 1;
-  t += 0.001;
+  t += 0.001; // this was used to shrink the keyboard so that i can see that it maintains its proportion
+  // its practically useless now, except for demos
 }
 
-function mousePressed(){
+function mousePressed(){ // makes it rerender and hands off the coordinates to the keypress stimulator
   clickedpos = [mouseX,mouseY];
-  rendertimer = 0;
+  rendertimer = 0; 
 }
 
-function keyPressed(){
+function keyPressed(){ // the stimulator calls this
+  // this part overrides any command keys from getting appended
   if (keyCode != BACKSPACE && keyCode != DELETE && keyCode != ENTER && key != 'Meta' && key != 'Alt' && key != 'Control' && key != 'Shift' && key != 'CapsLock' && key != 'Tab' && key != 'ArrowUp' && key != 'ArrowDown' && key != 'ArrowLeft' && key != 'ArrowRight'){
-    if (capslock || shift){
+    if (capslock || shift){ // makes it uppercase if either setting is enabled
       typed += key.toUpperCase();
-      shift = false;
+      shift = false; // shift is canceled so that it doesnt repeat
     } else {
-      typed += key;
+      typed += key; // appends the key
     }
-    keyCode = '';
+    keyCode = ''; // resets the keycode to prevent stale lightup
   }
-  rendertimer = 0;
+  rendertimer = 0; // makes it rerender
 }
 
-function keyReleased(){
-  if (keyCode == BACKSPACE || keyCode == DELETE){
+function keyReleased(){ // only used for command keys this is mainly a template
+  if (keyCode == BACKSPACE || keyCode == DELETE){ //removes last character
     typed = typed.substring(0, typed.length -1);
     key = '';
   }
-  if (keyCode == ENTER){
+  if (keyCode == ENTER){ 
     // idk do whatever you want
     key = '';
   }
@@ -307,5 +322,5 @@ function keyReleased(){
     // probably wont be that useful unless you confugure the browser
     key = '';
   }
-  rendertimer = 0;
+  rendertimer = 0; // rerenders
 }
