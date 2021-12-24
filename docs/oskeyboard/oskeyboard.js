@@ -157,7 +157,7 @@ function displaykeyboard(xpos,ypos,keysize) {
   }
   rect(rectx+xdiff,(1160-846)*keysize+846+ydiff,400*keysize,85*keysize);
   
-  let wrappedText = textWrap(50,typed, false);
+  let wrappedText = textWrap(50,typed, true);
   print(wrappedText);
   fill(0);
   textSize(40);
@@ -190,7 +190,8 @@ function textWrap(eachlength,text,cutwords){
     while (index < text.length){
       scanner = text[index];
       line += scanner;
-      if (scanner == ' ' && index > (wrapped.length*eachlength)){
+      print(((wrapped.length+1)*eachlength),index);
+      if (scanner == ' ' || index > ((wrapped.length+1)*eachlength)){ // && index > (wrapped.length*eachlength)
         wrapped.push(line);
         line = '';
       }
