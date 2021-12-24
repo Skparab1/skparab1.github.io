@@ -1,48 +1,68 @@
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(windowWidth,windowHeight); //create a canvas sized to the window
   //background(0);
 }
 
-function displaykeyboard(xpos,ypos,keysize) {
-  clear();
+function displaykeyboard(xpos,ypos,keysize) { // the function
+  clear(); // sort of unnecessary its only there for rendering the text
+  
+  // initialize stuff
   let lightup = 'on';
-  let xdiff = xpos - 100;
+  let xdiff = xpos - 100; // these are things for the sizing and position
   let ydiff = ypos - 846;
-  fill(150);
-  rect(100+xdiff,846+ydiff,1946*keysize,450*keysize);
-  fill(0);
   let rectx = 100+(50*keysize);
   let buttonnum = 1;
-  while (rectx <= 100+(1500*keysize)){
+  
+  //render the large square 
+  fill(150);
+  rect(100+xdiff,846+ydiff,1946*keysize,450*keysize);
+  
+  // render first row of keys (~12345)
+  fill(0);
+  while (rectx <= 100+(1500*keysize)){ // keep on going till your at the end (for the sizing)
+    // the lightup logistics
     if (((buttonnum == 1 && key == '~')||(buttonnum == 2 && key == '1')||(buttonnum == 3 && key == '2')||(buttonnum == 4 && key == '3')||(buttonnum == 5 && key == '4')||(buttonnum == 6 && key == '5')||(buttonnum == 7 && key == '6')||(buttonnum == 8 && key == '7')||(buttonnum == 9 && key == '8')||(buttonnum == 10 && key == '9')||(buttonnum == 11 && key == '0')||(buttonnum == 12 && key == '(')||(buttonnum == 13 && key == ')')) && (lightup == 'on')){     
       fill(200,100,0);
     } else {
       fill(0);
     }
+    
+    // rendering the actual key
     rect(rectx+xdiff,(860-846)*keysize+846+ydiff,100*keysize,85*keysize);
     
+    // for the click activation when you press it
     if (clickedpos[0] > rectx+xdiff && clickedpos[0] < (rectx+xdiff+(100*keysize)) && clickedpos[1] > (860-846)*keysize+846+ydiff && clickedpos[1] <(860-846)*keysize+846+ydiff+(85*keysize)){
       if (buttonnum == 1){ key = '~'; keyPressed(); } else if (buttonnum == 2){ key = '1'; keyPressed(); } else if (buttonnum == 3){ key = '2'; keyPressed(); } else if (buttonnum == 4){ key = '3'; keyPressed(); } else if (buttonnum == 5){ key = '4'; keyPressed(); } else if (buttonnum == 6){ key = '5'; keyPressed(); } else if (buttonnum == 7){ key = '6'; keyPressed(); } else if (buttonnum == 8){ key = '7'; keyPressed(); } else if (buttonnum == 9){ key = '8'; keyPressed(); } else if (buttonnum == 10){ key = '9'; keyPressed(); } else if (buttonnum == 11){ key = '0'; keyPressed(); } else if (buttonnum == 12){ key = '('; keyPressed(); } else if (buttonnum == 13){ key = ')'; keyPressed(); }
       keyCode = '';
     }
+    
+    // update stuff
     buttonnum += 1;
     rectx += 115*keysize;
   }
   
   buttonnum = 1;
   
+  // render the backspace key
+  // stimulate the click
   if (clickedpos[0] > rectx+xdiff && clickedpos[0] < rectx+xdiff+(375*keysize) && clickedpos[1] > (860-846)*keysize+846+ydiff && clickedpos[1] < (860-846)*keysize+846+ydiff+(85*keysize)){
     keyCode = BACKSPACE;
     keyReleased();
   }
+  // lightup stuff
   if (keyCode == BACKSPACE){
     fill(200,100,0);
   } else {
     fill(0);
   }
+  // rendering the key
   rect(rectx+xdiff,(860-846)*keysize+846+ydiff,375*keysize,85*keysize);
+  
+  // set the starting value
   rectx = 100+(80*keysize);
+  // render the qwerty row
   while (rectx <= 100+(1550*keysize)){
+    // the lightup stuff
     if (((buttonnum == 2 && key == 'q')||(buttonnum == 3 && key == 'w')||(buttonnum == 4 && key == 'e')||(buttonnum == 5 && key == 'r')||(buttonnum == 6 && key == 't')||(buttonnum == 7 && key == 'y')||(buttonnum == 8 && key == 'u')||(buttonnum == 9 && key == 'i')||(buttonnum == 10 && key == 'o')||(buttonnum == 11 && key == 'p')||(buttonnum == 12 && key == ';')||(buttonnum == 13 && key == ':')) && (lightup == 'on')){      fill(200,100,0);
       fill(200,100,0);
     } else {
@@ -50,12 +70,14 @@ function displaykeyboard(xpos,ypos,keysize) {
       
     }
     buttonnum -= 1;
+    // stimulating the click
     if (clickedpos[0] > rectx+xdiff && clickedpos[0] < (rectx+xdiff+(100*keysize)) && clickedpos[1] > (960-846)*keysize+846+ydiff &&  clickedpos[1] < (960-846)*keysize+846+ydiff+(85*keysize)){
       if (buttonnum == 1){ key = 'q'; keyPressed(); } else if (buttonnum == 2){ key = 'w'; keyPressed(); } else if (buttonnum == 3){ key = 'e'; keyPressed(); } else if (buttonnum == 4){ key = 'r'; keyPressed(); } else if (buttonnum == 5){ key = 't'; keyPressed(); } else if (buttonnum == 6){ key = 'y'; keyPressed(); } else if (buttonnum == 7){ key = 'u'; keyPressed(); } else if (buttonnum == 8){ key = 'i'; keyPressed(); } else if (buttonnum == 9){ key = 'o'; keyPressed(); } else if (buttonnum == 10){ key = 'p'; keyPressed(); } else if (buttonnum == 11){ key = ';'; keyPressed(); } else if (buttonnum == 12){ key = ':'; keyPressed(); }
       keyCode = '';
     }
     
     buttonnum += 2;
+    // render the key
     rect(rectx+xdiff,(960-846)*keysize+846+ydiff,100*keysize,85*keysize);
     rectx += 115*keysize;
   }
