@@ -87,6 +87,7 @@ function displaykeyboard(xpos,ypos,keysize) { // the function
   }
   rect(rectx+xdiff,(960-846)*keysize+846+ydiff,330*keysize,85*keysize);
   
+  // the tab key
   if (clickedpos[0] > 100+(50*keysize)+xdiff && clickedpos[0] < 100+(50*keysize)+xdiff+(130*keysize) && clickedpos[1] > (960-846)*keysize+846+ydiff && clickedpos[1] < (960-846)*keysize+846+ydiff+(85*keysize)){
     keyCode = TAB;
     keyReleased();
@@ -97,39 +98,51 @@ function displaykeyboard(xpos,ypos,keysize) { // the function
     fill(0);
   }
   rect(100+(50*keysize)+xdiff,(960-846)*keysize+846+ydiff,130*keysize,85*keysize);
+  
+  // setting up the start position
   rectx = 100+(100*keysize);
   buttonnum = 1;
+  
+  // render the asdf row
   while (rectx <= 100+(1550*keysize)){
+    // the light up stuff
     if (((buttonnum == 3 && key == 'a')||(buttonnum == 4 && key == 's')||(buttonnum == 5 && key == 'd')||(buttonnum == 6 && key == 'f')||(buttonnum == 7 && key == 'g')||(buttonnum == 8 && key == 'h')||(buttonnum == 9 && key == 'j')||(buttonnum == 10 && key == 'k')||(buttonnum == 11 && key == 'l')||(buttonnum == 12 && key == '.')||(buttonnum == 13 && key == ',')) && (lightup == 'on')){      fill(200,100,0);
       fill(200,100,0);
     } else {
       fill(0);
     }
+    // stimulating the click for oskeyboard
     if (clickedpos[0] > rectx+xdiff && clickedpos[0] < (rectx+xdiff+(100*keysize)) && clickedpos[1] > (1060-846)*keysize+846+ydiff &&  clickedpos[1] < (1060-846)*keysize+846+ydiff+(85*keysize)){
       if (buttonnum == 3){ key = 'a'; keyPressed(); } else if (buttonnum == 4){ key = 's'; keyPressed(); } else if (buttonnum == 5){ key = 'd'; keyPressed(); } else if (buttonnum == 6){ key = 'f'; keyPressed(); } else if (buttonnum == 7){ key = 'g'; keyPressed(); } else if (buttonnum == 8){ key = 'h'; keyPressed(); } else if (buttonnum == 9){ key = 'j'; keyPressed(); } else if (buttonnum == 10){ key = 'k'; keyPressed(); } else if (buttonnum == 11){ key = 'l'; keyPressed(); } else if (buttonnum == 12){ key = '.'; keyPressed(); } else if (buttonnum == 13){ key = ','; keyPressed(); }
       keyCode = ''; 
     }
     
     buttonnum += 1;
+    // render it
     rect(rectx+xdiff,(1060-846)*keysize+846+ydiff,100*keysize,85*keysize);
     rectx += 115*keysize;
   }
  
+  // the capslock var setting and mod
   if (clickedpos[0] > 100+(50*keysize)+xdiff && clickedpos[0] < 100+(50*keysize)+xdiff+(270*keysize) && clickedpos[1] > (1060-846)*keysize+846+ydiff && clickedpos[1] < (1060-846)*keysize+846+ydiff+(85*keysize)){
     capslock = !capslock;
   }
+  // light up effect
   if (capslock){
-    keyCode = '';
+    keyCode = ''; // this stuff it there only for the light up effect
     key = '';
     fill(200,100,0);
   } else {
     fill(0);
   }
+  // render capslock key
   rect(100+(50*keysize)+xdiff,(1060-846)*keysize+846+ydiff,270*keysize,85*keysize);
   
+  // shift button logistics
   if (clickedpos[0] > 100+(50*keysize)+xdiff && clickedpos[0] < 100+(50*keysize)+xdiff+(270*keysize) && clickedpos[1] > (1160-846)*keysize+846+ydiff && clickedpos[1] < (1160-846)*keysize+846+ydiff+(85*keysize)){
     shift = !shift;
   }
+  // lightup and clear other lightups
   if (shift){
     keyCode = '';
     key = '';
@@ -137,33 +150,44 @@ function displaykeyboard(xpos,ypos,keysize) { // the function
   } else {
     fill(0);
   }
+  // render
   rect(100+(50*keysize)+xdiff,(1160-846)*keysize+846+ydiff,170*keysize,85*keysize);
   
+  // the enter key stuff
+  // stimulate the key press
   if (clickedpos[0] > rectx+xdiff && clickedpos[0] < rectx+xdiff+(315*keysize) && clickedpos[1] > (1060-846)*keysize+846+ydiff && clickedpos[1] < (1060-846)*keysize+846+ydiff+(85*keysize)){
     keyCode = ENTER;
     keyReleased();
   }
+  // lightup effect
   if (keyCode == ENTER){
     fill(200,100,0);
   } else {
     fill(0);
   }
+  // render key
   rect(rectx+xdiff,(1060-846)*keysize+846+ydiff,315*keysize,85*keysize);
+  
+  // set starting x position
   rectx = 100+(235*keysize);
   buttonnum = 1;
+  
+  // render zxcvb row and space key
   while (rectx <= 100+(1490*keysize)){
+    // the light up effect
     if (((buttonnum == 1 && key == 'z')||(buttonnum == 2 && key == 'x')||(buttonnum == 3 && key == 'c')||(buttonnum == 4 && key == 'v')||(buttonnum == 5 && key == 'b')||(buttonnum == 6 && key == 'n')||(buttonnum == 7 && key == 'm')||(buttonnum == 8 && key == '!')||(buttonnum == 9 && key == '?')||(buttonnum == 10 && key == '@')||(buttonnum == 11 && key == '&')) && (lightup == 'on')){      fill(200,100,0);
       fill(200,100,0);
     } else {
       fill(0);
     }
-    
+    // stimulate keypress for each key
     if (clickedpos[0] > rectx+xdiff && clickedpos[0] < (rectx+xdiff+(100*keysize)) && clickedpos[1] > (1160-846)*keysize+846+ydiff && clickedpos[1] < (1160-846)*keysize+846+ydiff+(85*keysize)){
       if (buttonnum == 1){ key = 'z'; keyPressed(); } else if (buttonnum == 2){ key = 'x'; keyPressed(); } else if (buttonnum == 3){ key = 'c'; keyPressed(); } else if (buttonnum == 4){ key = 'v'; keyPressed(); } else if (buttonnum == 5){ key = 'b'; keyPressed(); } else if (buttonnum == 6){ key = 'n'; keyPressed(); } else if (buttonnum == 7){ key = 'm'; keyPressed(); } else if (buttonnum == 8){ key = '!'; keyPressed(); } else if (buttonnum == 9){ key = '?'; keyPressed(); } else if (buttonnum == 10){ key = '@'; keyPressed(); } else if (buttonnum == 11){ key = '&'; keyPressed();}
       keyCode = '';
     }
     
     buttonnum += 1;
+    //render it
     rect(rectx+xdiff,(1160-846)*keysize+846+ydiff,100*keysize,85*keysize);
     rectx += 115*keysize;
   }
