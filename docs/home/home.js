@@ -8,6 +8,7 @@ var startbackdrop = 0;
 var clr;
 var rectmover = 0;
 var rectmover2 = 0;
+var shift = 50;
 
 function drawnicerect(x,y,xsize,ysize,incolor){
   let xchange = x-250;
@@ -77,7 +78,7 @@ function draw() {
   text('Free and open source software for everyone',200,275-rectmover);
   
   
-  let shift = 50;
+  shift = 50;
   drawnicerect(25+12.5,(300-rectmover)*2-200+shift,250,50,[timer*4-25,0,0]);
   drawnicerect(375+12.5,((300-rectmover)*3-200)-150+shift,250,50,[0,timer*4-25,0]);
   drawnicerect(725+12.5,((300-rectmover)*4-200)-300+shift,250,50,[0,0,timer*4-50]);
@@ -141,5 +142,7 @@ function mousePressed(){
   if (mouseX > 375+12.5 && mouseX < 375+12.5+250 && mouseY > ((300-rectmover)*3-200)-150+shift && mouseY < ((300-rectmover)*3-200)-150+shift+50){
     localStorage.setItem('login','logged out');
     signin = 'logged out';
+    console.log('logged out yup');
+    window.location.reload();
   }
 }
