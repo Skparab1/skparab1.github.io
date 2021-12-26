@@ -87,7 +87,7 @@ function draw() {
   drawnicerect(700,((300-rectmover2)*4-200)-500,200,50,[timer*4-30,0,timer*4-30]);
   
   fill(0);
-  text('   Account                     Something                         IDK',65,185);
+  text('   Account                     Log out                      Something',65,185);
   
   fill(0,255,0);
   ellipse(500,750,getScroll()/2,getScroll()/2);
@@ -135,4 +135,11 @@ function draw() {
   
   timer += 1;
   
+}
+
+function mousePressed(){
+  if (mouseX > 375+12.5 && mouseX < 375+12.5+250 && mouseY > ((300-rectmover)*3-200)-150+shift && mouseY < ((300-rectmover)*3-200)-150+shift+50){
+    localStorage.setItem('login','logged out');
+    signin = 'logged out';
+  }
 }
