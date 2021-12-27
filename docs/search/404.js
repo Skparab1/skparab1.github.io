@@ -80,6 +80,8 @@ var searchrender = query;
 var liveupdate = true;
 var clickpos = [];
 
+console.log(language);
+
 var opennewtab = localStorage.getItem('tabopenapi');
 
 console.log(opennewtab);
@@ -162,6 +164,10 @@ function draw() {
     
     if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
       let openurl = 'https://'+urls[i];
+      //while (openurl.includes(' ')){
+      //  openurl = openurl.replace(' ','');
+      //}
+      
       if (opennewtab){
         window.open(openurl);
       } else {
@@ -175,6 +181,7 @@ function draw() {
     text(descriptions[i],100,ypos+20);
       
     textSize(20);
+    console.log(openurl);
     if (language[i] == 'Python'){
       fill(0,50,150);
       ellipse(600,ypos,15,15);
