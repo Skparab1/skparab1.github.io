@@ -41,10 +41,3 @@ js javascript url shortener website redirect, JS url shortener, github.com/skpar
 loading animation animations js javascript, Loading animations, github.com/skparab1/loading-animations, Loading animations for redirector, JavaScript, Software
 game server test testapi game server peer p2p svelte, Game server, github.com/skparab1/game-server, testapi game server with peerjs and svelte, JavaScript+Svelte, Software
 traffic simulator model win won hackathon 3rd third place js javascript graphics, Traffic simulator, github.com/skparab1/traffic-simulator, 3rd place hackathon winning Javascript traffic simulator, JavaScript, Software
-
-var keywords = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
-var titles = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
-var urls = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
-var descriptions = ['','','','',' ','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
-var language = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
-var type = ['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
