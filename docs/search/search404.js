@@ -13,6 +13,8 @@ function setup() {
   type = entries.getColumn(5);
 }
 
+
+
 loc = window.location.href;
 var t = 0;
 
@@ -78,6 +80,8 @@ var searchrender = query;
 var liveupdate = true;
 var clickpos = [];
 
+console.log(language);
+
 var opennewtab = localStorage.getItem('tabopenapi');
 
 console.log(opennewtab);
@@ -86,6 +90,8 @@ if (opennewtab == null){
   localStorage.setItem('tabopenapi',true);
   opennewtab = true;
 }
+
+var unfilteredresults = [];
 
 function returnis(q){
   
@@ -117,9 +123,9 @@ function returnis(q){
   
   return results;
 }
-
-var unfilteredresults = [];
 var counter = 0;
+
+var results = [];
   
 function draw() {
   
@@ -130,6 +136,7 @@ function draw() {
   console.log(opennewtab);
   localStorage.setItem('tabopenapi',opennewtab);
   
+  resizeCanvas(windowWidth, 75*results.length+100);
   background(0);
   numfound = 0;
   ypos = 125;
@@ -157,6 +164,10 @@ function draw() {
     
     if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
       let openurl = 'https://'+urls[i];
+      //while (openurl.includes(' ')){
+      //  openurl = openurl.replace(' ','');
+      //}
+      
       if (opennewtab){
         window.open(openurl);
       } else {
@@ -170,6 +181,7 @@ function draw() {
     text(descriptions[i],100,ypos+20);
       
     textSize(20);
+    console.log(openurl);
     if (language[i] == 'Python'){
       fill(0,50,150);
       ellipse(600,ypos,15,15);

@@ -91,6 +91,8 @@ if (opennewtab == null){
   opennewtab = true;
 }
 
+var unfilteredresults = [];
+
 function returnis(q){
   
   let i = 0;
@@ -121,8 +123,6 @@ function returnis(q){
   
   return results;
 }
-
-var unfilteredresults = [];
 var counter = 0;
 
 var results = [];
