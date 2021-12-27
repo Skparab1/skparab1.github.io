@@ -1,17 +1,17 @@
 function preload(){
-  entries = loadTable("results.csv","csv","header");
+  var entries = loadTable("results.csv","csv","header");
 }
 
 function setup() {
   createCanvas(1023,3000);  
-  
-  var keywords = entries.getColumn(0);
-  var titles = entries.getColumn(1);
-  var urls = entries.getColumn(2);
-  var descriptions = entries.getColumn(3);
-  var language = entries.getColumn(4);
-  var type = entries.getColumn(5);
 }
+
+var keywords = entries.getColumn(0);
+var titles = entries.getColumn(1);
+var urls = entries.getColumn(2);
+var descriptions = entries.getColumn(3);
+var language = entries.getColumn(4);
+var type = entries.getColumn(5);
 
 loc = window.location.href;
 var t = 0;
