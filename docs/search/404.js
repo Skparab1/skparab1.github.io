@@ -178,7 +178,7 @@ function draw() {
     text(descriptions[i],100,ypos+20);
       
     textSize(20);
-    console.log(openurl);
+    //console.log(openurl);
     if (language[i] == 'Python'){
       fill(0,50,150);
       ellipse(600,ypos,15,15);
