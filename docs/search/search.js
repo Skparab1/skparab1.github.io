@@ -79,9 +79,6 @@ var searching = false;
 var searchrender = query;
 var liveupdate = true;
 var clickpos = [];
-
-console.log(language);
-
 var opennewtab = localStorage.getItem('tabopenapi');
 
 console.log(opennewtab);
