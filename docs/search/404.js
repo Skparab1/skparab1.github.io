@@ -5,12 +5,12 @@ function preload(){
 function setup() {
   createCanvas(1023,3000);  
   
-  var keywords = entries.getColumn(0);
-  var titles = entries.getColumn(1);
-  var urls = entries.getColumn(2);
-  var descriptions = entries.getColumn(3);
-  var language = entries.getColumn(4);
-  var type = entries.getColumn(5);
+  keywords = entries.getColumn(0);
+  titles = entries.getColumn(1);
+  urls = entries.getColumn(2);
+  descriptions = entries.getColumn(3);
+  language = entries.getColumn(4);
+  type = entries.getColumn(5);
 }
 
 loc = window.location.href;
