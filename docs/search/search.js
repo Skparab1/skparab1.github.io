@@ -133,7 +133,12 @@ function draw() {
   console.log(opennewtab);
   localStorage.setItem('tabopenapi',opennewtab);
   
-  resizeCanvas(windowWidth, 75*results.length+100);
+  if (75*results.length+100 > windowHeight){
+    resizeCanvas(windowWidth, 75*results.length+100);
+  } else {
+    resizeCanvas(windowWidth, windowHeight);
+  }
+  
   background(0);
   numfound = 0;
   ypos = 125;
