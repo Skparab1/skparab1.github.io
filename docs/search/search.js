@@ -23,6 +23,7 @@ if (loc.includes('https://skparab1.github.io/search/')){
   packedurl = packedurl.replace('&',' ');
   unpackedurl = packedurl.split();
   langfilter = [true,true,true,true,true,true];
+  entryfilter = [true,true,true];
   
   i = 0;
   while (i < unpackedurl.length){
@@ -44,6 +45,15 @@ if (loc.includes('https://skparab1.github.io/search/')){
     if (unpackedurl[i].includes('sv=false')){
       langfilter[5] = false;
     }
+    if (unpackedurl[i].includes('software=false')){
+      entryfilter[0] = false;
+    }
+    if (unpackedurl[i].includes('webpage=false')){
+      entryfilter[1] = false;
+    }
+    if (unpackedurl[i].includes('article=false')){
+      entryfilter[2] = false;
+    }
     i += 1;
     
     packedurl = packedurl.replace(' ','');
@@ -53,6 +63,9 @@ if (loc.includes('https://skparab1.github.io/search/')){
     packedurl = packedurl.replace('pas=false','');
     packedurl = packedurl.replace('md=false','');
     packedurl = packedurl.replace('sv=false','');
+    packedurl = packedurl.replace('software=false','');
+    packedurl = packedurl.replace('webpage=false','');
+    packedurl = packedurl.replace('article=false','');
     
     while (packedurl.includes('&')){
       packedurl = packedurl.replace('&','');
@@ -64,6 +77,7 @@ if (loc.includes('https://skparab1.github.io/search/')){
 } else if (t == 0){
   packedurl = '';
   langfilter = [true,true,true,true,true,true];
+  entryfilter = [true,true,true];
 }
 
 
@@ -110,8 +124,13 @@ function returnis(q){
     
     if (query.includes(keyw) || (keyw).includes(query)){
       let l = language[i];
+      let t = type[i];
+      // check langfilter
       if ((l.includes('Python') && langfilter[0]) || (l.includes('JavaScript') && langfilter[1]) || (l.includes('HTML') && langfilter[2]) || (l.includes('Pascal') && langfilter[3]) || (l.includes('Markdown') && langfilter[4]) || (l.includes('Svelte') && langfilter[5])){
-        results.push(i);
+        // check entryfilter
+        if ((t.includes('Software') && entryfilter[0]) || (t.includes('Webpage') && entryfilter[1]) || (t.includes('Article') && entryfilter[2])){
+          results.push(i);
+        }
       }
       unfilteredresults.push(i);
     }
@@ -338,6 +357,9 @@ function draw() {
   let pascount = 0;
   let mdcount = 0;
   let svcount = 0;
+  let softwarecount = 0;
+  let webpagecount = 0;
+  let articlecount = 0;
   
   let k = 0;
   while (k < unfilteredresults.length){
@@ -359,6 +381,15 @@ function draw() {
     }
     if (language[index].includes('Svelte')){
       svcount += 1;
+    }
+    if (type[index].includes('Software')){
+      softwarecount += 1;
+    }
+    if (type[index].includes('Webpage')){
+      webpagecount += 1;
+    }
+    if (type[index].includes('Article')){
+      articlecount += 1;
     }
     k += 1;
   }
@@ -439,10 +470,37 @@ function draw() {
   fill(200);
   rect(785,515,20,20);
   rect(785,545,20,20);
-  fill(0,200,0);
-  text('Software',820,530);
-  fill(255,0,0);
-  text('Article',820,560);
+  rect(785,575,20,20);
+  fill(0,225,0);
+  text('Software ('+softwarecount+')',820,530);
+  fill(225,225,0);
+  text('Webpage ('+webpagecount+')',820,560);
+  fill(225,0,0);
+  text('Article ('+articlecount+')',820,590);
+  
+  textSize(13);
+  fill(0,150,255);
+  text('only',950,530);
+  text('only',950,560);
+  text('only',950,590);
+  
+  strokeWeight(5);
+  stroke(0,255,0);
+  fill(0,255,0);
+  if (entryfilter[0]){
+    line(790,250+270,795,255+270);
+    line(810,240+270,795,255+270);
+  }
+  if (entryfilter[1]){
+    line(790,250+300,795,255+300);
+    line(810,240+300,795,255+300);
+  }
+  if (entryfilter[2]){
+    line(790,250+330,795,255+330);
+    line(810,240+330,795,255+330);
+  }
+  strokeWeight(1);
+  stroke(0);
   
   clickpos = [];
   
@@ -494,26 +552,65 @@ function mousePressed(){
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 365 && mouseY < 385 && !langfilter[4]){
     loc = loc.replace('&md=false','');
     window.open(loc,"_self");
-    
-  } else if (mouseX > 785 && mouseX < 805 && mouseY > 395 && mouseY < 405 && langfilter[5]){
+
+  } else if (mouseX > 785 && mouseX < 805 && mouseY > 395 && mouseY < 415 && langfilter[5]){
     window.open(loc+'&sv=false',"_self");
-  } else if (mouseX > 785 && mouseX < 805 && mouseY > 395 && mouseY < 405 && !langfilter[5]){
+  } else if (mouseX > 785 && mouseX < 805 && mouseY > 395 && mouseY < 415 && !langfilter[5]){
     loc = loc.replace('&sv=false','');
     window.open(loc,"_self");
     
   } else if (mouseX > 940 && mouseY > 250 && mouseY < 270){
-    window.open('https://skparab1.github.io/search/'+query+'&js=false&html=false&pas=false&md=false&sv=false',"_self");
+    loc = loc.replace('&py=false',''); loc = loc.replace('&js=false',''); loc = loc.replace('&html=false',''); loc = loc.replace('&pas=false',''); loc = loc.replace('&md=false',''); loc = loc.replace('&sv=false','');
+    window.open(loc+'&js=false&html=false&pas=false&md=false&sv=false',"_self");
+  
   } else if (mouseX > 940 && mouseY > 280 && mouseY < 300){
-    window.open('https://skparab1.github.io/search/'+query+'&py=false&html=false&pas=false&md=false&sv=false',"_self");
+    loc = loc.replace('&py=false',''); loc = loc.replace('&js=false',''); loc = loc.replace('&html=false',''); loc = loc.replace('&pas=false',''); loc = loc.replace('&md=false',''); loc = loc.replace('&sv=false','');
+    window.open(loc+'&py=false&html=false&pas=false&md=false&sv=false',"_self");
+  
   } else if (mouseX > 940 && mouseY > 310 && mouseY < 330){
-    window.open('https://skparab1.github.io/search/'+query+'&py=false&js=false&pas=false&md=false&sv=false',"_self");
+    loc = loc.replace('&py=false',''); loc = loc.replace('&js=false',''); loc = loc.replace('&html=false',''); loc = loc.replace('&pas=false',''); loc = loc.replace('&md=false',''); loc = loc.replace('&sv=false','');
+    window.open(loc+'&py=false&js=false&pas=false&md=false&sv=false',"_self");
+  
   } else if (mouseX > 940 && mouseY > 340 && mouseY < 360){
-    window.open('https://skparab1.github.io/search/'+query+'&py=false&js=false&html=false&md=false&sv=false',"_self");
+    loc = loc.replace('&py=false',''); loc = loc.replace('&js=false',''); loc = loc.replace('&html=false',''); loc = loc.replace('&pas=false',''); loc = loc.replace('&md=false',''); loc = loc.replace('&sv=false','');
+    window.open(loc+'&py=false&js=false&html=false&md=false&sv=false',"_self");
+  
   } else if (mouseX > 940 && mouseY > 370 && mouseY < 390){
-    window.open('https://skparab1.github.io/search/'+query+'&py=false&js=false&html=false&pas=false&sv=false',"_self");
+    window.open(loc+'&py=false&js=false&html=false&pas=false&sv=false',"_self");
+  
   } else if (mouseX > 940 && mouseY > 400 && mouseY < 420){
-    window.open('https://skparab1.github.io/search/'+query+'&py=false&js=false&html=false&pas=false&md=false',"_self");
+    window.open(loc+'&py=false&js=false&html=false&pas=false&md=false',"_self");
     
+  } else if (mouseX > 785 && mouseX < 805 && mouseY > 515 && mouseY < 535 && entryfilter[0]){
+    window.open(loc+'&software=false',"_self");
+  } else if (mouseX > 785 && mouseX < 805 && mouseY > 515 && mouseY < 535 && !entryfilter[0]){
+    loc = loc.replace('&software=false','');
+    window.open(loc,"_self"); 
+  
+  } else if (mouseX > 785 && mouseX < 805 && mouseY > 545 && mouseY < 565 && entryfilter[1]){
+    window.open(loc+'&webpage=false',"_self");
+  } else if (mouseX > 785 && mouseX < 805 && mouseY > 545 && mouseY < 565 && !entryfilter[1]){
+    loc = loc.replace('&webpage=false','');
+    window.open(loc,"_self"); 
+    
+  } else if (mouseX > 785 && mouseX < 805 && mouseY > 575 && mouseY < 595 && entryfilter[2]){
+    window.open(loc+'&article=false',"_self");
+  } else if (mouseX > 785 && mouseX < 805 && mouseY > 575 && mouseY < 595 && !entryfilter[2]){
+    loc = loc.replace('&article=false','');
+    window.open(loc,"_self"); 
+    
+  } else if (mouseX > 930 && mouseY > 525 && mouseY < 555){
+    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
+    window.open(loc+'&webpage=false&article=false',"_self");
+    
+  } else if (mouseX > 930 && mouseY > 555 && mouseY < 585){
+    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
+    window.open(loc+'&software=false&article=false',"_self");
+  
+  } else if (mouseX > 930 && mouseY > 585 && mouseY < 615){
+    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
+    window.open(loc+'&software=false&webpage=false',"_self");
+
   } else {
     searching = false;
   }
