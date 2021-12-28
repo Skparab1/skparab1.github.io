@@ -165,7 +165,7 @@ function draw() {
   numfound = results.length;
   counter += 10;  
 
-  fill(50);
+  fill(33);
   rect(0,mouseY-37.5,1023,75);
   
   fill(0);
@@ -599,15 +599,15 @@ function mousePressed(){
     loc = loc.replace('&article=false','');
     window.open(loc,"_self"); 
     
-  } else if (mouseX > 930 && mouseY > 525 && mouseY < 555){
+  } else if (mouseX > 930 && mouseY > 525 && mouseY < 550){
     loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
     window.open(loc+'&webpage=false&article=false',"_self");
     
-  } else if (mouseX > 930 && mouseY > 555 && mouseY < 585){
+  } else if (mouseX > 930 && mouseY > 555 && mouseY < 580){
     loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
     window.open(loc+'&software=false&article=false',"_self");
   
-  } else if (mouseX > 930 && mouseY > 585 && mouseY < 615){
+  } else if (mouseX > 930 && mouseY > 585 && mouseY < 610){
     loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
     window.open(loc+'&software=false&webpage=false',"_self");
 
@@ -622,7 +622,7 @@ function keyPressed(){
     searchrender += key;
   }
   
-  if (liveupdate){
+  if (liveupdate && searching){
     query = searchrender;
     results = [];
     unfilteredresults = [];
