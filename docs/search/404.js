@@ -580,10 +580,12 @@ function mousePressed(){
     window.open(loc+'&py=false&js=false&html=false&md=false&sv=false',"_self");
   
   } else if (mouseX > 940 && mouseY > 370 && mouseY < 390){
-    window.open(loc+'&py=false&js=false&html=false&pas=false&sv=false',"_self");
+     loc = loc.replace('&py=false',''); loc = loc.replace('&js=false',''); loc = loc.replace('&html=false',''); loc = loc.replace('&pas=false',''); loc = loc.replace('&md=false',''); loc = loc.replace('&sv=false','');
+     window.open(loc+'&py=false&js=false&html=false&pas=false&sv=false',"_self");
   
   } else if (mouseX > 940 && mouseY > 400 && mouseY < 420){
-    window.open(loc+'&py=false&js=false&html=false&pas=false&md=false',"_self");
+     loc = loc.replace('&py=false',''); loc = loc.replace('&js=false',''); loc = loc.replace('&html=false',''); loc = loc.replace('&pas=false',''); loc = loc.replace('&md=false',''); loc = loc.replace('&sv=false','');
+     window.open(loc+'&py=false&js=false&html=false&pas=false&md=false',"_self");
     
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 515 && mouseY < 535 && entryfilter[0]){
     window.open(loc+'&software=false',"_self");
@@ -624,12 +626,12 @@ function mousePressed(){
     window.open(loc+'&software=false&webpage=false&article=false',"_self");
       
   } else if (mouseX > 905 && mouseX < 960 && mouseY > 225 && mouseY < 245){
-    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
+    loc = loc.replace('&py=false',''); loc = loc.replace('&js=false',''); loc = loc.replace('&html=false',''); loc = loc.replace('&pas=false',''); loc = loc.replace('&md=false',''); loc = loc.replace('&sv=false','');
     window.open(loc,"_self");
   
   } else if (mouseX > 965 && mouseY > 225 && mouseY < 245){
-    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
-    window.open(loc+'&software=false&webpage=false&article=false',"_self");
+    loc = loc.replace('&py=false',''); loc = loc.replace('&js=false',''); loc = loc.replace('&html=false',''); loc = loc.replace('&pas=false',''); loc = loc.replace('&md=false',''); loc = loc.replace('&sv=false','');
+    window.open(loc+'&py=false&js=false&html=false&pas=false&md=false&sv=false',"_self");
     
   } else {
     searching = false;
