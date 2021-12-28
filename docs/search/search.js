@@ -703,19 +703,22 @@ function mousePressed(){
 }
 
 function keyPressed(){
-  counter = 0;
-  rendertimer = 0;
-  if (searching && keyCode != BACKSPACE && keyCode != DELETE && keyCode != ENTER){
+  if (searching && keyCode != BACKSPACE && keyCode != DELETE && keyCode != ENTER && key != 'Meta' && key != 'Alt' && key != 'Control' && key != 'Shift' && key != 'CapsLock' && key != 'Tab' && key != 'ArrowUp' && key != 'ArrowDown' && key != 'ArrowLeft' && key != 'ArrowRight'){
     searchrender += key;
-  }
-  
-  if (liveupdate && searching){
-    query = searchrender;
-    results = [];
-    unfilteredresults = [];
-    numfound = 0;
-    displayresults = 0;
-    results = returnis(query);
+    counter = 0;
+    rendertimer = 0;
+    
+    if (liveupdate && searching){
+      query = searchrender;
+      results = [];
+      unfilteredresults = [];
+      numfound = 0;
+      displayresults = 0;
+      results = returnis(query);
+    }
+      
+  } else {
+    searching = true;
   }
   
   if (key == '/'){
