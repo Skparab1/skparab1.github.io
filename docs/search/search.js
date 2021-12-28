@@ -402,7 +402,7 @@ function draw() {
   text('Language',785,230);
   textSize(18);
   fill(255);
-  fill(0,150,255);
+  fill(0,125,225);
   text('Python ('+pycount+')',820,260);
   fill(200,200,0);
   text('JavaScript ('+jscount+')',820,290);
@@ -417,6 +417,8 @@ function draw() {
   
   textSize(13);
   fill(0,150,255);
+  text('select all',910,230);
+  text('clear all',970,230);
   text('only',950,260);
   text('only',950,290);
   text('only',950,320);
@@ -480,6 +482,8 @@ function draw() {
   
   textSize(13);
   fill(0,150,255);
+  text('select all',910,500);
+  text('clear all',970,500);
   text('only',950,530);
   text('only',950,560);
   text('only',950,590);
@@ -610,7 +614,23 @@ function mousePressed(){
   } else if (mouseX > 930 && mouseY > 585 && mouseY < 610){
     loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
     window.open(loc+'&software=false&webpage=false',"_self");
-
+  
+  } else if (mouseX > 905 && mouseX < 960 && mouseY > 495 && mouseY < 515){
+    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
+    window.open(loc,"_self");
+  
+  } else if (mouseX > 965 && mouseY > 495 && mouseY < 515){
+    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
+    window.open(loc+'&software=false&webpage=false&article=false',"_self");
+      
+  } else if (mouseX > 905 && mouseX < 960 && mouseY > 225 && mouseY < 245){
+    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
+    window.open(loc,"_self");
+  
+  } else if (mouseX > 965 && mouseY > 225 && mouseY < 245){
+    loc = loc.replace('&software=false',''); loc = loc.replace('&webpage=false',''); loc = loc.replace('&article=false','');
+    window.open(loc+'&software=false&webpage=false&article=false',"_self");
+    
   } else {
     searching = false;
   }
