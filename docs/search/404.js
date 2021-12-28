@@ -184,6 +184,7 @@ function draw() {
       //  openurl = openurl.replace(' ','');
       //}
       
+      clickpos = [0,0];
       if (opennewtab){
         window.open(openurl);
       } else {
