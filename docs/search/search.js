@@ -92,8 +92,10 @@ var i = 0;
 var searching = false;
 var searchrender = query;
 var liveupdate = true;
-var clickpos = [];
+var clickpos = [0,0];
 var opennewtab = localStorage.getItem('tabopenapi');
+var render = true;
+var mousemove = false;
 
 console.log(opennewtab);
 
@@ -149,29 +151,22 @@ function draw() {
      results = returnis(query);
   }
   
+  if (results.length > displayresults || counter == 0){
+    render = true;
+  } else {
+    render = false;
+  }
+  
   console.log(opennewtab);
   localStorage.setItem('tabopenapi',opennewtab);
   
-  if (75*results.length+100 > 600){
-    resizeCanvas(windowWidth, 75*results.length+100);
-  } else {
-    resizeCanvas(windowWidth, 600);
-  }
-  
-  background(0);
   numfound = 0;
   ypos = 125;
   j = 0;
   numfound = results.length;
-  counter += 10;  
-
-  fill(33);
-  rect(0,mouseY-37.5,1023,75);
-  
-  fill(0);
-  rect(0,0,1023,85);
-  
-  while (j <= results.length && j < displayresults){
+  counter += 10; 
+  while (j <= results.length && j < displayresults && mousemove && !render){
+    console.log('rendered important stuff');
     fillcolor = (((results.length-j)*((33/results.length)*displayresults))+(counter/2));
     i = results[j];
     
@@ -199,315 +194,375 @@ function draw() {
     textSize(30);
     text(titles[i],100,ypos);
     textSize(15);
-    text(descriptions[i],100,ypos+20);
-      
-    textSize(20);
-    //console.log(openurl);
-    if (language[i] == 'Python'){
-      fill(0,50,150);
-      ellipse(600,ypos,15,15);
-      fill(fillcolor);
-      text('Python',620,ypos);
-    } else if (language[i] == 'JavaScript'){
-      fill(200,200,0);
-      ellipse(600,ypos,15,15);
-      fill(fillcolor);
-      text('JavaScript',620,ypos);
-    } else if (language[i] == 'HTML'){
-      fill(200,50,0);
-      ellipse(600,ypos,15,15);
-      fill(fillcolor);
-      text('HTML',620,ypos);
-    } else if (language[i] == 'Pascal'){
-      fill(0,150,50);
-      ellipse(600,ypos,15,15);
-      fill(fillcolor);
-      text('Pascal',620,ypos);
-    } else if (language[i] == 'Markdown'){
-      fill(100);
-      ellipse(600,ypos,15,15);
-      fill(fillcolor);
-      text('Markdown',620,ypos);
-    } else if (language[i] == 'JavaScript+Svelte'){
-      fill(200,200,0);
-      ellipse(600,ypos-10,15,15);
-      fill(225,0,0);
-      ellipse(600,ypos+20,15,15);
-      fill(fillcolor);
-      text('JavaScript',620,ypos-5);
-      text('Svelte',620,ypos+25);
-    } else if (language[i] == 'JavaScript+Python'){
-      fill(200,200,0);
-      ellipse(600,ypos-10,15,15);
-      fill(0,50,150);
-      ellipse(600,ypos+20,15,15);
-      fill(fillcolor);
-      text('JavaScript',620,ypos-5);
-      text('Python',620,ypos+25);
-    }
-    
-    textSize(15);
-    if (type[i] == 'Software'){
-      fill(0,100,200);
-      ellipse(18.5,ypos-15,25,25);
-      fill(0,fillcolor,0);
-      text('<>',10,ypos-10);
-      text('Software',10,ypos+20);
-    } else if (type[i] == 'Article'){
-      fill(200,100,0);
-      ellipse(18.5,ypos-15,25,25);
-      fill(fillcolor,0,0);
-      text(' T',10,ypos-10);
-      text('Article',10,ypos+20);
-    } else if (type[i] == 'Webpage'){
-      fill(200,0,0);
-      ellipse(18.5,ypos-15,25,25);
-      fill(fillcolor,fillcolor,0);
-      text('W',10,ypos-10);
-      text('Webpage',10,ypos+20);
-    }
-    
-    textSize(15);
-    fill(fillcolor);
-    text(descriptions[i],100,ypos+20);
-    ypos += 75;
+    text(descriptions[i],100,ypos+20); 
     
     j += 1;
+    ypos += 75;
   }
   
-  fill(255);
+  mousemove = false;
+
   
-  textSize(50);
-  
-  if (displayresults < numfound){
-    displayresults += 1;
-  }
-  
-  if (!searching){
-    fill(150);
-  } else {
+  if (render){
+    console.log('rendered');
+    
+    if (75*results.length+100 > 600){
+      resizeCanvas(windowWidth, 75*results.length+100);
+    } else {
+      resizeCanvas(windowWidth, 600);
+    }
+    
+    background(0);
+
+    fill(33);
+    //rect(0,mouseY-37.5,1023,75);
+    
+    fill(0);
+    rect(0,0,1023,85);
+    
+    j = 0;
+    while (j <= results.length && j < displayresults){
+      fillcolor = (((results.length-j)*((33/results.length)*displayresults))+(counter/2));
+      i = results[j];
+      
+      if (fillcolor < 195){
+        fill(fillcolor);
+      } else if (mouseY > ypos-33 && mouseY < ypos+33){
+        fill(255);
+      } else {
+        fill(195);
+      }
+      
+      if (clickpos[1] > ypos-33 && clickpos[1] < ypos+33 && clickpos[0] > 100 && clickpos[0] < 750){
+        let openurl = 'https://'+urls[i];
+        //while (openurl.includes(' ')){
+        //  openurl = openurl.replace(' ','');
+        //}
+        
+        if (opennewtab){
+          window.open(openurl);
+        } else {
+          window.open(openurl,"_self");
+        }
+      }
+      
+      textSize(30);
+      text(titles[i],100,ypos);
+      textSize(15);
+      text(descriptions[i],100,ypos+20);
+        
+      textSize(20);
+      //console.log(openurl);
+      if (language[i] == 'Python'){
+        fill(0,50,150);
+        ellipse(600,ypos,15,15);
+        fill(fillcolor);
+        text('Python',620,ypos);
+      } else if (language[i] == 'JavaScript'){
+        fill(200,200,0);
+        ellipse(600,ypos,15,15);
+        fill(fillcolor);
+        text('JavaScript',620,ypos);
+      } else if (language[i] == 'HTML'){
+        fill(200,50,0);
+        ellipse(600,ypos,15,15);
+        fill(fillcolor);
+        text('HTML',620,ypos);
+      } else if (language[i] == 'Pascal'){
+        fill(0,150,50);
+        ellipse(600,ypos,15,15);
+        fill(fillcolor);
+        text('Pascal',620,ypos);
+      } else if (language[i] == 'Markdown'){
+        fill(100);
+        ellipse(600,ypos,15,15);
+        fill(fillcolor);
+        text('Markdown',620,ypos);
+      } else if (language[i] == 'JavaScript+Svelte'){
+        fill(200,200,0);
+        ellipse(600,ypos-10,15,15);
+        fill(225,0,0);
+        ellipse(600,ypos+20,15,15);
+        fill(fillcolor);
+        text('JavaScript',620,ypos-5);
+        text('Svelte',620,ypos+25);
+      } else if (language[i] == 'JavaScript+Python'){
+        fill(200,200,0);
+        ellipse(600,ypos-10,15,15);
+        fill(0,50,150);
+        ellipse(600,ypos+20,15,15);
+        fill(fillcolor);
+        text('JavaScript',620,ypos-5);
+        text('Python',620,ypos+25);
+      }
+      
+      textSize(15);
+      if (type[i] == 'Software'){
+        fill(0,100,200);
+        ellipse(18.5,ypos-15,25,25);
+        fill(0,fillcolor,0);
+        text('<>',10,ypos-10);
+        text('Software',10,ypos+20);
+      } else if (type[i] == 'Article'){
+        fill(200,100,0);
+        ellipse(18.5,ypos-15,25,25);
+        fill(fillcolor,0,0);
+        text(' T',10,ypos-10);
+        text('Article',10,ypos+20);
+      } else if (type[i] == 'Webpage'){
+        fill(200,0,0);
+        ellipse(18.5,ypos-15,25,25);
+        fill(fillcolor,fillcolor,0);
+        text('W',10,ypos-10);
+        text('Webpage',10,ypos+20);
+      }
+      
+      textSize(15);
+      fill(fillcolor);
+      text(descriptions[i],100,ypos+20);
+      ypos += 75;
+      
+      j += 1;
+    }
+    
     fill(255);
-  }
-  rect(250,15,200,60);
-  fill(0);
-  stroke(0);
-  rect(250,15,15,15);
-  rect(250,60,15,15);
-  rect(435,15,15,15);
-  rect(435,60,15,15);
-  if (!searching){
-    fill(150);
-    stroke(150);
-  } else {
+    
+    textSize(50);
+    
+    if (!searching){
+      fill(150);
+    } else {
+      fill(255);
+    }
+    rect(250,15,200,60);
+    fill(0);
+    stroke(0);
+    rect(250,15,15,15);
+    rect(250,60,15,15);
+    rect(435,15,15,15);
+    rect(435,60,15,15);
+    if (!searching){
+      fill(150);
+      stroke(150);
+    } else {
+      fill(255);
+      stroke(255);
+    }
+    ellipse(265,30,27.5,27.5);
+    ellipse(435,30,27.5,27.5);
+    ellipse(265,60,27.5,27.5);
+    ellipse(435,60,27.5,27.5);
+    
+    if (displayresults < numfound){
+      displayresults += 1;
+    }
+      
+    stroke(0);
     fill(255);
-    stroke(255);
-  }
-  ellipse(265,30,27.5,27.5);
-  ellipse(435,30,27.5,27.5);
-  ellipse(265,60,27.5,27.5);
-  ellipse(435,60,27.5,27.5);
-  
-  stroke(0);
-  fill(255);
-  if (numfound > 0){
-    text('    Search:                     '+displayresults+' search results',10,60);
-  } else {
-    text('    Search:                      0 results',10,60);
-  }
-  
-  textSize(35);
-  if (searching){
+    if (numfound > 0){
+      text('    Search:                     '+displayresults+' search results',10,60);
+    } else {
+      text('    Search:                      0 results',10,60);
+    }
+    
+    textSize(35);
+    if (searching){
+      fill(0,150,255);
+      stroke(0,150,255);
+    } else {
+      fill(255);
+      stroke(255);
+    }
+    text(searchrender,265,60);
+    stroke(0);
+    
+    textSize(18);
+    if (liveupdate){
+      fill(200);
+      rect(775,125,200,35);
+      fill(0);
+      text('Update results live (on)',785,150);
+    } else {
+      fill(150);
+      rect(775,125,200,35);
+      fill(255);
+      text('Update results live (off)',785,150);
+    }
+    
+    if (opennewtab){
+      fill(200);
+      rect(775,75,200,35);
+      fill(0);
+      text('Open links in new tab',785,100);
+    } else {
+      fill(150);
+      rect(775,75,200,35);
+      fill(255);
+      text('Open links in this tab',785,100);
+    }
+    
+    let pycount = 0;
+    let jscount = 0;
+    let htmlcount = 0;
+    let pascount = 0;
+    let mdcount = 0;
+    let svcount = 0;
+    let softwarecount = 0;
+    let webpagecount = 0;
+    let articlecount = 0;
+    
+    let k = 0;
+    while (k < unfilteredresults.length){
+      let index = unfilteredresults[k];
+      if (language[index].includes('Python')){
+        pycount += 1;
+      }
+      if (language[index].includes('JavaScript')){
+        jscount += 1;
+      }
+      if (language[index].includes('HTML')){
+        htmlcount += 1;
+      }
+      if (language[index].includes('Pascal')){
+        pascount += 1;
+      }
+      if (language[index].includes('Markdown')){
+        mdcount += 1;
+      }
+      if (language[index].includes('Svelte')){
+        svcount += 1;
+      }
+      if (type[index].includes('Software')){
+        softwarecount += 1;
+      }
+      if (type[index].includes('Webpage')){
+        webpagecount += 1;
+      }
+      if (type[index].includes('Article')){
+        articlecount += 1;
+      }
+      k += 1;
+    }
+    
+    textSize(30);
+    fill(0,200,0);
+    text('Filter results',785,200);
+    textSize(25);
+    fill(0,200,200);
+    text('Language',785,230);
+    textSize(18);
+    fill(255);
+    fill(0,125,225);
+    text('Python ('+pycount+')',820,260);
+    fill(200,200,0);
+    text('JavaScript ('+jscount+')',820,290);
+    fill(200,100,0);
+    text('HTML ('+htmlcount+')',820,320);
+    fill(0,200,0);
+    text('Pascal ('+pascount+')',820,350);
+    fill(200);
+    text('Markdown ('+mdcount+')',820,380);
+    fill(255,0,0);
+    text('Svelte ('+svcount+')',820,410);
+    
+    textSize(13);
     fill(0,150,255);
-    stroke(0,150,255);
-  } else {
-    fill(255);
-    stroke(255);
-  }
-  text(searchrender,265,60);
-  stroke(0);
-  
-  textSize(18);
-  if (liveupdate){
-    fill(200);
-    rect(775,125,200,35);
-    fill(0);
-    text('Update results live (on)',785,150);
-  } else {
+    text('select all',910,230);
+    text('clear all',970,230);
+    text('only',950,260);
+    text('only',950,290);
+    text('only',950,320);
+    text('only',950,350);
+    text('only',950,380);
+    text('only',950,410);
+    
     fill(150);
-    rect(775,125,200,35);
+    rect(785,245,20,20);
+    rect(785,275,20,20);
+    rect(785,305,20,20);
+    rect(785,335,20,20);
+    rect(785,365,20,20);
+    rect(785,395,20,20);
+    
+    strokeWeight(5);
+    stroke(0,255,0);
+    fill(0,255,0);
+    if (langfilter[0]){
+      line(790,250,795,255);
+      line(810,240,795,255);
+    }
+    if (langfilter[1]){
+      line(790,280,795,285);
+      line(810,270,795,285);
+    }
+    if (langfilter[2]){
+      line(790,310,795,315);
+      line(810,300,795,315);
+    }
+    if (langfilter[3]){
+      line(790,340,795,345);
+      line(810,330,795,345);
+    }
+    if (langfilter[4]){
+      line(790,370,795,375);
+      line(810,360,795,375);
+    }
+    if (langfilter[5]){
+      line(790,400,795,405);
+      line(810,390,795,405);
+    }
+    strokeWeight(1);
+    stroke(0);
+    
+    textSize(25);
+    fill(0,200,200);
+    text('Entry type',785,500);
+    textSize(18);
     fill(255);
-    text('Update results live (off)',785,150);
-  }
-  
-  if (opennewtab){
     fill(200);
-    rect(775,75,200,35);
-    fill(0);
-    text('Open links in new tab',785,100);
-  } else {
-    fill(150);
-    rect(775,75,200,35);
-    fill(255);
-    text('Open links in this tab',785,100);
-  }
-  
-  let pycount = 0;
-  let jscount = 0;
-  let htmlcount = 0;
-  let pascount = 0;
-  let mdcount = 0;
-  let svcount = 0;
-  let softwarecount = 0;
-  let webpagecount = 0;
-  let articlecount = 0;
-  
-  let k = 0;
-  while (k < unfilteredresults.length){
-    let index = unfilteredresults[k];
-    if (language[index].includes('Python')){
-      pycount += 1;
+    rect(785,515,20,20);
+    rect(785,545,20,20);
+    rect(785,575,20,20);
+    fill(0,225,0);
+    text('Software ('+softwarecount+')',820,530);
+    fill(225,225,0);
+    text('Webpage ('+webpagecount+')',820,560);
+    fill(225,0,0);
+    text('Article ('+articlecount+')',820,590);
+    
+    textSize(13);
+    fill(0,150,255);
+    text('select all',910,500);
+    text('clear all',970,500);
+    text('only',950,530);
+    text('only',950,560);
+    text('only',950,590);
+    
+    strokeWeight(5);
+    stroke(0,255,0);
+    fill(0,255,0);
+    if (entryfilter[0]){
+      line(790,250+270,795,255+270);
+      line(810,240+270,795,255+270);
     }
-    if (language[index].includes('JavaScript')){
-      jscount += 1;
+    if (entryfilter[1]){
+      line(790,250+300,795,255+300);
+      line(810,240+300,795,255+300);
     }
-    if (language[index].includes('HTML')){
-      htmlcount += 1;
+    if (entryfilter[2]){
+      line(790,250+330,795,255+330);
+      line(810,240+330,795,255+330);
     }
-    if (language[index].includes('Pascal')){
-      pascount += 1;
-    }
-    if (language[index].includes('Markdown')){
-      mdcount += 1;
-    }
-    if (language[index].includes('Svelte')){
-      svcount += 1;
-    }
-    if (type[index].includes('Software')){
-      softwarecount += 1;
-    }
-    if (type[index].includes('Webpage')){
-      webpagecount += 1;
-    }
-    if (type[index].includes('Article')){
-      articlecount += 1;
-    }
-    k += 1;
-  }
+    strokeWeight(1);
+    stroke(0);
+    
+    clickpos = [];
+  } 
   
-  textSize(30);
-  fill(0,200,0);
-  text('Filter results',785,200);
-  textSize(25);
-  fill(0,200,200);
-  text('Language',785,230);
-  textSize(18);
-  fill(255);
-  fill(0,125,225);
-  text('Python ('+pycount+')',820,260);
-  fill(200,200,0);
-  text('JavaScript ('+jscount+')',820,290);
-  fill(200,100,0);
-  text('HTML ('+htmlcount+')',820,320);
-  fill(0,200,0);
-  text('Pascal ('+pascount+')',820,350);
-  fill(200);
-  text('Markdown ('+mdcount+')',820,380);
-  fill(255,0,0);
-  text('Svelte ('+svcount+')',820,410);
-  
-  textSize(13);
-  fill(0,150,255);
-  text('select all',910,230);
-  text('clear all',970,230);
-  text('only',950,260);
-  text('only',950,290);
-  text('only',950,320);
-  text('only',950,350);
-  text('only',950,380);
-  text('only',950,410);
-  
-  fill(150);
-  rect(785,245,20,20);
-  rect(785,275,20,20);
-  rect(785,305,20,20);
-  rect(785,335,20,20);
-  rect(785,365,20,20);
-  rect(785,395,20,20);
-  
-  strokeWeight(5);
-  stroke(0,255,0);
-  fill(0,255,0);
-  if (langfilter[0]){
-    line(790,250,795,255);
-    line(810,240,795,255);
-  }
-  if (langfilter[1]){
-    line(790,280,795,285);
-    line(810,270,795,285);
-  }
-  if (langfilter[2]){
-    line(790,310,795,315);
-    line(810,300,795,315);
-  }
-  if (langfilter[3]){
-    line(790,340,795,345);
-    line(810,330,795,345);
-  }
-  if (langfilter[4]){
-    line(790,370,795,375);
-    line(810,360,795,375);
-  }
-  if (langfilter[5]){
-    line(790,400,795,405);
-    line(810,390,795,405);
-  }
-  strokeWeight(1);
-  stroke(0);
-  
-  textSize(25);
-  fill(0,200,200);
-  text('Entry type',785,500);
-  textSize(18);
-  fill(255);
-  fill(200);
-  rect(785,515,20,20);
-  rect(785,545,20,20);
-  rect(785,575,20,20);
-  fill(0,225,0);
-  text('Software ('+softwarecount+')',820,530);
-  fill(225,225,0);
-  text('Webpage ('+webpagecount+')',820,560);
-  fill(225,0,0);
-  text('Article ('+articlecount+')',820,590);
-  
-  textSize(13);
-  fill(0,150,255);
-  text('select all',910,500);
-  text('clear all',970,500);
-  text('only',950,530);
-  text('only',950,560);
-  text('only',950,590);
-  
-  strokeWeight(5);
-  stroke(0,255,0);
-  fill(0,255,0);
-  if (entryfilter[0]){
-    line(790,250+270,795,255+270);
-    line(810,240+270,795,255+270);
-  }
-  if (entryfilter[1]){
-    line(790,250+300,795,255+300);
-    line(810,240+300,795,255+300);
-  }
-  if (entryfilter[2]){
-    line(790,250+330,795,255+330);
-    line(810,240+330,795,255+330);
-  }
-  strokeWeight(1);
-  stroke(0);
-  
-  clickpos = [];
-  
+}
+
+function mouseMoved(){
+  mousemove = true;
 }
 
 function mousePressed(){
