@@ -1,5 +1,6 @@
 function preload(){
   entries = loadTable("results.csv","csv","header");
+  notfound = loadImage("404.png");
 }
 
 function setup() {
@@ -153,7 +154,7 @@ function draw() {
   }
   rendertimer += 1;
   
-  if (rendertimer < frameRate()*3.5 || counter == 0){
+  if (rendertimer < 60*4 || counter == 0){
     render = true;
   } else {
     render = false;
@@ -209,10 +210,10 @@ function draw() {
   if (render){
     console.log('rendered');
     
-    if (75*results.length+100 > 600){
+    if (75*results.length+100 > 650){
       resizeCanvas(windowWidth, 75*results.length+100);
     } else {
-      resizeCanvas(windowWidth, 600);
+      resizeCanvas(windowWidth, 650);
     }
     
     background(0);
@@ -366,6 +367,7 @@ function draw() {
       text('    Search:                     '+displayresults+' search results',10,60);
     } else {
       text('    Search:                      0 results',10,60);
+      image(notfound,400,180,200,200);
     }
     
     textSize(35);
@@ -565,10 +567,13 @@ function draw() {
 }
 
 function mouseMoved(){
-  mousemove = true;
+  if (!render){
+    mousemove = true;
+  }
 }
 
 function mousePressed(){
+  counter = 0;
   if (mouseX > 250 && mouseX < 450 && mouseY > 15 && mouseY < 70){
     searching = true;
   } else if (mouseX > 775 && mouseX < 995 && mouseY > 125 && mouseY < 150){
@@ -698,6 +703,8 @@ function mousePressed(){
 }
 
 function keyPressed(){
+  counter = 0;
+  rendertimer = 0;
   if (searching && keyCode != BACKSPACE && keyCode != DELETE && keyCode != ENTER){
     searchrender += key;
   }
