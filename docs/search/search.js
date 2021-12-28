@@ -96,6 +96,7 @@ var clickpos = [0,0];
 var opennewtab = localStorage.getItem('tabopenapi');
 var render = true;
 var mousemove = false;
+var rendertimer = 0;
 
 console.log(opennewtab);
 
@@ -150,8 +151,9 @@ function draw() {
   if (counter == 0){
      results = returnis(query);
   }
+  rendertimer += 1;
   
-  if (results.length > displayresults || counter == 0){
+  if (rendertimer < frameRate()*3.5 || counter == 0){
     render = true;
   } else {
     render = false;
