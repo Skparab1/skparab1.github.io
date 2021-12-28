@@ -152,10 +152,10 @@ function draw() {
   console.log(opennewtab);
   localStorage.setItem('tabopenapi',opennewtab);
   
-  if (75*results.length+100 > windowHeight){
+  if (75*results.length+100 > 600){
     resizeCanvas(windowWidth, 75*results.length+100);
   } else {
-    resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(windowWidth, 600);
   }
   
   background(0);
