@@ -10,7 +10,7 @@
     - a shorter link for my url shortener
   - [search](https://skparab1.github.io/search)
     - a search page for my software and website content
-    - pretty good now actually, uses optimized 
+    - pretty good now actually, uses optimized rendering 
   - [traffic simulator](https://skparab1.github.io/traffic_simulator)
     - a web host for my traffic simulator
   - [login](https://skparab1.github.io/login)
