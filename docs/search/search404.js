@@ -586,7 +586,7 @@ function draw() {
     strokeWeight(1);
     stroke(0);
     
-    if (filterbar){ // there is beign a filter applied
+    if (filterbar || true){ // there is beign a filter applied
       fill(240,140,0);
       text('Filters applied:',20,97.5);
       textSize(10);
@@ -625,6 +625,26 @@ function draw() {
           }
           
           text(txt,xps-5,97.5);  
+          
+          // 45, 15
+          if (clickpos[0] > xps && clickpos[0] < xps+45 && clickpos[1] > 85 && clickpos[1] < 85+15){
+            if (index <= 5){
+              langfilter[index] = false; // theoretically uneeded
+              if (index == 0){ window.open(loc+'&py=false',"_self"); }
+              if (index == 1){ window.open(loc+'&js=false',"_self"); }
+              if (index == 2){ window.open(loc+'&html=false',"_self"); }
+              if (index == 3){ window.open(loc+'&pas=false',"_self"); }
+              if (index == 4){ window.open(loc+'&md=false',"_self"); }
+              if (index == 5){ window.open(loc+'&sv=false',"_self"); }
+              
+            } else if (index >= 6){
+              entryfilter[index-6] = false;
+              if (index == 6){ window.open(loc+'&software=false',"_self"); }
+              if (index == 7){ window.open(loc+'&webpage=false',"_self"); }
+              if (index == 8){ window.open(loc+'&article=false',"_self"); }
+            }
+          }
+          
           xps += 72;
         }
         index += 1;
@@ -661,6 +681,7 @@ function mousePressed(){
     
   } else if (mouseX > 775 && mouseX < 995 && mouseY > 75 && mouseY < 100){
     opennewtab = !opennewtab;
+    
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && langfilter[0]){
     window.open(loc+'&py=false',"_self");
   } else if (mouseX > 785 && mouseX < 805 && mouseY > 245 && mouseY < 265 && !langfilter[0]){
