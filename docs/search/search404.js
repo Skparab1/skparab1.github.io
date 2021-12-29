@@ -81,6 +81,15 @@ if (loc.includes('https://skparab1.github.io/search/')){
   entryfilter = [true,true,true];
 }
 
+function interestingrect(x,y){
+  fill(200);
+  stroke(200);
+  rect(x,y,50,15);
+  ellipse(x,y+7.5,15,15);
+  ellipse(x+50,y+7.5,15,15);
+  stroke(0);
+}
+
 
 //reordering keywords
 var h = 0;
@@ -98,6 +107,7 @@ var opennewtab = localStorage.getItem('tabopenapi');
 var render = true;
 var mousemove = false;
 var rendertimer = 0;
+var filterbar = false;
 
 console.log(opennewtab);
 
@@ -160,16 +170,29 @@ function draw() {
     render = false;
   }
   
+  if (langfilter.includes('false') || entryfilter.includes('false') || true){ // there is beign a filter applied
+    filterbar = true;
+  } else {
+    filterbar = false;
+  }
+  
+  
   console.log(opennewtab);
   localStorage.setItem('tabopenapi',opennewtab);
   
   numfound = 0;
-  ypos = 125;
+  if (filterbar){
+    ypos = 150;
+  } else {
+    ypos = 125;
+  }
   j = 0;
   numfound = results.length;
   counter += 10; 
+  stroke(0);
   while (j <= results.length && j < displayresults && mousemove && !render){
     console.log('rendered important stuff');
+    stroke(0);
     fillcolor = (((results.length-j)*((33/results.length)*displayresults))+(counter/2));
     i = results[j];
     
@@ -197,6 +220,8 @@ function draw() {
     
     textSize(30);
     text(titles[i],100,ypos);
+    fill(195);
+    stroke(170);
     textSize(15);
     text(descriptions[i],100,ypos+20); 
     
@@ -211,7 +236,7 @@ function draw() {
     console.log('rendered');
     
     if (75*results.length+100 > 650){
-      resizeCanvas(windowWidth, 75*results.length+100);
+      resizeCanvas(windowWidth, 75*results.length+125);
     } else {
       resizeCanvas(windowWidth, 650);
     }
@@ -561,10 +586,50 @@ function draw() {
     strokeWeight(1);
     stroke(0);
     
-    if (langfilter.includes('false') || entryfilter.includes('false') || true){ // there is beign a filter applied
+    if (filterbar || true){ // there is beign a filter applied
       fill(240,140,0);
-      text('Filters applied:',40,85);
+      text('Filters applied:',20,97.5);
+      textSize(10);
+      
+      let xps = 120;
+      let largearray = langfilter.concat(entryfilter); // total length 9
+      let txt = '';
+      let index = 0;
+      while (xps < 800 && index < largearray.length-1){
+        interestingrect(xps,85);
+        fill(0);
+        stroke(200);
+        textSize(10);
+        if (largearray[index]){
+          //'filter      X'
+          if (index == 0){
+            txt = 'Python      X';
+          } else if (index == 1){
+            txt = 'JavaScript  X';
+            textSize(7);
+          } else if (index == 2){
+            txt = 'HTML        X';
+          } else if (index == 3){
+            txt = 'Pascal      X';
+          } else if (index == 4){
+            txt = 'Markdown    X';
+          } else if (index == 5){
+            txt = 'Svelte      X';
+          } else if (index == 6){
+            txt = 'Software    X';
+          } else if (index == 7){
+            txt = 'Webpage     X';
+          } else if (index == 8){
+            txt = 'Article     X';
+          }
+          
+          text(txt,xps-5,97.5);  
+          xps += 75;
+        }
+        index += 1;
+      }
     }
+    stroke(0);
     
     clickpos = [];
   } 
