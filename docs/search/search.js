@@ -154,7 +154,7 @@ function draw() {
   }
   rendertimer += 1;
   
-  if (rendertimer < results.length+12 || counter == 0){
+  if (rendertimer < results.length*2+12 || counter == 0){
     render = true;
   } else {
     render = false;
