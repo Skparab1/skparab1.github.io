@@ -586,7 +586,7 @@ function draw() {
     strokeWeight(1);
     stroke(0);
     
-    if (filterbar || true){ // there is beign a filter applied
+    if (filterbar){ // there is beign a filter applied
       fill(240,140,0);
       text('Filters applied:',20,97.5);
       textSize(10);
