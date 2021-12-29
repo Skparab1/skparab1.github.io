@@ -30,9 +30,6 @@
   - the & is used to seperate packed parameters
 - try it [here](https://skparab1.github.io/search)
 
-< add demo gif here >
-clean this up later
-
 ## oskeyboard
 - framework for on screen keyboard
 - uses p5js graphics library
