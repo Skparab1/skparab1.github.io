@@ -154,7 +154,7 @@ function draw() {
   }
   rendertimer += 1;
   
-  if (rendertimer < 60*4 || counter == 0){
+  if (rendertimer < results.length+12 || counter == 0){
     render = true;
   } else {
     render = false;
@@ -338,13 +338,13 @@ function draw() {
     } else {
       fill(255);
     }
-    rect(250,15,200,60);
+    rect(250,15,200,50);
     fill(0);
     stroke(0);
     rect(250,15,15,15);
-    rect(250,60,15,15);
+    rect(250,50,15,15);
     rect(435,15,15,15);
-    rect(435,60,15,15);
+    rect(435,50,15,15);
     if (!searching){
       fill(150);
       stroke(150);
@@ -354,8 +354,8 @@ function draw() {
     }
     ellipse(265,30,27.5,27.5);
     ellipse(435,30,27.5,27.5);
-    ellipse(265,60,27.5,27.5);
-    ellipse(435,60,27.5,27.5);
+    ellipse(265,50,27.5,27.5);
+    ellipse(435,50,27.5,27.5);
     
     if (displayresults < numfound){
       displayresults += 1;
@@ -378,7 +378,7 @@ function draw() {
       fill(255);
       stroke(255);
     }
-    text(searchrender,265,60);
+    text(searchrender,265,52.5);
     stroke(0);
     
     textSize(18);
@@ -560,6 +560,11 @@ function draw() {
     }
     strokeWeight(1);
     stroke(0);
+    
+    if (langfilter.includes('false') || entryfilter.includes('false') || true){ // there is beign a filter applied
+      fill(240,140,0);
+      text('Filters applied:',40,85);
+    }
     
     clickpos = [];
   } 
