@@ -33,14 +33,4 @@
 - try it [here](https://skparab1.github.io/search)
 
 ## oskeyboard
-- framework for on screen keyboard
-- uses p5js graphics library
-- has light up effect for keys
-- is sizable to whatever size you want
-  - put third parameter as a coefficient, default is 1
-- is movable
-  - put x and y coordinates as first and second parameters to function
-- i'll probably make a repo for this later
-- it would be nice to make it a module idk though
-- idk though i can't figure out how to make it a module
-- adding soon to private redirect (only for mobile)
+- now has a repo
