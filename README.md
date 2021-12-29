@@ -20,6 +20,8 @@
     - homepage for skparab1 web applications
     - also a graphics based webpage
 
+-------------------------------------------- dont go below this line stuff is not organized ------------------------------------------------------------------
+
 ## Url packing string query framework for search
 - search results are displayed, and are narrowed down by filters
 - the data of the filters is packed into the url as a query
