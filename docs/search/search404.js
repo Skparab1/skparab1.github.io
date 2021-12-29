@@ -84,9 +84,9 @@ if (loc.includes('https://skparab1.github.io/search/')){
 function interestingrect(x,y){
   fill(200);
   stroke(200);
-  rect(x,y,50,15);
+  rect(x,y,45,15);
   ellipse(x,y+7.5,15,15);
-  ellipse(x+50,y+7.5,15,15);
+  ellipse(x+45,y+7.5,15,15);
   stroke(0);
 }
 
@@ -595,7 +595,7 @@ function draw() {
       let largearray = langfilter.concat(entryfilter); // total length 9
       let txt = '';
       let index = 0;
-      while (xps < 800 && index < largearray.length-1){
+      while (xps < 900 && index < largearray.length){
         interestingrect(xps,85);
         fill(0);
         stroke(200);
@@ -606,25 +606,26 @@ function draw() {
             txt = 'Python      X';
           } else if (index == 1){
             txt = 'JavaScript  X';
-            textSize(7);
+            textSize(9);
           } else if (index == 2){
-            txt = 'HTML        X';
+            txt = 'HTML       X';
           } else if (index == 3){
             txt = 'Pascal      X';
           } else if (index == 4){
-            txt = 'Markdown    X';
+            txt = 'Markdown   X';
+            textSize(9);
           } else if (index == 5){
             txt = 'Svelte      X';
           } else if (index == 6){
-            txt = 'Software    X';
+            txt = 'Software   X';
           } else if (index == 7){
-            txt = 'Webpage     X';
+            txt = 'Webpage  X';
           } else if (index == 8){
-            txt = 'Article     X';
+            txt = 'Article      X';
           }
           
           text(txt,xps-5,97.5);  
-          xps += 75;
+          xps += 72;
         }
         index += 1;
       }
