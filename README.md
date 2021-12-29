@@ -33,4 +33,4 @@
 - try it [here](https://skparab1.github.io/search)
 
 ## oskeyboard
-- now has a repo
+- now has a [repo](https://github.com/skparab1)
