@@ -221,7 +221,7 @@ function draw() {
     textSize(30);
     text(titles[i],100,ypos);
     fill(195);
-    stroke(170);
+    stroke(0);
     textSize(15);
     text(descriptions[i],100,ypos+20); 
     
