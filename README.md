@@ -34,3 +34,4 @@
 
 ## oskeyboard
 - now has a [repo](https://github.com/skparab1) and [webpage](https://skparab1.github.io/r/key)
+- implemented to private redirect
