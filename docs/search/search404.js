@@ -835,5 +835,6 @@ function keyReleased(){
         displayresults = 0;
         results = returnis(query);
       }
+    counter = 0;
   }
 }
