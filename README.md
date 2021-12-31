@@ -33,7 +33,7 @@
 - for example, if the user filters no python, then the string '&py=false' will be packed into the url
 - when the page loads, it will unpack the url and filter the results accordingly
 - multiple parameters can also be packed for example '&js=false&md=false&pas=false'
-  - the & is used to seperate packed parameters
+  - the & is used to seperate packed parameters (which are the filters)
 - try it [here](https://skparab1.github.io/search)
 
 ## oskeyboard
