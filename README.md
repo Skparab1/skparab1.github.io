@@ -21,6 +21,7 @@
     - also a graphics based webpage
   - go
     - working on a url shortener in html
+    - likely will be much faster 
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
 
 ## Url packing string query framework for search
