@@ -21,7 +21,8 @@
     - also a graphics based webpage
   - go
     - working on a url shortener in html
-    - likely will be much faster than my old one
+    - likely will be much faster than my old one (which used p5js)
+    
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
 
 ## Url packing string query framework for search
