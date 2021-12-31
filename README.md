@@ -20,7 +20,7 @@
     - homepage for skparab1 web applications
     - also a graphics based webpage
   - go
-    -
+    - working on a url shortener in html
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
 
 ## Url packing string query framework for search
