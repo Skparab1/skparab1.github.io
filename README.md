@@ -29,7 +29,7 @@
 ## Url packing string query framework for search
 - search results are displayed, and are narrowed down by filters
 - the data of the filters is packed into the url as a query
-- and the page is refreshed
+- and the page is refreshed with the conditions packed into the url
 - for example, if the user filters no python, then the string '&py=false' will be packed into the url
 - when the page loads, it will unpack the url and filter the results accordingly
 - multiple parameters can also be packed for example '&js=false&md=false&pas=false'
