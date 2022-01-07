@@ -170,7 +170,7 @@ function draw() {
     render = false;
   }
   
-  if (langfilter.includes('false') || entryfilter.includes('false') || true){ // there is beign a filter applied
+  if (langfilter.includes('false') || entryfilter.includes('false')){ // there is beign a filter applied
     filterbar = true;
   } else {
     filterbar = false;
@@ -314,7 +314,7 @@ function draw() {
         ellipse(600,ypos+20,15,15);
         fill(fillcolor);
         text('JavaScript',620,ypos-5);
-        text('Svelte',620,ypos+25);
+        text('HTML',620,ypos+25);
       } else if (language[i] == 'JavaScript+Python'){
         fill(200,200,0);
         ellipse(600,ypos-10,15,15);
@@ -323,6 +323,14 @@ function draw() {
         fill(fillcolor);
         text('JavaScript',620,ypos-5);
         text('Python',620,ypos+25);
+      } else if (language[i] == 'JavaScript+HTML'){
+        fill(200,200,0);
+        ellipse(600,ypos-0,15,15);
+        fill(200,50,0);
+        ellipse(600,ypos-10,15,15);
+        fill(fillcolor);
+        text('HTML',620,ypos-5);
+        text('JavaScript',620,ypos+25);
       }
       
       textSize(15);
