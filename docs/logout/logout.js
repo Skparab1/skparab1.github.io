@@ -26,7 +26,8 @@ function setup() {
     createCanvas(1023,420);
   }
   
-window.open("https://skparab1.github.io/home,"_self");
+  window.open("https://skparab1.github.io/home","_self");
+}
 
 var foundredirect = false;
 var tickercount = 0;
