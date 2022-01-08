@@ -88,7 +88,7 @@ function draw() {
   drawnicerect(700,((300-rectmover2)*4-200)-500,200,50,[timer*4-30,0,timer*4-30]);
   
   fill(0);
-  if (signin == 'logged out'){
+  if (localStorage.getItem('login') == 'logged out'){
     text('   Account                     Log in                      Something',65,185);
   } else {
     text('   Account                     Log out                      Something',65,185);
@@ -144,7 +144,7 @@ function draw() {
 
 function mousePressed(){
   if (mouseX > 375+12.5 && mouseX < 375+12.5+250 && mouseY > ((300-rectmover)*3-200)-150+shift && mouseY < ((300-rectmover)*3-200)-150+shift+50){
-    if (localStorage.setItem('login') == 'logged out'){
+    if (localStorage.getItem('login') == 'logged out'){
        window.open('https://skparab1.github.io/login',"_self");
     } else {
       localStorage.setItem('login','logged out');
