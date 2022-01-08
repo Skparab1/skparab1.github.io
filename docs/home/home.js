@@ -145,12 +145,12 @@ function draw() {
 function mousePressed(){
   if (mouseX > 375+12.5 && mouseX < 375+12.5+250 && mouseY > ((300-rectmover)*3-200)-150+shift && mouseY < ((300-rectmover)*3-200)-150+shift+50){
     if (localStorage.getItem('login') == 'logged out'){
-       window.open('https://skparab1.github.io/login',"_self");
+       window.open('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=skparab1.github.io&s&home',"_self");
     } else {
       localStorage.setItem('login','logged out');
       signin = 'logged out';
       console.log('logged out yup');
-      window.location.reload();
+      window.open('https://skparab1.github.io/logout',"_self");
     }
   }
 }
