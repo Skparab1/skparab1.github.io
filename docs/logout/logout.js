@@ -1,9 +1,3 @@
-function preload() {
-  redirect = loadTable("redirects.csv","csv","header");
-}
-
-var keyword;
-var url;
 var tickercount = -155;
 var catalog = false;
 var clickpos = [0,0];
@@ -31,61 +25,11 @@ function setup() {
   } else {
     createCanvas(1023,420);
   }
-  keyword = redirect.getColumn(0);
-  url = redirect.getColumn(1);
   
-loc = window.location.href;
+window.open("https://skparab1.github.io/home,"_self");
 
 var foundredirect = false;
 var tickercount = 0;
-
-print(loc);
-
-if (loc.includes('https://skparab1.github.io/r/')){
-  red = loc.replace('https://skparab1.github.io/r/','');
-  
-  if (loc == 'https://skparab1.github.io/r/'){
-    foundredirect = true;
-    catalog = true;
-  }
-  
-  i = 0;
-  scanner = '';
-  while (i <= keyword.length && foundredirect == false){
-    scanner = keyword[i];
-    if (scanner == red){
-      foundredirect = true;
-      openwindow = url[i];
-      openwindow = openwindow.replace("https://",'');
-      openwindow = 'https://'+openwindow;
-    }
-    
-    i += 1;
-  }
-  
-  if (foundredirect){
-    //location.href = openwindow;
-    window.open(openwindow,"_self");
-  } else {
-    window.open("https://skparab1.github.io/wrongredirect","_self");
-  }
-  
-  
-  background(0);
-  textSize(25);
-  stroke(0);
-  fill(255);
-  strokeWeight(3);
-  
-  text('Redirecting to your requested webpage......',100,75);
-  text('This shouldn\'t take too long',100,110);
-
-  
-} else {
-  //window.open("http:skparab1.github.io/wrongredirect","_self");
-}
-}
-
 var t = 0;
 var which;
 x = 0;
@@ -104,7 +48,7 @@ var frate = 0;
 
 function draw(){
   
-  if (catalog || true){
+  if (catalog && false){
     resizeCanvas(windowWidth, keyword.length*100+200);
     background(0);
     
@@ -179,11 +123,11 @@ function draw(){
     if (device == 'mobile'){
       plus = 300;
       textSize(20);
-      text('Redirecting to your requested webpage......',325,75);
+      text('            Logging you out......',325,75);
       textSize(15);
     } else {
       textSize(40);
-      text('Redirecting to your requested webpage......',100,75);
+      text('            Logging you out......',100,75);
       textSize(25);
       plus = 0;
     }
