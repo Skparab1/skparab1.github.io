@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skparab1 - Fireworks</title>
+    <style>
+          body {background-color: rgb(0, 0, 0);}
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="myCanvas">
+      <p>Add suitable fallback here.</p>
+    </canvas>
+
+    <script>
+
+      const canvas = document.querySelector('.myCanvas');
+      const width = canvas.width = window.innerWidth;
+      const height = canvas.height = window.innerHeight;
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = 'rgb(0,0,0)';
+
+      function degToRad(degrees) {
+        return degrees * Math.PI / 180;
+      };
+
+      function drawnicerect(x,y,xsize,ysize,incolor){
+        let xchange = x-250;
+        let ychange = y-15;
+        let xsizechange = xsize-200;
+        let ysizechange = ysize-60;
+
+        ctx.beginPath();
+        ctx.width = 1;
+
+        let xpos = 700
+        let ypos = 200
+        let xlength = 100
+        let ylength = 100
+
+        //template ctx.arc(x, y, radius, startradians,endradians);
+        ctx.rect(xpos+10,ypos+20,xlength-20,ylength-40);
+        ctx.rect(xpos+20+10,ypos+ylength-20,xlength-40-20,20);
+        ctx.rect(xpos+20+10,ypos,xlength-40-20,20);
+        ctx.arc(xpos+30,ypos+20,20,0,degToRad(360));
+        ctx.moveTo(xpos+xlength-30,ypos+20);
+        ctx.arc(xpos+xlength-30,ypos+20,20,0,degToRad(360));
+        ctx.moveTo(xpos+30,ypos+ylength-20);
+        ctx.arc(xpos+30,ypos+ylength-20,20,0,degToRad(360));
+        ctx.moveTo(xpos+xlength-30,ypos+ylength-20);
+        ctx.arc(xpos+xlength-30,ypos+ylength-20,20,0,degToRad(360));
+        
+        ctx.strokeStyle = incolor;
+        ctx.fillStyle = incolor;
+        ctx.fill();
+        ctx.stroke(); 
+        ctx.stroke(); 
+      }
+
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgb(255,255,255)'
+      ctx.arc(200, 200, 100, degToRad(180), degToRad(90));
+      ctx.stroke(); 
+
+      drawnicerect(300,300,200,60,'rgb(255,125,0)')
+
+    </script>
+  </body>
+</html>
