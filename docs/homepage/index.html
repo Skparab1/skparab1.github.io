@@ -88,11 +88,17 @@
             ctx.font = '55px Arial';
             ctx.fillText('Free and open source software for everyone', 100, 475-j);
             let ffs = 'rgb('+i*1.5+', '+0+', '+0+')'
-            drawnicerect(100,385-j/2,250,70,ffs)
+            let yzero = 385-j/2
+            if (yzero < 220){ yzero = 220}
+            drawnicerect(100,yzero,250,70,ffs)
+            yzero = 385-j/4-75
+            if (yzero < 220){ yzero = 220}
             ffs = 'rgb('+0+', '+i*1.5+', '+0+')'
-            drawnicerect(450,385-j/2,250,70,ffs)
+            drawnicerect(450,yzero,250,70,ffs)
+            yzero = 385-j/2 
+            if (yzero < 220){ yzero = 220}
             ffs = 'rgb('+0+', '+0+', '+i*1.5+')'
-            drawnicerect(800,385-j/2,250,70,ffs)
+            drawnicerect(800,yzero,250,70,ffs)
 
             await sleep(1);
             j += (300-j)/25;
