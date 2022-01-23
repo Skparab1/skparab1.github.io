@@ -51,28 +51,54 @@
         ctx.stroke(); 
       }
 
+      function rendergradient(startbackdrop){
+        
+        let c = startbackdrop
+        while (c >= -500){
+          ctx.beginPath();
+          ctx.rect(0,startbackdrop-c,width,1);
+          let red = c
+          let green = c-255
+          let blue = c-510
+          ctx.strokeStyle = 'rgb('+red+', '+green+', '+blue+')'
+          ctx.fillStyle = 'rgb('+red+', '+green+', '+blue+')'
+          ctx.fill();
+          ctx.stroke(); 
+          c -= 1;
+        }
+      }
+
       ctx.beginPath();
       ctx.strokeStyle = 'rgb(255,255,255)'
       //ctx.arc(200, 200, 100, degToRad(180), degToRad(90));
       ctx.stroke(); 
 
-      let c;
+      const sleep = ms => new Promise(res => setTimeout(res, ms)); // await sleep(x) sleeps for x milliseconds
+      
+      let j = 0;
+      (async () => {
+          for (let i = 0; i <= 255; i += 1) {
+            rendergradient(i*1.5);
+            ctx.beginPath();
+            red = i*1.5;
+            ctx.fillStyle = 'rgb('+red+', '+red+', '+red+')'
+            ctx.font = '90px Arial';
+            ctx.fillText('Skparab1 Software', 250, 400-j);
+            ctx.fillStyle = 'rgb('+red/2-200+', '+red/2-200+', '+red/2-200+')'
+            ctx.font = '55px Arial';
+            ctx.fillText('Free and open source software for everyone', 100, 475-j);
+            let ffs = 'rgb('+i*1.5+', '+0+', '+0+')'
+            drawnicerect(100,385-j/2,250,70,ffs)
+            ffs = 'rgb('+0+', '+i*1.5+', '+0+')'
+            drawnicerect(450,385-j/2,250,70,ffs)
+            ffs = 'rgb('+0+', '+0+', '+i*1.5+')'
+            drawnicerect(800,385-j/2,250,70,ffs)
 
-      c = 0;
-      
-      while (c <= 255){
-        ctx.beginPath();
-        ctx.rect(0,c,width,1);
-        let red = 255-c
-        let green = 0
-        let blue = 0
-        ctx.strokeStyle = 'rgb('+red+', '+green+', '+blue+')'
-        ctx.fillStyle = 'rgb('+red+', '+green+', '+blue+')'
-        ctx.fill();
-        ctx.stroke(); 
-        c += 1;
-      }
-      
+            await sleep(1);
+            j += (300-j)/25;
+          }
+      })();
+ 
 
       drawnicerect(300,300,200,60,'rgb(255,125,0)')
       drawnicerect(400,300,100,100,'rgb(255,125,0)')
