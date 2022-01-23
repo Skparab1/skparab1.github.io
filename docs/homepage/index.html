@@ -39,13 +39,14 @@
         ctx.beginPath();
         ctx.width = 1;
 
-        let pos = 700
+        let xpos = 700
         let ypos = 200
         let xlength = 100
         let ylength = 100
 
-        ctx.rect(xpos+20,ypos+20,100-40,100-40);
-        ctx.rect(xpos+10+10,200+100-10,100-20-10,10);
+        ctx.rect(xpos+20,ypos+20,xlength-40,ylength-40);
+        ctx.rect(xpos+20+10,ypos+ylength-20,xlength-40-20,10);
+        ctx.rect(xpos+20+10,ypos-20,xlength-40-20,10);
 
 
         
