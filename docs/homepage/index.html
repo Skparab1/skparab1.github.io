@@ -56,6 +56,15 @@
         ctx.moveTo(xpos+xlength-30,ypos+ylength-20);
         ctx.arc(xpos+xlength-30,ypos+ylength-20,20,0,degToRad(360));
         
+        ctx.rect(250+xchange+12.25,15+ychange+12.25,xsize-24.5,ysize-24.5);
+        ctx.rect(250+xchange+12.25,15+ychange+3,xsize-24.5,15);
+        ctx.rect(250+xchange+12.25,ychange+ysize-3,xsize-24.5,15);
+        ctx.rect(250+xchange+3,15+ychange+12.5,15,ysize-24.5);
+        ctx.rect(250+xchange+xsize-12.5-5.5,15+ychange+12.5,15,ysize-24.5);
+        ctx.arc(265+xchange,30+ychange,24.5,0,degToRad(360));
+        ctx.arc(435+xchange+xsizechange,30+ychange,24.5,0,degToRad(360));
+        ctx.arc(265+xchange,60+ychange+ysizechange,24.5,0,degToRad(360));
+        ctx.arc(435+xchange+xsizechange,60+ychange+ysizechange,24.5,0,degToRad(360));
         ctx.strokeStyle = incolor;
         ctx.fillStyle = incolor;
         ctx.fill();
