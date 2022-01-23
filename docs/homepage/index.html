@@ -82,23 +82,29 @@
             ctx.beginPath();
             red = i*1.5;
             ctx.fillStyle = 'rgb('+red+', '+red+', '+red+')'
-            ctx.font = '90px Arial';
-            ctx.fillText('Skparab1 Software', 250, 400-j);
+            ctx.strokeStyle = 'rgb('+red+', '+red+', '+red+')'
+            ctx.font = '75px Arial';
+            ctx.fillText('Skparab1 Software', 200, 375-j);
             ctx.fillStyle = 'rgb('+red/2-200+', '+red/2-200+', '+red/2-200+')'
-            ctx.font = '55px Arial';
-            ctx.fillText('Free and open source software for everyone', 100, 475-j);
+            ctx.strokeStyle = 'rgb('+red/2-200+', '+red/2-200+', '+red/2-200+')'
+            ctx.font = '35px Arial';
+            ctx.fillText('Free and open source software for everyone', 175, 425-j);
             let ffs = 'rgb('+i*1.5+', '+0+', '+0+')'
-            let yzero = 385-j/2
-            if (yzero < 220){ yzero = 220}
+            let yzero = 385-j/2 -75
+            if (yzero < 220){ yzero = 175}
             drawnicerect(100,yzero,250,70,ffs)
-            yzero = 385-j/4-75
-            if (yzero < 220){ yzero = 220}
+            ffs = 'rgb('+1.5*i+', '+0+', '+i*1.5+')'
+            drawnicerect(100,yzero+150,250,70,ffs)
+            yzero = 385-j +90
             ffs = 'rgb('+0+', '+i*1.5+', '+0+')'
-            drawnicerect(450,yzero,250,70,ffs)
-            yzero = 385-j/2 
-            if (yzero < 220){ yzero = 220}
+            drawnicerect(375,yzero,250,70,ffs)
+            ffs = 'rgb('+i*1.5+', '+i*1.5+', '+0+')'
+            drawnicerect(375,yzero+150,250,70,ffs)
+            yzero = 385-j*1.5 + 240
             ffs = 'rgb('+0+', '+0+', '+i*1.5+')'
-            drawnicerect(800,yzero,250,70,ffs)
+            drawnicerect(650,yzero,250,70,ffs)
+            ffs = 'rgb('+0+', '+i*1.5+', '+i*1.5+')'
+            drawnicerect(650,yzero+150,250,70,ffs)
 
             await sleep(1);
             j += (300-j)/25;
