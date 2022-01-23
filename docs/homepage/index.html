@@ -30,12 +30,38 @@
         return degrees * Math.PI / 180;
       };
 
-      //template ctx.arc(x, y, radius, 0, 2 * Math.PI);
+      function drawnicerect(x,y,xsize,ysize,incolor){
+        let xchange = x-250;
+        let ychange = y-15;
+        let xsizechange = xsize-200;
+        let ysizechange = ysize-60;
+
+        ctx.beginPath();
+        
+        ctx.rect(250+xchange+12.25,15+ychange+12.25,xsize-24.5,ysize-24.5);
+        ctx.rect(250+xchange+12.25,15+ychange+3,xsize-24.5,15);
+        ctx.rect(250+xchange+12.25,ychange+ysize-3,xsize-24.5,15);
+        ctx.rect(250+xchange+3,15+ychange+12.5,15,ysize-24.5);
+        ctx.rect(250+xchange+xsize-12.5-5.5,15+ychange+12.5,15,ysize-24.5);
+        ctx.arc(265+xchange,30+ychange,24.5,0,degToRad(360));
+        ctx.arc(435+xchange+xsizechange,30+ychange,24.5,0,degToRad(360));
+        ctx.arc(265+xchange,60+ychange+ysizechange,24.5,0,degToRad(360));
+        ctx.arc(435+xchange+xsizechange,60+ychange+ysizechange,24.5,0,degToRad(360));
+        ctx.strokeStyle = incolor;
+        ctx.fillStyle = incolor;
+        ctx.fill();
+        ctx.stroke(); 
+        ctx.stroke(); 
+      }
+
+      //template ctx.arc(x, y, radius, startradians,endradians);
 
       ctx.beginPath();
       ctx.strokeStyle = 'rgb(255,255,255)'
       ctx.arc(200, 200, 100, degToRad(180), degToRad(90));
       ctx.stroke(); 
+
+      drawnicerect(300,300,200,60,'rgb(255,125,0)')
 
     </script>
   </body>
