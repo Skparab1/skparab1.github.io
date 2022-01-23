@@ -33,16 +33,16 @@
       function drawnicerect(x,y,xsize,ysize,incolor){
 
         //template ctx.arc(x, y, radius, startradians,endradians);
-        ctx.rect(xpos+10,ypos+20,xlength-20,ylength-40);
-        ctx.rect(xpos+20+10,ypos+ylength-20,xlength-40-20,20);
-        ctx.rect(xpos+20+10,ypos,xlength-40-20,20);
-        ctx.arc(xpos+30,ypos+20,20,0,degToRad(360));
-        ctx.moveTo(xpos+xlength-30,ypos+20);
-        ctx.arc(xpos+xlength-30,ypos+20,20,0,degToRad(360));
-        ctx.moveTo(xpos+30,ypos+ylength-20);
-        ctx.arc(xpos+30,ypos+ylength-20,20,0,degToRad(360));
-        ctx.moveTo(xpos+xlength-30,ypos+ylength-20);
-        ctx.arc(xpos+xlength-30,ypos+ylength-20,20,0,degToRad(360));
+        ctx.rect(x+10,y+20,xlength-20,ylength-40);
+        ctx.rect(x+20+10,y+ylength-20,xlength-40-20,20);
+        ctx.rect(x+20+10,y,xlength-40-20,20);
+        ctx.arc(x+30,y+20,20,0,degToRad(360));
+        ctx.moveTo(x+xlength-30,y+20);
+        ctx.arc(x+xlength-30,y+20,20,0,degToRad(360));
+        ctx.moveTo(x+30,y+ylength-20);
+        ctx.arc(x+30,y+ylength-20,20,0,degToRad(360));
+        ctx.moveTo(x+xlength-30,y+ylength-20);
+        ctx.arc(x+xlength-30,y+ylength-20,20,0,degToRad(360));
         
         ctx.strokeStyle = incolor;
         ctx.fillStyle = incolor;
