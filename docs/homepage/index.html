@@ -15,13 +15,14 @@
   <body>
     <canvas class="myCanvas">
       <p>Add suitable fallback here.</p>
+      height=1000
     </canvas>
 
     <script>
 
       const canvas = document.querySelector('.myCanvas');
-      const width = canvas.width = window.innerWidth;
-      const height = canvas.height = window.innerHeight;
+      const width = canvas.width  = window.innerWidth; 
+      const height = canvas.height = 1000;
       const ctx = canvas.getContext('2d');
 
       ctx.fillStyle = 'rgb(0,0,0)';
@@ -83,27 +84,51 @@
             red = i*1.5;
             ctx.fillStyle = 'rgb('+red+', '+red+', '+red+')'
             ctx.strokeStyle = 'rgb('+red+', '+red+', '+red+')'
-            ctx.font = '75px Arial';
+            ctx.font = '75px Helvetica';
             ctx.fillText('Skparab1 Software', 200, 375-j);
             ctx.fillStyle = 'rgb('+red/2-200+', '+red/2-200+', '+red/2-200+')'
             ctx.strokeStyle = 'rgb('+red/2-200+', '+red/2-200+', '+red/2-200+')'
-            ctx.font = '35px Arial';
+            ctx.font = '35px Helvetica';
             ctx.fillText('Free and open source software for everyone', 175, 425-j);
-            let ffs = 'rgb('+i*1.5+', '+0+', '+0+')';
+
+            let ffs = 'rgb('+i*1.5+', '+0+', '+0+')'
             let yzero = 385-j +90 //->
             drawnicerect(100,yzero,250,70,ffs)
+            ctx.fillStyle = 'rgb('+0+', '+(i*1.5)+', '+0+')';
+            ctx.fillText('login', 125, yzero+50);
+
             ffs = 'rgb('+1.5*i+', '+0+', '+i*1.5+')'
             drawnicerect(100,yzero+150,250,70,ffs)
+            ctx.fillStyle = 'rgb('+(i*1.5)+', '+(i*1.5)+', '+0+')';
+            ctx.fillText('login', 125, yzero+200);
+
             yzero = 385-j*1.25 +165
             ffs = 'rgb('+0+', '+i*1.5+', '+0+')'
             drawnicerect(375,yzero,250,70,ffs)
+            ctx.fillStyle = 'rgb('+0+', '+0+', '+(i*1.5)+')';
+            ctx.fillText('login', 450, yzero+50);
+            
             ffs = 'rgb('+i*1.5+', '+i*1.5+', '+0+')'
             drawnicerect(375,yzero+150,250,70,ffs)
+            ctx.fillStyle = 'rgb('+0+', '+(i*1.5)+', '+(i*1.5)+')';
+            ctx.fillText('login', 450, yzero+200);
+
             yzero = 385-j*1.5 + 240
             ffs = 'rgb('+0+', '+0+', '+i*1.5+')'
             drawnicerect(650,yzero,250,70,ffs)
+            ctx.fillStyle = 'rgb('+(i*1.5)+', '+0+', '+0+')';
+            ctx.fillText('login', 700, yzero+50);
+
             ffs = 'rgb('+0+', '+i*1.5+', '+i*1.5+')'
-            drawnicerect(650,yzero+150,250,70,ffs);
+            drawnicerect(650,yzero+150,250,70,ffs)
+            ctx.fillStyle = 'rgb('+(i*1.5)+', '+0+', '+(i*1.5)+')';
+            ctx.fillText('login', 700, yzero+200);
+
+            //ctx.beginPath();
+            ctx.font = '35px Arial';
+            //ctx.fillText('login', 700, yzero+50);
+            //ctx.fillText('Popular software', 175, 425-j);
+            //ctx.fillText('Search page', 175, 425-j);
 
 
             await sleep(1);
@@ -112,20 +137,18 @@
       })();
  
 
-      drawnicerect(300,300,200,60,'rgb(255,125,0)');
-      drawnicerect(400,300,100,100,'rgb(255,125,0)');
-      drawnicerect(100,100,700,60,'rgb(255,125,0)');
+      drawnicerect(300,300,200,60,'rgb(255,125,0)')
+      drawnicerect(400,300,100,100,'rgb(255,125,0)')
+      drawnicerect(100,100,700,60,'rgb(255,125,0)')
 
-      // ctx.beginPath();
-      // ctx.rect(0,window.scrollY,width,50)
-      // ctx.fillStyle = 'rgb('+200+', '+200+', '+200+')';
-      // ctx.strokeStyle = 'rgb('+200+', '+200+', '+200+')';
-      // cts.fill();
-      // ctx.stroke();
+      ctx.beginPath();
+      ctx.rect(0,window.scrollY+100,width,50)
+      ctx.fillStyle = 'rgb('+200+', '+200+', '+200+')'
+      ctx.strokeStyle = 'rgb('+200+', '+200+', '+200+')'
+      cts.fill();
+      ctx.stroke();
 
 
     </script>
   </body>
 </html>
-
- 
