@@ -89,43 +89,45 @@
             ctx.strokeStyle = 'rgb('+red+', '+red+', '+red+')'
             ctx.font = '75px Helvetica';
             ctx.fillText('Skparab1 Software', 200, 375-j);
+            ctx.strokeText('Skparab1 Software', 200, 375-j);
             ctx.fillStyle = 'rgb('+red/2-200+', '+red/2-200+', '+red/2-200+')'
             ctx.strokeStyle = 'rgb('+red/2-200+', '+red/2-200+', '+red/2-200+')'
             ctx.font = '35px Helvetica';
             ctx.fillText('Free and open source software for everyone', 175, 425-j);
+            ctx.strokeText('Free and open source software for everyone', 175, 425-j);
 
             let ffs = 'rgb('+i*1.5+', '+0+', '+0+')'
             let yzero = 385-j +90 //->
             drawnicerect(100,yzero,250,70,ffs)
             ctx.fillStyle = 'rgb('+0+', '+(i*1.5)+', '+0+')';
-            ctx.fillText('login', 125, yzero+50);
+            ctx.fillText('login', 185, yzero+50);
 
             ffs = 'rgb('+1.5*i+', '+0+', '+i*1.5+')'
             drawnicerect(100,yzero+150,250,70,ffs)
             ctx.fillStyle = 'rgb('+(i*1.5)+', '+(i*1.5)+', '+0+')';
-            ctx.fillText('login', 125, yzero+200);
+            ctx.fillText('Images', 165, yzero+200);
 
             yzero = 385-j*1.25 +165
             ffs = 'rgb('+0+', '+i*1.5+', '+0+')'
             drawnicerect(375,yzero,250,70,ffs)
             ctx.fillStyle = 'rgb('+0+', '+0+', '+(i*1.5)+')';
-            ctx.fillText('login', 450, yzero+50);
+            ctx.fillText('Web apps', 400, yzero+50);
             
             ffs = 'rgb('+i*1.5+', '+i*1.5+', '+0+')'
             drawnicerect(375,yzero+150,250,70,ffs)
             ctx.fillStyle = 'rgb('+0+', '+(i*1.5)+', '+(i*1.5)+')';
-            ctx.fillText('login', 450, yzero+200);
+            ctx.fillText('Software', 400, yzero+200);
 
             yzero = 385-j*1.5 + 240
             ffs = 'rgb('+0+', '+0+', '+i*1.5+')'
             drawnicerect(650,yzero,250,70,ffs)
             ctx.fillStyle = 'rgb('+(i*1.5)+', '+0+', '+0+')';
-            ctx.fillText('login', 700, yzero+50);
+            ctx.fillText('Search Page', 700, yzero+50);
 
             ffs = 'rgb('+0+', '+i*1.5+', '+i*1.5+')'
             drawnicerect(650,yzero+150,250,70,ffs)
             ctx.fillStyle = 'rgb('+(i*1.5)+', '+0+', '+(i*1.5)+')';
-            ctx.fillText('login', 700, yzero+200);
+            ctx.fillText('Articles', 700, yzero+200);
 
             //ctx.beginPath();
             ctx.font = '35px Arial';
@@ -161,6 +163,9 @@
           let y = event.clientY - rect.top;
           console.log("Coordinate x: " + x, 
                       "Coordinate y: " + y);
+          if (x >= 110 && x <= 340 && y >= 180 && y <= 240){
+            window.open('https://skparab1.github.io/login/auth=false&pwdchallenge=true&goto=skparab1.github.io&s&homepage',"_self")
+          }
       }
 
       let canvasElem = document.querySelector("canvas");
