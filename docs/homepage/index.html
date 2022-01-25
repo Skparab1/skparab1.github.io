@@ -15,14 +15,17 @@
   <body>
     <canvas class="myCanvas">
       <p>Add suitable fallback here.</p>
-      height=1000
+      <canvas
+        height="4000"
+        width="1000" 
+      </canvas>
     </canvas>
 
     <script>
 
       const canvas = document.querySelector('.myCanvas');
       const width = canvas.width  = window.innerWidth; 
-      const height = canvas.height = 1000;
+      const height = canvas.height = 2000;
       const ctx = canvas.getContext('2d');
 
       ctx.fillStyle = 'rgb(0,0,0)';
@@ -149,6 +152,23 @@
       ctx.stroke();
 
 
+    </script>
+
+    <script type="text/javascript">
+      function getMousePosition(canvas, event) {
+          let rect = canvas.getBoundingClientRect();
+          let x = event.clientX - rect.left;
+          let y = event.clientY - rect.top;
+          console.log("Coordinate x: " + x, 
+                      "Coordinate y: " + y);
+      }
+
+      let canvasElem = document.querySelector("canvas");
+        
+      canvasElem.addEventListener("mousedown", function(e)
+      {
+          getMousePosition(canvasElem, e);
+      });
     </script>
   </body>
 </html>
