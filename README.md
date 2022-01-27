@@ -20,7 +20,7 @@
     - homepage for skparab1 web applications
     - also a graphics based webpage (in p5js)
   - go
-    - working on a url shortener in html\
+    - working on a url shortener in html
     - not working yet
     - likely will be much faster than my old one (which used p5js)
     
