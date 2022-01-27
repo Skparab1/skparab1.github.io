@@ -18,7 +18,7 @@
     - can be used across skparab1 web applications
   - [home](https://skparab1.github.io/home)
     - homepage for skparab1 web applications
-    - also a graphics based webpage
+    - also a graphics based webpage WITH
   - go
     - working on a url shortener in html\
     - not working yet
