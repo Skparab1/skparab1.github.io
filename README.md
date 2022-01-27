@@ -21,7 +21,7 @@
     - also a graphics based webpage (in p5js)
   - homepage
     - my new homepage
-    - in HTML (with HTML
+    - in HTML (with HTML canvas)
   - go
     - working on a url shortener in html
     - not working yet
