@@ -22,6 +22,7 @@
   - homepage
     - my new homepage
     - in HTML (with HTML canvas)
+    - will 
   - go
     - working on a url shortener in html
     - not working yet
