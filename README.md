@@ -19,7 +19,7 @@
   - [home](https://skparab1.github.io/home)
     - homepage for skparab1 web applications
     - also a graphics based webpage (in p5js)
-  - homepage
+  - [home](https://skparab1.github.io/home)
     - my new homepage
     - in HTML (with HTML canvas)
     - will be renames to /home subpage when i finish it
