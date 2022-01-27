@@ -19,7 +19,7 @@
   - [home](https://skparab1.github.io/home)
     - homepage for skparab1 web applications
     - also a graphics based webpage (in p5js)
-  - homepage(my
+  - homepage(my new
   - go
     - working on a url shortener in html
     - not working yet
