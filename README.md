@@ -18,8 +18,7 @@
     - a webpage for logging in to skparab1 services
     - can be used across skparab1 web applications
   - [home](https://skparab1.github.io/home)
-    - homepage for skparab1 web applications
-    - also a graphics based webpage (in p5js  - [homepage](https://skparab1.github.io/homepage)
+  - [homepage](https://skparab1.github.io/homepage)
     - my new homepage
     - in HTML (with HTML canvas)
     - will be renames to /home subpage when i finish it
