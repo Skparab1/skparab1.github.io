@@ -27,7 +27,7 @@
     - working on a url shortener in html
     - likely will be much faster than my old one (which used p5js)  
   - main
-    - a test page 
+    - a test page which will become my
     
  
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
