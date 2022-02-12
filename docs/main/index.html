@@ -49,6 +49,8 @@
 
     h1{
         text-align:center;
+        color: #ffffff;
+        size: 75px;
     }
 
     li a:hover {
@@ -186,14 +188,21 @@
 <li><a href="https://skparab1.github.io/search">Search</a></li>
 <li><a href="https://skparab1.github.io/images">Images</a></li>
 <li><a href="https://skparab1.github.io/articles">Articles</a></li>
+<li><a href="https://skparab1.github.io/wordle/random">Wordle</a></li>
 <li><a href="https://skparab1.github.io/login">Sign in</a></li>
 </ul> 
+
+<div>
+    <h1> Skparab1 Images - Home </h1>
+</div>
+
+<br>
 
 <div class="slideshow-container">
 
     <div class="mySlides fade">
       <div class="numbertext">1 / 3</div>
-      <img src="images/IMG_2153.jpg" style="width:50%">
+      <img src="images/IMG_2153.jpg" style="width:75%">
       <div class="text">Skparab1 Images</div>
     </div>
     
@@ -205,7 +214,7 @@
     
     <div class="mySlides fade">
       <div class="numbertext">3 / 3</div>
-      <img src="graphics.gif" style="width:50%">
+      <img src="images/wordle.gif" style="width:75%">
       <div class="text">Skparab1 Wordle</div>
     </div>
     
@@ -247,15 +256,16 @@
       }
       slides[slideIndex-1].style.display = "block";  
       dots[slideIndex-1].className += " active";
+
+      slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
 </script>
 
 <!div style="background-image: url('images/IMG_2450.jpg');"> 
 <!img src="images/IMG_2450.jpg" alt="thing"> 
-
-<div>
-<h1 style="color:rgb(255, 255, 255);"> Skparab1 Images - Home</h1>
-</div>
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
