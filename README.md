@@ -40,7 +40,3 @@
   - the & is used to seperate packed parameters (which are the filters)
 - try it [here](https://skparab1.github.io/search)
 
-## oskeyboard
-- now has a [repo](https://github.com/skparab1) and [webpage](https://skparab1.github.io/r/key)
-- implemented to private redirect
-- module not done yet idk if i will do it
