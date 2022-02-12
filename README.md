@@ -10,7 +10,8 @@
     - a shorter link for my url shortener
   - [search](https://skparab1.github.io/search)
     - a search page for my software and website content
-    - pretty good now actually, uses optimized rendering (like [oskeyboard](https://skparab1.github.io/r/key))
+    - pretty good now actually, uses optimized rendering (like [oskeyboard](https://skparab1.github.io/r/key))'
+    - however, is in p5js
   - [traffic simulator](https://skparab1.github.io/traffic_simulator)
     - a web host for my traffic simulator
   - [login](https://skparab1.github.io/login)
