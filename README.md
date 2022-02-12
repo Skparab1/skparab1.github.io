@@ -25,7 +25,8 @@
     - will be renames to /home subpage when i finish it
   - go
     - working on a url shortener in html
-    - likely will be much faster than my old one (which used p5js)
+    - likely will be much faster than my old one (which used p5js)  
+  - main
     
  
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
