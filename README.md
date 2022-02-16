@@ -29,6 +29,7 @@
     - image carousel
       - images work
       - centering works
+      - dots work
     
  
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
