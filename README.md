@@ -29,9 +29,10 @@
     - image carousel
       - images work
       - centering works
-      - dots work
+      - dots display
       - dots work when clicked
-      - arrows disply
+      - arrows display
+      - 
     
  
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
