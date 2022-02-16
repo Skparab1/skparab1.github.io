@@ -30,7 +30,8 @@
       - images work
       - centering works
       - dots work
-      - arrows disp,lay
+      - dots work when clicked
+      - arrows disply
     
  
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
