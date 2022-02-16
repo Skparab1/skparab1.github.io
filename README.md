@@ -34,6 +34,7 @@
       - arrows display
       - arrows work when clicked, but speed up carousel
       - auto timed change works
+      - slide/totalsides counter works
     
  
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
