@@ -36,7 +36,7 @@
       - auto timed change works
       - slide/totalsides counter works
       - total of 6 slides for now
-      - most images are the same dimensions
+      - most images are the same dimensions 9e
     
  
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
