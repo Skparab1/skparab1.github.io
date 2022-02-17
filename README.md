@@ -21,7 +21,7 @@
     - my new homepage
     - in HTML (with HTML canvas)
     - will be renamed to /home subpage when i finish it
-    - not really that good
+    - not really that good so 
   - go
     - working on a url shortener in html
     - likely will be much faster than my old one (which used p5js)  
