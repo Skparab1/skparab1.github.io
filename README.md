@@ -37,7 +37,7 @@
       - auto timed change works
       - slide/totalsides counter works
       - total of 6 slides for now
-        - all 
+        - all slides
       - most images are the same dimensions (except for utilities, which i will resize later)
     
  
