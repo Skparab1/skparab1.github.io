@@ -20,7 +20,7 @@
   - [homepage](https://skparab1.github.io/homepage)
     - my new homepage
     - in HTML (with HTML canvas)
-    - will be renamed to /home subpage whe
+    - will be renamed to /home subpage wh
     - not really that good so unlikely i will use
   - go
     - working on a url shortener in html
