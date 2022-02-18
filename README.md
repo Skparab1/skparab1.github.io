@@ -24,7 +24,7 @@
     - not really that good so unlikely i will use
   - go
     - working on a url shortener in html
-    - is much faster than my 
+    - is much faster than my privios
   - main
     - a test page which will become my new main page(homepage)
     - image carousel
