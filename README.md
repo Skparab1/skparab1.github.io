@@ -24,7 +24,7 @@
     - not really that good so unlikely i will use
   - go
     - working on a url shortener in html
-    - likely will be much faster than my old one (which used p5js)  
+    - is 
   - main
     - a test page which will become my new main page(homepage)
     - image carousel
