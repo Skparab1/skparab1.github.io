@@ -241,10 +241,10 @@
     </div>
 
     <div class="mySlides fade" style="text-align:center">
-        <a href="https://skparab1.github.io/search/game&software=false&article=false">
+        <a href="https://skparab1.github.io/login">
         <div class="numbertext">6 / 6</div>
-        <img src="images/skparab1 games.png" style="width:75%" class="center">
-        <div class="text">Skparab1 Search</div>
+        <img src="images/login.png" style="width:75%" class="center">
+        <div class="text">Skparab1 Auth - Securely log in to skparab1 web tools</div>
         </a>
     </div>
     
@@ -260,7 +260,7 @@
       <span class="dot" onclick="currentSlide(3)"></span> 
       <span class="dot" onclick="currentSlide(4)"></span> 
       <span class="dot" onclick="currentSlide(5)"></span> 
-      <!span class="dot" onclick="currentSlide(6)"><!/span> 
+      <span class="dot" onclick="currentSlide(6)"></span> 
 </div>
     
 <script>
@@ -280,7 +280,7 @@
       var i;
       var slides = document.getElementsByClassName("mySlides");
       var dots = document.getElementsByClassName("dot");
-      if (slideIndex > slides.length-1) {slideIndex = 1} // skip last slide (articles) for now
+      if (slideIndex > slides.length) {slideIndex = 1} // skip last slide (articles) for now
       if (n < 1) {slideIndex = slides.length}
       for (i = 0; i < slides.length; i++) {
           slides[i].style.display = "none";  
