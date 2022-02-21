@@ -25,10 +25,7 @@
     - working on a url shortener in html
     - is much faster than my old one
   - main
-    - a test page which will become my new main page(homepage)
-    - image carousel
-      - images work
- 
+
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
 ## Url packing string query framework for search
