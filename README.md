@@ -33,7 +33,6 @@
       - dots work when clicked
       - arrows display
       - arrows work when clicked, but speed up carousel
-      - auto timed change works
 
     
  
