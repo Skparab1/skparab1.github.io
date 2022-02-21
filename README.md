@@ -24,7 +24,7 @@
   - go
     - working on a url shortener in html
     - is much faster than my old one
-  - main
+  - [main](https://skparab1.github.io)
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
