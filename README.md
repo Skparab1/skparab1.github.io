@@ -30,7 +30,7 @@
       - images work
       - centering works
       - dots display
-      - dots work when clicked
+      - dot
     
  
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
