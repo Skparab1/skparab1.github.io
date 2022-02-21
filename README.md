@@ -35,7 +35,7 @@
       - arrows work when clicked, but speed up carousel
       - auto timed change works
       - slide/totalsides counter works
-      - total of 6 slides for now
+      - total of 
  
 
     
