@@ -28,8 +28,7 @@
     - a test page which will become my new main page(homepage)
     - image carousel
       - images work
-      - centering works
-      - dots displ    
+      - centering works   
  
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
