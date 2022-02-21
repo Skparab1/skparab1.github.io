@@ -31,7 +31,6 @@
       - centering works
       - dots display
       - dots work when clicked
-      - arrows display
     
  
 -------------------------------------------- dont go below this line stuff is not organized --------------------------------------------
