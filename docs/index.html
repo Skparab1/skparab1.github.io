@@ -25,7 +25,7 @@
         padding: 15px 32px;
         text-align: center;
         text-decoration: none;
-        width: 49.5%;
+        width: 49%;
         display: inline-block;
         font-size: 16px;
         transition: all 0.2s ease-in-out;
@@ -292,24 +292,25 @@
         </a>
     </div>
     
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1); timeDelay += 1000000000;">&#10095;</a>
+    <a class="prev" onclick="plusSlides(-1); changebool = false;">&#10094;</a>
+    <a class="next" onclick="plusSlides(1);  changebool = false;">&#10095;</a>
     
     </div>
     <br>
     
     <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span> 
-      <span class="dot" onclick="currentSlide(2)"></span> 
-      <span class="dot" onclick="currentSlide(3)"></span> 
-      <span class="dot" onclick="currentSlide(4)"></span> 
-      <span class="dot" onclick="currentSlide(5)"></span> 
-      <span class="dot" onclick="currentSlide(6)"></span> 
+      <span class="dot" onclick="currentSlide(1); changebool = false;"></span> 
+      <span class="dot" onclick="currentSlide(2); changebool = false;"></span> 
+      <span class="dot" onclick="currentSlide(3); changebool = false;"></span> 
+      <span class="dot" onclick="currentSlide(4); changebool = false;"></span> 
+      <span class="dot" onclick="currentSlide(5); changebool = false;"></span> 
+      <span class="dot" onclick="currentSlide(6); changebool = false;"></span> 
     </div>
     
 <script>
     var slideIndex = 1;
     var timeDelay = 2000;
+    var changebool = true;
     showSlides(slideIndex);
     
     function plusSlides(n) {
@@ -339,7 +340,9 @@
     slides[slideIndex-1].style.display = "block";
     setTimeout(showSlides, timeDelay);
     //timeDelay = 2000;
-    slideIndex++;
+    if (changebool){
+        slideIndex++;
+    }
     }
 </script>
 
