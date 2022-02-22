@@ -36,7 +36,7 @@
   - libraries
     - libraries that my web pages use
   - logout
-    - basically logs you out and redirects to my homepage
+    - basically logs you out and redirects to the site you came from, or my homepage
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
