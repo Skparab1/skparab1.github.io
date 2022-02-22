@@ -34,7 +34,7 @@
   - gofast
     - testing my faster url shortener, [go](https://github.com/skparab1/go)
   - libraries
-    - libraries that i use
+    - libraries that my web pages use
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
