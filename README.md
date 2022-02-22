@@ -37,7 +37,7 @@
     - libraries that my web pages use
   - logout
     - basically logs you out and redirects to the site you came from, or my homepage
-  - pascals triangle
+  - [pascals triangle](https://skparab1.github.io/pascals-triangle)
     - a pascals triangle generator
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
