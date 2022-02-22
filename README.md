@@ -28,6 +28,7 @@
     - my main github website
   - articles
     - my articles website, which does not have anything yet
+  - catalog
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
