@@ -32,7 +32,7 @@
     - my catalog website
     - sort of like my url shortener, but with buttons for links
   - gofast
-    - testing my faster url shortener, [go]
+    - testing my faster url shortener, [go](https://github.com/skparab1/go)
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
