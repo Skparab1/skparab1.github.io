@@ -27,7 +27,7 @@
   - [main](https://skparab1.github.io)
     - my main github website
   - articles
-    - my articles website
+    - my articles website, which does not have anything yet
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
