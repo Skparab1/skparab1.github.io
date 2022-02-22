@@ -35,6 +35,8 @@
     - testing my faster url shortener, [go](https://github.com/skparab1/go)
   - libraries
     - libraries that my web pages use
+  - logout
+    -
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
