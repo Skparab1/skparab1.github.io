@@ -29,6 +29,7 @@
   - articles
     - my articles website, which does not have anything yet
   - catalog
+    - my catalog website
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
