@@ -32,6 +32,7 @@
     - my catalog website
     - sort of like my url shortener, but with buttons for links
   - gofast
+    - testing my faster url
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
