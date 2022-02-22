@@ -30,6 +30,7 @@
     - my articles website, which does not have anything yet
   - catalog
     - my catalog website
+    - sort of like my url shortener, but 
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
