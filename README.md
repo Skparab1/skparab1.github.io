@@ -38,6 +38,7 @@
   - logout
     - basically logs you out and redirects to the site you came from, or my homepage
   - pascals triangle
+    - a pascals triangle generator
 
 ---------------------------------- dont go below this line stuff is not organized -------------------------------------
 
