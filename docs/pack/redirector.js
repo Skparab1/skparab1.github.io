@@ -41,6 +41,24 @@ if (data.includes('sv=true')){
     data = data + 'sv=false';
 }
 
+if (data.includes('software=true')){
+    data = data.replace('software=true','');
+} else {
+    data = data + 'software=false';
+}
+
+if (data.includes('webpage=true')){
+    data = data.replace('webpage=true','');
+} else {
+    data = data + 'webpage=false';
+}
+
+if (data.includes('article=true')){
+    data = data.replace('article=true','');
+} else {
+    data = data + 'article=false';
+}
+
 data = 'https://skparab1.github.io/search'+data;
 
 window.open(data,"_self");
