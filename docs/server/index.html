@@ -1,0 +1,28 @@
+<html>
+<head>
+  <script type="module">
+    import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+    
+    const octokit = new Octokit({ auth: "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" });
+    octokit.request('GET /repos/:owner/:repo', {
+      owner: "skparab1",
+      repo: "server"
+    }).then(response => console.log(response.data))
+    async function start() {
+      return await octokit.request('POST /repos/skparab1/server/issues', {
+          owner: 'skparab1',
+          repo: 'server',
+          title: 'data push',
+          body: 'hello world',
+          tags: 'serverdata'
+        })
+    };
+    
+    start();
+    
+  </script>    
+</head>
+
+<body>
+</body>
+</html>
