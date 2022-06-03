@@ -32,9 +32,10 @@ li {
 }
 li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
-  padding: 14px 16px;
+  font-size: 25px;
+  padding: 25px 16px;
   text-decoration: none;
 }
 
@@ -134,14 +135,17 @@ input:checked + .slider:before {
 
 .top-button:hover{
   color:white;
-  border-radius: 25px;
+  border-radius: 10px;
   border: 2px solid white;
-  transition: all 0.2s ease-in-out; 
+  transition: all 0.5s ease-in-out; 
+  transition: all 0.5s ease-out; 
 }
 
 .topheader{
-  font-size: 50px;
-  color:white;
+  font-size:60px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:black;
+  position: absolute;
   text-align: center;
 }
 

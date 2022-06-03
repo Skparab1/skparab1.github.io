@@ -5,6 +5,8 @@ var animator = 1000;
 var colorizer = 0;
 
 (async () => {
+  let it = document.getElementById('topheader')
+  it.style.left = 2*window.innerWidth/5 + "px";
   while (counter <= 4000){
     colorizer = counter;
     if (colorizer >= 1000){
@@ -72,22 +74,22 @@ var colorizer = 0;
     await sleep(2);
   }
 
-  counter = 0;
+  // counter = 0;
 
-  animator = 1000;
-  while (counter < 1000){
-    tbutton = document.getElementById("top-button1");
-    tbutton.style.height = ((1000-animator)/1000*150)+100+"px";
-    tbutton = document.getElementById("top-button2");
-    tbutton.style.height = ((1000-(animator))/1000*150)+100+"px";
-    tbutton = document.getElementById("top-button3");
-    tbutton.style.height = ((1000-animator)/1000*150)+100+"px";
-    tbutton = document.getElementById("top-button4");
-    tbutton.style.height = ((1000-animator)/1000*150)+100+"px";
-    console.log('did it'+(1000-animator)/1000);
-    counter += 1;
-    animator = 0.99 * animator;
-    await sleep(2);
-  }
+  // animator = 1000;
+  // while (counter < 1000){
+  //   tbutton = document.getElementById("top-button1");
+  //   tbutton.style.height = ((1000-animator)/1000*150)+100+"px";
+  //   tbutton = document.getElementById("top-button2");
+  //   tbutton.style.height = ((1000-(animator))/1000*150)+100+"px";
+  //   tbutton = document.getElementById("top-button3");
+  //   tbutton.style.height = ((1000-animator)/1000*150)+100+"px";
+  //   tbutton = document.getElementById("top-button4");
+  //   tbutton.style.height = ((1000-animator)/1000*150)+100+"px";
+  //   console.log('did it'+(1000-animator)/1000);
+  //   counter += 1;
+  //   animator = 0.99 * animator;
+  //   await sleep(2);
+  // }
 
 })();
