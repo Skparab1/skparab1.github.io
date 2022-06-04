@@ -135,6 +135,7 @@ input:checked + .slider:before {
 
 .top-button:hover{
   color:white;
+  background-color: rgba(0,0,0,0);
   border-radius: 10px;
   border: 2px solid white;
   transition: all 0.5s ease-in-out; 
@@ -152,4 +153,14 @@ input:checked + .slider:before {
 .fineline{
   width: 100%;
   height: 10px;
+}
+
+.disc{
+  position: absolute;
+  text-align: center;
+}
+
+.disctext{
+  color: black;
+  font-size: 35px;
 }
