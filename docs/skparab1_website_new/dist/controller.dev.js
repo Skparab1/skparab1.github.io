@@ -164,3 +164,22 @@ var fader2 = 0;
     }
   });
 })();
+
+document.addEventListener("scroll", inView);
+
+function inView() {
+  //if (window.scrollY <= 1)
+  var opener = document.getElementById("opener");
+  opener.style.top = window.innerHeight + 100 + "px";
+  opener.style.height = window.scrollY + "px";
+  var opener1 = document.getElementById("openercontent");
+
+  if (window.scrollY > 100) {
+    opener1.style.top = window.scrollY + window.innerHeight - 100 + "px";
+  } else {
+    opener1.style.top = window.innerHeight + "px";
+  }
+
+  var header = document.getElementById("header");
+  header.style.top = window.scrollY + "px";
+}

@@ -172,5 +172,28 @@ var fader2 = 0;
   //   animator = 0.99 * animator;
   //   await sleep(2);
   // }
+  // while (true){
+  //   let opener = document.getElementById("opener");
+  //   opener.style.top = window.scrollY + window.innerHeight +"px";
+  // }
 
 })();
+
+document.addEventListener("scroll", inView);
+
+function inView() {
+  //if (window.scrollY <= 1)
+  let opener = document.getElementById("opener");
+  opener.style.top = (window.innerHeight+100)+"px";
+  opener.style.height = (window.scrollY)+"px";
+
+  let opener1 = document.getElementById("openercontent");
+  if (window.scrollY > 100){
+    opener1.style.top = (window.scrollY+window.innerHeight-100)+"px";
+  } else {
+    opener1.style.top = (window.innerHeight)+"px";
+  }
+
+  let header = document.getElementById("header");
+  header.style.top = (window.scrollY)+"px";
+}
