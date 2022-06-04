@@ -189,7 +189,7 @@ function inView() {
 
   let opener1 = document.getElementById("openercontent");
   if (window.scrollY > 100){
-    opener1.style.top = (window.scrollY+window.innerHeight-100)+"px";
+    opener1.style.top = (window.scrollY*0.5+window.innerHeight-50)+"px";
   } else {
     opener1.style.top = (window.innerHeight)+"px";
   }

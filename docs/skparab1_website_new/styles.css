@@ -111,7 +111,7 @@ input:checked + .slider:before {
 
 .topdiv {
   height: 1000px;
-
+  z-index: 5;
   top: 0px;
   left: 0px;
   background: linear-gradient(rgb(255, 119, 0), red, black);
@@ -170,13 +170,14 @@ input:checked + .slider:before {
   width: 100%;
   height: 1000px;
   position: absolute;
+  z-index: 1;
 }
 
-
 .openercontent{
-  background: gray;
+  z-index: 1;
+  background: black;
   width: 100%;
-  height: 1000px;
+  height: 500px;
   position: absolute;
 }
 
@@ -187,4 +188,19 @@ input:checked + .slider:before {
   left: 0px;
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0));
   color: white;
+}
+
+.topbanner{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 97%;
+  font-size: 50px;
+  text-align: center;
+}
+
+.about-parts{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  float: left; 
+  text-align: center;
+  width: 32.5%;
 }
