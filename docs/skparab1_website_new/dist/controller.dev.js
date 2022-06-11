@@ -186,11 +186,14 @@ function inView() {
   //if (window.scrollY <= 1)
   var opener = document.getElementById("opener");
 
-  if (window.scrollY >= window.innerHeight + 450) {
+  if (window.scrollY >= window.innerHeight + 450 && window.scrollY < window.innerHeight + 450 + 750) {
     opener.style.display = "block";
     opener.style.top = window.scrollY + "px";
     opener.style.height = 1000 + "px";
-  } else {
+  } else if (window.scrollY < window.innerHeight + 450 + 750) {
+    opener.style.display = "block";
+    opener.style.top = 2000 + "px";
+  } else if (window.scrollY < 1900) {
     opener.style.display = "none";
   }
 
@@ -205,6 +208,7 @@ function inView() {
     opener1.style.top = window.innerHeight + "px";
   }
 
+  console.log(window.scrollY);
   var header = document.getElementById("header");
   header.style.top = window.scrollY + "px";
 }
