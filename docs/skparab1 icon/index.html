@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skparab1 logo</title>
+    <style>
+          body {background-color: rgb(0, 0, 0);}
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      h1{
+        color:rgb(200, 200, 200);
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #555555;
+      }
+      li {
+        display: inline;
+        float: left;
+      }
+      li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover {
+        background-color: #f78a41;
+      }
+
+      .center {
+        margin: auto;
+        width: 50%;
+        border: 3px solid green;
+        padding: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><a href="https://skparab1.github.io">Home</a></li>
+      <li><a href="https://skparab1.github.io/wordle/random">Wordle</a></li>
+      <li><a href="https://skparab1.github.io/snake">Snake</a></li>
+    </ul> 
+
+    <h1>Snake game</h1>
+
+    <!div class="center" style="width: 100%">
+    <div style="float: left">
+    <canvas class="myCanvas">
+      <p>Rip ur browser doesnt support canvas :(( u shud switch to a better browser...</p>
+      <canvas id="the-canvas" width="320" height="240" style="position:relative; right:300px;"></canvas>
+    </canvas>
+    </div>
+
+    <script>
+
+      // alr anindit here are the toggle constants
+      const boardSize = 20; //so 20 means 20x20 and 40 would be 40x40 and you can change it to anything you want
+      const speedfactor = 85; //about these many pixels per second (but not exactly)
+      const pixelbackground1 = 'rgb(0,150,0)'; // this is like the pixel background pattern
+      const pixelbackground2 = 'rgb(0,190,0)'; // its in rgb but you can make it hex or hsv if u want
+      const bordercolor = 'rgb(0,100,0)'; //bordercolor
+      const snakecolor1 = 'rgb(0,0,100)'; //snakecolor1
+      const snakecolor2 = 'rgb(0,0,255)'; //snakecolor2
+      const snakeheadcolor = 'rgb(200,100,0)'; //apple color
+      const applecolor = 'rgb(150,0,0)'; //apple color
+      const seglength = 75; //snake segment length in pixels
+      const addlength = 75; //increase snake length by these many pixels when it eats an apple
+      const borderleniance = 0.5 // the game will ignore a wall hit as long as it is less than 0.5 boxes away from the border
+      const rendertime = 10 // render every 10 snake circles
+      var autopilot; // this is for fun but it turns on with the url parameter query
+
+      if (window.location.href.includes('?autopilot=true')){
+        autopilot = true;
+      } else {
+        autopilot = false;
+      }
+
+      // dont do anythign below this
+      const turningPrecision = true;
+
+      function drawline(x,y,x1,y1,clr,width){
+        ctx.beginPath();
+        //ctx.lineWidth = 3;
+        ctx.lineWidth = width || 10;
+        ctx.strokeStyle = clr;
+        ctx.moveTo(x,y);
+        ctx.lineTo(x1,y1)
+        ctx.stroke();
+      }
+
+      function drawcircle(x,y,rad,circlr){
+        ctx.beginPath();
+        ctx.fillStyle = circlr;
+        ctx.arc(x, y, rad, 0, 2 * Math.PI); //-((height)/(boardSize+2)/2)
+        ctx.fill(); 
+      }
+
+      function drawarc(x,y,rad,length,start,circlr,width){
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.strokeStyle = circlr;
+        ctx.arc(x, y, rad, start * Math.PI, length * Math.PI); //-((height)/(boardSize+2)/2)
+        ctx.stroke(); 
+      }
+
+      function drawapple(x,y,rad){
+        ctx.beginPath();
+        ctx.fillStyle = applecolor;
+        ctx.arc(x, y, rad, 0, 2 * Math.PI); //-((height)/(boardSize+2)/2)
+        ctx.fill(); 
+      }
+
+      const canvas = document.querySelector('.myCanvas');
+      const ctx = canvas.getContext('2d');
+      const width = canvas.width = window.innerWidth; 
+      const height = canvas.height = window.innerHeight-100;
+
+      // // k
+      // drawline(115,314,115,700,'rgb(0,100,255)');
+      // drawline(200,600,290,530,'rgb(0,100,255)');
+      // drawline(100,500,290,705,'rgb(0,100,255)');
+      
+
+      // // p
+
+      // drawline(100,310,300,310,'rgb(255,0,0)');
+      // drawline(285,300,120,490,'rgb(255,0,0)');
+      // drawline(105,300,105,700,'rgb(255,0,0)');
+      // drawline(105,300,105,500,'rgb(255,0,0)');
+
+      // // s
+      // drawline(100,100,300,100,'rgb(0,255,0)');
+      // drawline(105,100,105,300,'rgb(0,255,0)');
+      // drawline(100,300,300,300,'rgb(0,255,0)');
+      // drawline(295,300,120,500,'rgb(0,255,0)');
+
+      // drawarc(507,378,109,0.5,2,'rgb(0,100,255)',10);
+      // drawarc(507,378,91,0.5,1.5,'rgb(255,0,0)',10);
+      // drawarc(600,200,100,1.55,0.65,'rgb(0,255,0)',10);
+      // drawarc(508,378,100,0.5,1.65,'rgb(0,255,0)',10);
+      // drawarc(508,588,100,0,1.5,'rgb(0,100,255)',10);
+      // drawline(505,282,505,590,'rgb(255,0,0)');
+      // drawline(515,378,515,590,'rgb(0,100,255)');
+
+      // //what about a monocolor
+      // drawarc(880,258.5,80,1.5,0.5,'rgb(255,255,255)',10);
+      // drawarc(880,419,80,1,1.5,'rgb(255,255,255)',10);
+      // drawline(800,300,800,590,'rgb(255,255,255)');
+      // drawarc(840,593,100,0,1.6,'rgb(255,255,255)',10);
+
+      // //monocolor rectangular
+
+      // //multicolored slanted thing
+      // drawline(1100+400,500-185,1215+415,380+65,'rgb(0,255,0)',10);
+
+      // //colored
+      // drawline(1100-5+405,235-200,1100-5+405,380-200,'rgb(255,0,0)',10);
+      // drawline(1100+400,245-5-200,1260+400,245-5-200,'rgb(255,0,0)',10);
+      // //drawline(1100-5,380,1260,245-5,'rgb(255,0,0)',10);
+
+      // //top multicolor bar
+      // drawline(1100+400,375-200,1235+400,375-200,'rgb(255,0,0)',10);
+      // drawline(1100+395,385+60,1224+420,385+60,'rgb(0,255,0)',10);
+
+      // //slanted blue
+      // drawline(1100+12+400,500+12-200,1215+40+400,380-16-200,'rgb(0,100,255)',10);
+      // //slanted red
+      // drawline(1100+400,500+12-200,1215+28+400,380-16-200,'rgb(255,0,0)',10);
+
+      // //top black bar to cutoff
+      // drawline(1225+400,365-200,1275+400,365-200,'rgb(0,0,0)',10);
+
+      // // blue vertical
+      // drawline(1105+395,390-211,1105+395,650-200,'rgb(0,100,255)',10);
+      
+      // // green vertical
+      // drawline(1095+415,380-70,1095+415,650-70,'rgb(0,255,0)',10);
+
+      // // blue slanted thing
+      // drawline(1100+400,500-200,1215+30+400,620+30-200,'rgb(0,100,255)',10);
+
+
+      // //bottom black bar to cutoff
+      // //drawline(1050+400,625+25-200,1275+400,625+25-200,'rgb(0,0,0)',10);
+
+
+      //monocolor rectangular
+
+      const sleep = ms => new Promise(res => setTimeout(res, ms));
+      let startx;
+      let starty;
+      let endx; 
+      let endy;
+      let arr;
+      let arr1;
+      (async () => {
+    
+      //multicolored slanted thing
+      startx = 1100;
+      endx = 1215;
+      starty = 500;
+      endy = 380;
+      
+      arr = [1100,500,1215,380];
+      
+      i = arr[0];
+      j = arr[1];
+      while (i < arr[2]){
+        i += (arr[2]-arr[0])/50;
+        j += (arr[3]-arr[1])/50;
+        
+        //drawline(arr[0],arr[1],i,j,'rgb(0,255,0)',20);
+        //top black bar to cutoff
+        drawline(1225,365-30,1275+50,365-30,'rgb(0,0,0)',20);
+        //console.log('should have done it');
+        await sleep(2);
+      }
+      //drawline(1100,500,1215,380,'rgb(0,255,0)',20);
+
+      //colored
+
+      // startx = 1100;
+      // endx = 1215;
+      // starty = 500;
+      // endy = 380;
+
+      arr = [1260+50,245-5-15,1100-15,245-5-15];
+      arr1 = [1095,620+30+65,1095,380-15];
+      
+      i = arr[0];
+      j = arr[1];
+      i1 = arr1[0];
+      j1 = arr1[1];
+      while (i > arr[2]){
+        i += (arr[2]-arr[0])/50;
+        j += (arr[3]-arr[1])/50;
+        drawline(arr[0],arr[1],i,j,'rgb(255,0,0)',20);
+        i1 += (arr1[2]-arr1[0])/50;
+        j1 += (arr1[3]-arr1[1])/50;
+        drawline(arr1[0],arr1[1],i1,j1,'rgb(0,255,0)',20);
+        //console.log('should have done it');
+        await sleep(2);
+      }
+
+      arr = [1100-5,235-15,1100-5,380-16];
+      arr1 = [1100+5,385+10-20,1224+15,385+10-20];
+      
+      i = arr[0];
+      j = arr[1];
+      i1 = arr1[0];
+      j1 = arr1[1];
+      while (j < arr[3]){
+        i += (arr[2]-arr[0])/50;
+        j += (arr[3]-arr[1])/50;
+        drawline(arr[0],arr[1],arr[0],j,'rgb(255,0,0)',20);
+        i1 += (arr1[2]-arr1[0])/50;
+        j1 += (arr1[3]-arr1[1])/50;
+        drawline(arr1[0],arr1[1],i1,j1,'rgb(0,255,0)',20);
+        //console.log('should have done it');
+        await sleep(2);
+      }
+
+      //drawline(1100-5,235-15,1100-5,380-15,'rgb(255,0,0)',20);
+      //drawline(1100-15,245-5-15,1260+50,245-5-15,'rgb(255,0,0)',20);
+      //drawline(1100-5,380,1260,245-5,'rgb(255,0,0)',10);
+
+      //top multicolor bar
+      
+      arr = [1100+5,375-20,1235+30,375-20];
+      arr1 = [1215,380,1100,500];
+      
+      i = arr[0];
+      j = arr[1];
+      i1 = arr1[0];
+      j1 = arr1[1];
+      while (i < arr[2]){
+        i += (arr[2]-arr[0])/50;
+        j += (arr[3]-arr[1])/50;
+        drawline(arr[0],arr[1],i,j,'rgb(255,0,0)',20);
+        i1 += (arr1[2]-arr1[0])/50;
+        j1 += (arr1[3]-arr1[1])/50;
+        drawline(arr1[0],arr1[1],i1,j1,'rgb(0,255,0)',20);
+        //console.log('should have done it');
+        await sleep(2);
+      }
+
+      //drawline(1100+5,375-20,1235+30,375-20,'rgb(255,0,0)',20);
+      // arr = [1100+5,385+10-20,1224+15,385+10-20];
+      
+      // i = arr[0];
+      // j = arr[1];
+      // while (i < arr[2]){
+      //   i += (arr[2]-arr[0])/50;
+      //   j += (arr[3]-arr[1])/50;
+      //   drawline(arr[0],arr[1],i,j,'rgb(0,255,0)',20);
+      //   //console.log('should have done it');
+      //   await sleep(2);
+      // }
+      //drawline(1100+5,385+10-20,1224+15,385+10-20,'rgb(0,255,0)',20);
+      //drawline(1295,300,1295,500,'rgb(255,255,255)',10);
+
+      //slanted red
+      arr = [1215+67,380-45,1100,500+23];
+      arr1 = [1100+12,500+36,1215+96,380-46];
+      
+      i = arr[0];
+      j = arr[1];
+      i1 = arr1[0];
+      j1 = arr1[1];
+      while (i > arr[2]){
+        i += (arr[2]-arr[0])/50;
+        j += (arr[3]-arr[1])/50;
+        
+        drawline(arr[0],arr[1],i,j,'rgb(255,0,0)',20);
+
+        i1 += (arr1[2]-arr1[0])/50;
+        j1 += (arr1[3]-arr1[1])/50;
+        
+        drawline(arr1[0],arr1[1],i1,j1,'rgb(0,100,255)',20);
+        //top black bar to cutoff
+        drawline(1225,365-30,1275+50,365-30,'rgb(0,0,0)',20);
+        drawline(1095,380-15,1095,620+30+65,'rgb(0,255,0)',20);
+        //console.log('should have done it');
+        await sleep(2);
+      }
+      //drawline(1100,500+23,1215+67,380-45,'rgb(255,0,0)',20);
+
+      //slanted blue
+      // arr = [1100+12,500+36,1215+96,380-46];
+      
+      // i = arr[0];
+      // j = arr[1];
+      // while (i < arr[2]){
+      //   i += (arr[2]-arr[0])/50;
+      //   j += (arr[3]-arr[1])/50;
+      //   drawline(arr[0],arr[1],i,j,'rgb(0,100,255)',20);
+      //   drawline(1095,380-15,1095,620+30+65,'rgb(0,255,0)',20);
+      //   //top black bar to cutoff
+      //   drawline(1225,365-30,1275+50,365-30,'rgb(0,0,0)',20);
+      //   //console.log('should have done it');
+      //   await sleep(2);
+      // }
+      //drawline(1100+12,500+36,1215+96,380-46,'rgb(0,100,255)',20);
+
+
+      // blue slanted thing
+      arr = [1100,500,1215+30+65,620+30+65];
+      arr1 = [1105+10,390-5,1105+10,620+30+65];
+
+      i = arr[0];
+      j = arr[1];
+      i1 = arr1[0];
+      j1 = arr1[1];
+      while (i < arr[2]){
+        i += (arr[2]-arr[0])/50;
+        j += (arr[3]-arr[1])/50;
+        drawline(arr[0],arr[1],i,j,'rgb(0,100,255)',20);
+
+        i1 += (arr1[2]-arr1[0])/50;
+        j1 += (arr1[3]-arr1[1])/50;
+        drawline(arr1[0],arr1[1],i1,j1,'rgb(0,100,255)',20);
+
+        drawline(1095,380-15,1095,620+30+65,'rgb(0,255,0)',20);
+        //console.log('should have done it');
+        await sleep(2);
+      }
+      //drawline(1100,500,1215+30+65,620+30+65,'rgb(0,100,255)',20);
+      
+      // blue vertical
+      arr = [1105+10,390-5,1105+10,620+30+65];
+      
+      i = arr[0];
+      j = arr[1];
+      while (j < arr[3]){
+        i += (arr[2]-arr[0])/50;
+        j += (arr[3]-arr[1])/50;
+        drawline(arr[0],arr[1],i,j,'rgb(0,100,255)',20);
+        //console.log('should have done it');
+        await sleep(2);
+      }
+      //drawline(1105+10,390-5,1105+10,620+30+65,'rgb(0,100,255)',20);
+      
+      // green vertical
+      // arr = [1095,380-15,1095,620+30+65];
+      
+      // i = arr[0];
+      // j = arr[1];
+      // while (j < arr[3]){
+      //   i += (arr[2]-arr[0])/50;
+      //   j += (arr[3]-arr[1])/50;
+      //   drawline(arr[0],arr[1],i,j,'rgb(0,255,0)',20);
+      //   //console.log('should have done it');
+      //   await sleep(2);
+      // }
+      //drawline(1095,380-15,1095,620+30+65,'rgb(0,255,0)',20);
+
+      //bottom black bar to cutoff
+      //drawline(1050,625+25,1275,625+25,'rgb(0,0,0)',20);
+
+      })();
+
+      
+    </script>
+    </div style="float: left">
+      <h1 id="score">Score: 0</h1>
+      <h1 id="display">Press any key to start</h1><br>
+      <h1 id="ap notif">Autopilot: Off</h1>
+    </div>
+    <!/div>
+    <h1 style="color:rgb(225, 252, 71);"> Note: if the game canvas does not cover the whole height of the screen, then reload.</h1>
+   </body>
+</html>
