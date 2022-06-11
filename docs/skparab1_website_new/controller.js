@@ -202,13 +202,13 @@ document.addEventListener("scroll", inView);
 function inView() {
   //if (window.scrollY <= 1)
   let opener = document.getElementById("opener");
-  if (window.scrollY >= window.innerHeight+450 && window.scrollY < window.innerHeight+450+750){
+  if (window.scrollY >= window.innerHeight+450 && window.scrollY < window.innerHeight+450+window.innerHeight){
     opener.style.display = "block";
     opener.style.top = (window.scrollY)+"px";
     opener.style.height = 1000+"px";
-  } else if (window.scrollY < window.innerHeight+450+750){
+  } else if (window.scrollY < window.innerHeight+450+window.innerHeight){
     opener.style.display = "block";
-    opener.style.top = (2000)+"px";
+    opener.style.top = (window.innerHeight+450+window.innerHeight)+"px";
   } else if (window.scrollY < 1900){
     opener.style.display = "none";
   }
