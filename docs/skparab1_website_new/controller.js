@@ -6,6 +6,20 @@ var colorizer = 0;
 var fader = 0;
 var fader2 = 0;
 
+function makehover(id, clr){
+  let test = document.getElementById(id);
+
+  test.addEventListener("mouseenter", function( event ) {
+    // highlight the mouseenter target
+    event.target.style.background = "rgba(0,0,0,0)";
+  }, false);
+
+  test.addEventListener("mouseout", function( event ) {
+    // highlight the mouseenter target
+    event.target.style.background = clr;
+  }, false);
+}
+
 (async () => {
   let it = document.getElementById('topheader')
   it.style.left = 2*window.innerWidth/5 + "px";
@@ -36,7 +50,7 @@ var fader2 = 0;
       let tbutton = document.getElementById("top-button1");
       tbutton.style.top = (200+animator*0.5) + "px";
       tbutton.style.left = 0.04*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+(0)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
       tbutton.style.border = "8px solid rgba("+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
 
       let txt = document.getElementById("b1d");
@@ -51,7 +65,7 @@ var fader2 = 0;
       tbutton = document.getElementById("top-button2");
       tbutton.style.top = (200+animator) + "px";
       tbutton.style.left = 0.28*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*200)+","+((colorizer/1000)*0)+","+(0/1000)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*200)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
       tbutton.style.border = "8px solid rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*200)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
 
       txt = document.getElementById("b2d");
@@ -62,12 +76,11 @@ var fader2 = 0;
       disc = document.getElementById('disctext2');
       disc.style.color = "rgba(0,0,0,"+(fader/1000)+")";
 
-
       // btn 3
       tbutton = document.getElementById("top-button3");
       tbutton.style.top = (200+animator*2) + "px";
       tbutton.style.left = 0.52*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(0/1000)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
       tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
 
       txt = document.getElementById("b3d");
@@ -82,7 +95,7 @@ var fader2 = 0;
       tbutton = document.getElementById("top-button4");
       tbutton.style.top = (200+animator*3) + "px";
       tbutton.style.left = 0.76*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(0/1000)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter/1000)+")";
       tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter/1000)+")";
 
       txt = document.getElementById("b4d");
@@ -100,7 +113,7 @@ var fader2 = 0;
       tbutton.style.top = (500+(animator)*4) + "px";
       tbutton.style.left = 0.04*window.innerWidth +"px";
       tbutton.style.background = "rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*100)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
-      tbutton.style.border = "2px solid rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*100)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*100)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
 
       txt = document.getElementById("b5d");
       txt.style.top = "610px";
@@ -115,7 +128,7 @@ var fader2 = 0;
       tbutton.style.top = (500+animator*5) + "px";
       tbutton.style.left = 0.28*window.innerWidth +"px";
       tbutton.style.background = "rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*200)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
-      tbutton.style.border = "2px solid rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*200)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*200)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
 
       txt = document.getElementById("b6d");
       txt.style.top = "610px";
@@ -130,7 +143,7 @@ var fader2 = 0;
       tbutton.style.top = (500+animator*6) + "px";
       tbutton.style.left = 0.52*window.innerWidth +"px";
       tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
-      tbutton.style.border = "2px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter/1000)+")";
 
       txt = document.getElementById("b7d");
       txt.style.top = "610px";
@@ -145,7 +158,7 @@ var fader2 = 0;
       tbutton.style.top = (500+animator*7) + "px";
       tbutton.style.left = 0.76*window.innerWidth +"px";
       tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter/1000)+")";
-      tbutton.style.border = "2px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter/1000)+")";
 
       txt = document.getElementById("b8d");
       txt.style.top = "610px";
@@ -210,3 +223,12 @@ function inView() {
   let header = document.getElementById("header");
   header.style.top = (window.scrollY)+"px";
 }
+
+makehover("top-button1",'red');
+makehover("top-button2",'rgb(200,200,0)');
+makehover("top-button3",'rgb(0,255,0)');
+makehover("top-button4",'blue');
+makehover("top-button5",'rgb(200,100,0');
+makehover("top-button6",'rgb(200,200,0)');
+makehover("top-button7",'rgb(0,255,0)');
+makehover("top-button8",'blue');
