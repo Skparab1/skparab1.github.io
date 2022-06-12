@@ -6,6 +6,8 @@ var colorizer = 0;
 var fader = 0;
 var fader2 = 0;
 
+var scalefactor = ((window.innerHeight/482)+(window.innerwidth/2048))/2;
+
 function makehover(id, clr){
   let test = document.getElementById(id);
 
@@ -200,33 +202,56 @@ function makehover(id, clr){
 document.addEventListener("scroll", inView);
 
 function inView() {
-  //if (window.scrollY <= 1)
+  // when about me top is at 0
+  // basically when scroll = opener.style.top
+
   let opener = document.getElementById("opener");
-  if (window.scrollY >= window.innerHeight+450 && window.scrollY < window.innerHeight+450+window.innerHeight){
+  let opener1 = document.getElementById("openercontent");
+
+  let thetop;
+  let cutheight = 800; // this is an estimate
+  if (window.scrollY+window.innerHeight >= cutheight){ //if has scrolled past 1000 at bottom so basically absoulte scroll = scrolly+windowy
+    thetop = (cutheight+(window.scrollY+window.innerHeight-cutheight)*0.5);
+  } else {
+    thetop = cutheight;
+  }
+
+  opener1.style.top = thetop+"px";
+
+  console.log(opener1.style.top, window.scrollY);
+  if (window.scrollY < thetop){
+    // just hide it before
+    console.log('hidden');
+    opener.style.display = "none";
+  } else if (window.scrollY >= thetop && window.scrollY < thetop+window.innerHeight){
+    // when its steady
+    console.log('steady');
     opener.style.display = "block";
     opener.style.top = (window.scrollY)+"px";
-    opener.style.height = 1000+"px";
-  } else if (window.scrollY < window.innerHeight+450+window.innerHeight){
+  } else if (window.scrollY >= thetop){
+    // moving but like 1 window height behind
+    console.log('behind');
     opener.style.display = "block";
-    opener.style.top = (window.innerHeight+450+window.innerHeight)+"px";
-  } else if (window.scrollY < 1900){
+    opener.style.top = (thetop+window.innerHeight)+"px";
+  } else {
+    console.log('hidden1');
     opener.style.display = "none";
   }
 
-  let opener1 = document.getElementById("openercontent");
   opener1.style.height = window.innerHeight+"px";
-  if (window.scrollY > 1000){
-    opener1.style.top = (window.innerHeight+450)+"px";
-  } else if (window.scrollY > 100){
-    opener1.style.top = (window.scrollY*0.5+window.innerHeight-50)+"px";
-  } else {
-    opener1.style.top = (window.innerHeight)+"px";
-  }
+  // if (window.scrollY > 1000){
+  //   opener1.style.top = (window.innerHeight+450)+"px";
+  // } else if (window.scrollY > 100){
+  //   opener1.style.top = (window.scrollY*0.5+window.innerHeight-50)+"px";
+  // } else {
+  //   opener1.style.top = (window.innerHeight)+"px";
+  // }
 
   console.log(window.scrollY);
 
   let header = document.getElementById("header");
   header.style.top = (window.scrollY)+"px";
+
 }
 
 makehover("top-button1",'red');
