@@ -179,7 +179,7 @@ input:checked + .slider:before {
   z-index: 3;
   background: black;
   width: 100%;
-  height: 750px;
+  height: auto;
   position: absolute;
   top: 1050px;
 }
@@ -263,17 +263,35 @@ input:checked + .slider:before {
   text-align: center;
   float: right;
 }
+
 .latest-project-box{
   width: 46%;
   position: absolute;
   height: auto;
   float: left;
+  left: 1.5%;
   text-align: center;
   border-radius: 25px;
   border: 8px solid orangered;
   background: rgb(72, 72, 72);
+  box-sizing: border-box;
   padding: 20px;
 }
+
+.latest-project-box-right{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid orangered;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
 
 .latest-project-header{
   text-align: center;
@@ -315,7 +333,7 @@ input:checked + .slider:before {
   border: 6px solid orangered;
   background-color: gray;
   color: orangered;
-  font-size: 35px;
+  /*font-size: 35px;*/
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   width: 95%;

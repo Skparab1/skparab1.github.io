@@ -25,6 +25,14 @@ function makehover(id, clr) {
   }, false);
 }
 
+function getPos(el) {
+  for (var lx = 0, ly = 0; el != null; lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent) {
+    ;
+  }
+
+  return ly;
+}
+
 (function _callee() {
   var it, bg, disp, disp2, tbutton, txt, disc;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -193,7 +201,7 @@ function inView() {
 
   if (window.scrollY + window.innerHeight >= cutheight) {
     //if has scrolled past 1000 at bottom so basically absoulte scroll = scrolly+windowy
-    thetop = cutheight + (window.scrollY + window.innerHeight - cutheight) * 0.5;
+    thetop = cutheight + (window.scrollY + window.innerHeight - cutheight) * 0.30; // 0.4 changable for reveal speed
   } else {
     thetop = cutheight;
   }
@@ -205,7 +213,7 @@ function inView() {
     // just hide it before
     console.log('hidden');
     opener.style.display = "none";
-  } else if (window.scrollY >= thetop && window.scrollY < thetop + window.innerHeight) {
+  } else if (window.scrollY >= thetop && window.scrollY < thetop + opener1.offsetHeight) {
     // when its steady
     console.log('steady');
     opener.style.display = "block";
@@ -214,13 +222,21 @@ function inView() {
     // moving but like 1 window height behind
     console.log('behind');
     opener.style.display = "block";
-    opener.style.top = thetop + window.innerHeight + "px";
+    opener.style.top = thetop + opener1.offsetHeight + "px";
   } else {
     console.log('hidden1');
     opener.style.display = "none";
   }
 
-  opener1.style.height = window.innerHeight + "px"; // if (window.scrollY > 1000){
+  if (opener1.offsetHeight < window.innerHeight) {
+    opener1.style.height = window.innerHeight + "px";
+  }
+
+  var allgproj = document.getElementById("allgprojects");
+  var projbox = document.getElementById('projbox');
+  var pb = document.getElementById('projbox').getBoundingClientRect();
+  console.log('hello', parseInt(String(getPos(projbox)).replace("px", "")), projbox.offsetHeight);
+  allgproj.style.height = parseInt(String(getPos(projbox)).replace("px", "")) + projbox.offsetHeight + 100 + "px"; // if (window.scrollY > 1000){
   //   opener1.style.top = (window.innerHeight+450)+"px";
   // } else if (window.scrollY > 100){
   //   opener1.style.top = (window.scrollY*0.5+window.innerHeight-50)+"px";
