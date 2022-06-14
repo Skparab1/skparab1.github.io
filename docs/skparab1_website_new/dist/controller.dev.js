@@ -242,9 +242,14 @@ function inView() {
   var pb = document.getElementById('projbox').getBoundingClientRect();
   console.log('hello', toph, projbox.offsetHeight); //allgproj.style.top = (thetop+opener1.offsetHeight)+"px"; //+projbox.offsetHeight+100
 
-  allgproj.style.top = projbox.offsetHeight + 200 + "px";
-  allgproj.style.left = 50 - 12 * (2048 / window.innerWidth) / 100 * 100 + "%";
-  console.log(50 - 15 * (window.innerWidth / 2048) / 100 * 100 + "%"); //allgproj.style.left = window.innerWidth/2;
+  allgproj.style.top = projbox.offsetHeight + 200 + "px"; //allgproj.style.left = (50-((12*(2048/window.innerWidth))/100)*100)+"%";
+
+  console.log(50 - 15 * (window.innerWidth / 2048) / 100 * 100 + "%");
+  var r1 = document.getElementById('row1');
+  var r2 = document.getElementById('row2');
+  var r3 = document.getElementById('row2.5');
+  r2.style.top = r1.offsetHeight + 200 + "px";
+  r3.style.top = r1.offsetHeight + 200 + "px"; //allgproj.style.left = window.innerWidth/2;
   // if (window.scrollY > 1000){
   //   opener1.style.top = (window.innerHeight+450)+"px";
   // } else if (window.scrollY > 100){

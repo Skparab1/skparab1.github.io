@@ -248,6 +248,14 @@ input:checked + .slider:before {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.revealtextall {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .revealtext-header {
   color: white;
   text-align: center;
@@ -380,4 +388,89 @@ input:checked + .slider:before {
   text-align: center;
   font-size: 55px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.all-project-box{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid orange;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.all-project-box:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid yellow;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  transition: all 0.2s ease-out; 
+}
+
+.all-button{
+  border: 2px solid gray;
+  background-color: gray;
+  color: white;
+  width: 95%;
+  border-radius: 25px;
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height: 60px;
+  text-align: center;
+}
+
+.all-button:hover{
+  border: 6px solid orange;
+  background-color: gray;
+  color: orange;
+  /*font-size: 35px;*/
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  width: 95%;
+  border-radius: 25px;
+  height: 60px;
+  text-align: center;
+  transition: all 0.2s ease-out; 
+}
+
+
+.all-project-box-right{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid orange;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.all-project-box-right:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid yellow;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  transition: all 0.2s ease-out; 
 }

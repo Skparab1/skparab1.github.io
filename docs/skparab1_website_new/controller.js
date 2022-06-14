@@ -262,8 +262,16 @@ function inView() {
   console.log('hello',toph,projbox.offsetHeight);
   //allgproj.style.top = (thetop+opener1.offsetHeight)+"px"; //+projbox.offsetHeight+100
   allgproj.style.top = (projbox.offsetHeight+200)+"px";
-  allgproj.style.left = (50-((12*(2048/window.innerWidth))/100)*100)+"%";
+  //allgproj.style.left = (50-((12*(2048/window.innerWidth))/100)*100)+"%";
   console.log((50-((15*(window.innerWidth/2048))/100)*100)+"%");
+
+  let r1 = document.getElementById('row1');
+  let r2 = document.getElementById('row2');
+  let r3 = document.getElementById('row2.5');
+
+  r2.style.top = (r1.offsetHeight+200)+"px";
+  r3.style.top = (r1.offsetHeight+200)+"px";
+
   //allgproj.style.left = window.innerWidth/2;
 
 
