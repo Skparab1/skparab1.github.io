@@ -114,6 +114,7 @@ input:checked + .slider:before {
   top: 0px;
   left: 0px;
   background: linear-gradient(rgb(255, 119, 0), red, black);
+  display: none;
 }
 
 .topdiv2 {
@@ -278,6 +279,21 @@ input:checked + .slider:before {
   padding: 20px;
 }
 
+.latest-project-box:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid red;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  transition: all 0.2s ease-out; 
+}
+
 .latest-project-box-right{
   width: 46%;
   position: absolute;
@@ -290,6 +306,21 @@ input:checked + .slider:before {
   background: rgb(72, 72, 72);
   box-sizing: border-box;
   padding: 20px;
+}
+
+.latest-project-box-right:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid red;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  transition: all 0.2s ease-out; 
 }
 
 
@@ -341,4 +372,12 @@ input:checked + .slider:before {
   height: 60px;
   text-align: center;
   transition: all 0.2s ease-out; 
+}
+
+.allproj-header {
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-size: 55px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

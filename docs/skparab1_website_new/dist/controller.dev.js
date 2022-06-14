@@ -67,6 +67,7 @@ function getPos(el) {
 
           if (counter >= 1) {
             disp = document.getElementById("topdiv");
+            disp.style.display = "block";
             disp2 = document.getElementById("topdiv2");
 
             if (counter <= 1000) {
@@ -207,6 +208,7 @@ function inView() {
   }
 
   opener1.style.top = thetop + "px";
+  var toph;
   console.log(opener1.style.top, window.scrollY);
 
   if (window.scrollY < thetop) {
@@ -218,11 +220,13 @@ function inView() {
     console.log('steady');
     opener.style.display = "block";
     opener.style.top = window.scrollY + "px";
+    toph = window.scrollY;
   } else if (window.scrollY >= thetop) {
     // moving but like 1 window height behind
-    console.log('behind');
+    console.log('behind', thetop);
     opener.style.display = "block";
     opener.style.top = thetop + opener1.offsetHeight + "px";
+    toph = thetop + opener1.offsetHeight;
   } else {
     console.log('hidden1');
     opener.style.display = "none";
@@ -234,9 +238,14 @@ function inView() {
 
   var allgproj = document.getElementById("allgprojects");
   var projbox = document.getElementById('projbox');
+  var tophp = document.getElementById('toph');
   var pb = document.getElementById('projbox').getBoundingClientRect();
-  console.log('hello', parseInt(String(getPos(projbox)).replace("px", "")), projbox.offsetHeight);
-  allgproj.style.height = parseInt(String(getPos(projbox)).replace("px", "")) + projbox.offsetHeight + 100 + "px"; // if (window.scrollY > 1000){
+  console.log('hello', toph, projbox.offsetHeight); //allgproj.style.top = (thetop+opener1.offsetHeight)+"px"; //+projbox.offsetHeight+100
+
+  allgproj.style.top = projbox.offsetHeight + 200 + "px";
+  allgproj.style.left = 50 - 12 * (2048 / window.innerWidth) / 100 * 100 + "%";
+  console.log(50 - 15 * (window.innerWidth / 2048) / 100 * 100 + "%"); //allgproj.style.left = window.innerWidth/2;
+  // if (window.scrollY > 1000){
   //   opener1.style.top = (window.innerHeight+450)+"px";
   // } else if (window.scrollY > 100){
   //   opener1.style.top = (window.scrollY*0.5+window.innerHeight-50)+"px";
