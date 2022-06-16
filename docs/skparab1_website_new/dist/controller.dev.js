@@ -11,6 +11,9 @@ var animator = 1000;
 var colorizer = 0;
 var fader = 0;
 var fader2 = 0;
+var introduced1 = false;
+var introduced2 = false;
+var introduced3 = false;
 var scalefactor = (window.innerHeight / 482 + window.innerwidth / 2048) / 2;
 
 function makehover(id, clr) {
@@ -31,6 +34,11 @@ function getPos(el) {
   }
 
   return ly;
+}
+
+function isInViewport(element) {
+  var rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
 }
 
 (function _callee() {
@@ -70,7 +78,7 @@ function getPos(el) {
             disp.style.display = "block";
             disp2 = document.getElementById("topdiv2");
 
-            if (counter <= 1000) {
+            if (counter < 1000) {
               disp.style.background = "linear-gradient(rgb(" + 200 * counter / 1000 + ", " + 75 * counter / 1000 + ", 0),rgb(" + 200 * counter / 1000 + ", 0, 0),black)";
             } //btn 1
 
@@ -242,14 +250,135 @@ function inView() {
   var pb = document.getElementById('projbox').getBoundingClientRect();
   console.log('hello', toph, projbox.offsetHeight); //allgproj.style.top = (thetop+opener1.offsetHeight)+"px"; //+projbox.offsetHeight+100
 
-  allgproj.style.top = projbox.offsetHeight + 200 + "px"; //allgproj.style.left = (50-((12*(2048/window.innerWidth))/100)*100)+"%";
+  allgproj.style.top = projbox.offsetHeight + 200 + "px"; // thats it
+  //allgproj.style.left = (50-((12*(2048/window.innerWidth))/100)*100)+"%";
 
   console.log(50 - 15 * (window.innerWidth / 2048) / 100 * 100 + "%");
   var r1 = document.getElementById('row1');
+  var r15 = document.getElementById('row1.5');
   var r2 = document.getElementById('row2');
   var r3 = document.getElementById('row2.5');
+  var r21 = document.getElementById('row21');
+  var r215 = document.getElementById('row21');
+  var r22 = document.getElementById('row22');
+  var r225 = document.getElementById('row22.5');
+  var r23 = document.getElementById('row23');
+  var r235 = document.getElementById('row23.5');
+  var r24 = document.getElementById('row24');
+  var r245 = document.getElementById('row24.5');
+  r22.style.top = r21.offsetHeight + 200 + "px";
+  r225.style.top = r21.offsetHeight + 175 + "px";
+  r23.style.top = r21.offsetHeight + r22.offsetHeight + 175 + 66.6 + "px";
+  r235.style.top = r21.offsetHeight + r22.offsetHeight + 175 + 66.6 + "px";
+  r24.style.top = r21.offsetHeight + r22.offsetHeight + r23.offsetHeight + 175 + 66.6 + 66.6 + "px";
+  r245.style.top = r21.offsetHeight + r22.offsetHeight + r23.offsetHeight + 175 + 66.6 + 66.6 + "px";
+  console.log(window.scrollY, thetop + opener1.offsetHeight + r1.offsetHeight);
+
+  if (window.scrollY > thetop + opener1.offsetHeight + r1.offsetHeight && !introduced1) {
+    counter = 0;
+    r1.style.background = "block";
+
+    if (counter <= 1000) {
+      var _pc = -70;
+
+      var _pc2 = 123;
+
+      (function _callee2() {
+        return regeneratorRuntime.async(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(_pc < 1.5)) {
+                  _context2.next = 9;
+                  break;
+                }
+
+                r1.style.left = _pc + "%";
+                r15.style.left = _pc2 + "%";
+                _pc += (1.5 - _pc) / 100;
+                _pc2 += (52 - _pc2) / 100;
+                _context2.next = 7;
+                return regeneratorRuntime.awrap(sleep(2));
+
+              case 7:
+                _context2.next = 0;
+                break;
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        });
+      })();
+    }
+
+    introduced1 = true;
+  }
+
+  if (window.scrollY > thetop + opener1.offsetHeight + r1.offsetHeight + r3.offsetHeight + r22.offsetHeight && !introduced2) {
+    counter = 0;
+
+    if (counter <= 1000) {
+      pc = -70;
+      pc1 = 123;
+
+      (function _callee3() {
+        return regeneratorRuntime.async(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                if (!(pc < 1.5)) {
+                  _context3.next = 9;
+                  break;
+                }
+
+                r21.style.top = pc + "%";
+                r.style.top = pc1 + "%";
+                pc += (1.5 - pc) / 100;
+                pc1 += (52 - pc1) / 100;
+                _context3.next = 7;
+                return regeneratorRuntime.awrap(sleep(2));
+
+              case 7:
+                _context3.next = 0;
+                break;
+
+              case 9:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        });
+      })();
+    }
+
+    introduced2 = true;
+  } // if (window.scrollY > thetop+opener1.offsetHeight+r1.offsetHeight+r2.offsetHeight+ && !introduced2){
+  //   counter = 0;
+  //   r2.style.background = "block";
+  //   if (counter <= 1000){
+  //     pc = -70;
+  //     pc1 = 123;
+  //     (async () => {
+  //       while (pc < 1.5){
+  //         r2.style.left = (pc+"%");
+  //         r3.style.left = (pc1+"%");
+  //         pc += (1.5-pc)/100;
+  //         pc1 += (52-pc1)/100;
+  //         await sleep(2);
+  //       }
+  //     })();
+  //   }
+  //   introduced2 = true;
+  // }
+  // and now make other projects come up
+
+
+  var otherp = document.getElementById('otherp');
   r2.style.top = r1.offsetHeight + 200 + "px";
-  r3.style.top = r1.offsetHeight + 200 + "px"; //allgproj.style.left = window.innerWidth/2;
+  r3.style.top = r1.offsetHeight + 200 + "px";
+  otherp.style.top = r1.offsetHeight + r2.offsetHeight + 200 + "px"; //allgproj.style.left = window.innerWidth/2;
   // if (window.scrollY > 1000){
   //   opener1.style.top = (window.innerHeight+450)+"px";
   // } else if (window.scrollY > 100){

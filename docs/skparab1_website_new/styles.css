@@ -170,7 +170,7 @@ input:checked + .slider:before {
 .opener{
   background: linear-gradient(black, white);
   width: 100%;
-  height: 2000px; /* this is controlled by js btw */
+  height: 2000px; /* this is controlled by js btw not its not*/
   top: 2000px;
   position: absolute;
   z-index: 1;
@@ -395,13 +395,14 @@ input:checked + .slider:before {
   position: absolute;
   height: auto;
   float: left;
-  left: 1.5%;
+  left: -100%;
   text-align: center;
   border-radius: 25px;
   border: 8px solid orange;
   background: rgb(72, 72, 72);
   box-sizing: border-box;
   padding: 20px;
+  
 }
 
 .all-project-box:hover{
@@ -451,7 +452,7 @@ input:checked + .slider:before {
   position: absolute;
   height: auto;
   float: right;
-  left: 52%;
+  left: 123%;
   text-align: center;
   border-radius: 25px;
   border: 8px solid orange;
@@ -472,5 +473,59 @@ input:checked + .slider:before {
   background: rgb(72, 72, 72);
   box-sizing: border-box;
   padding: 20px;
+  transition: all 0.2s ease-out; 
+}
+
+.other-project-box{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid yellow;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+}
+
+.other-project-box:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid rgb(157, 255, 0);
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  transition: all 0.2s ease-out; 
+}
+
+.other-project-box-right{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid yellow;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+}
+
+.other-project-box-right:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid rgb(157, 255, 0);
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
   transition: all 0.2s ease-out; 
 }
