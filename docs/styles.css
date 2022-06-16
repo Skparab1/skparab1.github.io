@@ -1,0 +1,533 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
+h1{
+  color:rgb(255, 255, 255);
+}
+
+div.wrapper {
+      width: 300px;
+      height:300px;
+      border:1px solid black;
+}
+
+input[type="text"] {
+      display: block;
+      margin : 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #555555;
+}
+li {
+  display: inline;
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  padding: 25px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #f78a41;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FFFFFF;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: lightgray;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: gray;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px gray;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.topdiv {
+  height: 1000px;
+  z-index: 4;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(rgb(255, 119, 0), red, black);
+  display: none;
+}
+
+.topdiv2 {
+  height: 1000px;
+  display: none;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(black, black);
+}
+
+.top-button{
+  border-radius: 25px;
+  position: absolute;
+  height: 100px;
+  width: 20%;
+  font-size: 60px;
+}
+
+.top-button:hover{
+  color:white;
+  background-color: rgba(0,0,0,0);
+  border-radius: 10px;
+  border: 2px solid white;
+  transition: all 0.2s ease-in-out; 
+  transition: all 0.2s ease-out; 
+}
+
+.topheader{
+  font-size:60px;
+  font-family: Arial, Helvetica, sans-serif;
+  color:black;
+  position: absolute;
+  text-align: center;
+  z-index: 4;
+}
+
+.fineline{
+  width: 100%;
+  height: 10px;
+}
+
+.disc{
+  position: absolute;
+  text-align: center;
+  height: 100px;
+}
+
+.disctext{
+  color: black;
+  font-size: 35px;
+}
+
+.opener{
+  background: linear-gradient(black, white);
+  width: 100%;
+  height: 2000px; /* this is controlled by js btw not its not*/
+  top: 2000px;
+  position: absolute;
+  z-index: 1;
+}
+
+.openercontent{
+  z-index: 3;
+  background: black;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 1050px;
+}
+
+.header{
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0));
+  color: white;
+  z-index: 5;
+}
+
+.topbanner{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 97%;
+  font-size: 50px;
+  text-align: center;
+}
+
+.about-parts{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 100%;
+  float: left; 
+  text-align: center;
+  width: 32%;
+  height: auto;
+  background: linear-gradient(to right,gray,black);
+  padding: 1%;
+  line-height: 50px;
+}
+
+.about-parts-right{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 100%;
+  float: left; 
+  text-align: center;
+  width: 30%;
+  height: auto;
+  background: linear-gradient(to left,gray,black);
+  padding: 1%;
+  line-height: 50px;
+
+}
+
+.about-parts-mid{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 23px;
+  float: left; 
+  text-align: center;
+  width: 32%;
+  background: black;
+  padding: 1%;
+}
+
+.about-text{
+  padding: 10px;
+}
+
+.revealtext {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.revealtextall {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.revealtext-header {
+  color: white;
+  text-align: center;
+  font-size: 55px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.opener-bottom {
+  width: 100%; 
+  position: relative;
+  padding-top: 50px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 100%;
+  text-align: center;
+  float: right;
+}
+
+.latest-project-box{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid orangered;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.latest-project-box:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid red;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  transition: all 0.2s ease-out; 
+}
+
+.latest-project-box-right{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid orangered;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.latest-project-box-right:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid red;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  transition: all 0.2s ease-out; 
+}
+
+
+.latest-project-header{
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 40px;
+  line-height: 1px;
+}
+
+.latest-project-header-small{
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  padding-top: 1px;
+}
+
+.halfwidth{
+  width: 50%;
+  float: right;
+}
+
+.latest-image{
+  width: 60%;
+  text-align: left;
+}
+
+.latest-button{
+  border: 2px solid gray;
+  background-color: gray;
+  color: white;
+  width: 95%;
+  border-radius: 25px;
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height: 60px;
+  text-align: center;
+}
+
+.latest-button:hover{
+  border: 6px solid orangered;
+  background-color: gray;
+  color: orangered;
+  /*font-size: 35px;*/
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  width: 95%;
+  border-radius: 25px;
+  height: 60px;
+  text-align: center;
+  transition: all 0.2s ease-out; 
+}
+
+.allproj-header {
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-size: 55px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.all-project-box{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: -100%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid orange;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  
+}
+
+.all-project-box:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid yellow;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  transition: all 0.2s ease-out; 
+}
+
+.all-button{
+  border: 2px solid gray;
+  background-color: gray;
+  color: white;
+  width: 95%;
+  border-radius: 25px;
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height: 60px;
+  text-align: center;
+}
+
+.all-button:hover{
+  border: 6px solid orange;
+  background-color: gray;
+  color: orange;
+  /*font-size: 35px;*/
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  width: 95%;
+  border-radius: 25px;
+  height: 60px;
+  text-align: center;
+  transition: all 0.2s ease-out; 
+}
+
+
+.all-project-box-right{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 123%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid orange;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.all-project-box-right:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid yellow;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  padding: 20px;
+  transition: all 0.2s ease-out; 
+}
+
+.other-project-box{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  top: 1000px;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid yellow;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+}
+
+.other-project-box:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 1.5%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid rgb(157, 255, 0);
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  transition: all 0.2s ease-out; 
+}
+
+.other-project-box-right{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: right;
+  left: 52%;
+  top: 1000px;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid yellow;
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+}
+
+.other-project-box-right:hover{
+  width: 46%;
+  position: absolute;
+  height: auto;
+  float: left;
+  left: 52%;
+  text-align: center;
+  border-radius: 25px;
+  border: 8px solid rgb(157, 255, 0);
+  background: rgb(72, 72, 72);
+  box-sizing: border-box;
+  transition: all 0.2s ease-out; 
+}
