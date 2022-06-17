@@ -168,7 +168,7 @@ input:checked + .slider:before {
 }
 
 .opener{
-  background: linear-gradient(black, white);
+  background: linear-gradient(black, lightgray);
   width: 100%;
   height: 2000px; /* this is controlled by js btw not its not*/
   top: 2000px;
@@ -482,6 +482,7 @@ input:checked + .slider:before {
   height: auto;
   float: left;
   left: 1.5%;
+  top: 1000px;
   text-align: center;
   border-radius: 25px;
   border: 8px solid yellow;
@@ -509,6 +510,7 @@ input:checked + .slider:before {
   height: auto;
   float: right;
   left: 52%;
+  top: 1000px;
   text-align: center;
   border-radius: 25px;
   border: 8px solid yellow;
