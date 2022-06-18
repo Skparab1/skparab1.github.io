@@ -301,7 +301,7 @@ function inView() {
     if (window.scrollY < thetop){
       // just hide it before
       console.log('hidden');
-      opener.style.display = "none";
+      //opener.style.display = "none";
       toph = 0;
     } else if (window.scrollY >= thetop && window.scrollY < thetop+opener1.offsetHeight){
       // when its steady
@@ -315,10 +315,6 @@ function inView() {
       opener.style.display = "block";
       opener.style.top = (thetop+opener1.offsetHeight)+"px";
       toph = thetop+opener1.offsetHeight;
-    } else {
-      console.log('hidden1');
-      toph = 0;
-      opener.style.display = "none";
     }
 
     if (opener1.offsetHeight < window.innerHeight){

@@ -168,7 +168,7 @@ input:checked + .slider:before {
 }
 
 .opener{
-  background: linear-gradient(black, lightgray);
+  background: linear-gradient(black, rgb(255, 255, 255));
   width: 100%;
   height: 2000px; /* this is controlled by js btw not its not*/
   top: 2000px;
