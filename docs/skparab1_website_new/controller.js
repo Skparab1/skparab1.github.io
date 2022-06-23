@@ -42,6 +42,11 @@ function isInViewport(element) {
   );
 }
 
+function changecolor(id,clr){
+  let el = document.getElementById(id);
+  el.style.color = clr;
+}
+
 (async () => {
   let it = document.getElementById('topheader')
   it.style.left = 2*window.innerWidth/5 + "px";
@@ -303,18 +308,46 @@ function inView() {
       console.log('hidden');
       //opener.style.display = "none";
       toph = 0;
+      let header = document.getElementById("header");
+      header.style.position = "sticky";
+      header.style.top = "0px";
+      changecolor('l1',"white");
+      changecolor('l2',"white");
+      changecolor('l3',"white");
+      changecolor('l4',"white");
+      changecolor('l5',"white");
+      changecolor('l6',"white");
     } else if (window.scrollY >= thetop && window.scrollY < thetop+opener1.offsetHeight){
       // when its steady
       console.log('steady');
       opener.style.display = "block";
       opener.style.top = (window.scrollY)+"px";
       toph = window.scrollY;
+      let header = document.getElementById("header");
+      header.style.position = "sticky";
+      header.style.top = "0px";
+      changecolor('l1',"white");
+      changecolor('l2',"white");
+      changecolor('l3',"white");
+      changecolor('l4',"white");
+      changecolor('l5',"white");
+      changecolor('l6',"white");
     } else if (window.scrollY >= thetop){
       // moving but like 1 window height behind
       console.log('behind',thetop);
       opener.style.display = "block";
       opener.style.top = (thetop+opener1.offsetHeight)+"px";
       toph = thetop+opener1.offsetHeight;
+
+      let header = document.getElementById("header");
+      header.style.position = "absolute";
+      header.style.top = window.scrollY + "px";
+      changecolor('l1',"black");
+      changecolor('l2',"black");
+      changecolor('l3',"black");
+      changecolor('l4',"black");
+      changecolor('l5',"black");
+      changecolor('l6',"black");
     }
 
     if (opener1.offsetHeight < window.innerHeight){
@@ -467,8 +500,8 @@ function inView() {
 
     console.log(window.scrollY);
 
-    let header = document.getElementById("header");
-    header.style.top = (window.scrollY)+"px";
+    //let header = document.getElementById("header");
+    //header.style.top = (window.scrollY)+"px";
   }
 }
 

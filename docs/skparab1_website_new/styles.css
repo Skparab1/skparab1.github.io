@@ -39,7 +39,8 @@ li a {
 }
 
 li a:hover {
-  background-color: #f78a41;
+  background-color: rgba(0,0,0,0.5);
+  transition-duration: 0.2s;
 }
 
 .switch {
@@ -138,8 +139,7 @@ input:checked + .slider:before {
   background-color: rgba(0,0,0,0);
   border-radius: 10px;
   border: 2px solid white;
-  transition: all 0.2s ease-in-out; 
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
 
 .topheader{
@@ -187,7 +187,7 @@ input:checked + .slider:before {
 
 .header{
   width: 100%;
-  position: absolute;
+  position: sticky;
   top: 0px;
   left: 0px;
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0));
@@ -299,7 +299,7 @@ input:checked + .slider:before {
   background: rgb(72, 72, 72);
   box-sizing: border-box;
   padding: 20px;
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
 
 .latest-project-box-right{
@@ -328,7 +328,7 @@ input:checked + .slider:before {
   background: rgb(72, 72, 72);
   box-sizing: border-box;
   padding: 20px;
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
 
 
@@ -379,7 +379,7 @@ input:checked + .slider:before {
   border-radius: 25px;
   height: 60px;
   text-align: center;
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
 
 .allproj-header {
@@ -417,7 +417,7 @@ input:checked + .slider:before {
   background: rgb(72, 72, 72);
   box-sizing: border-box;
   padding: 20px;
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
 
 .all-button{
@@ -443,7 +443,7 @@ input:checked + .slider:before {
   border-radius: 25px;
   height: 60px;
   text-align: center;
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
 
 
@@ -473,7 +473,7 @@ input:checked + .slider:before {
   background: rgb(72, 72, 72);
   box-sizing: border-box;
   padding: 20px;
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
 
 .other-project-box{
@@ -501,7 +501,7 @@ input:checked + .slider:before {
   border: 8px solid rgb(157, 255, 0);
   background: rgb(72, 72, 72);
   box-sizing: border-box;
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
 
 .other-project-box-right{
@@ -529,5 +529,5 @@ input:checked + .slider:before {
   border: 8px solid rgb(157, 255, 0);
   background: rgb(72, 72, 72);
   box-sizing: border-box;
-  transition: all 0.2s ease-out; 
+  transition-duration: 0.2s;
 }
