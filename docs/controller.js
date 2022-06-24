@@ -42,13 +42,30 @@ function isInViewport(element) {
   );
 }
 
+function changecolor(id,clr){
+  let el = document.getElementById(id);
+  el.style.color = clr;
+}
+
 (async () => {
   let it = document.getElementById('topheader')
-  it.style.left = 2*window.innerWidth/5 + "px";
+  //it.style.left = (window.innerWidth/2)-185*scalefactor + "px";
 
   let bg = document.getElementById("background1");
   bg.top = "1000px";
   bg.height = (window.innerHeight+450-1000)+"px";
+
+  let opener1 = document.getElementById("openercontent");
+
+  let thetop;
+  let cutheight = 800; // this is an estimate
+  if (window.scrollY+window.innerHeight >= cutheight){ //if has scrolled past 1000 at bottom so basically absoulte scroll = scrolly+windowy
+    thetop = (cutheight+(window.scrollY+window.innerHeight-cutheight)*0.30); // 0.4 changable for reveal speed
+  } else {
+    thetop = cutheight;
+  }
+
+  opener1.style.top = thetop+"px";
 
   while (counter1 <= 4000){
     colorizer = counter1;
@@ -222,6 +239,58 @@ function isInViewport(element) {
 
 })();
 
+
+let r1 = document.getElementById('row1');
+let r15 = document.getElementById('row1.5');
+let r2 = document.getElementById('row2');
+let r3 = document.getElementById('row2.5');
+
+let r21 = document.getElementById('row21');
+let r215 = document.getElementById('row21.5');
+let r22 = document.getElementById('row22');
+let r225 = document.getElementById('row22.5');
+let r23 = document.getElementById('row23');
+let r235 = document.getElementById('row23.5');
+let r24 = document.getElementById('row24');
+let r245 = document.getElementById('row24.5');
+let r25 = document.getElementById('row25');
+let r255 = document.getElementById('row25.5');
+let r26 = document.getElementById('row26');
+let r265 = document.getElementById('row26.5');
+let r27 = document.getElementById('row27');
+let r275 = document.getElementById('row27.5');
+let r28 = document.getElementById('row28');
+let r285 = document.getElementById('row28.5');
+let r29 = document.getElementById('row29');
+let r295 = document.getElementById('row29.5');
+let r30 = document.getElementById('row30');
+let r305 = document.getElementById('row30.5');
+let r31 = document.getElementById('row31');
+let r315 = document.getElementById('row31.5');
+let r32 = document.getElementById('row32');
+let r325 = document.getElementById('row32.5');
+let r33 = document.getElementById('row33');
+let r335 = document.getElementById('row33.5');
+let r34 = document.getElementById('row34');
+let r345 = document.getElementById('row34.5');
+let r35 = document.getElementById('row35');
+let r355 = document.getElementById('row35.5');
+let r36 = document.getElementById('row36');
+let r365 = document.getElementById('row36.5');
+let r37 = document.getElementById('row37');
+let r375 = document.getElementById('row37.5');
+let r38 = document.getElementById('row38');
+let r385 = document.getElementById('row38.5');
+let r39 = document.getElementById('row39');
+let r395 = document.getElementById('row39.5');
+let r40 = document.getElementById('row40');
+let r405 = document.getElementById('row40.5');
+let r41 = document.getElementById('row41');
+let r415 = document.getElementById('row41.5');
+let r42 = document.getElementById('row42');
+let r425 = document.getElementById('row42.5');
+//let rend = document.getElementById('END');
+
 document.addEventListener("scroll", inView);
 
 function inView() {
@@ -230,10 +299,10 @@ function inView() {
     // basically when scroll = opener.style.top
 
     let opener = document.getElementById("opener");
-    let opener1 = document.getElementById("openercontent");
+    opener1 = document.getElementById("openercontent");
 
     let thetop;
-    let cutheight = 800; // this is an estimate
+    cutheight = 800; // this is an estimate
     if (window.scrollY+window.innerHeight >= cutheight){ //if has scrolled past 1000 at bottom so basically absoulte scroll = scrolly+windowy
       thetop = (cutheight+(window.scrollY+window.innerHeight-cutheight)*0.30); // 0.4 changable for reveal speed
     } else {
@@ -249,24 +318,48 @@ function inView() {
     if (window.scrollY < thetop){
       // just hide it before
       console.log('hidden');
-      opener.style.display = "none";
+      //opener.style.display = "none";
       toph = 0;
+      let header = document.getElementById("header");
+      header.style.position = "sticky";
+      header.style.top = "0px";
+      changecolor('l1',"white");
+      changecolor('l2',"white");
+      changecolor('l3',"white");
+      changecolor('l4',"white");
+      changecolor('l5',"white");
+      changecolor('l6',"white");
     } else if (window.scrollY >= thetop && window.scrollY < thetop+opener1.offsetHeight){
       // when its steady
       console.log('steady');
       opener.style.display = "block";
       opener.style.top = (window.scrollY)+"px";
       toph = window.scrollY;
+      let header = document.getElementById("header");
+      header.style.position = "sticky";
+      header.style.top = "0px";
+      changecolor('l1',"white");
+      changecolor('l2',"white");
+      changecolor('l3',"white");
+      changecolor('l4',"white");
+      changecolor('l5',"white");
+      changecolor('l6',"white");
     } else if (window.scrollY >= thetop){
       // moving but like 1 window height behind
       console.log('behind',thetop);
       opener.style.display = "block";
       opener.style.top = (thetop+opener1.offsetHeight)+"px";
       toph = thetop+opener1.offsetHeight;
-    } else {
-      console.log('hidden1');
-      toph = 0;
-      opener.style.display = "none";
+
+      let header = document.getElementById("header");
+      header.style.position = "absolute";
+      header.style.top = window.scrollY + "px";
+      changecolor('l1',"black");
+      changecolor('l2',"black");
+      changecolor('l3',"black");
+      changecolor('l4',"black");
+      changecolor('l5',"black");
+      changecolor('l6',"black");
     }
 
     if (opener1.offsetHeight < window.innerHeight){
@@ -284,20 +377,6 @@ function inView() {
 
     //allgproj.style.left = (50-((12*(2048/window.innerWidth))/100)*100)+"%";
     console.log((50-((15*(window.innerWidth/2048))/100)*100)+"%");
-
-    let r1 = document.getElementById('row1');
-    let r15 = document.getElementById('row1.5');
-    let r2 = document.getElementById('row2');
-    let r3 = document.getElementById('row2.5');
-
-    let r21 = document.getElementById('row21');
-    let r215 = document.getElementById('row21.5');
-    let r22 = document.getElementById('row22');
-    let r225 = document.getElementById('row22.5');
-    let r23 = document.getElementById('row23');
-    let r235 = document.getElementById('row23.5');
-    let r24 = document.getElementById('row24');
-    let r245 = document.getElementById('row24.5');
 
     // r22.style.top = (100 + 200) + "px";
     // r225.style.top = (100 + 200) + "px";
@@ -356,6 +435,36 @@ function inView() {
         pc2 = 1000;
         //pc3 = 1000;
         (async () => {
+          r29.style.top = ((150*5+266)+"px");
+          r295.style.top = ((150*5+266)+"px");
+          r30.style.top = ((150*5.5+300)+"px");
+          r305.style.top = ((150*5.5+300)+"px");
+          r31.style.top = ((150*6+333)+"px");
+          r315.style.top = ((150*6+333)+"px");
+          r32.style.top = ((150*6.5+366)+"px");
+          r325.style.top = ((150*6.5+366)+"px");
+          r33.style.top = ((150*7+400)+"px");
+          r335.style.top = ((150*7+400)+"px");
+          r34.style.top = ((150*7.5+433)+"px");
+          r345.style.top = ((150*7.5+433)+"px");
+          r35.style.top = ((150*8+466)+"px");
+          r355.style.top = ((150*8+466)+"px");
+          r36.style.top = ((150*8.5+500)+"px");
+          r365.style.top = ((150*8.5+500)+"px");
+          r37.style.top = ((150*9+533)+"px");
+          r375.style.top = ((150*9+533)+"px");
+          r38.style.top = ((150*9.5+566)+"px");
+          r385.style.top = ((150*9.5+566)+"px");
+          r39.style.top = ((150*10+600)+"px");
+          r395.style.top = ((150*10+600)+"px");
+          r40.style.top = ((150*10.5+633)+"px");
+          r405.style.top = ((150*10.5+633)+"px");
+          r41.style.top = ((150*11+666)+"px");
+          r415.style.top = ((150*11+666)+"px");
+          r42.style.top = ((150*11.5+700)+"px");
+          r425.style.top = ((150*11.5+700)+"px");
+          //rend.style.top = ((150*12.5+766)+"px");
+
           while (pc2 > 150){
             r21.style.top = (pc2+"px");
             r215.style.top = (pc2+"px");
@@ -365,6 +474,14 @@ function inView() {
             r235.style.top = ((pc2*2+66)+"px");
             r24.style.top = ((pc2*2.5+100)+"px");
             r245.style.top = ((pc2*2.5+100)+"px");
+            r25.style.top = ((pc2*3+133)+"px");
+            r255.style.top = ((pc2*3+133)+"px");
+            r26.style.top = ((pc2*3.5+166)+"px");
+            r265.style.top = ((pc2*3.5+166)+"px");
+            r27.style.top = ((pc2*4+200)+"px");
+            r275.style.top = ((pc2*4+200)+"px");
+            r28.style.top = ((pc2*4.5+233)+"px");
+            r285.style.top = ((pc2*4.5+233)+"px");
             pc2 -= (pc2-150)/50;
             await sleep(2);
           }
@@ -395,8 +512,8 @@ function inView() {
 
     console.log(window.scrollY);
 
-    let header = document.getElementById("header");
-    header.style.top = (window.scrollY)+"px";
+    //let header = document.getElementById("header");
+    //header.style.top = (window.scrollY)+"px";
   }
 }
 
