@@ -55,6 +55,18 @@ function changecolor(id,clr){
   bg.top = "1000px";
   bg.height = (window.innerHeight+450-1000)+"px";
 
+  let opener1 = document.getElementById("openercontent");
+
+  let thetop;
+  let cutheight = 800; // this is an estimate
+  if (window.scrollY+window.innerHeight >= cutheight){ //if has scrolled past 1000 at bottom so basically absoulte scroll = scrolly+windowy
+    thetop = (cutheight+(window.scrollY+window.innerHeight-cutheight)*0.30); // 0.4 changable for reveal speed
+  } else {
+    thetop = cutheight;
+  }
+
+  opener1.style.top = thetop+"px";
+
   while (counter1 <= 4000){
     colorizer = counter1;
     if (colorizer >= 1000){
@@ -287,10 +299,10 @@ function inView() {
     // basically when scroll = opener.style.top
 
     let opener = document.getElementById("opener");
-    let opener1 = document.getElementById("openercontent");
+    opener1 = document.getElementById("openercontent");
 
     let thetop;
-    let cutheight = 800; // this is an estimate
+    cutheight = 800; // this is an estimate
     if (window.scrollY+window.innerHeight >= cutheight){ //if has scrolled past 1000 at bottom so basically absoulte scroll = scrolly+windowy
       thetop = (cutheight+(window.scrollY+window.innerHeight-cutheight)*0.30); // 0.4 changable for reveal speed
     } else {
