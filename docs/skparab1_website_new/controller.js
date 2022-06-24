@@ -49,7 +49,7 @@ function changecolor(id,clr){
 
 (async () => {
   let it = document.getElementById('topheader')
-  it.style.left = (window.innerWidth/2)-185*scalefactor + "px";
+  //it.style.left = (window.innerWidth/2)-185*scalefactor + "px";
 
   let bg = document.getElementById("background1");
   bg.top = "1000px";
