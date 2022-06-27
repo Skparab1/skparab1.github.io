@@ -135,8 +135,8 @@ function changecolor(id,clr){
       tbutton = document.getElementById("top-button4");
       tbutton.style.top = (200+animator*3) + "px";
       tbutton.style.left = 0.76*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter1/1000)+")";
-      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter1/1000)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*100)+","+((colorizer/1000)*255)+","+(counter1/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*100)+","+((colorizer/1000)*255)+","+(counter1/1000)+")";
 
       txt = document.getElementById("b4d");
       txt.style.top = "305px";
@@ -197,8 +197,8 @@ function changecolor(id,clr){
       tbutton = document.getElementById("top-button8");
       tbutton.style.top = (500+animator*7) + "px";
       tbutton.style.left = 0.76*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter1/1000)+")";
-      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+(counter1/1000)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*100)+","+((colorizer/1000)*255)+","+(counter1/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*100)+","+((colorizer/1000)*255)+","+(counter1/1000)+")";
 
       txt = document.getElementById("b8d");
       txt.style.top = "610px";
@@ -320,30 +320,30 @@ function inView() {
       console.log('hidden');
       //opener.style.display = "none";
       toph = 0;
-      let header = document.getElementById("header");
-      header.style.position = "sticky";
-      header.style.top = "0px";
-      changecolor('l1',"white");
-      changecolor('l2',"white");
-      changecolor('l3',"white");
-      changecolor('l4',"white");
-      changecolor('l5',"white");
-      changecolor('l6',"white");
+      // let header = document.getElementById("header");
+      // header.style.position = "sticky";
+      // header.style.top = "0px";
+      // changecolor('l1',"white");
+      // changecolor('l2',"white");
+      // changecolor('l3',"white");
+      // changecolor('l4',"white");
+      // changecolor('l5',"white");
+      // changecolor('l6',"white");
     } else if (window.scrollY >= thetop && window.scrollY < thetop+opener1.offsetHeight){
       // when its steady
       console.log('steady');
       opener.style.display = "block";
       opener.style.top = (window.scrollY)+"px";
       toph = window.scrollY;
-      let header = document.getElementById("header");
-      header.style.position = "sticky";
-      header.style.top = "0px";
-      changecolor('l1',"white");
-      changecolor('l2',"white");
-      changecolor('l3',"white");
-      changecolor('l4',"white");
-      changecolor('l5',"white");
-      changecolor('l6',"white");
+      // let header = document.getElementById("header");
+      // header.style.position = "sticky";
+      // header.style.top = "0px";
+      // changecolor('l1',"white");
+      // changecolor('l2',"white");
+      // changecolor('l3',"white");
+      // changecolor('l4',"white");
+      // changecolor('l5',"white");
+      // changecolor('l6',"white");
     } else if (window.scrollY >= thetop){
       // moving but like 1 window height behind
       console.log('behind',thetop);
@@ -351,15 +351,15 @@ function inView() {
       opener.style.top = (thetop+opener1.offsetHeight)+"px";
       toph = thetop+opener1.offsetHeight;
 
-      let header = document.getElementById("header");
-      header.style.position = "absolute";
-      header.style.top = window.scrollY + "px";
-      changecolor('l1',"black");
-      changecolor('l2',"black");
-      changecolor('l3',"black");
-      changecolor('l4',"black");
-      changecolor('l5',"black");
-      changecolor('l6',"black");
+      // let header = document.getElementById("header");
+      // header.style.position = "absolute";
+      // header.style.top = window.scrollY + "px";
+      // changecolor('l1',"black");
+      // changecolor('l2',"black");
+      // changecolor('l3',"black");
+      // changecolor('l4',"black");
+      // changecolor('l5',"black");
+      // changecolor('l6',"black");
     }
 
     if (opener1.offsetHeight < window.innerHeight){
@@ -520,8 +520,8 @@ function inView() {
 makehover("top-button1",'red');
 makehover("top-button2",'rgb(200,200,0)');
 makehover("top-button3",'rgb(0,255,0)');
-makehover("top-button4",'blue');
+makehover("top-button4",'rgb(0,100,255)');
 makehover("top-button5",'rgb(200,100,0');
 makehover("top-button6",'rgb(200,200,0)');
 makehover("top-button7",'rgb(0,255,0)');
-makehover("top-button8",'blue');
+makehover("top-button8",'rgb(0,100,255)');

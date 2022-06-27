@@ -31,7 +31,8 @@ li {
 }
 li a {
   display: block;
-  color: white;
+  color: black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
   font-size: 25px;
   padding: 25px 16px;
@@ -132,6 +133,7 @@ input:checked + .slider:before {
   height: 100px;
   width: 20%;
   font-size: 60px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .top-button:hover{
@@ -144,7 +146,7 @@ input:checked + .slider:before {
 
 .topheader{
   font-size: 60px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color:black;
   text-align: center;
   z-index: 4;
@@ -186,7 +188,8 @@ input:checked + .slider:before {
 
 .header{
   width: 100%;
-  position: sticky;
+  position: fixed;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   top: 0px;
   left: 0px;
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0));
