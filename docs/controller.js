@@ -120,8 +120,8 @@ function changecolor(id,clr){
       tbutton = document.getElementById("top-button3");
       tbutton.style.top = (200+animator*2) + "px";
       tbutton.style.left = 0.52*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
-      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*220)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*220)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
 
       txt = document.getElementById("b3d");
       txt.style.top = "305px";
@@ -152,8 +152,8 @@ function changecolor(id,clr){
       tbutton = document.getElementById("top-button5");
       tbutton.style.top = (500+(animator)*4) + "px";
       tbutton.style.left = 0.04*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*100)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
-      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*200)+","+((colorizer/1000)*100)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
 
       txt = document.getElementById("b5d");
       txt.style.top = "610px";
@@ -182,8 +182,8 @@ function changecolor(id,clr){
       tbutton = document.getElementById("top-button7");
       tbutton.style.top = (500+animator*6) + "px";
       tbutton.style.left = 0.52*window.innerWidth +"px";
-      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
-      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*255)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
+      tbutton.style.background = "rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*220)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
+      tbutton.style.border = "8px solid rgba("+((colorizer/1000)*0)+","+((colorizer/1000)*220)+","+((colorizer/1000)*0)+","+(counter1/1000)+")";
 
       txt = document.getElementById("b7d");
       txt.style.top = "610px";
@@ -519,9 +519,9 @@ function inView() {
 
 makehover("top-button1",'red');
 makehover("top-button2",'rgb(200,200,0)');
-makehover("top-button3",'rgb(0,255,0)');
+makehover("top-button3",'rgb(0,220,0)');
 makehover("top-button4",'rgb(0,100,255)');
-makehover("top-button5",'rgb(200,100,0');
+makehover("top-button5",'red');
 makehover("top-button6",'rgb(200,200,0)');
-makehover("top-button7",'rgb(0,255,0)');
+makehover("top-button7",'rgb(0,220,0)');
 makehover("top-button8",'rgb(0,100,255)');
