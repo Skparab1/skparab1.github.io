@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='og:viewport' content='width=device-width,initial-scale=1'>
+    <meta name="og:description" content="Shubham Parab's Website">
+    <title>Skparab1 - About</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="pacman-favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <div id="notif" style="width: 100%; height: 50px; padding: 0px; float: left; z-index: 2; background: rgb(199, 3, 3); display: none"></div>
+    <nav id="nav1">
+      <ul class="nav-items" id="nav">
+        <li><a id="fav" href="https://skparab1.github.io"><img src="favicon.png" height="30px;"></a></li>
+        <li><a id='header1' class="header" href="https://skparab1.github.io">Home</a></li>
+        <li><a id='header2' class="header" href="https://skparab1.github.io/about">About</a></li>
+        <li><a id='header3' class="header" href="https://skparab1.github.io/#projects">Projects</a></li>
+        <li><a id='header4' class="header" onclick="let l = document.getElementById('more'); if(l.style.display == 'none'){l.style.display = 'inline-block';} else {l.style.display = 'none';}">More by Skparab1</a></li>
+      </ul> 
+    </nav>
+    <h1 id="title" style="z-index: -1"></h1>
+
+    <canvas id="canvas" width="600" height="600" style="border:solid black 1px; position: absolute; left: 0px; top: 0px; z-index: -2;">
+      Your browser does not support canvas element.
+    </canvas>
+    <div id='more' class="fullwidth" style="display: none;">
+      <a href="https://skparab1.github.io/blog/pacman-ghost-algorithm.html">
+        <div class="fifth">
+          <img width="50%" src="hires.png">
+          <h1 class="inside5th">Alternative Pacman Ghost algorithm</h1>
+        </div>
+      </a>
+      <a href="https://skparab1.github.io/blog/js-url-shortener.html">
+        <div class="fifth">
+          <img width="50%" src="hires.png">
+          <h1 class="inside5th">Easy url shortener with js and Github Pages</h1>
+        </div>
+      </a>
+      <a href="https://skparab1.github.io/blog/canvas-graphics.html">
+        <div class="fifth">
+          <img width="50%" src="hires.png">
+          <h1 class="inside5th">Everything you need for Canvas graphics</h1>
+        </div>
+      </a>
+      <a href="https://skparab1.github.io/blog/canvas-vs-p5.html">
+        <div class="fifth">
+          <img width="50%" src="hires.png">
+          <h1 class="inside5th">Html canvas vs p5.js</h1>
+        </div>
+      </a>
+      <a href="https://skparab1.github.io/blog/pacman-ghost-algorithm.html">
+        <div class="fifth">
+          <img width="50%" src="ghdb.png">
+          <h1 class="inside5th">Github as a Database</h1>
+        </div>
+      </a>
+    </div>
+    <div id='hcontainer' class="fullwidth">
+      <h1 id='head' style="font-size: 50px; padding-bottom: 0px;">Pacman Recreation - From the ground up</h1>
+      <div id="headoverlay" style="position: absolute; width: 26%; height: 70%; background-image: linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0));"></div>
+      <div id="headoverlay2" style="position: absolute; width: 26%; height: 70%; background-image: linear-gradient(to right,rgba(0,0,0,0));"></div>
+      <h1 id='head1' style="font-size: 25px; padding-top: 0px;">By Shubham Parab</h1>
+<br><br><br><br><br><br><br><br><br><br><br>
+
+        <img id='mainimg' style='width: 50%; z-index: -1;' src="main.png">
+    </div>
+    <br>
+    <div id="overlay3" style="position: absolute; width:100%; height: 100%; background-color: rgba(0,0,0,1); z-index: 5; left: 0px; top: 0px;"></div>
+
+    <div style="position: absolute; left: 0px; top: 0px; z-index: -1;">
+      <video width="100%" autoplay muted loop>
+        <source src="thisisgonnabesocool.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video> 
+    </div>
+    
+    <div class="fullwidth">
+      <h1 class="bodytextheader">Overview</h1>
+      <div id="ovl1" style="position: absolute; width: 26%; height: 70%; background-image: linear-gradient(to right,rgba(0,0,0,0.6),rgba(0,0,0,0.6));"></div>
+      <div id="ovl2" style="position: absolute; width: 26%; height: 70%; background-image: linear-gradient(to right,rgba(0,0,0,0.6),rgba(0,0,0,0.6));"></div>
+      <div id="ovl3" style="position: absolute; width: 26%; height: 70%; background-image: linear-gradient(to right,rgba(0,0,0,0.6),rgba(0,0,0,0.6));"></div>
+      <div id="ovl4" style="position: absolute; width: 26%; height: 70%; background-image: linear-gradient(to right,rgba(0,0,0,0.6),rgba(0,0,0,0.6));"></div>
+      <div id="ovl5" style="position: absolute; width: 26%; height: 70%; background-image: linear-gradient(to right,rgba(0,0,0,0.6),rgba(0,0,0,0.6));"></div>
+      <h1 id="line1" class="bodytextfirst">Nine developers came together and wrote thousands of lines of code in three languages</h1>
+      <h1 id="line2" class="bodytextfirst">to make this extrordinary product reality. Powering brilliant frontend graphics and UI,</h1>
+      <h1 id="line3" class="bodytextfirst">software preforms millions of computations per second. Created with HTML canvas graphics</h1>
+      <h1 id="line4" class="bodytextfirst">and ui elements, CSS styling, JavaScript processing, and database with Deta and Github API.</h1>
+      <h1 id="line5" class="bodytextfirst">The result is a feature rich, high resolution game like no other.</h1>
+
+
+      The result is a feature rich, high resolution game like no other.
+      <h1 class="bodytexthidden">spacer</h1>
+    </div>
+
+    <div class="fullwidth">
+      <h1 class="bodytextheader">The Base</h1>
+      <img width="75%" src="base.png">
+      <h1 class="imagealt">uis for pacman</h1>
+      <h1 class="bodytext">The Base. What is this game built on? It's built on a HTML base that contatins everything that the game needs to run except for the graphics. Theme switches and setting controls change preferences, an info panel displays current score, best, and time, and game controls allow users to play the game. But that's just the frontend. To execute the actions called for by these settings, javascript manages clicks, switch activations, and updating of displays. The rules and contributor buttons open up dialogues, and the theme, level, and audio settings interally change preferences. Every iteration, the user's score and time are updated, and If a user activated game control buttons, a keypress is stimulated, so the game perform an action as if the corresponding key has been pressed. Other UI elements, such as buttons to see leaderboard and report a bug are links. Clicking the feedback button opens a whole sub ui, similar to settings and credits uis, but more comprehensive, and internally scrollable.</h1>
+    </div>
+
+    <div class="fullwidth">
+      <h1 class="bodytextheader">Graphics basics</h1>
+      <img width="75%" src="graphics.png">
+      <h1 class="imagealt">graphics for pacman</h1>
+      <h1 class="bodytext">When starting a brand new canvas project, the most basic elements must be done first. In this case, they would be controlling of the pacman character itself, something virtually everything else is dependent on. The fundamentals are pretty simple. Store x and y coordinates of the pacman, and the x and y direction vectors in variables. Update the positions based on the directions, as long as the pacman remains within the allowed bounderies, and modify the directions on each keypress. The canvas graphics must be cleared and the pacman rerendered on each iteration. In addidtion the the pacman, one of the easiest and most basic elements is the background, which is created with canvas. Using fillRect and drawline methods, game map is drawn is drawn. The points are hard coded(in a unit directly proportional of window size), so the graphics is scaled to fill the user's display, always providing a full height graphics display game.</h1>
+      <h1 class="bodytext">When the game is initally started (upon load and initial execution of javascript), the height of the game is used to compute a factor directly proportional to the height of the browser window. The game is also split into grid based on boardsize, so that the pacman width and height can be calculated, as well as the width of each lane in the maze. To do this, each gridlength is calulated by 2*((height)/(boardSize*2.2)), where height is the window.innerheight and boardSize is the amount of squares in grid (in other words, the maze is boardSize x boardSize units). When rendering, the hardcoded grid points are scaled to the user's display by being multiplied by this factor, which creates a full height display. The pacman radius is also scaled by this, as is the text, and end screen size and positions.</h1>
+    </div>
+
+    <div class="fullwidth">
+      <h1 class="bodytextheader">Game operation fundamentals</h1>
+      <h1 class="bodytext">After all the graphics and pacman movements are set up, one of the fundamental rules of the game needs to be adressed: satying within allowed bounderies. This is relatively simple when broken down into components. At a given point, The pacman can be in a state where it cannot move left, or cannot move right, or up or down. These can be denoted by 'blocks'. We can define these by hardcoding the grid coordinates(some units in x and some units in y), and then scaling these up to the actual board using the factor mentioned previously. At any point during the play, we can check if the pacman is within the block coordinates, and if so, prevent movement or not implement requested turns. Reversely, If a turn is requested and is wating to be implemented, if the pacman is in a position not blocked for the certain direction, the turn is executed. If a pacman is in a position where its current direction is blocked, then it will reject forward moves and remain stationary.</h1>
+      <img width="50%" src="blockers.png">
+      <h1 class="imagealt">Pacman directional blocks</h1>
+      <h1 class="bodytext">In the above diagram, areas highlighted in yellow are locations where the pacman is blocked from moving downwards, blue is for left, green is for right, and red is for up(all blocks are not shown for every position, as some blocks overlap with others). Using this technique, a fairly complex algorithm of having the pacman check its position with a list of maze bounderies in 4 directions becomes simplified into 4 function calls to array checkers. This method not only simplifies pacman border control, but also is usable for ghost navigation, and ghost returning to to ghost box algorithms.</h1>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

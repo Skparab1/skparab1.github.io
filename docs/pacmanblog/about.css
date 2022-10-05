@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Finlandica', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: black;
+  overflow-x: hidden;
+}
+
+.header{
+  color: white;
+  font-size: 25px;
+}
+
+.header:hover{
+  color: rgb(126, 142, 227);
+}
+
+.fullwidth{
+  width: 100%;
+  text-align: center;
+}
+
+.leftblock{
+  width: 49%;
+  float: left;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.rightblock{
+  width: 49%;
+  float: right;
+  text-align: center;
+  padding-right: 100px;
+  padding-bottom: 50px;
+}
+
+.leftslim{
+  width: 25%;
+  float: left;
+  text-align: right;
+  padding-top: 100px;
+}
+.middleslim{
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+.rightslim{
+  width: 25%;
+  float: right;
+  text-align: left;
+  padding-top: 100px;
+}
+
+.mainbutton{
+  float: center;
+  width: 80%;
+  height: 100px;
+  border: 4px solid gray;
+  border-radius: 25px;
+  background-color: black;
+  color: gray;
+  font-size: 400%;
+}
+
+.blacklink{
+  color: rgb(170, 170, 170);
+}
+.blacklink:hover{
+  color: gray;
+  border-bottom: 4px solid blue;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+.mainbutton:hover{
+  border: 4px solid white;
+  border-radius: 25px;
+  background-color: black;
+  color: white;
+  transition-duration: 0.2s;
+}
+
+.featureheader{
+  font-size: 300%;
+}
+
+.featurecontent{
+  font-size: 250%;
+  color: lightgray;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.25s linear;
+}
+
+.hidden { 
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s 0.25s, opacity 0.25s linear;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+nav {
+  position: sticky;
+  background-color: rgb(29, 28, 28);
+}
+
+.nav-items {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.fifth{
+  width: 19.9%;
+  float: left;
+}
+.inside5th{
+  color: white;
+  font-size: 17px;
+}
+
+.imagealt{
+  color: rgb(86, 86, 86);
+  font-size: 15px;
+  text-align: center;
+}
+
+.bodytext{
+  color: rgb(193, 193, 193);
+  font-size: 20px;
+  text-align: left;
+  padding-left: 75px;
+  padding-right: 75px;
+  line-height: 35px;
+}
+.bodytextfirst{
+  color: rgb(193, 193, 193);
+  font-size: 21px;
+  text-align: center;
+
+  line-height: 35px;
+}
+.bodytexthidden{
+  color: black;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 75px;
+  padding-right: 75px;
+  line-height: 35px;
+}
+.bodytextheader{
+  color: rgb(169, 169, 169);
+  font-size: 40px;
+}
+
+#person{
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73));
+}
+
+.nav-items li {
+  display: inline-block;
+  color: white;
+}
+
+.nav-items li a {
+  display: block;
+  padding: 1rem;
+  color: white;
+}
+
+#title {
+  position: absolute;
+  top: 0;
+  margin: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
