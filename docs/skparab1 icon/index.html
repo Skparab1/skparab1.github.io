@@ -106,12 +106,26 @@
         ctx.arc(x, y, rad, 0, 2 * Math.PI); //-((height)/(boardSize+2)/2)
         ctx.fill(); 
       }
+      function drawcircleq(x,y,rad,circlr,s,e){
+        ctx.beginPath();
+        ctx.fillStyle = circlr;
+        ctx.arc(x, y, rad, s * Math.PI, e * Math.PI); //-((height)/(boardSize+2)/2)
+        ctx.fill(); 
+      }
 
       function drawarc(x,y,rad,length,start,circlr,width){
         ctx.beginPath();
         ctx.lineWidth = width;
         ctx.strokeStyle = circlr;
         ctx.arc(x, y, rad, start * Math.PI, length * Math.PI); //-((height)/(boardSize+2)/2)
+        ctx.stroke(); 
+      }
+
+      function drawarcw(x,y,rad,length,start,circlr,width){
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.strokeStyle = circlr;
+        ctx.arc(x, y, rad, start * Math.PI, length * Math.PI, true); //-((height)/(boardSize+2)/2)
         ctx.stroke(); 
       }
 
@@ -197,6 +211,71 @@
 
 
       //monocolor rectangular
+
+
+      // refresh
+
+      let y = 1000;
+      while (y > 0){
+        drawcircle(500,450,y/2,'rgba('+(255-Math.abs(610-y)+(255-Math.abs(750-y)))+','+(255-Math.abs(550-y))+','+0+')');
+        y -= 1;
+      }
+
+      //backgrounds
+      drawline(170+200,150,170+200,790,'rgb(0,0,0)',30);
+      drawline(170+230,300,170+230,450,'rgb(0,0,0)',30);
+      drawline(170+260,150,170+260,790,'rgb(0,0,0)',30);
+      drawarcw(320+95,790,45,0,1,'rgba(0,0,0)',30);
+      drawline(170+290,350,170+290,790,'rgb(0,0,0)',30);
+      drawarc(320+110,150,60,-0.5,-1,'rgb(0,0,0)',30);
+      drawarc(480+80,120,30,0.5,-0.5,'rgb(0,0,0)',30);
+      drawline(430,90,560,90,'rgb(0,0,0)',30);
+      drawline(400,150,560,150,'rgb(0,0,0)',30);
+      drawarc(320+140,180,30,-0.5,-1,'rgb(0,0,0)',30);
+
+
+      //k
+      drawarc(320+21.21+200,390+21.21,60,0.25,-0.5,'rgba(0,100,255)',30);
+
+      drawline(205+21.21+200,590+21.21,365+21.21+200,430+21.21,'rgba(0,100,255)',30); //t
+      drawline(205+21.21+200,590+21.21,365+40+200,750+40,'rgba(0,100,255)',30); //t
+      drawcircle(365+40+200,750+40,15,'rgb(0,100,255)');
+      drawline(230+200,350,230+200,500,'rgb(0,100,255)',30);
+
+      drawline(205+21.21+200,590+21.21+21.21+21.21,365+40+200-21.21,750+40+21.21+1.21,'rgba(0,0,0)',30); //t
+
+      drawline(205+21.21+200+21.21+21.21,590+21.21,365+40+200+21.21,750+40-21.21,'rgba(0,0,0)',30); //t
+      drawarc(365+40+200,750+40,30,0.75,-0.25,'rgba(0,0,0)',30);
+
+      
+      //s
+      drawline(200+200,150,200+200,300,'rgb(255,0,0)',30);
+      drawarc(230+200,150,30,-0.5,-1,'rgba(255,0,0)',30);
+      drawline(230+200,120,365+200,120,'rgb(255,0,0)',30);
+      drawcircle(365+200,120,15,'rgb(255,0,0)');
+      drawarcw(230+200,300,30,0.5,-1,'rgba(255,0,0)',30);
+      drawline(230+200,330,320+200,330,'rgb(255,0,0)',30);
+      drawarc(320+200,390,60,0.25,-0.5,'rgba(255,0,0)',30);
+      
+      drawline(220+200,575,365+200,430,'rgb(255,0,0)',30); //t
+
+      // midpoint: 429 502.5
+
+      //p
+      drawarc(230+200,390,30,-0.5,-1,'rgba(0,255,0)',30);
+      drawline(200+200,390,200+200,540,'rgb(0,255,0)',30);
+      drawline(230+200,360,320+200,360,'rgb(0,255,0)',30);
+      drawarc(320+200,390,30,0.25,-0.5,'rgba(0,255,0)',30);
+      
+      drawline(202+200,550,342+200,410,'rgb(0,255,0)',30); //t
+
+      // covers
+      drawline(200+200,390,200+200,790,'rgb(0,255,0)',30);
+      drawline(230+200,450,230+200,790,'rgb(0,100,255)',30);
+      drawcircleq(215+200,790,30,'rgb(0,255,0)',0.5,1.5)
+      drawcircleq(215+200,790,30,'rgb(0,100,255)',-0.5,0.5)
+
+
 
       const sleep = ms => new Promise(res => setTimeout(res, ms));
       let startx;
@@ -392,19 +471,19 @@
       }
       //drawline(1105+10,390-5,1105+10,620+30+65,'rgb(0,100,255)',20);
       
-      // green vertical
-      // arr = [1095,380-15,1095,620+30+65];
+      //green vertical
+      arr = [1095,380-15,1095,620+30+65];
       
-      // i = arr[0];
-      // j = arr[1];
-      // while (j < arr[3]){
-      //   i += (arr[2]-arr[0])/50;
-      //   j += (arr[3]-arr[1])/50;
-      //   drawline(arr[0],arr[1],i,j,'rgb(0,255,0)',20);
-      //   //console.log('should have done it');
-      //   await sleep(2);
-      // }
-      //drawline(1095,380-15,1095,620+30+65,'rgb(0,255,0)',20);
+      i = arr[0];
+      j = arr[1];
+      while (j < arr[3]){
+        i += (arr[2]-arr[0])/50;
+        j += (arr[3]-arr[1])/50;
+        drawline(arr[0],arr[1],i,j,'rgb(0,255,0)',20);
+        //console.log('should have done it');
+        await sleep(2);
+      }
+      drawline(1095,380-15,1095,620+30+65,'rgb(0,255,0)',20);
 
       //bottom black bar to cutoff
       //drawline(1050,625+25,1275,625+25,'rgb(0,0,0)',20);
@@ -413,12 +492,11 @@
 
       
     </script>
-    </div style="float: left">
+    </div style="float: left display: none;">
       <h1 id="score">Score: 0</h1>
       <h1 id="display">Press any key to start</h1><br>
       <h1 id="ap notif">Autopilot: Off</h1>
     </div>
-    <!/div>
     <h1 style="color:rgb(225, 252, 71);"> Note: if the game canvas does not cover the whole height of the screen, then reload.</h1>
    </body>
 </html>
