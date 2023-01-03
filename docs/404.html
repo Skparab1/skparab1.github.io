@@ -1,14 +1,36 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset='utf-8'>
+    <meta name='og:viewport' content='width=device-width,initial-scale=1'>
+    <meta name="og:description" content="interesting animation">
+    <title>Skparab1 - About</title>
+    <link rel="stylesheet" href="404.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="pacman-favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
 
-  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
-  <script language="javascript" type="text/javascript" src="404.js"></script>
+    <ul>
+      <li><a style="color: rgb(211, 211, 211);" href="https://skparab1.github.io">Home</a></li>
+      <li><a style="color: rgb(211, 211, 211);" href="https://github.com/skparab1">Profile</a></li>
+    </ul> 
 
-  <style> body { padding: 0; margin: 0; } </style>
-</head>
+    <header class='header'><h3 id="hehe">Skparab1 - 404</h3></header>
 
-<body>
-</body>
+    <h2 id='thistext' class="lonelytext" onclick="document.getElementById('thevid').currentTime = document.getElementById('thevid').duration;">Skip this animation</h2>
+
+    <div id="endtext" style="opacity: 0;">
+      <h1 class="abstext" style="top: 100px; left: 29%;">The page you are trying to reach does not exist!</h1>
+      <h1 class="abstext" style="top: 150px; left: 25%;">Make sure you type the url correctly (it is case sensitive)</h1>
+      <a href='https://skparab1.github.io'><h1 class="abstext" style="top: 200px; left: 35%;">Otherwise, try Skparab1 <span class='etext'>homepage</span></h1></a>
+      <a href='https://skparab1.github.io/pacman'><h1 class="abstext" style="top: 250px; left: 39%">Care to check out <span class='etext'>Pacman</span></h1></a>
+    </div>
+
+    <video id='thevid' src="anim.mov" width="100%" autoplay></video>
+
+    <script src="404.js"></script>
+  </body>
 </html>
