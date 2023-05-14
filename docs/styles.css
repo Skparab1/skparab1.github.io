@@ -305,7 +305,7 @@ li a:hover {
 }
 
 .exit-modal:hover {
-  color: var(--primary-bright);
+  color: var(--main-bg-bright);
 }
 
 .catagory {

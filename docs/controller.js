@@ -13,6 +13,7 @@ let thelogo = document.getElementById('logo-image');
 let setlogosrc = false;
 let vidpaused = false;
 let videodimmed = false;
+let lastscroll = 0;
 
 let begin = `      <div class="s2backdrop" id="s2backdrop">
 <div class="title-holder">
@@ -388,6 +389,31 @@ function changesort(catagory){
                 vidpaused = false;
             }
         }
+        
+      
+
+        if (lastscroll != window.scrollY){
+            console.log(window.scrollY);
+            if (window.scrollY < 500){
+                document.getElementById('l1').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; 
+                document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; 
+                document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';    
+    
+            } else if (window.scrollY < 950){
+                document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; 
+                document.getElementById('l2').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; 
+                document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';    
+            } else {
+                document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; 
+                document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; 
+                document.getElementById('l3').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; 
+                
+            }
+        }
+
+
+
+        lastscroll = window.scrollY;
 
         if (ctr > 450){
             mainheading.style.opacity = (600-window.scrollY)/600;
