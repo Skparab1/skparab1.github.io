@@ -9,6 +9,7 @@ body {
   --main-bg: rgb(178, 47, 0);
   --main-bg-bright: rgb(205, 55, 0);
   --main-bg-opaque: rgba(178, 47, 0, 0.8);
+  --main-bg-dark: rgba(178, 47, 0, 0.7);
   --main-bg-slight: rgb(31, 6, 106);
   --primary: rgb(0, 72, 255);
   --primary-bright: rgb(71, 123, 255);
@@ -244,8 +245,8 @@ li a:hover {
 
 .info-block{
   position: fixed;
-  left: 20%;
-  top: 25%;
+  left: 50%;
+  top: 50%;
   width: 60%;
   background-color: black;
   border: 5px solid var(--primary);
@@ -255,6 +256,7 @@ li a:hover {
   border-radius: 25px;
   padding: 18px;
   padding-top: 12px;
+  transform: translate(-50%, -33%);
 }
 
 .detail-block{
@@ -321,7 +323,7 @@ li a:hover {
   border-bottom-right-radius: 10px;
 
   font-family: meltix;
-  transition: border 0.25s, color 0.25s;
+  transition: border 0.25s, color 0.25s, background-color 0.25s;
 }
 
 .catagory:hover{
