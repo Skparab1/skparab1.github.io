@@ -30,7 +30,7 @@ let inkball = `<div id='ink' class="project-tile" onclick="openelement('inkball'
   Inkball
 </div>
 <div class="project-image">
-  <img src="images/inkball.png" alt="Image of an inkball game" width="100%" style="border-radius: 10px;">
+  <img src="assets/inkball.png" alt="Image of an inkball game" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A modern feature-rich graphics based game of Inkball </div>
 <div class="project-description">Javascript, HTML, and CSS</div>
@@ -41,7 +41,7 @@ let pacman = `          <div id='pac' class="project-tile" onclick="openelement(
   Pacman
 </div>
 <div class="project-image">
-  <img src="images/pacman.png" alt="Image of a pacman game" width="100%" style="border-radius: 10px;">
+  <img src="assets/pacman.png" alt="Image of a pacman game" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A modern graphics-based game of Pacman </div>
 <div class="project-description">Javascript, HTML, and CSS</div>
@@ -52,7 +52,7 @@ let agpbeats = `          <div id='agp' class="project-tile" onclick="openelemen
   Agpbeats
 </div>
 <div class="project-image">
-  <img src="images/agpbeats.png" alt="Image of music player website" width="100%" style="border-radius: 10px;">
+  <img src="assets/agpbeats.png" alt="Image of music player website" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A feature rich music player website</div>
 <div class="project-description">Javascript, HTML, and CSS</div>
@@ -63,7 +63,7 @@ let snake = `<div id='sna' class="project-tile" onclick="openelement('snake')">
   Snake
 </div>
 <div class="project-image">
-  <img src="images/snake.png" alt="Image of a snake game" width="70%" style="border-radius: 10px;">
+  <img src="assets/snake.png" alt="Image of a snake game" width="70%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A modern graphics based game of snake</div>
 <div class="project-description">Javascript, HTML, and CSS</div>
@@ -75,7 +75,7 @@ let forum = `          <div id='for' class="project-tile" onclick="openelement('
   Forum messager
 </div>
 <div class="project-image">
-  <img src="images/forum.png" alt="Image of a forum" width="100%" style="border-radius: 10px;">
+  <img src="assets/forum.png" alt="Image of a forum" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A serverless forum built with a Github database</div>
 <div class="project-description">Javascript, HTML, CSS, Yaml</div>
@@ -86,7 +86,7 @@ let traffic = `          <div id='tra' class="project-tile" onclick="openelement
   Traffic simulator
 </div>
 <div class="project-image">
-  <img src="images/traffic.png" alt="Image of a traffic simulator website" width="100%" style="border-radius: 10px;">
+  <img src="assets/traffic.png" alt="Image of a traffic simulator website" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A hackathon winning traffic simulator</div>
 <div class="project-description">Javascript, HTML, CSS</div>
@@ -97,7 +97,7 @@ let dashboard = `<div id='das' class="project-tile" onclick="openelement('dashbo
   New tab page
 </div>
 <div class="project-image">
-  <img src="images/dashboard.png" alt="Image of a custom new tab page" width="100%" style="border-radius: 10px;">
+  <img src="assets/dashboard.png" alt="Image of a custom new tab page" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A customizable new tab page</div>
 <div class="project-description">Javascript, HTML, and CSS</div>
@@ -108,7 +108,7 @@ let portfolio = `<div class="project-tile" onclick="openelement('portfolio')">
   Project Portfolio
 </div>
 <div class="project-image">
-  <img src="images/portfolio.png" alt="Image of a project portfolio website" width="100%" style="border-radius: 10px;">
+  <img src="assets/portfolio.png" alt="Image of a project portfolio website" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A project portfolio website</div>
 <div class="project-description">Javascript, HTML, CSS</div>
@@ -119,7 +119,7 @@ let euler = `<div class="project-tile" onclick="openelement('euler')">
   Euler calculator
 </div>
 <div class="project-image">
-  <img src="images/eulers.png" alt="Image of a euler's method calculator" width="100%" style="border-radius: 10px;">
+  <img src="assets/eulers.png" alt="Image of a euler's method calculator" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A calculator for Euler's method</div>
 <div class="project-description">Javascript, HTML, CSS</div>
@@ -130,7 +130,7 @@ let binary = ` <div class="project-tile" onclick="openelement('binarytree')">
   Binary tree maker
 </div>
 <div class="project-image">
-  <img src="images/binarytree.png" alt="Image of a binary tree maker" width="100%" style="border-radius: 10px;">
+  <img src="assets/binarytree.png" alt="Image of a binary tree maker" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">Interactive binary tree maker that displays traversal solutions</div>
 <div class="project-description">Javascript, HTML, and CSS</div>
@@ -141,7 +141,7 @@ let sfx = `<div class="project-tile" onclick="openelement('sfx')">
   Special effects
 </div>
 <div class="project-image">
-  <img src="images/sfx.png" alt="Image of a special effects website" width="100%" style="border-radius: 10px;">
+  <img src="assets/sfx.png" alt="Image of a special effects website" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A special effects website featuring parallelax scrolling, 2d animations, and background video.</div>
 <div class="project-description">Javascript, HTML, CSS</div>
@@ -152,7 +152,7 @@ let dybdahl = `        <div class="project-tile" onclick="openelement('dybdahl')
   Calc BC site
 </div>
 <div class="project-image">
-  <img src="images/dybdahl.png" alt="Image of a math problem site" width="100%" style="border-radius: 10px;">
+  <img src="assets/dybdahl.png" alt="Image of a math problem site" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A website featuring 298 Calc BC problems with instantly accessible solutions.</div>
 <div class="project-description">Javascript, HTML, CSS</div>
@@ -163,7 +163,7 @@ let sat = `        <div class="project-tile" onclick="openelement('sat')">
   SAT
 </div>
 <div class="project-image">
-  <img src="images/sat.png" alt="Image of a live chat website" width="100%" style="border-radius: 10px;">
+  <img src="assets/sat.png" alt="Image of a live chat website" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">An anti stress website featuring chat, music, and p2p games</div>
 <div class="project-description">Javascript, HTML, CSS</div>
@@ -174,7 +174,7 @@ let urlshortener = `<div class="project-tile" onclick="openelement('url')">
   Url shortener
 </div>
 <div class="project-image">
-  <img src="images/url.png" alt="Image of a url shortener" width="100%" style="border-radius: 10px;">
+  <img src="assets/url.png" alt="Image of a url shortener" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">A website that shortens long Urls to smaller github.io urls.</div>
 <div class="project-description">Javascript, HTML, CSS</div>
@@ -185,7 +185,7 @@ let images = `        <div class="project-tile" onclick="openelement('images')">
   Images
 </div>
 <div class="project-image">
-  <img src="images/images.png" alt="Image of an image display website" width="100%" style="border-radius: 10px;">
+  <img src="assets/images.png" alt="Image of an image display website" width="100%" style="border-radius: 10px;">
 </div>
 <div class="project-description">An image showcase website featuring locations and downloadables.</div>
 <div class="project-description">Javascript, HTML, and CSS</div>
@@ -379,7 +379,7 @@ function changesort(catagory){
                 vidpaused = true;
             }
             if (!setlogosrc){
-                thelogo.src = 'images/logo.gif';
+                thelogo.src = 'assets/logo.gif';
                 setlogosrc = true;
             }
         } else {
