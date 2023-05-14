@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name="description" content="Skparab1's main Github website">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Skparab1/skparab1.github.io/main/docs/skparab1_website_new/web.png" />
+    <title>Skparab1 - Home</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    
+    <video class='largevideo' id='bgvid' width="100%" src="images/thisisgonnabesocool.mp4" loop muted></video>
+
+    <div class="header" id="header">
+      <ul>
+        <li><a id='l1' onclick="window.scroll({top: 100, left: 100, behavior: 'smooth',});">Home</a></li>
+        <li><a id='l2' onclick="screen1.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });">About</a></li>
+        <li><a id='l3' onclick="screen2.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });">Projects</a></li>
+      </ul>
+    </div>
+
+    <h1 class="mainheading" id="mainheading">Skparab1</h1>
+
+    <div class="leftbutton" id="leftbutton" onclick="screen1.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });">
+      <h1 class="largeletters">About</h1>
+    </div>
+
+    <div class="rightbutton" id="rightbutton" onclick="screen2.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });">
+      <h1 class="largeletters">Projects</h1>
+    </div>
+
+    <div id='screen1' class="screen1">
+      <div class="image-block-main">
+        <img src='images/blank.png' id="logo-image" class='logo-image' alt="Image of skparab1 logo">
+      </div>
+      <div class="about-block-main">
+        <h1 class="about-text">
+          Hello there! I'm Shubham Parab, a 16 year old in San Jose, California.
+        </h1>
+        <h1 class="about-text">
+          I am an aspiring web developer and general programmer who mainly uses JavaScript/HTML/CSS and Python, but I also know Java and Pascal.
+        </h1>
+
+        <h1 class="about-text">
+          Specifically, I enjoy special effects and Canvas graphics in frontend, including a range of graphics based games. I also work with databases in backend, specifically in creating APIs and transmitting data using polling.
+        </h1>
+      </div>
+    </div>
+
+
+    <div id='screen2' class="screen2">
+      <div class="s2backdrop">
+        <div class="title-holder">
+          <div id="s2largeletters"><h1 class="largeletters">Projects</h1></div>
+          <div class='catagory' style="left: 60%">All</div>
+          <div class='catagory' style="left: 73.3%">Games</div>
+          <div class='catagory' style="left: 86.6%">Education</div>
+
+        </div>
+
+        <div class="project-holder">
+
+          <div class="project-tile" onclick="openelement('inkball')">
+            <div class="project-title">
+              Inkball
+            </div>
+            <div class="project-image">
+              <img src="images/inkball.png" alt="Image of an inkball game" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A modern feature-rich graphics based game of Inkball </div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
+          </div>
+
+          <div class="project-tile" onclick="openelement('pacman')">
+            <div class="project-title">
+              Pacman
+            </div>
+            <div class="project-image">
+              <img src="images/pacman.png" alt="Image of a pacman game" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A modern graphics-based game of Pacman </div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
+          </div>
+
+          <div class="project-tile" onclick="openelement('agpbeats')">
+            <div class="project-title">
+              Agpbeats
+            </div>
+            <div class="project-image">
+              <img src="images/agpbeats.png" alt="Image of music player website" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A feature rich music player website</div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
+          </div>
+        </div>
+
+        <div class="project-holder">
+          <div class="project-tile" onclick="openelement('snake')">
+            <div class="project-title">
+              Snake
+            </div>
+            <div class="project-image">
+              <img src="images/snake.png" alt="Image of a snake game" width="70%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A modern graphics based game of snake</div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
+          </div>
+
+          <div class="project-tile" onclick="openelement('forum')">
+            <div class="project-title">
+              Forum messager
+            </div>
+            <div class="project-image">
+              <img src="images/forum.png" alt="Image of a forum" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A serverless forum built with a Github database</div>
+            <div class="project-description">Javascript, HTML, CSS, Yaml</div>
+          </div>
+
+          <div class="project-tile" onclick="openelement('traffic')">
+            <div class="project-title">
+              Traffic simulator
+            </div>
+            <div class="project-image">
+              <img src="images/traffic.png" alt="Image of a traffic simulator website" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A hackathon winning traffic simulator</div>
+            <div class="project-description">Javascript, HTML, CSS</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="fullblock" id="fullblock"></div>
+
+
+    <div class="info-block" id="inkball">
+      <button class="exit-modal nohover" onclick="closeelement('inkball');">&times</button>
+      <div class="project-title">
+        Inkball
+      </div>
+      <div class="dialogue-image">
+        <img src="images/inkball.png" alt="Image of an inkball game" width="50%"  style="border-radius: 10px; float: left;">
+        <div class="detail-block">
+          <h1 class="detail-para">A modern graphics-based game of Inkball developed using JS, HTML and CSS. Includes HD adaptive graphics, 32 unique maps, and a live ranked leaderboard.</h1>
+          <a href="https://skparab1.github.io/inkball" target="_blank">
+            <button class="littlebutton">Play</button>
+          </a>
+          <a href="https://github.com/skparab1/inkball" target="_blank">
+            <button class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="pacman">
+      <button class="exit-modal nohover" onclick="closeelement('pacman');">&times</button>
+      <div class="project-title">
+        Pacman
+      </div>
+      <div class="dialogue-image">
+        <img src="images/pacman.png" alt="Image of a pacman game" width="50%" style="border-radius: 10px; float: left;">
+        <div class="detail-block">
+          <h1 class="detail-para">A modern graphics-based game of Pacman developed using JS, HTML and CSS. Includes HD adaptive graphics, a live ranked leaderboard, and screenshot/replay.</h1>
+          <a href="https://skparab1.github.io/pacman" target="_blank">
+            <button class="littlebutton">Play</button>
+          </a>
+          <a href="https://github.com/skparab1/pacman" target="_blank">
+            <button class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="agpbeats">
+      <button class="exit-modal nohover" onclick="closeelement('agpbeats');">&times</button>
+      <div class="project-title">
+        Agp beats
+      </div>
+      <div class="dialogue-image">
+        <img src="images/agpbeats.png" alt="Image of a music player website" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A feature-rich music playing website developed using JS, HTML and CSS. Includes autoplay, live stream count, playlists, queues, and station streaming</h1>
+          <a href="https://skparab1.github.io/agpbeats" target="_blank">
+            <button class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/agp-beats" target="_blank">
+            <button class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="snake">
+      <button class="exit-modal nohover" onclick="closeelement('snake');">&times</button>
+      <div class="project-title">
+        Snake
+      </div>
+      <div class="dialogue-image">
+        <img src="images/snake.png" alt="Image of a snake game" width="33%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block" style="margin-left: 15%;">
+          <h1 class="detail-para">A modern graphics-based game of snake. Features adaptive HD graphics, a live ranked leaderboard, and an autopilot mode.</h1>
+          <a href="https://skparab1.github.io/snake" target="_blank">
+            <button class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/snake" target="_blank">
+            <button class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="forum">
+      <button class="exit-modal nohover" onclick="closeelement('forum');">&times</button>
+      <div class="project-title">
+        Forum Messager
+      </div>
+      <div class="dialogue-image">
+        <img src="images/forum.png" alt="Image of a forum" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A serverless forum built with a Github database. Features message replies and zero authentication messaging. Backend automated by Github actions.</h1>
+          <a href="https://skparab1.github.io/server/frontend.html" target="_blank">
+            <button class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/server" target="_blank">
+            <button class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="traffic">
+      <button class="exit-modal nohover" onclick="closeelement('traffic');">&times</button>
+      <div class="project-title">
+        Traffic simulator
+      </div>
+      <div class="dialogue-image">
+        <img src="images/traffic.png" alt="Image of a traffic simulator" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A 3rd place hackathon winning traffic simulator. Features adjustable stoplight algorithms, car speeds, and distances. Displays live output stats.</h1>
+          <a href="https://skparab1.github.io/traffic_simulator" target="_blank">
+            <button class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/traffic-simulator" target="_blank">
+            <button class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="controller.js"></script>
+
+  </body>
+</html>
