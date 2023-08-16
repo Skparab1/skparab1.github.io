@@ -1,18 +1,131 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset='utf-8'>
+    <meta name='og:viewport' content='width=device-width,initial-scale=1'>
+    <meta name="og:description" content="Skparab1">
+    <title>New tab</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="pacman-favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
 
-  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
-  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
-  <script language="javascript" type="text/javascript" src="redirect.js"></script>
-  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+    <div class="actualbg" id="blocker">
+      <img src="" id='fullimg' width="100%">
+    </div>
 
-  <!-- This line removes any default padding and style.
-       You might only need one of these values set. -->
-  <style> body { padding: 0; margin: 0; } </style>
-</head>
+    <div class="edbutton" onclick="openbg();"></div>
 
-<body>
-</body>
+    <div class="choosebg" id="choosebg">
+      <div class="tile" onclick="usebg('hehe');" style="background-image: linear-gradient(rgb(255, 75, 5),rgb(0, 84, 173));"></div>
+      <div class="tile" onclick="usebg('url(starwars1.jpg)')" style="background-image: url(starwars1.jpg);"></div>
+      <div class="tile" onclick="usebg('url(starwars2.jpg)')"style="background-image: url(starwars2.jpg);"></div>
+      <div class="tile" onclick="usebg('url(hyundai.jpg)')"style="background-image: url(hyundai.jpg);"></div>
+      
+      <div class="tile" onclick="usebg('url(typer.jpg)')"style="background-image: url(typer.jpg);"></div>
+      <div class="tile" onclick="usebg('url(a380.jpg)')"style="background-image: url(a380.jpg);"></div>
+      <div class="tile" onclick="usebg('url(baybr.jpg)')"style=" background-image: url(baybr.jpg);"></div>
+      <div class="tile" onclick="usebg('url(goldengate.jpg)')"style=" background-image: url(goldengate.jpg);"></div>
+      
+      <div class="tile" onclick="usebg('url(duck.jpg)')"style="background-image: url(duck.jpg);"></div>
+      <div class="tile" onclick="usebg('url(canyon.jpg)')"style="background-image: url(canyon.jpg);"></div>
+      <div class="tile" onclick="usebg('url(pier.jpg)')"style="background-image: url(pier.jpg);"></div>
+      <div class="tile" onclick="usebg('url(ocean.jpg)')"style="background-image: url(ocean.jpg);"></div>
+      
+      <div class="tile" onclick="usebg('url(mountains.jpg)')"style="background-image: url(mountains.jpg);"></div>
+      <div class="tile" onclick="usebg('url(space.jpg)')"style="background-image: url(space.jpg);"></div>
+      <div class="tile" onclick="switchtobing()" style="background-image: url(bing.png);"></div>
+      <input id='urimg' class="tile" style="background-image: url(fire.png);" type="file" id="img" name="img" accept="file_extension|image/*|media_type" onchange="processimg();">
+
+      <img src="" id='holderimg' alt="just a holder">
+
+    </div>
+
+
+    <div class="choosebg" id="tasks">
+      <h1 class="taskheader">Tasks</h1>
+      <div class="tdtile-main">
+        <div class="lefts" style="margin-top: 8px;">
+          <input type="text" class="taskname" id="tname" name="tname" value="bruh">
+          <input type="text" class="taskdate" id="due" name="due" value="bruh">
+        </div>
+        <div class="due">
+          <div class="delete">Delete</div>
+          <div class="order">Prioritize</div>
+          <div class="order">Deprioritize</div>
+        </div>
+      </div>
+      
+      <div class="addnew" onclick="addnew();">
+        +
+      </div>
+      <div class="addnew" onclick="closetasks();">
+        Save & close
+      </div>
+    </div>
+
+
+    <div class="fullwidth" style="padding: 33px;">
+      <div class="leftblock" id="s1" style="width: none;"></div>
+
+      <div class="midblock">
+        <img src="fire.png" alt="firefox logo" width="12%" style="margin-bottom: 33px;" id="firefox">
+        <h1 class='datetime' id="time"></h1>
+        <h1 class='datetime' id="date"></h1>
+        <h1 class='smallweather' id="weather">...</h1>
+        <!-- <input class="googlesearch" type="text" id="gsearch" value="Search with Google" onclick="cleargsearch();"> -->
+
+        <div class="todo" id="todo" onclick="opentasks();">
+          <div class="tdtile">
+            <div class="lefts">eh</div>
+            <div class="due">right</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="leftblock" id="s2" style="display: none;">
+
+        <h1>Frequently visited</h1>
+
+        <div class="sitetile">
+          <a href="https://skparab1.github.io">
+            <h2 class="sitename">Skparab1</h2>
+          </a>
+        </div>
+
+        <div class="sitetile">
+          <a href="https://skparab1.github.io/idlichat">
+            <h2 class="sitename">Idli chat</h2>
+          </a>
+        </div>
+
+        <div class="sitetile">
+          <a href="https://docs.google.com">
+            <h2 class="sitename">Google Docs</h2>
+          </a>
+        </div>
+
+        <div class="sitetile">
+          <a href="https://fuhsd.schoology.com">
+            <h2 class="sitename">Schoology</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id='canvas-container' style="float: left; position: absolute; z-index: -1">
+      <canvas class="myCanvas">
+        <p>Rip ur browser doesnt support canvas :(( u shud switch to a better browser...</p>
+        <canvas id="the-canvas" width="320" height="240" style="position:relative; right:300px;"></canvas>
+      </canvas>
+    </div>
+
+    <div class="blocker" id="b1"></div>
+
+    <script src="index.js"></script>
+
+  </body>
 </html>
