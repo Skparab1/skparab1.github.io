@@ -15,18 +15,18 @@
     <div class="header" id="header">
       <ul>
         <li><a id='l1' onclick="window.scroll({top: 100, left: 100, behavior: 'smooth',}); document.getElementById('l1').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';">Home</a></li>
-        <li><a id='l2' onclick="screen1.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' }); document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l2').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';">About</a></li>
-        <li><a id='l3' onclick="screen2.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' }); document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l3').style.textDecoration = '3px solid rgb(255, 100, 0) underline';">Projects</a></li>
+        <li><a id='l2' onclick="let starty21 = screen1.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty21, left: 0, behavior: 'smooth'}); document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l2').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';">About</a></li>
+        <li><a id='l3' onclick="let starty22 = screen2.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty22, left: 0, behavior: 'smooth'}); document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l3').style.textDecoration = '3px solid rgb(255, 100, 0) underline';">Projects</a></li>
       </ul>
     </div>
 
     <h1 class="mainheading" id="mainheading">Skparab1</h1>
 
-    <div class="leftbutton" id="leftbutton" onclick="screen1.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });">
+    <div class="leftbutton" id="leftbutton" onclick="let starty11 = screen1.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty11, left: 0, behavior: 'smooth'});">
       <h1 class="largeletters">About</h1>
     </div>
 
-    <div class="rightbutton" id="rightbutton" onclick="screen2.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });">
+    <div class="rightbutton" id="rightbutton" onclick="let starty12 = screen2.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty12, left: 0, behavior: 'smooth'});">
       <h1 class="largeletters">Projects</h1>
     </div>
 

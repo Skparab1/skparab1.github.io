@@ -352,6 +352,29 @@ function changesort(catagory){
     let ctr = 0;
     let mhpush = 300;
     let buttonpush = 400;
+
+    if (window.location.href.includes("#about")){
+      let starty1 = screen1.offsetTop-window.innerHeight/4;
+      window.scrollTo({
+        top: starty1,
+        left: 0,
+        behavior: "smooth",
+      });   
+      bgvid.style.opacity = 0.2;
+      // bgvid.style.filter = 'blur(14px)';
+    }
+
+    if (window.location.href.includes("#projects")){
+      let starty1 = screen2.offsetTop-window.innerHeight/4;
+      window.scrollTo({
+        top: starty1,
+        left: 0,
+        behavior: "smooth",
+      });
+      bgvid.style.opacity = 0.2;
+      // bgvid.style.filter = 'blur(14px)';
+    }
+
     while (true){
         if (ctr > 700 && ctr < 1050){
             bgvid.style.filter = 'blur('+((ctr-700)/25)+'px)';
