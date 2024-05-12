@@ -2,130 +2,523 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <meta name='og:viewport' content='width=device-width,initial-scale=1'>
-    <meta name="og:description" content="Skparab1">
-    <title>New tab</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/x-icon" href="pacman-favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Finlandica&display=swap" rel="stylesheet"> 
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name="description" content="Skparab1's main website">
+    <meta name="twitter:image" content="https://skparab1.github.io/skparab1_website_may2023/assets/logo.gif" />
+    <title>Skparab1 - Home</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    
+    <video class='largevideo' id='bgvid' width="100%" src="assets/skparab1websitebackgroundmay2024.mp4" loop muted></video>
 
-    <div class="actualbg" id="blocker">
-      <img src="" id='fullimg' width="100%">
+    <div class="header" id="header">
+      <ul>
+        <li><a id='l1' onclick="window.scroll({top: 100, left: 100, behavior: 'smooth',}); document.getElementById('l1').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';">Home</a></li>
+        <li><a id='l2' onclick="let starty21 = screen1.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty21, left: 0, behavior: 'smooth'}); document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l2').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';">About</a></li>
+        <li><a id='l3' onclick="let starty22 = screen2.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty22, left: 0, behavior: 'smooth'}); document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l3').style.textDecoration = '3px solid rgb(255, 100, 0) underline';">Projects</a></li>
+      </ul>
     </div>
 
-    <div class="edbutton" onclick="openbg();"></div>
+    <h1 class="mainheading" id="mainheading">Skparab1</h1>
 
-    <div class="choosebg" id="choosebg">
-      <div class="tile" onclick="usebg('hehe');" style="background-image: linear-gradient(rgb(255, 75, 5),rgb(0, 84, 173));"></div>
-      <div class="tile" onclick="usebg('url(starwars1.jpg)')" style="background-image: url(starwars1.jpg);"></div>
-      <div class="tile" onclick="usebg('url(starwars2.jpg)')"style="background-image: url(starwars2.jpg);"></div>
-      <div class="tile" onclick="usebg('url(hyundai.jpg)')"style="background-image: url(hyundai.jpg);"></div>
-      
-      <div class="tile" onclick="usebg('url(typer.jpg)')"style="background-image: url(typer.jpg);"></div>
-      <div class="tile" onclick="usebg('url(a380.jpg)')"style="background-image: url(a380.jpg);"></div>
-      <div class="tile" onclick="usebg('url(baybr.jpg)')"style=" background-image: url(baybr.jpg);"></div>
-      <div class="tile" onclick="usebg('url(goldengate.jpg)')"style=" background-image: url(goldengate.jpg);"></div>
-      
-      <div class="tile" onclick="usebg('url(duck.jpg)')"style="background-image: url(duck.jpg);"></div>
-      <div class="tile" onclick="usebg('url(canyon.jpg)')"style="background-image: url(canyon.jpg);"></div>
-      <div class="tile" onclick="usebg('url(pier.jpg)')"style="background-image: url(pier.jpg);"></div>
-      <div class="tile" onclick="usebg('url(ocean.jpg)')"style="background-image: url(ocean.jpg);"></div>
-      
-      <div class="tile" onclick="usebg('url(mountains.jpg)')"style="background-image: url(mountains.jpg);"></div>
-      <div class="tile" onclick="usebg('url(space.jpg)')"style="background-image: url(space.jpg);"></div>
-      <div class="tile" onclick="switchtobing()" style="background-image: url(bing.png);"></div>
-      <input id='urimg' class="tile" style="background-image: url(fire.png);" type="file" id="img" name="img" accept="file_extension|image/*|media_type" onchange="processimg();">
+    <div class="leftbutton" id="leftbutton" onclick="let starty11 = screen1.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty11, left: 0, behavior: 'smooth'});">
+      <h1 class="largeletters">About</h1>
+    </div>
 
-      <img src="" id='holderimg' alt="just a holder">
+    <div class="rightbutton" id="rightbutton" onclick="let starty12 = screen2.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty12, left: 0, behavior: 'smooth'});">
+      <h1 class="largeletters">Projects</h1>
+    </div>
 
+    <div id='screen1' class="screen1">
+      <div class="image-block-main">
+        <img src='assets/blank.png' id="logo-image" class='logo-image' alt="Image of skparab1 logo">
+      </div>
+      <div class="about-block-main">
+        <h1 class="about-text">
+          Hello there! I'm Shubham Parab, a 16 year old in San Jose, California.
+        </h1>
+        <h1 class="about-text">
+          I am an aspiring web developer and general programmer who mainly uses JavaScript/HTML/CSS and Python, but I also know Java and Pascal.
+        </h1>
+
+        <h1 class="about-text">
+          Specifically, I enjoy special effects and Canvas graphics in frontend, including a range of graphics based games. I also work with databases in backend, specifically in creating APIs and transmitting data using polling.
+        </h1>
+      </div>
     </div>
 
 
-    <div class="choosebg" id="tasks">
-      <h1 class="taskheader">Tasks</h1>
-      <div class="tdtile-main">
-        <div class="lefts" style="margin-top: 8px;">
-          <input type="text" class="taskname" id="tname" name="tname" value="bruh">
-          <input type="text" class="taskdate" id="due" name="due" value="bruh">
+    <div id='screen2' class="screen2">
+      <div class="s2backdrop" id="s2backdrop">
+        <div class="title-holder">
+          <div id="s2largeletters"><h1 class="largeletters">Projects</h1></div>
+          <div id='all' class='catagory' style="left: 60%" onclick="changesort('all');">All</div>
+          <div id='games' class='catagory' style="left: 73.3%" onclick="changesort('games');">Games</div>
+          <div id='educational' class='catagory' style="left: 86.6%" onclick="changesort('education');">Education</div>
         </div>
-        <div class="due">
-          <div class="delete">Delete</div>
-          <div class="order">Prioritize</div>
-          <div class="order">Deprioritize</div>
-        </div>
-      </div>
-      
-      <div class="addnew" onclick="addnew();">
-        +
-      </div>
-      <div class="addnew" onclick="closetasks();">
-        Save & close
-      </div>
-    </div>
 
+        <div class="project-holder">
 
-    <div class="fullwidth" style="padding: 33px;">
-      <div class="leftblock" id="s1" style="width: none;"></div>
+          <div id='ink' class="project-tile" onclick="openelement('inkball')">
+            <div class="project-title">
+              Inkball
+            </div>
+            <div class="project-image">
+              <img src="assets/inkball.png" alt="Image of an inkball game" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A modern feature-rich graphics based game of Inkball </div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
+          </div>
 
-      <div class="midblock">
-        <img src="fire.png" alt="firefox logo" width="12%" style="margin-bottom: 33px;" id="firefox">
-        <h1 class='datetime' id="time"></h1>
-        <h1 class='datetime' id="date"></h1>
-        <h1 class='smallweather' id="weather">...</h1>
-        <!-- <input class="googlesearch" type="text" id="gsearch" value="Search with Google" onclick="cleargsearch();"> -->
+          <div id='pac' class="project-tile" onclick="openelement('pacman')">
+            <div class="project-title">
+              Pacman
+            </div>
+            <div class="project-image">
+              <img src="assets/pacman.png" alt="Image of a pacman game" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A modern graphics-based game of Pacman </div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
+          </div>
 
-        <div class="todo" id="todo" onclick="opentasks();">
-          <div class="tdtile">
-            <div class="lefts">eh</div>
-            <div class="due">right</div>
+          <div id='agp' class="project-tile" onclick="openelement('agpbeats')">
+            <div class="project-title">
+              Agpbeats
+            </div>
+            <div class="project-image">
+              <img src="assets/agpbeats.png" alt="Image of music player website" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A feature rich music player website</div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
           </div>
         </div>
+
+        <div class="project-holder">
+          <div id='sna' class="project-tile" onclick="openelement('snake')">
+            <div class="project-title">
+              Snake
+            </div>
+            <div class="project-image">
+              <img src="assets/snake.png" alt="Image of a snake game" width="70%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A modern graphics based game of snake</div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
+          </div>
+
+          <div id='for' class="project-tile" onclick="openelement('forum')">
+            <div class="project-title">
+              Forum messager
+            </div>
+            <div class="project-image">
+              <img src="assets/forum.png" alt="Image of a forum" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A serverless forum built with a Github database</div>
+            <div class="project-description">Javascript, HTML, CSS, Yaml</div>
+          </div>
+
+          <div id='tra' class="project-tile" onclick="openelement('traffic')">
+            <div class="project-title">
+              Traffic simulator
+            </div>
+            <div class="project-image">
+              <img src="assets/traffic.png" alt="Image of a traffic simulator website" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A hackathon winning traffic simulator</div>
+            <div class="project-description">Javascript, HTML, CSS</div>
+          </div>
+        </div>
+
+
+        <div class="project-holder">
+          <div id='das' class="project-tile" onclick="openelement('dashboard')">
+            <div class="project-title">
+              New tab page
+            </div>
+            <div class="project-image">
+              <img src="assets/dashboard.png" alt="Image of a custom new tab page" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A customizable new tab page</div>
+            <div class="project-description">Javascript, HTML, and CSS</div>
+          </div>
+
+          <div class="project-tile" onclick="openelement('portfolio')">
+            <div class="project-title">
+              Project Portfolio
+            </div>
+            <div class="project-image">
+              <img src="assets/portfolio.png" alt="Image of a project portfolio website" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A project portfolio website</div>
+            <div class="project-description">Javascript, HTML, CSS</div>
+          </div>
+
+          <div class="project-tile" onclick="openelement('euler')">
+            <div class="project-title">
+              Euler calculator
+            </div>
+            <div class="project-image">
+              <img src="assets/eulers.png" alt="Image of a euler's method calculator" width="100%" style="border-radius: 10px;">
+            </div>
+            <div class="project-description">A calculator for Euler's method</div>
+            <div class="project-description">Javascript, HTML, CSS</div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="leftblock" id="s2" style="display: none;">
-
-        <h1>Frequently visited</h1>
-
-        <div class="sitetile">
-          <a href="https://skparab1.github.io">
-            <h2 class="sitename">Skparab1</h2>
-          </a>
+      <div class="project-holder">
+        <div class="project-tile" onclick="openelement('binarytree')">
+          <div class="project-title">
+            Binary tree maker
+          </div>
+          <div class="project-image">
+            <img src="assets/binarytree.png" alt="Image of a binary tree maker" width="100%" style="border-radius: 10px;">
+          </div>
+          <div class="project-description">Interactive binary tree maker that displays traversal solutions</div>
+          <div class="project-description">Javascript, HTML, and CSS</div>
         </div>
 
-        <div class="sitetile">
-          <a href="https://skparab1.github.io/idlichat">
-            <h2 class="sitename">Idli chat</h2>
-          </a>
+        <div class="project-tile" onclick="openelement('sfx')">
+          <div class="project-title">
+            Special effects
+          </div>
+          <div class="project-image">
+            <img src="assets/sfx.png" alt="Image of a special effects website" width="100%" style="border-radius: 10px;">
+          </div>
+          <div class="project-description">A special effects website featuring parallelax scrolling, 2d animations, and background video.</div>
+          <div class="project-description">Javascript, HTML, CSS</div>
         </div>
 
-        <div class="sitetile">
-          <a href="https://docs.google.com">
-            <h2 class="sitename">Google Docs</h2>
-          </a>
+        <div class="project-tile" onclick="openelement('dybdahl')">
+          <div class="project-title">
+            Calc BC site
+          </div>
+          <div class="project-image">
+            <img src="assets/dybdahl.png" alt="Image of a math problem site" width="100%" style="border-radius: 10px;">
+          </div>
+          <div class="project-description">A website featuring 298 Calc BC problems with instantly accessible solutions.</div>
+          <div class="project-description">Javascript, HTML, CSS</div>
         </div>
 
-        <div class="sitetile">
-          <a href="https://fuhsd.schoology.com">
-            <h2 class="sitename">Schoology</h2>
+      </div>
+
+      <div class="project-holder">
+        <div class="project-tile" onclick="openelement('sat')">
+          <div class="project-title">
+            SAT
+          </div>
+          <div class="project-image">
+            <img src="assets/sat.png" alt="Image of a live chat website" width="100%" style="border-radius: 10px;">
+          </div>
+          <div class="project-description">An anti stress website featuring chat, music, and p2p games</div>
+          <div class="project-description">Javascript, HTML, CSS</div>
+        </div>
+
+        <div class="project-tile" onclick="openelement('url')">
+          <div class="project-title">
+            Url shortener
+          </div>
+          <div class="project-image">
+            <img src="assets/url.png" alt="Image of a url shortener" width="100%" style="border-radius: 10px;">
+          </div>
+          <div class="project-description">A website that shortens long Urls to smaller github.io urls.</div>
+          <div class="project-description">Javascript, HTML, CSS</div>
+        </div>
+
+        <div class="project-tile" onclick="openelement('images')">
+          <div class="project-title">
+            Images
+          </div>
+          <div class="project-image">
+            <img src="assets/images.png" alt="Image of an image display website" width="100%" style="border-radius: 10px;">
+          </div>
+          <div class="project-description">An image showcase website featuring locations and downloadables.</div>
+          <div class="project-description">Javascript, HTML, and CSS</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fullblock" id="fullblock"></div>
+
+
+    <div class="info-block" id="inkball">
+      <button class="exit-modal" onclick="closeelement('inkball');">&times</button>
+      <div class="project-title">
+        Inkball
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/inkball.png" alt="Image of an inkball game" width="50%"  style="border-radius: 10px; float: left;">
+        <div class="detail-block">
+          <h1 class="detail-para">A modern graphics-based game of Inkball developed using JS, HTML and CSS. Includes HD adaptive graphics, 32 unique maps, and a live ranked leaderboard.</h1>
+          <a href="https://skparab1.github.io/inkball" target="_blank">
+            <button id='pb' class="littlebutton">Play</button>
+          </a>
+          <a href="https://github.com/skparab1/inkball" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
           </a>
         </div>
       </div>
     </div>
 
-    <div id='canvas-container' style="float: left; position: absolute; z-index: -1">
-      <canvas class="myCanvas">
-        <p>Rip ur browser doesnt support canvas :(( u shud switch to a better browser...</p>
-        <canvas id="the-canvas" width="320" height="240" style="position:relative; right:300px;"></canvas>
-      </canvas>
+    <div class="info-block" id="pacman">
+      <button class="exit-modal" onclick="closeelement('pacman');">&times</button>
+      <div class="project-title">
+        Pacman
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/pacman.png" alt="Image of a pacman game" width="50%" style="border-radius: 10px; float: left;">
+        <div class="detail-block">
+          <h1 class="detail-para">A modern graphics-based game of Pacman developed using JS, HTML and CSS. Includes HD adaptive graphics, a live ranked leaderboard, and screenshot/replay.</h1>
+          <a href="https://skparab1.github.io/pacman" target="_blank">
+            <button id='pb' class="littlebutton">Play</button>
+          </a>
+          <a href="https://github.com/skparab1/pacman" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <div class="blocker" id="b1"></div>
+    <div class="info-block" id="agpbeats">
+      <button class="exit-modal" onclick="closeelement('agpbeats');">&times</button>
+      <div class="project-title">
+        Agp beats
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/agpbeats.png" alt="Image of a music player website" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A feature-rich music playing website developed using JS, HTML and CSS. Includes autoplay, live stream count, playlists, queues, and station streaming</h1>
+          <a href="https://skparab1.github.io/agpbeats" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/agp-beats" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
 
-    <script src="index.js"></script>
+    <div class="info-block" id="snake">
+      <button class="exit-modal" onclick="closeelement('snake');">&times</button>
+      <div class="project-title">
+        Snake
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/snake.png" alt="Image of a snake game" width="33%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block" style="margin-left: 15%;">
+          <h1 class="detail-para">A modern graphics-based game of snake. Features adaptive HD graphics, a live ranked leaderboard, and an autopilot mode.</h1>
+          <a href="https://skparab1.github.io/snake" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/snake" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="forum">
+      <button class="exit-modal" onclick="closeelement('forum');">&times</button>
+      <div class="project-title">
+        Forum Messager
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/forum.png" alt="Image of a forum" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A serverless forum built with a Github database. Features message replies and zero authentication messaging. Backend automated by Github actions.</h1>
+          <a href="https://skparab1.github.io/server/frontend.html" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/server" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="traffic">
+      <button class="exit-modal" onclick="closeelement('traffic');">&times</button>
+      <div class="project-title">
+        Traffic simulator
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/traffic.png" alt="Image of a traffic simulator" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A 3rd place hackathon winning traffic simulator. Features adjustable stoplight algorithms, car speeds, and distances. Displays live output stats.</h1>
+          <a href="https://skparab1.github.io/traffic_simulator" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/traffic-simulator" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="dashboard">
+      <button class="exit-modal" onclick="closeelement('dashboard');">&times</button>
+      <div class="project-title">
+        Custom new tab page
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/dashboard.png" alt="Image of a traffic simulator" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A custom new tab page primarily built for Firefox. Features custom backgrounds, current weather and temperature, and a todo list.</h1>
+          <a href="https://skparab1.github.io/dashboard" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="portfolio">
+      <button class="exit-modal" onclick="closeelement('portfolio');">&times</button>
+      <div class="project-title">
+        Project Portfolio
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/portfolio.png" alt="Image of a project portfolio website" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A formal portfolio for displaying projects catagorically.</h1>
+          <a href="https://skparab1.github.io/portfolio" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="euler">
+      <button class="exit-modal" onclick="closeelement('euler');">&times</button>
+      <div class="project-title">
+        Euler's method calculator
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/eulers.png" alt="Image of a traffic simulator" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A Euler's method calculator for AP calc BC. Co-developed with Ritam Chakraborty.</h1>
+          <a href="https://shinymustard22.github.io/eulersmethod" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/shinymustard22/eulersmethod" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="binarytree">
+      <button class="exit-modal" onclick="closeelement('binarytree');">&times</button>
+      <div class="project-title">
+        Binary Tree Visualizer
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/binarytree.png" alt="Image of a binary tree maker" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A binary tree visualizer and traversal solution generator. Built for Mr. Kwong and Mr. Fulk of LHS CS department.</h1>
+          <a href="https://skparab1.github.io/binarytree" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/binarytree" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="sfx">
+      <button class="exit-modal" onclick="closeelement('sfx');">&times</button>
+      <div class="project-title">
+        Special effects
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/sfx.png" alt="Image of a special effects site" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A special effects showcase site featuring numerous special websites effects, from parallelax scrolling to background videos and custom 2d animations.</h1>
+          <a href="https://skparab1.github.io/sfx" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/sfx" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="dybdahl">
+      <button class="exit-modal" onclick="closeelement('dybdahl');">&times</button>
+      <div class="project-title">
+        Calc BC problem site
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/dybdahl.png" alt="Image of a math problem site" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A Calc BC ap problem website with easily accessible instant solutions</h1>
+          <a href="https://skparab1.github.io/files/dybhdal.html" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="sat">
+      <button class="exit-modal" onclick="closeelement('sat');">&times</button>
+      <div class="project-title">
+        Severely anti tension
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/sat.png" alt="Image of a live chat site" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">An anti stress website featuring live chat, listening together for music, and playing peer to peer games. Runs on a deta base backend and uses polling.</h1>
+          <a href="https://skparab1.github.io/wellness-chat" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/wellness-chat" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="url">
+      <button class="exit-modal" onclick="closeelement('url');">&times</button>
+      <div class="project-title">
+        Url shortener
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/url.png" alt="Image of a url shortener" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A github based url shortener that generates short github.io urls. Runs by using github api and a github database.</h1>
+          <a href="https://skparab1.github.io/go/makeredirect.html" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/go" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block" id="images">
+      <button class="exit-modal" onclick="closeelement('images');">&times</button>
+      <div class="project-title">
+        Image showcase website
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/images.png" alt="Image of an image showcase website" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">An image showcase website featuring dailiy image, gallery, and location and image downloads for each image.</h1>
+          <a href="https://skparab1.github.io/images" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/images" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="controller.js"></script>
 
   </body>
 </html>
