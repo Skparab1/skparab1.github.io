@@ -100,7 +100,7 @@ li a:hover {
     #01a8cd 100%
   );
 
-  font-size: 75px;
+  font-size: 12vh;
 
   font-family: meltix;
 
@@ -175,7 +175,6 @@ li a:hover {
 
 .project-tile{
   width: 33%;
-  aspect-ratio: 3/4;
   border-radius: 25px;
   margin: 30px;
   border: 5px solid var(--primary-bright);
@@ -214,7 +213,7 @@ li a:hover {
   margin-left: 10%;
   color: white;
   font-family: glacier-indifference;
-  font-size: 25px;
+  font-size: 3.5vh;
 }
 
 .leftbutton{
@@ -416,6 +415,6 @@ li a:hover {
 
 .about-text {
   font-family: glacier-indifference;
-  font-size: 25px;
+  font-size: 3.70vh;
   color: white;
 }

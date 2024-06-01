@@ -59,6 +59,18 @@ let agpbeats = `          <div id='agp' class="project-tile" onclick="openelemen
 <div class="project-description">Javascript, HTML, and CSS</div>
 </div>`;
 
+let iams = `          <div id='iams' class="project-tile" onclick="openelement('ound')">
+<div class="project-title">
+  R Squared Visualizer
+</div>
+<div class="project-image">
+  <img src="assets/iams.png" alt="Image of R squared visualizer" width="100%" style="border-radius: 10px;">
+</div>
+<div class="project-description">An Interactive R-squared visualizer</div>
+<div class="project-description">Javascript, HTML, and CSS</div>
+</div>`;
+
+
 let snake = `<div id='sna' class="project-tile" onclick="openelement('snake')">
 <div class="project-title">
   Snake
@@ -291,9 +303,9 @@ function changesort(catagory){
 
     //await fadeslow();
 
-    let all = [inkball, pacman, agpbeats,   snake, forum, traffic,   dashboard, portfolio, euler,   binary, sfx, dybdahl,   sat, urlshortener, images];
+    let all = [inkball, pacman, agpbeats,   iams, snake, binary,    sfx, dybdahl, forum,    traffic, dashboard, portfolio,     euler, sat, images]; // removed urlshortener
     let games = [inkball, pacman, snake, traffic, binary, sat];
-    let edu = [euler, binary, dybdahl];
+    let edu = [iams, binary, euler, dybdahl];
 
     screen2.innerHTML = '';
 
@@ -346,6 +358,9 @@ function changesort(catagory){
 
     console.log('ended');
 }
+
+// init
+changesort("all");
 
 (async () => {
 
