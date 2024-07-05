@@ -15,7 +15,7 @@
     <div class="header" id="header">
       <ul>
         <li><a id='l1' onclick="window.scroll({top: 100, left: 100, behavior: 'smooth',}); document.getElementById('l1').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';">Home</a></li>
-        <li><a id='l2' onclick="let starty21 = screen1.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty21, left: 0, behavior: 'smooth'}); document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l2').style.textDecoration = '3px solid rgb(255, 100, 0) underline'; document.getElementById('l3').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline';">About</a></li>
+        <li><a id='l2' href="https://skparab1.github.io/about">About</a></li>
         <li><a id='l3' onclick="let starty22 = screen2.offsetTop-window.innerHeight/4; window.scrollTo({ top: starty22, left: 0, behavior: 'smooth'}); document.getElementById('l1').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l2').style.textDecoration = '0px solid rgba(66, 17, 0, 0) underline'; document.getElementById('l3').style.textDecoration = '3px solid rgb(255, 100, 0) underline';">Projects</a></li>
       </ul>
     </div>
@@ -36,14 +36,14 @@
       </div>
       <div class="about-block-main">
         <h1 class="about-text">
-          Hello there! I'm Shubham Parab, a 16 year old in San Jose, California.
+          Hello! I'm Shubham Parab, a 17 year old in San Jose, California.
         </h1>
         <h1 class="about-text">
-          I am an aspiring web developer and general programmer who mainly uses JavaScript/HTML/CSS and Python, but I also know Java and Pascal.
+          I am an aspiring web developer and general programmer who mainly uses JavaScript/HTML/CSS and Python, but am also somewhat experienced in Java and Pascal.
         </h1>
 
         <h1 class="about-text">
-          Specifically, I enjoy special effects and Canvas graphics in frontend, including a range of graphics based games. I also work with databases in backend, specifically in creating APIs and transmitting data using polling.
+          Specifically, I enjoy special effects and Canvas graphics in frontend, specializing in modern implementations of graphics-based retro games. In the backend, I primarily build applications with node.js, using the long polling data communication method based on Deta.sh services like Micros and Deta Base. 
         </h1>
       </div>
     </div>
@@ -383,6 +383,26 @@
           <h1 class="detail-para">A formal portfolio for displaying projects catagorically.</h1>
           <a href="https://skparab1.github.io/portfolio" target="_blank">
             <button id='pb' class="littlebutton">Visit</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="info-block" id="ound">
+      <button class="exit-modal" onclick="closeelement('ound');">&times</button>
+      <div class="project-title">
+        Rsquared Visualizer
+      </div>
+      <div class="dialogue-image">
+        <img src="assets/iams.png" alt="Image of an rsquared visualizer" width="50%" style="border-radius: 10px; float: left; margin-bottom: 20px;">
+        <div class="detail-block">
+          <h1 class="detail-para">A visualizer for the R-squared statistics concept, developed in collaboration with Mr. Iams of Lynbrook High School.</h1>
+          <a href="https://skparab1.github.io/iams" target="_blank">
+            <button id='pb' class="littlebutton">Visit</button>
+          </a>
+          <a href="https://github.com/skparab1/iams" target="_blank">
+            <button id='gh' class="littlebutton">Github</button>
           </a>
         </div>
       </div>
